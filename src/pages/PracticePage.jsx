@@ -56,8 +56,8 @@ function PracticePage() {
       if (testSentences.length > 0) {
         setCurrentSentence(testSentences[0]);
         // Đảm bảo đường dẫn audio đầy đủ
-        const audioPath = `/audio/${testSentences[0].audioFile}`;
-        setAudioSrc(audioPath);
+        setAudioSrc(`${process.env.PUBLIC_URL}/audio/${testSentences[0].audioFile}`);
+        console.log(`Setting audio source to: ${process.env.PUBLIC_URL}/audio/${testSentences[0].audioFile}`);
       } else {
         // Nếu không có câu nào trong phần này
         setCurrentSentence({});
@@ -91,7 +91,8 @@ function PracticePage() {
     if (sentences.length > 0 && currentIdx >= 0 && currentIdx < sentences.length) {
       setCurrentSentence(sentences[currentIdx]);
       // Đảm bảo đường dẫn audio đầy đủ
-      const audioPath = `/audio/${sentences[currentIdx].audioFile}`;
+      const audioPath = `${process.env.PUBLIC_URL}/audio/${sentences[currentIdx].audioFile}`;
+      console.log(`Updating audio source to: ${audioPath}`);
       setAudioSrc(audioPath);
     }
   }, [currentIdx, sentences]);
@@ -102,12 +103,13 @@ function PracticePage() {
     replay,
     toggleSlowMotion,
     isLoading,
+    isPlaying
   } = useAudioPlayer({ audioSrc });
 
   // Xử lý lỗi audio khi load
   useEffect(() => {
-    const handleAudioError = () => {
-      console.error('Không thể phát audio:', audioSrc);
+    const handleAudioError = (e) => {
+      console.error('Không thể phát audio:', e);
       setErrorMessage('Không thể phát audio. Vui lòng tải lại trang hoặc nhấn nút "Nghe lại".');
     };
 
@@ -115,18 +117,11 @@ function PracticePage() {
     if (audio) {
       audio.addEventListener('error', handleAudioError);
 
-      // Khởi tạo audio
-      if (!audioInitialized && audioSrc) {
-        // Trên môi trường production/vercel, cần tương tác người dùng để phát audio
-        audio.load();
-        setAudioInitialized(true);
-      }
-
       return () => {
         audio.removeEventListener('error', handleAudioError);
       };
     }
-  }, [audioRef, audioSrc, audioInitialized]);
+  }, [audioRef]);
 
   // Tính toán phần trăm hoàn thành
   const progress = sentences.length ? ((currentIdx + 1) / sentences.length) * 100 : 0;
@@ -136,41 +131,15 @@ function PracticePage() {
     if (currentSentence && currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
       // Chờ một chút trước khi phát audio để đảm bảo audio đã load xong
       const timer = setTimeout(() => {
+        console.log(`Auto-playing segment: ${currentSentence.startTime}s to ${currentSentence.endTime}s`);
         playSegment({
           startTime: currentSentence.startTime,
           endTime: currentSentence.endTime
         });
-      }, 800);
+      }, 1000);
       return () => clearTimeout(timer);
     }
   }, [currentIdx, currentSentence, playSegment]);
-
-  // Khởi động audio khi có tương tác người dùng
-  const initializeAudio = () => {
-    const audio = audioRef.current;
-    if (audio) {
-      // Tạo tương tác người dùng để khởi động audio
-      audio.volume = 1;
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.then(() => {
-          // Tự động tạm dừng sau khi khởi động
-          setTimeout(() => {
-            audio.pause();
-            // Sau khi khởi động, phát đoạn audio hiện tại
-            if (currentSentence && currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
-              playSegment({
-                startTime: currentSentence.startTime,
-                endTime: currentSentence.endTime
-              });
-            }
-          }, 100);
-        }).catch(error => {
-          console.error('Lỗi khởi tạo audio:', error);
-        });
-      }
-    }
-  };
 
   // Kiểm tra đáp án
   const checkAnswer = () => {
@@ -257,6 +226,18 @@ function PracticePage() {
     } else {
       // Đã hoàn thành tất cả câu
       setShowScore(true);
+    }
+  };
+
+  // Phát audio hiện tại
+  const playCurrentAudio = () => {
+    if (currentSentence && currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
+      setErrorMessage('');
+      console.log('Playing current audio segment');
+      playSegment({
+        startTime: currentSentence.startTime,
+        endTime: currentSentence.endTime
+      });
     }
   };
 
@@ -366,7 +347,12 @@ function PracticePage() {
 
       <div className="practice-area">
         {/* Audio ẩn */}
-        <audio ref={audioRef} src={audioSrc} preload="auto" style={{ display: 'none' }} />
+        <audio 
+          ref={audioRef} 
+          src={audioSrc} 
+          preload="auto" 
+          style={{ display: 'none' }} 
+        />
 
         {errorMessage && (
           <div className="error-message">
@@ -375,11 +361,22 @@ function PracticePage() {
           </div>
         )}
 
+        <div className="audio-status">
+          {isLoading ? (
+            <div className="loading-status">
+              <i className="fas fa-circle-notch fa-spin"></i> Đang tải audio...
+            </div>
+          ) : isPlaying ? (
+            <div className="playing-status">
+              <i className="fas fa-volume-up"></i> Đang phát audio
+            </div>
+          ) : null}
+        </div>
+
         <div className="control-buttons">
           <button 
             className="btn btn-primary" 
             onClick={() => {
-              initializeAudio();
               setErrorMessage('');
               replay();
             }}
@@ -403,11 +400,7 @@ function PracticePage() {
           <button 
             className="btn btn-primary" 
             disabled={isLoading}
-            onClick={() => {
-              initializeAudio();
-              setErrorMessage('');
-              playSegment({ startTime: currentSentence.startTime, endTime: currentSentence.endTime });
-            }}
+            onClick={playCurrentAudio}
           >
             <i className="fas fa-headphones"></i>
             Nghe câu hiện tại

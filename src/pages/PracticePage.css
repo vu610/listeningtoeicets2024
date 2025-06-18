@@ -316,3 +316,37 @@
 .error-message i {
   font-size: 1.25rem;
 }
+
+/* Trạng thái Audio */
+.audio-status {
+  margin-bottom: 1rem;
+  min-height: 2rem;
+}
+
+.loading-status, .playing-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.loading-status {
+  color: #4299e1;
+  background-color: #ebf8ff;
+}
+
+.playing-status {
+  color: #48bb78;
+  background-color: #f0fff4;
+}
+
+.fa-circle-notch {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

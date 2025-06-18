@@ -18,31 +18,28 @@ export default function useAudioPlayer({ audioSrc }) {
   useEffect(() => {
     setIsLoading(true);
     setAudioLoaded(false);
-  }, [audioSrc]);
-
-  // Đảm bảo audio được load đúng cách
-  useEffect(() => {
-    const audio = audioRef.current;
-    if (!audio || !audioSrc) return;
-
-    // Gán src cho audio theo cách thủ công
-    const fullPath = audioSrc.startsWith('http') ? audioSrc : `${window.location.origin}${audioSrc}`;
-    audio.src = fullPath;
     
-    // Preload audio
-    audio.load();
-
-    // Xử lý khi audio không thể chơi được
-    const handleCannotPlay = (e) => {
-      console.error('Cannot play audio:', e);
-      setIsLoading(false);
-    };
-
-    audio.addEventListener('error', handleCannotPlay);
-
-    return () => {
-      audio.removeEventListener('error', handleCannotPlay);
-    };
+    // Đảm bảo audio được load đúng cách
+    const audio = audioRef.current;
+    if (audio && audioSrc) {
+      console.log('Loading audio source:', audioSrc);
+      audio.src = audioSrc;
+      audio.load();
+      
+      // Kiểm tra xem audio đã load xong chưa
+      const checkLoaded = () => {
+        if (audio.readyState >= 2) { // HAVE_CURRENT_DATA or higher
+          setIsLoading(false);
+          setAudioLoaded(true);
+          console.log('Audio loaded successfully');
+        } else {
+          console.log('Audio not ready yet, waiting...');
+          setTimeout(checkLoaded, 500);
+        }
+      };
+      
+      checkLoaded();
+    }
   }, [audioSrc]);
 
   // Lắng nghe các sự kiện của thẻ audio
@@ -51,13 +48,23 @@ export default function useAudioPlayer({ audioSrc }) {
     if (!audio) return;
 
     const handleCanPlay = () => {
+      console.log('Audio can play now');
       setIsLoading(false);
       setAudioLoaded(true);
     };
-    const handlePlay = () => setIsPlaying(true);
-    const handlePause = () => setIsPlaying(false);
+    
+    const handlePlay = () => {
+      console.log('Audio playback started');
+      setIsPlaying(true);
+    };
+    
+    const handlePause = () => {
+      console.log('Audio playback paused');
+      setIsPlaying(false);
+    };
+    
     const handleError = (e) => {
-      console.error('Error loading audio:', e);
+      console.error('Error loading audio:', e.target.error);
       setIsLoading(false);
     };
 
@@ -81,61 +88,101 @@ export default function useAudioPlayer({ audioSrc }) {
     if (!audio) return;
 
     const remaining = Math.max(0, (endTime - audio.currentTime) * 1000 / audio.playbackRate);
+    console.log(`Setting timeout to stop audio after ${remaining}ms`);
     timeoutId.current = setTimeout(() => {
+      console.log('Stopping audio at end time');
       audio.pause();
     }, remaining);
+  }, []);
+
+  const forcePlay = useCallback((audio) => {
+    // Trước khi phát, tạm thời đặt volume = 0 để tránh tiếng click
+    const originalVolume = audio.volume;
+    audio.volume = 0;
+    
+    // Phát audio và khôi phục volume
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          // Khôi phục volume sau một khoảng thời gian ngắn
+          setTimeout(() => {
+            audio.volume = originalVolume;
+          }, 50);
+        })
+        .catch(error => {
+          console.error('Error playing audio:', error);
+          audio.volume = originalVolume;
+        });
+    } else {
+      audio.volume = originalVolume;
+    }
+    
+    return playPromise;
   }, []);
 
   const playSegment = useCallback(
     ({ startTime, endTime }) => {
       const audio = audioRef.current;
-      if (!audio || isLoading) return;
-
-      lastSegment.current = { startTime, endTime };
-      
-      // Đảm bảo audio đã được load
-      if (!audioLoaded) {
-        audio.load();
+      if (!audio) {
+        console.error('Audio element not found');
+        return;
       }
       
-      // Thiết lập thời gian bắt đầu
-      audio.currentTime = startTime;
-      audio.playbackRate = isSlow ? 0.75 : 1.0;
+      if (isLoading) {
+        console.log('Audio still loading, cannot play');
+        return;
+      }
+
+      console.log(`Playing segment from ${startTime}s to ${endTime}s`);
+      lastSegment.current = { startTime, endTime };
       
-      // Xử lý play promise để xử lý các lỗi autoplay policy
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise
+      try {
+        // Dừng audio hiện tại nếu đang phát
+        audio.pause();
+        
+        // Thiết lập thời gian bắt đầu
+        audio.currentTime = startTime;
+        audio.playbackRate = isSlow ? 0.75 : 1.0;
+        
+        console.log('Starting playback...');
+        forcePlay(audio)
           .then(() => {
-            // Phát thành công
+            console.log('Playback started successfully');
             stopAtEnd(endTime);
           })
           .catch(error => {
-            console.error('Error playing audio:', error);
-            // Trường hợp lỗi autoplay policy
-            if (error.name === 'NotAllowedError') {
-              // Thông báo cho người dùng
-              console.log('Browser requires user interaction before playing audio');
-              setIsLoading(false);
-            }
+            console.error('Error starting playback:', error);
+            // Thử lại một lần nữa sau một khoảng thời gian
+            setTimeout(() => {
+              console.log('Retrying playback...');
+              audio.currentTime = startTime;
+              forcePlay(audio)
+                .then(() => stopAtEnd(endTime))
+                .catch(e => console.error('Retry failed:', e));
+            }, 500);
           });
-      } else {
-        stopAtEnd(endTime);
+      } catch (error) {
+        console.error('Exception during playback:', error);
       }
     },
-    [isSlow, stopAtEnd, isLoading, audioLoaded]
+    [isSlow, stopAtEnd, isLoading, forcePlay]
   );
 
   const replay = useCallback(() => {
+    console.log('Replay requested');
     const { startTime, endTime } = lastSegment.current;
     if (startTime !== undefined && endTime !== undefined) {
       playSegment({ startTime, endTime });
+    } else {
+      console.log('No segment to replay');
     }
   }, [playSegment]);
 
   const toggleSlowMotion = useCallback(() => {
     setIsSlow((prev) => {
       const nextVal = !prev;
+      console.log(`Slow motion ${nextVal ? 'enabled' : 'disabled'}`);
       const audio = audioRef.current;
       if (audio) {
         audio.playbackRate = nextVal ? 0.75 : 1.0;
