@@ -1,0 +1,7 @@
+.transcript-display span.correct {
+  color: green;
+}
+
+.transcript-display span.incorrect {
+  color: red;
+}

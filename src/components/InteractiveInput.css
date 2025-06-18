@@ -1,0 +1,44 @@
+.interactive-container {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.interactive-container:focus-within {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.text-input {
+  width: 100%;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  resize: vertical;
+  background-color: #fff;
+  color: #2d3748;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  min-height: 120px;
+}
+
+.text-input:focus {
+  outline: none;
+  border-color: #4299e1;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
+}
+
+.text-input.with-feedback {
+  color: transparent;
+  caret-color: #2d3748; /* Hiển thị con trỏ nhập liệu */
+  background-color: #fff;
+}
+
+/* Đảm bảo textarea và feedback display có cùng kích thước và vị trí */
+.text-input, .feedback-display {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+

@@ -1,0 +1,100 @@
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 2rem;
+}
+
+.welcome-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.welcome-card h1 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #2d3748;
+  font-size: 2.2rem;
+}
+
+.welcome-card p {
+  text-align: center;
+  color: #718096;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.part-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.part-card {
+  background: white;
+  border-radius: 15px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
+  color: #4a5568;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.part-card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #667eea;
+}
+
+.part-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.part-card-arrow {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 30px;
+  height: 30px;
+  background: #f7fafc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.part-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.2);
+}
+
+.part-card:hover .part-card-arrow {
+  background: #667eea;
+  color: white;
+  transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+  .welcome-card {
+    padding: 2rem 1rem;
+  }
+  
+  .part-grid {
+    grid-template-columns: 1fr;
+  }
+}

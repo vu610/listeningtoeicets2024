@@ -1,0 +1,52 @@
+.feedback-display {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  background-color: transparent;
+  overflow: auto;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.char-correct {
+  color: #48bb78; /* green */
+  font-weight: 500;
+  background-color: rgba(72, 187, 120, 0.1);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.char-incorrect {
+  color: #e53e3e; /* red */
+  text-decoration: line-through;
+  font-weight: 500;
+  background-color: rgba(229, 62, 62, 0.1);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+.char-missing {
+  color: #718096; /* gray */
+  opacity: 0.8;
+  font-style: italic;
+  background-color: rgba(113, 128, 150, 0.1);
+  border-radius: 2px;
+  padding: 0 1px;
+}
+
+/* Hiển thị rõ ràng khoảng trắng */
+.space-char {
+  display: inline-block;
+  width: 0.5em;
+  background-color: rgba(160, 174, 192, 0.1);
+  border-radius: 2px;
+}
