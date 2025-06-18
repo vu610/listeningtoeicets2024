@@ -299,3 +299,20 @@
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
+/* Thông báo lỗi */
+.error-message {
+  background-color: #fed7d7;
+  color: #c53030;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.error-message i {
+  font-size: 1.25rem;
+}
