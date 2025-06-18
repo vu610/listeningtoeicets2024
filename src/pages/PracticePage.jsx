@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import InteractiveInput from '../components/InteractiveInput';
+import DialogueDisplay from '../components/DialogueDisplay';
+import HintDisplay from '../components/HintDisplay';
 import TestSelector from '../components/TestSelector';
 
 import compareInput from '../utils/compareInput';
@@ -18,7 +20,7 @@ function PracticePage() {
   const [sentences, setSentences] = useState([]);
   const [currentIdx, setCurrentIdx] = useState(0);
   const [currentSentence, setCurrentSentence] = useState({});
-
+  
   const [audioSrc, setAudioSrc] = useState('');
   const [input, setInput] = useState('');
   const [segments, setSegments] = useState([]);
@@ -29,10 +31,22 @@ function PracticePage() {
   const [attemptCount, setAttemptCount] = useState(0);
   const [autoAdvanceTimeout, setAutoAdvanceTimeout] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
-  const [audioInitialized, setAudioInitialized] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  
+  // Thêm state cho phần đối thoại và bài nói
+  const [completedSentences, setCompletedSentences] = useState([]);
+  const [dialogLines, setDialogLines] = useState([]);
+  const [currentLineIdx, setCurrentLineIdx] = useState(0);
+  
+  // Thêm state cho tính năng hint
+  const [showHint, setShowHint] = useState(false);
 
-  // Reset when part changes
+  // Xác định loại phần
+  const isPart3 = partId === '3';
+  const isPart4 = partId === '4';
+  const isDialogueOrTalk = isPart3 || isPart4;
+
+  // Reset khi thay đổi phần
   useEffect(() => {
     setSelectedTestIndex(null);
     setCurrentTest(null);
@@ -41,7 +55,22 @@ function PracticePage() {
     setCurrentIdx(0);
     setScore({ correct: 0, total: 0 });
     setShowScore(false);
+    setCompletedSentences([]);
+    setDialogLines([]);
+    setCurrentLineIdx(0);
+    setShowHint(false);
   }, [partId]);
+
+  // Lấy tên file audio chuẩn từ sourceTest
+  const getAudioFileName = (sourceTest) => {
+    if (!sourceTest) return '';
+    
+    const testNumber = sourceTest.match(/\d+/);
+    if (!testNumber) return '';
+    
+    const formattedNumber = testNumber[0].padStart(2, '0');
+    return `Test_${formattedNumber}.mp3`;
+  };
 
   // Xử lý khi chọn đề
   const handleSelectTest = (testIndex) => {
@@ -54,12 +83,24 @@ function PracticePage() {
       setSentences(testSentences);
       
       if (testSentences.length > 0) {
-        setCurrentSentence(testSentences[0]);
-        // Đảm bảo đường dẫn audio đầy đủ
-        setAudioSrc(`${process.env.PUBLIC_URL}/audio/${testSentences[0].audioFile}`);
-        console.log(`Setting audio source to: ${process.env.PUBLIC_URL}/audio/${testSentences[0].audioFile}`);
+        const firstSentence = testSentences[0];
+        setCurrentSentence(firstSentence);
+        
+        // Nếu là Part 3 hoặc Part 4, chuẩn bị dữ liệu đối thoại hoặc bài nói
+        if (isDialogueOrTalk) {
+          if (isPart3 && firstSentence.conversation) {
+            setDialogLines(firstSentence.conversation);
+            setCurrentLineIdx(0);
+          } else if (isPart4 && firstSentence.talk) {
+            setDialogLines(firstSentence.talk);
+            setCurrentLineIdx(0);
+          }
+        }
+        
+        // Đặt audio source
+        const audioFileName = getAudioFileName(firstSentence.sourceTest);
+        setAudioSrc(`${process.env.PUBLIC_URL}/audio/${audioFileName}`);
       } else {
-        // Nếu không có câu nào trong phần này
         setCurrentSentence({});
         setAudioSrc('');
         alert(`Không có câu hỏi nào trong Part ${partId} của đề này.`);
@@ -69,6 +110,9 @@ function PracticePage() {
       setCurrentIdx(0);
       setScore({ correct: 0, total: 0 });
       setShowScore(false);
+      setCompletedSentences([]);
+      setCurrentLineIdx(0);
+      setShowHint(false);
     }
   };
 
@@ -80,6 +124,7 @@ function PracticePage() {
     setAccuracy(0);
     setAttemptCount(0);
     setErrorMessage('');
+    setShowHint(false);
     if (autoAdvanceTimeout) {
       clearTimeout(autoAdvanceTimeout);
       setAutoAdvanceTimeout(null);
@@ -89,13 +134,26 @@ function PracticePage() {
   // Cập nhật câu hiện tại khi thay đổi chỉ số
   useEffect(() => {
     if (sentences.length > 0 && currentIdx >= 0 && currentIdx < sentences.length) {
-      setCurrentSentence(sentences[currentIdx]);
-      // Đảm bảo đường dẫn audio đầy đủ
-      const audioPath = `${process.env.PUBLIC_URL}/audio/${sentences[currentIdx].audioFile}`;
-      console.log(`Updating audio source to: ${audioPath}`);
-      setAudioSrc(audioPath);
+      const sentence = sentences[currentIdx];
+      setCurrentSentence(sentence);
+      
+      // Xử lý đối thoại hoặc bài nói trong Part 3 và Part 4
+      if (isDialogueOrTalk) {
+        if (isPart3 && sentence.conversation) {
+          setDialogLines(sentence.conversation);
+          setCurrentLineIdx(0);
+        } else if (isPart4 && sentence.talk) {
+          setDialogLines(sentence.talk);
+          setCurrentLineIdx(0);
+        }
+        setCompletedSentences([]);
+      }
+      
+      // Cập nhật audio source
+      const audioFileName = getAudioFileName(sentence.sourceTest);
+      setAudioSrc(`${process.env.PUBLIC_URL}/audio/${audioFileName}`);
     }
-  }, [currentIdx, sentences]);
+  }, [currentIdx, sentences, isPart3, isPart4, isDialogueOrTalk]);
 
   const {
     audioRef,
@@ -116,7 +174,6 @@ function PracticePage() {
     const audio = audioRef.current;
     if (audio) {
       audio.addEventListener('error', handleAudioError);
-
       return () => {
         audio.removeEventListener('error', handleAudioError);
       };
@@ -126,47 +183,85 @@ function PracticePage() {
   // Tính toán phần trăm hoàn thành
   const progress = sentences.length ? ((currentIdx + 1) / sentences.length) * 100 : 0;
 
-  // Tự động phát audio khi chuyển câu
+  // Lấy dòng hiện tại trong đối thoại hoặc bài nói
+  const getCurrentLine = () => {
+    if (!isDialogueOrTalk || dialogLines.length === 0 || currentLineIdx >= dialogLines.length) {
+      return null;
+    }
+    return dialogLines[currentLineIdx];
+  };
+
+  // Tự động phát audio khi chuyển câu hoặc dòng mới
   useEffect(() => {
-    if (currentSentence && currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
-      // Chờ một chút trước khi phát audio để đảm bảo audio đã load xong
-      const timer = setTimeout(() => {
-        console.log(`Auto-playing segment: ${currentSentence.startTime}s to ${currentSentence.endTime}s`);
+    if (!currentSentence) return;
+    
+    const timer = setTimeout(() => {
+      // Xử lý khác nhau cho Part 3/4 và các Part khác
+      if (isDialogueOrTalk) {
+        const currentLine = getCurrentLine();
+        if (currentLine && currentLine.startTime !== undefined && currentLine.endTime !== undefined) {
+          console.log(`Playing dialogue/talk line: ${currentLine.startTime}s to ${currentLine.endTime}s`);
+          playSegment({
+            startTime: currentLine.startTime,
+            endTime: currentLine.endTime
+          });
+        }
+      } else if (currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
+        console.log(`Playing segment: ${currentSentence.startTime}s to ${currentSentence.endTime}s`);
         playSegment({
           startTime: currentSentence.startTime,
           endTime: currentSentence.endTime
         });
-      }, 1000);
-      return () => clearTimeout(timer);
+      }
+    }, 1000);
+    
+    return () => clearTimeout(timer);
+  }, [currentIdx, currentLineIdx, currentSentence, playSegment, isDialogueOrTalk, dialogLines]);
+
+  // Lấy transcript của câu hiện tại
+  const getCurrentTranscript = () => {
+    if (!currentSentence) return '';
+    
+    // Xử lý khác nhau cho Part 3/4 và các Part khác
+    if (isDialogueOrTalk) {
+      const currentLine = getCurrentLine();
+      return currentLine ? currentLine.transcript : '';
+    } else {
+      return currentSentence.transcript || '';
     }
-  }, [currentIdx, currentSentence, playSegment]);
+  };
+
+  // Bật/tắt hiển thị gợi ý
+  const toggleHint = () => {
+    setShowHint(prevState => !prevState);
+  };
 
   // Kiểm tra đáp án
   const checkAnswer = () => {
-    if (!currentSentence || !currentSentence.transcript) return;
+    const transcript = getCurrentTranscript();
+    if (!transcript) return;
     
-    const res = compareInput(input, currentSentence.transcript);
+    const res = compareInput(input, transcript);
     setSegments(res);
     setIsChecked(true);
     setAttemptCount(prev => prev + 1);
     
-    // Sử dụng thông tin độ chính xác từ hàm compareInput
     const wordAccuracy = res.accuracy;
     const currentAccuracy = (wordAccuracy.correctWords / wordAccuracy.totalWords) * 100;
     setAccuracy(currentAccuracy);
     
-    // Chỉ cập nhật điểm số nếu là lần kiểm tra đầu tiên cho câu hiện tại
+    // Cập nhật điểm nếu là lần kiểm tra đầu tiên
     if (attemptCount === 0) {
       setScore(prev => ({
-        correct: prev.correct + (currentAccuracy >= 80 ? 1 : 0), // Đúng ít nhất 80%
+        correct: prev.correct + (currentAccuracy >= 80 ? 1 : 0),
         total: prev.total + 1
       }));
     }
 
-    // Nếu đã nhập đúng hết các từ, tự động chuyển câu sau 2 giây
+    // Nếu đúng hết các từ, tự động chuyển sau 2 giây
     if (wordAccuracy.isComplete) {
       const timeout = setTimeout(() => {
-        goToNextSentence();
+        moveToNextItem();
       }, 2000);
       setAutoAdvanceTimeout(timeout);
     }
@@ -174,70 +269,128 @@ function PracticePage() {
 
   // Hiển thị đáp án
   const displayAnswer = () => {
-    if (!currentSentence || !currentSentence.transcript) return;
+    const transcript = getCurrentTranscript();
+    if (!transcript) return;
     
-    setInput(currentSentence.transcript);
+    setInput(transcript);
     setShowAnswer(true);
     setIsChecked(true);
     setAccuracy(100);
+    
+    // Tự động chuyển câu sau 3 giây
+    const timeout = setTimeout(() => {
+      moveToNextItem();
+    }, 3000);
+    setAutoAdvanceTimeout(timeout);
   };
 
   // Xử lý khi người dùng nhập
   const handleInputChange = (val) => {
     setInput(val);
     
-    // Nếu đã hiển thị đáp án, không cho phép sửa
-    if (showAnswer) {
-      return;
+    if (showAnswer) return;
+    
+    // Tự động tắt gợi ý khi người dùng nhập khoảng trắng (kết thúc một từ)
+    if (showHint && val.endsWith(' ') && val !== input) {
+      setShowHint(false);
     }
     
-    // Nếu đã kiểm tra, cập nhật lại phản hồi khi người dùng tiếp tục nhập
     if (isChecked) {
-      const res = compareInput(val, currentSentence.transcript);
+      const transcript = getCurrentTranscript();
+      const res = compareInput(val, transcript);
       setSegments(res);
       
-      // Nếu đã nhập đúng hết các từ, tự động chuyển câu sau 2 giây
       if (res.accuracy && res.accuracy.isComplete) {
         if (autoAdvanceTimeout) {
           clearTimeout(autoAdvanceTimeout);
         }
         const timeout = setTimeout(() => {
-          goToNextSentence();
+          moveToNextItem();
         }, 2000);
         setAutoAdvanceTimeout(timeout);
       } else if (autoAdvanceTimeout) {
-        // Nếu không đúng hết và đang có timeout, hủy timeout
         clearTimeout(autoAdvanceTimeout);
         setAutoAdvanceTimeout(null);
       }
     }
   };
 
-  // Chuyển sang câu tiếp theo
-  const goToNextSentence = () => {
+  // Chuyển tới câu/dòng tiếp theo
+  const moveToNextItem = () => {
     if (autoAdvanceTimeout) {
       clearTimeout(autoAdvanceTimeout);
       setAutoAdvanceTimeout(null);
     }
     
+    // Xử lý riêng cho Part 3/4
+    if (isDialogueOrTalk) {
+      const currentTranscript = getCurrentTranscript();
+      
+      if (currentTranscript) {
+        // Thêm câu đã hoàn thành vào danh sách hiển thị
+        setCompletedSentences(prev => [...prev, currentTranscript]);
+        
+        // Kiểm tra xem còn dòng tiếp theo trong đối thoại/bài nói không
+        if (currentLineIdx < dialogLines.length - 1) {
+          // Nếu còn, chuyển tới dòng tiếp theo
+          setCurrentLineIdx(prevIdx => prevIdx + 1);
+          resetState();
+          return;
+        }
+      }
+    }
+    
+    // Xử lý chung: chuyển tới câu tiếp theo hoặc kết thúc
     if (currentIdx < sentences.length - 1) {
       setCurrentIdx(currentIdx + 1);
       resetState();
+      setCompletedSentences([]);
+      setCurrentLineIdx(0);
     } else {
-      // Đã hoàn thành tất cả câu
       setShowScore(true);
+    }
+  };
+
+  // Quay lại câu trước
+  const goToPreviousQuestion = () => {
+    if (currentIdx > 0) {
+      setCurrentIdx(currentIdx - 1);
+      resetState();
+      setCompletedSentences([]);
+      setCurrentLineIdx(0);
     }
   };
 
   // Phát audio hiện tại
   const playCurrentAudio = () => {
-    if (currentSentence && currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
-      setErrorMessage('');
+    if (!currentSentence) return;
+    
+    setErrorMessage('');
+    
+    if (isDialogueOrTalk) {
+      const currentLine = getCurrentLine();
+      if (currentLine && currentLine.startTime !== undefined && currentLine.endTime !== undefined) {
+        console.log(`Playing dialogue/talk line: ${currentLine.startTime}s to ${currentLine.endTime}s`);
+        playSegment({
+          startTime: currentLine.startTime,
+          endTime: currentLine.endTime
+        });
+      }
+    } else if (currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
       console.log('Playing current audio segment');
       playSegment({
         startTime: currentSentence.startTime,
         endTime: currentSentence.endTime
       });
+    }
+  };
+
+  // Kiểm tra xem có phải là câu hoặc dòng cuối cùng không
+  const isLastItem = () => {
+    if (isDialogueOrTalk) {
+      return currentIdx === sentences.length - 1 && currentLineIdx === dialogLines.length - 1;
+    } else {
+      return currentIdx === sentences.length - 1;
     }
   };
 
@@ -287,6 +440,17 @@ function PracticePage() {
                 setCurrentIdx(0);
                 setScore({ correct: 0, total: 0 });
                 setShowScore(false);
+                setCompletedSentences([]);
+                setCurrentLineIdx(0);
+                
+                // Nếu là Part 3/4, khởi tạo lại dữ liệu đối thoại/bài nói
+                if (isDialogueOrTalk && sentences.length > 0) {
+                  if (isPart3 && sentences[0].conversation) {
+                    setDialogLines(sentences[0].conversation);
+                  } else if (isPart4 && sentences[0].talk) {
+                    setDialogLines(sentences[0].talk);
+                  }
+                }
               }}
             >
               <i className="fas fa-redo"></i>
@@ -342,11 +506,13 @@ function PracticePage() {
         </div>
         <div className="progress-text">
           Câu {currentIdx + 1} / {sentences.length} - Hoàn thành {Math.floor(progress)}%
+          {isDialogueOrTalk && dialogLines.length > 0 && (
+            <span> - Dòng {currentLineIdx + 1}/{dialogLines.length}</span>
+          )}
         </div>
       </div>
 
       <div className="practice-area">
-        {/* Audio ẩn */}
         <audio 
           ref={audioRef} 
           src={audioSrc} 
@@ -392,20 +558,43 @@ function PracticePage() {
           <button 
             className="btn btn-outline" 
             onClick={displayAnswer}
-            disabled={showAnswer}
+            disabled={showAnswer || !getCurrentTranscript()}
           >
             <i className="fas fa-eye"></i>
             Hiển thị đáp án
           </button>
           <button 
             className="btn btn-primary" 
-            disabled={isLoading}
+            disabled={isLoading || !getCurrentTranscript()}
             onClick={playCurrentAudio}
           >
             <i className="fas fa-headphones"></i>
             Nghe câu hiện tại
           </button>
+          <button 
+            className={`btn ${showHint ? 'btn-success' : 'btn-outline'}`} 
+            onClick={toggleHint}
+            disabled={!getCurrentTranscript() || showAnswer}
+          >
+            <i className="fas fa-lightbulb"></i>
+            {showHint ? 'Ẩn gợi ý' : 'Hiện gợi ý'}
+          </button>
         </div>
+
+        {/* Hiển thị đoạn hội thoại hoặc bài nói đã hoàn thành */}
+        {isDialogueOrTalk && completedSentences.length > 0 && (
+          <DialogueDisplay completedSentences={completedSentences} />
+        )}
+
+        {/* Hiển thị gợi ý */}
+        {!showAnswer && (
+          <HintDisplay 
+            transcript={getCurrentTranscript()} 
+            userInput={input} 
+            show={showHint}
+            onAutoHide={() => setShowHint(false)}
+          />
+        )}
 
         <div className="input-area">
           <label htmlFor="userInput" className="input-label">
@@ -414,13 +603,11 @@ function PracticePage() {
           </label>
           
           {showAnswer ? (
-            // Nếu hiển thị đáp án, hiển thị văn bản đáp án
             <div className="answer-display">
               <div className="answer-label">Đáp án:</div>
-              <div className="answer-text">{currentSentence.transcript}</div>
+              <div className="answer-text">{getCurrentTranscript()}</div>
             </div>
           ) : (
-            // Nếu không hiển thị đáp án, hiển thị ô nhập và phản hồi
             <InteractiveInput
               id="userInput"
               value={input}
@@ -428,33 +615,19 @@ function PracticePage() {
               onSubmit={checkAnswer}
               segments={segments}
               showFeedback={isChecked}
+              accuracy={isChecked && segments && segments.accuracy ? {
+                value: accuracy,
+                isComplete: segments.accuracy.isComplete,
+                attemptCount: attemptCount
+              } : null}
             />
-          )}
-          
-          {isChecked && segments.accuracy && !showAnswer && (
-            <div className="accuracy-display">
-              <div className="accuracy-label">Độ chính xác:</div>
-              <div className={`accuracy-value ${getAccuracyClass(accuracy)}`}>
-                {Math.round(accuracy)}%
-              </div>
-              <div className="accuracy-message">
-                {segments.accuracy.isComplete ? 'Tuyệt vời! Đúng hết các từ.' : getAccuracyMessage(accuracy)}
-                {attemptCount > 1 && !segments.accuracy.isComplete && ` (Lần thử thứ ${attemptCount})`}
-                {segments.accuracy.isComplete && ' Đang chuyển câu tiếp theo...'}
-              </div>
-            </div>
           )}
         </div>
 
         <div className="navigation-buttons">
           <button 
             className="btn btn-outline" 
-            onClick={() => {
-              if (currentIdx > 0) {
-                setCurrentIdx(currentIdx - 1);
-                resetState();
-              }
-            }}
+            onClick={goToPreviousQuestion}
             disabled={currentIdx === 0}
           >
             <i className="fas fa-arrow-left"></i>
@@ -463,18 +636,18 @@ function PracticePage() {
           <button 
             className="btn btn-primary" 
             onClick={checkAnswer}
-            disabled={showAnswer}
+            disabled={showAnswer || !getCurrentTranscript() || input.trim() === ''}
           >
             <i className="fas fa-check"></i>
             Kiểm tra đáp án
           </button>
           <button 
             className="btn btn-outline" 
-            onClick={goToNextSentence}
-            disabled={currentIdx === sentences.length - 1 && !isChecked}
+            onClick={moveToNextItem}
+            disabled={(!isChecked && !showAnswer) && isLastItem()}
           >
             <i className="fas fa-arrow-right"></i>
-            {currentIdx === sentences.length - 1 ? 'Kết thúc' : 'Câu sau'}
+            {isLastItem() ? 'Kết thúc' : 'Tiếp theo'}
           </button>
         </div>
       </div>

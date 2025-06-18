@@ -17,6 +17,25 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Style mới cho hiển thị phản hồi phía trên ô nhập liệu */
+.feedback-display-above {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow: auto;
+  max-height: 200px;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
 .char-correct {
   color: #48bb78; /* green */
   font-weight: 500;
@@ -49,4 +68,20 @@
   width: 0.5em;
   background-color: rgba(160, 174, 192, 0.1);
   border-radius: 2px;
+}
+
+/* Thêm icon và nhãn */
+.feedback-display-above::before {
+  content: "Kết quả kiểm tra:";
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #4a5568;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

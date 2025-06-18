@@ -1,7 +1,43 @@
-.transcript-display span.correct {
-  color: green;
+.transcript-display {
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
-.transcript-display span.incorrect {
-  color: red;
+.transcript-display-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.completed-sentences {
+  background-color: #f0f4f8;
+  border-radius: 5px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  border-left: 4px solid #4a6fa5;
+}
+
+.completed-sentence {
+  margin: 5px 0;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* Các trạng thái khác nhau của từng từ */
+.correct {
+  color: #28a745;
+}
+
+.incorrect {
+  color: #dc3545;
+  text-decoration: line-through;
+}
+
+.missing {
+  color: #ffc107;
 }

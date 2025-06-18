@@ -1,0 +1,94 @@
+.hint-display {
+  margin: 1rem 0 1.5rem;
+  background-color: #fffde7;
+  border: 1px solid #fff9c4;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.3s ease-in-out;
+  flex-wrap: wrap;
+}
+
+.hint-label {
+  font-weight: 600;
+  margin-right: 1rem;
+  color: #f9a825;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.hint-label i {
+  font-size: 1.2rem;
+  color: #f9a825;
+}
+
+.hint-content {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  min-height: 2rem;
+  font-size: 1.1rem;
+  flex-grow: 1;
+}
+
+.hint-timer {
+  width: 100%;
+  text-align: right;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #718096;
+  font-style: italic;
+}
+
+.hint-timer .countdown {
+  display: inline-block;
+  background-color: #f9a825;
+  color: white;
+  width: 1.5rem;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 600;
+  font-style: normal;
+  margin: 0 0.2rem;
+}
+
+.hint-typed {
+  color: #2d3748;
+  font-weight: 500;
+}
+
+.hint-word {
+  color: #4299e1;
+  font-weight: 500;
+  animation: blink 1.2s infinite;
+  position: relative;
+}
+
+.hint-word::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: #4299e1;
+  animation: blink 1.2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+} 

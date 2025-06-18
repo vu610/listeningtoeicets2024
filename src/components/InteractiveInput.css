@@ -41,4 +41,65 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
+/* Container cho feedback hiển thị ở trên */
+.feedback-container {
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Hiển thị thông tin độ chính xác */
+.input-accuracy-info {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.input-accuracy-info .accuracy-label {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.input-accuracy-info .accuracy-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+}
+
+.input-accuracy-info .accuracy-value.excellent {
+  color: #fff;
+  background-color: #48bb78;
+}
+
+.input-accuracy-info .accuracy-value.good {
+  color: #fff;
+  background-color: #4299e1;
+}
+
+.input-accuracy-info .accuracy-value.average {
+  color: #fff;
+  background-color: #ed8936;
+}
+
+.input-accuracy-info .accuracy-value.poor {
+  color: #fff;
+  background-color: #e53e3e;
+}
+
+.input-accuracy-info .accuracy-message {
+  font-weight: 500;
+  color: #4a5568;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 

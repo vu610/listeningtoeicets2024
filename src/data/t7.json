@@ -1,2375 +1,2375 @@
 {
-    "part1": [
-      {
-        "id": "t1_p1_q1_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 105.0,
-        "endTime": 107.2,
-        "transcript": "He's digging in a garden."
-      },
-      {
-        "id": "t1_p1_q1_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 108.5,
-        "endTime": 110.8,
-        "transcript": "He's stacking wooden pallets."
-      },
-      {
-        "id": "t1_p1_q1_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 112.5,
-        "endTime": 114.8,
-        "transcript": "He's emptying soil from a pot."
-      },
-      {
-        "id": "t1_p1_q1_d",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 116.0,
-        "endTime": 118.5,
-        "transcript": "He's examining some plants."
-      },
-      {
-        "id": "t1_p1_q2_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 130.5,
-        "endTime": 133.5,
-        "transcript": "One of the women is pushing a cart towards an exit."
-      },
-      {
-        "id": "t1_p1_q2_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 134.8,
-        "endTime": 137.8,
-        "transcript": "One of the women is hanging a coat on a hook."
-      },
-      {
-        "id": "t1_p1_q2_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 139.5,
-        "endTime": 142.0,
-        "transcript": "The women are restocking some store shelves."
-      },
-      {
-        "id": "t1_p1_q2_d",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 143.0,
-        "endTime": 145.8,
-        "transcript": "The women are purchasing some groceries."
-      },
-      {
-        "id": "t1_p1_q3_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 164.5,
-        "endTime": 167.2,
-        "transcript": "The man is resting his arm on a counter."
-      },
-      {
-        "id": "t1_p1_q3_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 168.5,
-        "endTime": 171.0,
-        "transcript": "The man is folding his coat."
-      },
-      {
-        "id": "t1_p1_q3_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 172.5,
-        "endTime": 175.5,
-        "transcript": "A cabinet door has been left open."
-      },
-      {
-        "id": "t1_p1_q3_d",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 176.5,
-        "endTime": 179.5,
-        "transcript": "Some stools are being wiped down."
-      },
-      {
-        "id": "t1_p1_q4_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 191.5,
-        "endTime": 194.0,
-        "transcript": "Some balconies are decorated with banners."
-      },
-      {
-        "id": "t1_p1_q4_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 195.5,
-        "endTime": 198.8,
-        "transcript": "Some signs have been posted in front of a building."
-      },
-      {
-        "id": "t1_p1_q4_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 199.8,
-        "endTime": 203.5,
-        "transcript": "A cafe has been set up on a street corner."
-      },
-      {
-        "id": "t1_p1_q4_d",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 204.5,
-        "endTime": 207.5,
-        "transcript": "A tour group is standing outside a building."
-      },
-      {
-        "id": "t1_p1_q5_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 220.0,
-        "endTime": 222.0,
-        "transcript": "Some people are waiting at a bus stop."
-      },
-      {
-        "id": "t1_p1_q5_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 223.5,
-        "endTime": 226.0,
-        "transcript": "Bike racks have been placed near a lawn."
-      },
-      {
-        "id": "t1_p1_q5_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 227.5,
-        "endTime": 230.2,
-        "transcript": "Some cars are parked along a sidewalk."
-      },
-      {
-        "id": "t1_p1_q5_d",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 231.5,
-        "endTime": 234.0,
-        "transcript": "Some people are gathered in a city square."
-      },
-      {
-        "id": "t1_p1_q6_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 246.0,
-        "endTime": 248.5,
-        "transcript": "The sun is being blocked by some curtains."
-      },
-      {
-        "id": "t1_p1_q6_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 249.8,
-        "endTime": 253.5,
-        "transcript": "There's a large carpet underneath a piano."
-      },
-      {
-        "id": "t1_p1_q6_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 254.8,
-        "endTime": 257.8,
-        "transcript": "There are some windows by a seating area."
-      },
-      {
-        "id": "t1_p1_q6_d",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 258.8,
-        "endTime": 262.5,
-        "transcript": "Some furniture is being stored in a closet."
-      }
-    ],
-    "part2": [
-      {
-        "id": "t1_p2_q7_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 304.0,
-        "endTime": 306.8,
-        "transcript": "Who's providing the floral arrangements for the party?"
-      },
-      {
-        "id": "t1_p2_q7_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 308.5,
-        "endTime": 310.8,
-        "transcript": "The florist on Main Street."
-      },
-      {
-        "id": "t1_p2_q7_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 312.0,
-        "endTime": 314.5,
-        "transcript": "She's had a long career."
-      },
-      {
-        "id": "t1_p2_q7_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 316.0,
-        "endTime": 318.8,
-        "transcript": "Yes, his flight has been arranged."
-      },
-      {
-        "id": "t1_p2_q8_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 325.5,
-        "endTime": 327.5,
-        "transcript": "Why didn't you finish the budget report?"
-      },
-      {
-        "id": "t1_p2_q8_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 329.0,
-        "endTime": 330.8,
-        "transcript": "At the finish line."
-      },
-      {
-        "id": "t1_p2_q8_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 332.5,
-        "endTime": 334.5,
-        "transcript": "No, it wasn't expensive."
-      },
-      {
-        "id": "t1_p2_q8_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 335.8,
-        "endTime": 338.0,
-        "transcript": "I was meeting with a client."
-      },
-      {
-        "id": "t1_p2_q9_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 344.8,
-        "endTime": 346.5,
-        "transcript": "What floor are you going to?"
-      },
-      {
-        "id": "t1_p2_q9_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 348.0,
-        "endTime": 350.2,
-        "transcript": "Can I have a copy of this?"
-      },
-      {
-        "id": "t1_p2_q9_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 351.8,
-        "endTime": 353.5,
-        "transcript": "The 25th."
-      },
-      {
-        "id": "t1_p2_q9_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 354.8,
-        "endTime": 356.8,
-        "transcript": "That painting will look nice there."
-      },
-      {
-        "id": "t1_p2_q10_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 363.5,
-        "endTime": 365.5,
-        "transcript": "How do I set up this projector?"
-      },
-      {
-        "id": "t1_p2_q10_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 367.2,
-        "endTime": 369.5,
-        "transcript": "The storage area downstairs."
-      },
-      {
-        "id": "t1_p2_q10_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 371.2,
-        "endTime": 373.5,
-        "transcript": "A new project code."
-      },
-      {
-        "id": "t1_p2_q10_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 374.8,
-        "endTime": 376.8,
-        "transcript": "There's a manual in the drawer."
-      },
-      {
-        "id": "t1_p2_q11_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 384.0,
-        "endTime": 386.5,
-        "transcript": "Who has already received their promotion letter?"
-      },
-      {
-        "id": "t1_p2_q11_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 388.5,
-        "endTime": 389.8,
-        "transcript": "I did yesterday."
-      },
-      {
-        "id": "t1_p2_q11_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 391.5,
-        "endTime": 393.2,
-        "transcript": "A party invitation."
-      },
-      {
-        "id": "t1_p2_q11_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 394.8,
-        "endTime": 396.5,
-        "transcript": "Paulina gave the speech."
-      },
-      {
-        "id": "t1_p2_q12_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 403.2,
-        "endTime": 405.0,
-        "transcript": "Did you read the press release?"
-      },
-      {
-        "id": "t1_p2_q12_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 406.8,
-        "endTime": 409.2,
-        "transcript": "I haven't checked my email all day."
-      },
-      {
-        "id": "t1_p2_q12_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 411.2,
-        "endTime": 413.2,
-        "transcript": "It's not raining here yet."
-      },
-      {
-        "id": "t1_p2_q12_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 414.8,
-        "endTime": 416.5,
-        "transcript": "The switch works fine."
-      },
-      {
-        "id": "t1_p2_q13_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 423.8,
-        "endTime": 426.2,
-        "transcript": "Didn't we renew our newspaper subscription last month?"
-      },
-      {
-        "id": "t1_p2_q13_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 428.0,
-        "endTime": 430.2,
-        "transcript": "That photo's on the front page."
-      },
-      {
-        "id": "t1_p2_q13_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 432.2,
-        "endTime": 434.5,
-        "transcript": "Here's the paper for your newsletter."
-      },
-      {
-        "id": "t1_p2_q13_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 436.2,
-        "endTime": 439.2,
-        "transcript": "Yes, it was renewed for another six months."
-      },
-      {
-        "id": "t1_p2_q14_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 446.5,
-        "endTime": 450.2,
-        "transcript": "When will we mention our budgetary needs to the outreach coordinator?"
-      },
-      {
-        "id": "t1_p2_q14_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 451.8,
-        "endTime": 454.2,
-        "transcript": "I can't quite reach the top shelf."
-      },
-      {
-        "id": "t1_p2_q14_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 455.8,
-        "endTime": 458.5,
-        "transcript": "We're fully funded through the end of the year."
-      },
-      {
-        "id": "t1_p2_q14_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 459.8,
-        "endTime": 462.8,
-        "transcript": "Because our accountant is on vacation."
-      },
-      {
-        "id": "t1_p2_q15_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 469.8,
-        "endTime": 473.2,
-        "transcript": "My appointment is with Dr. Hamdy today, right?"
-      },
-      {
-        "id": "t1_p2_q15_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 474.8,
-        "endTime": 476.8,
-        "transcript": "Usually an annual checkup."
-      },
-      {
-        "id": "t1_p2_q15_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 478.5,
-        "endTime": 480.8,
-        "transcript": "No, parking is not free."
-      },
-      {
-        "id": "t1_p2_q15_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 482.5,
-        "endTime": 485.2,
-        "transcript": "Yes, and she'll see you in a minute."
-      },
-      {
-        "id": "t1_p2_q16_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 492.2,
-        "endTime": 494.2,
-        "transcript": "Where should I store this shipment of paper?"
-      },
-      {
-        "id": "t1_p2_q16_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 495.8,
-        "endTime": 497.8,
-        "transcript": "The store closes at four."
-      },
-      {
-        "id": "t1_p2_q16_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 499.5,
-        "endTime": 501.2,
-        "transcript": "By express delivery."
-      },
-      {
-        "id": "t1_p2_q16_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 502.8,
-        "endTime": 505.2,
-        "transcript": "Well, the supply room is full."
-      },
-      {
-        "id": "t1_p2_q17_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 512.5,
-        "endTime": 515.5,
-        "transcript": "Would you be able to reschedule my haircut for Monday?"
-      },
-      {
-        "id": "t1_p2_q17_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 517.5,
-        "endTime": 520.0,
-        "transcript": "No, we're fully booked that day."
-      },
-      {
-        "id": "t1_p2_q17_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 521.5,
-        "endTime": 524.5,
-        "transcript": "I'll open a window to let in some fresh air."
-      },
-      {
-        "id": "t1_p2_q17_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 526.2,
-        "endTime": 528.2,
-        "transcript": "The grass needs cutting."
-      },
-      {
-        "id": "t1_p2_q18_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 535.2,
-        "endTime": 538.2,
-        "transcript": "Should I take the train or the bus to the airport?"
-      },
-      {
-        "id": "t1_p2_q18_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 539.5,
-        "endTime": 542.5,
-        "transcript": "The bus stop is five kilometers away."
-      },
-      {
-        "id": "t1_p2_q18_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 544.2,
-        "endTime": 546.2,
-        "transcript": "There are enough for all of us."
-      },
-      {
-        "id": "t1_p2_q18_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 547.8,
-        "endTime": 550.2,
-        "transcript": "No, I went to a training session."
-      },
-      {
-        "id": "t1_p2_q19_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 557.2,
-        "endTime": 559.5,
-        "transcript": "How long will the online course take?"
-      },
-      {
-        "id": "t1_p2_q19_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 561.5,
-        "endTime": 563.8,
-        "transcript": "You can finish it in a few hours."
-      },
-      {
-        "id": "t1_p2_q19_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 565.0,
-        "endTime": 566.8,
-        "transcript": "Forty dollars a month."
-      },
-      {
-        "id": "t1_p2_q19_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 568.5,
-        "endTime": 570.5,
-        "transcript": "I'll take the blue jacket."
-      },
-      {
-        "id": "t1_p2_q20_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 577.0,
-        "endTime": 580.8,
-        "transcript": "Will this month's company gathering be held in Benson Park?"
-      },
-      {
-        "id": "t1_p2_q20_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 582.8,
-        "endTime": 585.0,
-        "transcript": "I usually park by the fountain."
-      },
-      {
-        "id": "t1_p2_q20_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 586.8,
-        "endTime": 589.8,
-        "transcript": "It's still cold outside most days."
-      },
-      {
-        "id": "t1_p2_q20_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 591.2,
-        "endTime": 593.8,
-        "transcript": "Those should be printed in color."
-      },
-      {
-        "id": "t1_p2_q21_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 601.2,
-        "endTime": 604.2,
-        "transcript": "When will the tickets for the performance be ready to pick up?"
-      },
-      {
-        "id": "t1_p2_q21_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 606.0,
-        "endTime": 608.2,
-        "transcript": "We should get them by the end of the week."
-      },
-      {
-        "id": "t1_p2_q21_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 609.8,
-        "endTime": 611.5,
-        "transcript": "A famous director."
-      },
-      {
-        "id": "t1_p2_q21_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 613.2,
-        "endTime": 614.8,
-        "transcript": "Twenty-five euros."
-      },
-      {
-        "id": "t1_p2_q22_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 622.2,
-        "endTime": 625.0,
-        "transcript": "I don't know if the packaging materials were ordered already."
-      },
-      {
-        "id": "t1_p2_q22_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 626.8,
-        "endTime": 629.5,
-        "transcript": "I saw some boxes on the loading dock."
-      },
-      {
-        "id": "t1_p2_q22_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 631.0,
-        "endTime": 633.0,
-        "transcript": "She's wearing a red hat."
-      },
-      {
-        "id": "t1_p2_q22_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 634.5,
-        "endTime": 637.0,
-        "transcript": "A lunch appointment at 12:30."
-      },
-      {
-        "id": "t1_p2_q23_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 644.2,
-        "endTime": 646.8,
-        "transcript": "Could you please send me the sales report?"
-      },
-      {
-        "id": "t1_p2_q23_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 648.5,
-        "endTime": 651.8,
-        "transcript": "Fifty percent off last season's merchandise."
-      },
-      {
-        "id": "t1_p2_q23_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 653.2,
-        "endTime": 655.5,
-        "transcript": "Of course, I'll do it now."
-      },
-      {
-        "id": "t1_p2_q23_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 657.0,
-        "endTime": 659.2,
-        "transcript": "Did you check the weather report?"
-      },
-      {
-        "id": "t1_p2_q24_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 666.2,
-        "endTime": 668.5,
-        "transcript": "What type of view will your apartment have?"
-      },
-      {
-        "id": "t1_p2_q24_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 670.5,
-        "endTime": 672.5,
-        "transcript": "The kitchen lighting looks great."
-      },
-      {
-        "id": "t1_p2_q24_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 674.2,
-        "endTime": 676.2,
-        "transcript": "I haven't signed a lease yet."
-      },
-      {
-        "id": "t1_p2_q24_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 677.8,
-        "endTime": 680.2,
-        "transcript": "We're in complete agreement on that."
-      },
-      {
-        "id": "t1_p2_q25_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 687.2,
-        "endTime": 690.8,
-        "transcript": "How much oil does your heater use in the winter?"
-      },
-      {
-        "id": "t1_p2_q25_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 692.5,
-        "endTime": 695.2,
-        "transcript": "We may need to stop for gas on our trip."
-      },
-      {
-        "id": "t1_p2_q25_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 697.2,
-        "endTime": 699.5,
-        "transcript": "That recipe calls for butter."
-      },
-      {
-        "id": "t1_p2_q25_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 701.0,
-        "endTime": 703.5,
-        "transcript": "We only use electric appliances."
-      },
-      {
-        "id": "t1_p2_q26_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 711.2,
-        "endTime": 712.8,
-        "transcript": "Where can I find the vitamins?"
-      },
-      {
-        "id": "t1_p2_q26_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 714.8,
-        "endTime": 716.0,
-        "transcript": "In aisle six."
-      },
-      {
-        "id": "t1_p2_q26_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 717.8,
-        "endTime": 720.0,
-        "transcript": "That's a really healthy recipe."
-      },
-      {
-        "id": "t1_p2_q26_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 721.5,
-        "endTime": 724.0,
-        "transcript": "The library is closed on Sundays."
-      },
-      {
-        "id": "t1_p2_q27_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 731.2,
-        "endTime": 733.2,
-        "transcript": "Thank you for helping me create a survey."
-      },
-      {
-        "id": "t1_p2_q27_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 735.2,
-        "endTime": 737.5,
-        "transcript": "The software did most of the work."
-      },
-      {
-        "id": "t1_p2_q27_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 739.0,
-        "endTime": 741.0,
-        "transcript": "Our loyal customers."
-      },
-      {
-        "id": "t1_p2_q27_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 742.5,
-        "endTime": 745.5,
-        "transcript": "The crates are still in the warehouse."
-      },
-      {
-        "id": "t1_p2_q28_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 752.5,
-        "endTime": 755.2,
-        "transcript": "When will you be done testing the new mobile app?"
-      },
-      {
-        "id": "t1_p2_q28_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 757.0,
-        "endTime": 759.8,
-        "transcript": "No, just an older laptop model."
-      },
-      {
-        "id": "t1_p2_q28_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 761.8,
-        "endTime": 763.5,
-        "transcript": "I'm almost finished."
-      },
-      {
-        "id": "t1_p2_q28_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 764.8,
-        "endTime": 767.5,
-        "transcript": "It's about a two-hour drive from here."
-      },
-      {
-        "id": "t1_p2_q29_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 774.2,
-        "endTime": 777.8,
-        "transcript": "Don't forget to turn off the projector after your presentation."
-      },
-      {
-        "id": "t1_p2_q29_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 779.5,
-        "endTime": 781.2,
-        "transcript": "I don't have a summary."
-      },
-      {
-        "id": "t1_p2_q29_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 782.8,
-        "endTime": 785.5,
-        "transcript": "Should I return it to the supply closet?"
-      },
-      {
-        "id": "t1_p2_q29_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 787.0,
-        "endTime": 789.5,
-        "transcript": "Please distribute these handouts."
-      },
-      {
-        "id": "t1_p2_q30_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 796.2,
-        "endTime": 799.5,
-        "transcript": "Didn't there used to be a parking garage on this street?"
-      },
-      {
-        "id": "t1_p2_q30_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 801.5,
-        "endTime": 803.5,
-        "transcript": "Yes, but it's been torn down."
-      },
-      {
-        "id": "t1_p2_q30_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 805.0,
-        "endTime": 807.2,
-        "transcript": "You can hang your keys on this hook."
-      },
-      {
-        "id": "t1_p2_q30_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 808.5,
-        "endTime": 811.0,
-        "transcript": "My car has a flat tire."
-      },
-      {
-        "id": "t1_p2_q31_question",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 818.0,
-        "endTime": 821.0,
-        "transcript": "Will you be available to work on Thursday or Friday?"
-      },
-      {
-        "id": "t1_p2_q31_a",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 822.8,
-        "endTime": 825.5,
-        "transcript": "There's mandatory training on Friday."
-      },
-      {
-        "id": "t1_p2_q31_b",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 827.2,
-        "endTime": 829.5,
-        "transcript": "Yes, it was a good show."
-      },
-      {
-        "id": "t1_p2_q31_c",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "startTime": 831.0,
-        "endTime": 832.8,
-        "transcript": "A daily schedule."
-      }
-    ],
-    "part3": [
-      {
-        "id": "t1_p3_s32-34",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 873.8,
-            "endTime": 878.0,
-            "transcript": "Hi, I'm Gabriella Alvarez of Organic Easy Meals."
-          },
-          {
-            "line": 2,
-            "startTime": 878.2,
-            "endTime": 883.8,
-            "transcript": "I'm scheduled to offer some samples of our new vegetable chips to your customers from 3:00 to 5:00 p.m."
-          },
-          {
-            "line": 3,
-            "startTime": 884.5,
-            "endTime": 886.2,
-            "transcript": "Oh, yes. Hello, Ms. Alvarez."
-          },
-          {
-            "line": 4,
-            "startTime": 886.8,
-            "endTime": 888.2,
-            "transcript": "I'm Ryan Hughes, the manager."
-          },
-          {
-            "line": 5,
-            "startTime": 888.8,
-            "endTime": 891.2,
-            "transcript": "We have a table set up for you at the end of aisle eight."
-          },
-          {
-            "line": 6,
-            "startTime": 891.8,
-            "endTime": 892.8,
-            "transcript": "That's our snacks aisle."
-          },
-          {
-            "line": 7,
-            "startTime": 893.5,
-            "endTime": 894.0,
-            "transcript": "Thanks."
-          },
-          {
-            "line": 8,
-            "startTime": 894.5,
-            "endTime": 897.8,
-            "transcript": "I'll start bringing in food and some equipment from my truck."
-          },
-          {
-            "line": 9,
-            "startTime": 898.2,
-            "endTime": 901.5,
-            "transcript": "But first, I'd like to take a look at the table I'll be using."
-          },
-          {
-            "line": 10,
-            "startTime": 901.8,
-            "endTime": 902.8,
-            "transcript": "Sounds good."
-          },
-          {
-            "line": 11,
-            "startTime": 903.0,
-            "endTime": 906.2,
-            "transcript": "If you'd like any help bringing in your stuff, just let me know."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s35-37",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 952.2,
-            "endTime": 953.0,
-            "transcript": "Hello."
-          },
-          {
-            "line": 2,
-            "startTime": 953.2,
-            "endTime": 958.0,
-            "transcript": "I received a notice in the mail about a fee I need to pay because I returned some books late."
-          },
-          {
-            "line": 3,
-            "startTime": 958.2,
-            "endTime": 959.5,
-            "transcript": "My name is Lin Gao."
-          },
-          {
-            "line": 4,
-            "startTime": 960.0,
-            "endTime": 960.5,
-            "transcript": "Hmm."
-          },
-          {
-            "line": 5,
-            "startTime": 961.0,
-            "endTime": 965.8,
-            "transcript": "Yes, it says here in the system that you owe $10 for overdue materials."
-          },
-          {
-            "line": 6,
-            "startTime": 966.2,
-            "endTime": 967.8,
-            "transcript": "Would you like to pay that now?"
-          },
-          {
-            "line": 7,
-            "startTime": 968.2,
-            "endTime": 969.5,
-            "transcript": "Do you take credit cards?"
-          },
-          {
-            "line": 8,
-            "startTime": 969.8,
-            "endTime": 974.2,
-            "transcript": "We usually accept either cash or credit, but our card reader has been malfunctioning."
-          },
-          {
-            "line": 9,
-            "startTime": 974.8,
-            "endTime": 976.5,
-            "transcript": "Let me see if it's working again."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s38-40",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1022.2,
-            "endTime": 1023.2,
-            "transcript": "Hi everybody."
-          },
-          {
-            "line": 2,
-            "startTime": 1023.2,
-            "endTime": 1025.2,
-            "transcript": "Are we ready for the sales meeting this morning?"
-          },
-          {
-            "line": 3,
-            "startTime": 1025.8,
-            "endTime": 1028.5,
-            "transcript": "Yes, I finished putting together my presentation."
-          },
-          {
-            "line": 4,
-            "startTime": 1029.0,
-            "endTime": 1031.0,
-            "transcript": "The meeting's in the conference room, right?"
-          },
-          {
-            "line": 5,
-            "startTime": 1031.5,
-            "endTime": 1033.8,
-            "transcript": "No, there's been a last-minute change."
-          },
-          {
-            "line": 6,
-            "startTime": 1034.2,
-            "endTime": 1038.8,
-            "transcript": "The conference room is being used by the IT department all day to interview job candidates."
-          },
-          {
-            "line": 7,
-            "startTime": 1039.5,
-            "endTime": 1040.0,
-            "transcript": "Oh no."
-          },
-          {
-            "line": 8,
-            "startTime": 1040.5,
-            "endTime": 1043.0,
-            "transcript": "My presentation requires the use of a television."
-          },
-          {
-            "line": 9,
-            "startTime": 1043.5,
-            "endTime": 1044.2,
-            "transcript": "Don't worry."
-          },
-          {
-            "line": 10,
-            "startTime": 1044.5,
-            "endTime": 1045.8,
-            "transcript": "We're meeting in the board room."
-          },
-          {
-            "line": 11,
-            "startTime": 1045.8,
-            "endTime": 1047.2,
-            "transcript": "There's a smart TV there."
-          },
-          {
-            "line": 12,
-            "startTime": 1047.8,
-            "endTime": 1050.0,
-            "transcript": "Is that room large enough for our team?"
-          },
-          {
-            "line": 13,
-            "startTime": 1050.2,
-            "endTime": 1050.8,
-            "transcript": "Yes."
-          },
-          {
-            "line": 14,
-            "startTime": 1050.8,
-            "endTime": 1052.0,
-            "transcript": "We won't have a problem."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s41-43",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1097.5,
-            "endTime": 1100.0,
-            "transcript": "Did you see the road construction sign at the corner?"
-          },
-          {
-            "line": 2,
-            "startTime": 1100.0,
-            "endTime": 1102.5,
-            "transcript": "All traffic is being directed away from our street."
-          },
-          {
-            "line": 3,
-            "startTime": 1103.0,
-            "endTime": 1104.5,
-            "transcript": "No one can come this way."
-          },
-          {
-            "line": 4,
-            "startTime": 1105.0,
-            "endTime": 1105.8,
-            "transcript": "I know."
-          },
-          {
-            "line": 5,
-            "startTime": 1106.0,
-            "endTime": 1110.5,
-            "transcript": "How will customers visit our store to make copies and pick up photo prints?"
-          },
-          {
-            "line": 6,
-            "startTime": 1111.0,
-            "endTime": 1113.2,
-            "transcript": "I'm afraid they'll have to park on another street."
-          },
-          {
-            "line": 7,
-            "startTime": 1113.5,
-            "endTime": 1115.5,
-            "transcript": "They can still access the store on foot."
-          },
-          {
-            "line": 8,
-            "startTime": 1115.8,
-            "endTime": 1116.5,
-            "transcript": "Okay."
-          },
-          {
-            "line": 9,
-            "startTime": 1116.8,
-            "endTime": 1120.0,
-            "transcript": "I'll update our social media page to direct our customers."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s44-46",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1172.0,
-            "endTime": 1179.0,
-            "transcript": "It's your first day working here, so we'll spend the morning surveying the walking trails so you can get a sense of the area."
-          },
-          {
-            "line": 2,
-            "startTime": 1179.5,
-            "endTime": 1184.5,
-            "transcript": "While we're at it, we'll also collect soil samples from different areas of the park."
-          },
-          {
-            "line": 3,
-            "startTime": 1185.2,
-            "endTime": 1189.0,
-            "transcript": "We need to test the soil samples to monitor the health of the preserve, right?"
-          },
-          {
-            "line": 4,
-            "startTime": 1189.5,
-            "endTime": 1190.0,
-            "transcript": "Yes."
-          },
-          {
-            "line": 5,
-            "startTime": 1190.0,
-            "endTime": 1194.8,
-            "transcript": "We don't have a laboratory, so we send them out for testing every month."
-          },
-          {
-            "line": 6,
-            "startTime": 1195.2,
-            "endTime": 1200.8,
-            "transcript": "And since it's a sunny day today, it's a good time to take photographs for our social media page."
-          },
-          {
-            "line": 7,
-            "startTime": 1201.0,
-            "endTime": 1201.8,
-            "transcript": "I can do that."
-          },
-          {
-            "line": 8,
-            "startTime": 1202.0,
-            "endTime": 1203.5,
-            "transcript": "I brought my camera."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s47-49",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1249.0,
-            "endTime": 1250.0,
-            "transcript": "Good morning, Ivan."
-          },
-          {
-            "line": 2,
-            "startTime": 1250.5,
-            "endTime": 1254.8,
-            "transcript": "Everyone's talking about the flyer that was posted on our bulletin board yesterday. Have you seen it?"
-          },
-          {
-            "line": 3,
-            "startTime": 1256.0,
-            "endTime": 1258.8,
-            "transcript": "I was out of the office yesterday, but I've heard."
-          },
-          {
-            "line": 4,
-            "startTime": 1259.0,
-            "endTime": 1302.2,
-            "transcript": "Big changes are coming for all mail carriers in the city."
-          },
-          {
-            "line": 5,
-            "startTime": 1302.8,
-            "endTime": 1303.5,
-            "transcript": "That's right."
-          },
-          {
-            "line": 6,
-            "startTime": 1303.8,
-            "endTime": 1307.5,
-            "transcript": "Our entire postal delivery fleet is being replaced with electric vehicles."
-          },
-          {
-            "line": 7,
-            "startTime": 1308.0,
-            "endTime": 1311.0,
-            "transcript": "I just hope that we don't have to charge them every few hours."
-          },
-          {
-            "line": 8,
-            "startTime": 1311.5,
-            "endTime": 1314.8,
-            "transcript": "I'm concerned that the battery won't last through my entire route."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s50-52",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1379.0,
-            "endTime": 1381.0,
-            "transcript": "Koda, I want you to meet Claudia."
-          },
-          {
-            "line": 2,
-            "startTime": 1381.5,
-            "endTime": 1383.2,
-            "transcript": "Claudia is starting work today."
-          },
-          {
-            "line": 3,
-            "startTime": 1383.8,
-            "endTime": 1387.2,
-            "transcript": "Could you show her around and explain some of our processes?"
-          },
-          {
-            "line": 4,
-            "startTime": 1388.0,
-            "endTime": 1389.5,
-            "transcript": "Of course, Ms. Park."
-          },
-          {
-            "line": 5,
-            "startTime": 1390.0,
-            "endTime": 1391.5,
-            "transcript": "Welcome to the team, Claudia."
-          },
-          {
-            "line": 6,
-            "startTime": 1391.8,
-            "endTime": 1392.5,
-            "transcript": "Thank you."
-          },
-          {
-            "line": 7,
-            "startTime": 1393.0,
-            "endTime": 1396.8,
-            "transcript": "I'm coming from the Silver Ridge Inn, where I also worked at the front desk."
-          },
-          {
-            "line": 8,
-            "startTime": 1397.2,
-            "endTime": 1401.8,
-            "transcript": "So you already have experience with taking reservations and checking in guests."
-          },
-          {
-            "line": 9,
-            "startTime": 1402.0,
-            "endTime": 1402.5,
-            "transcript": "Yes."
-          },
-          {
-            "line": 10,
-            "startTime": 1402.8,
-            "endTime": 1406.0,
-            "transcript": "But we used a different software system than the one I see you have here."
-          },
-          {
-            "line": 11,
-            "startTime": 1406.5,
-            "endTime": 1408.0,
-            "transcript": "It's easy to use."
-          },
-          {
-            "line": 12,
-            "startTime": 1408.0,
-            "endTime": 1409.2,
-            "transcript": "Let me show you how."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s53-55",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1455.0,
-            "endTime": 1457.8,
-            "transcript": "Wow, I didn't expect this restaurant to be so popular."
-          },
-          {
-            "line": 2,
-            "startTime": 1458.0,
-            "endTime": 1460.0,
-            "transcript": "Look at all the people waiting to be seated."
-          },
-          {
-            "line": 3,
-            "startTime": 1460.5,
-            "endTime": 1461.0,
-            "transcript": "I know."
-          },
-          {
-            "line": 4,
-            "startTime": 1461.5,
-            "endTime": 1464.5,
-            "transcript": "It's brand new. I didn't think anyone knew about it yet."
-          },
-          {
-            "line": 5,
-            "startTime": 1465.0,
-            "endTime": 1467.8,
-            "transcript": "Looks like we won't be able to get a table for a while."
-          },
-          {
-            "line": 6,
-            "startTime": 1468.2,
-            "endTime": 1469.8,
-            "transcript": "Well, we don't have much time."
-          },
-          {
-            "line": 7,
-            "startTime": 1470.0,
-            "endTime": 1473.8,
-            "transcript": "We need to drive back to the office to train our interns at 1:00."
-          },
-          {
-            "line": 8,
-            "startTime": 1474.0,
-            "endTime": 1475.2,
-            "transcript": "Should we go somewhere else?"
-          },
-          {
-            "line": 9,
-            "startTime": 1475.8,
-            "endTime": 1477.2,
-            "transcript": "Let's see if they offer takeout."
-          },
-          {
-            "line": 10,
-            "startTime": 1477.5,
-            "endTime": 1479.5,
-            "transcript": "We can just order something to go."
-          },
-          {
-            "line": 11,
-            "startTime": 1479.8,
-            "endTime": 1480.5,
-            "transcript": "Good idea."
-          },
-          {
-            "line": 12,
-            "startTime": 1480.5,
-            "endTime": 1482.8,
-            "transcript": "I'm looking forward to trying the spicy noodles."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s56-58",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1529.5,
-            "endTime": 1532.2,
-            "transcript": "Hi Ahmed, did you see the email from management?"
-          },
-          {
-            "line": 2,
-            "startTime": 1533.0,
-            "endTime": 1535.5,
-            "transcript": "I just got here to teach my aerobics class."
-          },
-          {
-            "line": 3,
-            "startTime": 1536.2,
-            "endTime": 1540.2,
-            "transcript": "It looks like the gym is opening another facility just a few miles from here."
-          },
-          {
-            "line": 4,
-            "startTime": 1540.8,
-            "endTime": 1544.2,
-            "transcript": "I'm surprised they want to open another location so close by."
-          },
-          {
-            "line": 5,
-            "startTime": 1544.8,
-            "endTime": 1548.0,
-            "transcript": "Well, this is a densely populated area."
-          },
-          {
-            "line": 6,
-            "startTime": 1548.5,
-            "endTime": 1549.0,
-            "transcript": "True."
-          },
-          {
-            "line": 7,
-            "startTime": 1549.2,
-            "endTime": 1551.5,
-            "transcript": "I guess they'll have to hire more employees."
-          },
-          {
-            "line": 8,
-            "startTime": 1552.0,
-            "endTime": 1555.2,
-            "transcript": "There's just not enough of us to staff both locations."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s59-61",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1604.0,
-            "endTime": 1607.8,
-            "transcript": "Marcel, I'd like to plan a team-building event with our graphic design group."
-          },
-          {
-            "line": 2,
-            "startTime": 1608.2,
-            "endTime": 1608.8,
-            "transcript": "Sure."
-          },
-          {
-            "line": 3,
-            "startTime": 1609.0,
-            "endTime": 1611.2,
-            "transcript": "We could reserve the conference room upstairs."
-          },
-          {
-            "line": 4,
-            "startTime": 1611.8,
-            "endTime": 1615.0,
-            "transcript": "But the event wouldn't be just for on-site graphic designers."
-          },
-          {
-            "line": 5,
-            "startTime": 1615.2,
-            "endTime": 1618.0,
-            "transcript": "Nearly a third of our staff will be participating remotely."
-          },
-          {
-            "line": 6,
-            "startTime": 1618.5,
-            "endTime": 1619.5,
-            "transcript": "Oh, you're right."
-          },
-          {
-            "line": 7,
-            "startTime": 1620.0,
-            "endTime": 1622.8,
-            "transcript": "Everyone needs to feel equally included."
-          },
-          {
-            "line": 8,
-            "startTime": 1623.0,
-            "endTime": 1626.8,
-            "transcript": "Let's have our on-site staff join the event from their desks."
-          },
-          {
-            "line": 9,
-            "startTime": 1627.0,
-            "endTime": 1627.5,
-            "transcript": "Okay."
-          },
-          {
-            "line": 10,
-            "startTime": 1627.5,
-            "endTime": 1631.2,
-            "transcript": "I'll do a search for effective team-building activities that we can do online."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s62-64",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1681.2,
-            "endTime": 1681.8,
-            "transcript": "Hi."
-          },
-          {
-            "line": 2,
-            "startTime": 1682.0,
-            "endTime": 1686.2,
-            "transcript": "I'm calling because I saw some coffee tables on your department store's website."
-          },
-          {
-            "line": 3,
-            "startTime": 1686.8,
-            "endTime": 1688.2,
-            "transcript": "I'd like to see them in person."
-          },
-          {
-            "line": 4,
-            "startTime": 1688.5,
-            "endTime": 1692.0,
-            "transcript": "Can you tell me if you have the same furniture selection in your store?"
-          },
-          {
-            "line": 5,
-            "startTime": 1692.5,
-            "endTime": 1693.2,
-            "transcript": "Yes, we do."
-          },
-          {
-            "line": 6,
-            "startTime": 1693.8,
-            "endTime": 1695.2,
-            "transcript": "We're fully stocked at the moment."
-          },
-          {
-            "line": 7,
-            "startTime": 1695.5,
-            "endTime": 1699.0,
-            "transcript": "So you'll be able to see everything that's on our online catalog."
-          },
-          {
-            "line": 8,
-            "startTime": 1699.5,
-            "endTime": 1700.0,
-            "transcript": "Okay."
-          },
-          {
-            "line": 9,
-            "startTime": 1700.8,
-            "endTime": 1701.8,
-            "transcript": "One more thing."
-          },
-          {
-            "line": 10,
-            "startTime": 1702.0,
-            "endTime": 1705.8,
-            "transcript": "I use a wheelchair, and I'm concerned about navigating your store."
-          },
-          {
-            "line": 11,
-            "startTime": 1706.2,
-            "endTime": 1707.5,
-            "transcript": "Oh, that's not a problem."
-          },
-          {
-            "line": 12,
-            "startTime": 1707.8,
-            "endTime": 1711.5,
-            "transcript": "We have large elevators that can easily accommodate a wheelchair."
-          },
-          {
-            "line": 13,
-            "startTime": 1711.8,
-            "endTime": 1712.2,
-            "transcript": "Great."
-          },
-          {
-            "line": 14,
-            "startTime": 1712.8,
-            "endTime": 1714.0,
-            "transcript": "Thanks for the information."
-          },
-          {
-            "line": 15,
-            "startTime": 1714.2,
-            "endTime": 1716.2,
-            "transcript": "I'll stop by later this afternoon."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s65-67",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1765.0,
-            "endTime": 1767.0,
-            "transcript": "Adam, our Kyoto office just called."
-          },
-          {
-            "line": 2,
-            "startTime": 1767.5,
-            "endTime": 1771.0,
-            "transcript": "Our investors want me to present a project update there as soon as possible."
-          },
-          {
-            "line": 3,
-            "startTime": 1771.5,
-            "endTime": 1774.5,
-            "transcript": "Can you get me on the first flight to Kyoto tomorrow morning?"
-          },
-          {
-            "line": 4,
-            "startTime": 1775.0,
-            "endTime": 1776.0,
-            "transcript": "Let me check."
-          },
-          {
-            "line": 5,
-            "startTime": 1776.5,
-            "endTime": 1781.2,
-            "transcript": "Per company policy, we can only use Blue Jet Airlines for international travel."
-          },
-          {
-            "line": 6,
-            "startTime": 1781.5,
-            "endTime": 1785.0,
-            "transcript": "And unfortunately, that flight's not the first one out tomorrow."
-          },
-          {
-            "line": 7,
-            "startTime": 1785.5,
-            "endTime": 1787.0,
-            "transcript": "That will have to do. Thanks."
-          },
-          {
-            "line": 8,
-            "startTime": 1787.8,
-            "endTime": 1789.5,
-            "transcript": "And I'll need a ride to the airport, too."
-          },
-          {
-            "line": 9,
-            "startTime": 1789.8,
-            "endTime": 1791.0,
-            "transcript": "Can you arrange that?"
-          },
-          {
-            "line": 10,
-            "startTime": 1791.2,
-            "endTime": 1792.0,
-            "transcript": "Sure thing."
-          },
-          {
-            "line": 11,
-            "startTime": 1792.2,
-            "endTime": 1795.2,
-            "transcript": "I'll finalize the reservations and email you the details."
-          }
-        ]
-      },
-      {
-        "id": "t1_p3_s68-70",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "conversation": [
-          {
-            "line": 1,
-            "startTime": 1857.2,
-            "endTime": 1858.0,
-            "transcript": "Hi, Astrid."
-          },
-          {
-            "line": 2,
-            "startTime": 1858.2,
-            "endTime": 1905.8,
-            "transcript": "For tonight's 6:00 news broadcast, the lead story is going to be on the rumor that the Beavers football team is going to build a stadium."
-          },
-          {
-            "line": 3,
-            "startTime": 1906.2,
-            "endTime": 1907.8,
-            "transcript": "Have you heard about the project?"
-          },
-          {
-            "line": 4,
-            "startTime": 1908.2,
-            "endTime": 1910.5,
-            "transcript": "My sources have confirmed the story, actually."
-          },
-          {
-            "line": 5,
-            "startTime": 1911.0,
-            "endTime": 1916.5,
-            "transcript": "I've just gained exclusive access to some bidding proposals. Four cities are competing for the project."
-          },
-          {
-            "line": 6,
-            "startTime": 1917.2,
-            "endTime": 1920.8,
-            "transcript": "It's great you were able to confirm this before we went on the air."
-          },
-          {
-            "line": 7,
-            "startTime": 1921.2,
-            "endTime": 1923.8,
-            "transcript": "Do you know where the new stadium might be built?"
-          },
-          {
-            "line": 8,
-            "startTime": 1924.2,
-            "endTime": 1928.5,
-            "transcript": "Well, one document suggests that Columbia City's proposal is the favorite."
-          },
-          {
-            "line": 9,
-            "startTime": 1928.8,
-            "endTime": 1932.2,
-            "transcript": "However, the team does have three other bids to consider."
-          }
-        ]
-      }
-    ],
-    "part4": [
-      {
-        "id": "t1_p4_s71-73",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 1915.0,
-            "endTime": 1918.8,
-            "transcript": "Are you interested in learning how to start your own business?"
-          },
-          {
-            "line": 2,
-            "startTime": 1919.2,
-            "endTime": 1922.2,
-            "transcript": "Winston Community College is the place for you."
-          },
-          {
-            "line": 3,
-            "startTime": 1922.8,
-            "endTime": 1933.2,
-            "transcript": "Last month, we opened a new campus in Cedarville that offers lots of business courses to equip aspiring entrepreneurs with the tools to launch a new career."
-          },
-          {
-            "line": 4,
-            "startTime": 1934.0,
-            "endTime": 1938.8,
-            "transcript": "We offer flexible schedules, so you can take courses in the evenings or on weekends."
-          },
-          {
-            "line": 5,
-            "startTime": 1939.5,
-            "endTime": 1943.8,
-            "transcript": "Visit us at our new campus or online to submit your application."
-          }
-        ]
-      },
-      {
-        "id": "t1_p4_s74-76",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 1989.0,
-            "endTime": 1992.8,
-            "transcript": "Please be sure to mark your calendars for a get-together on April 16th."
-          },
-          {
-            "line": 2,
-            "startTime": 1993.2,
-            "endTime": 1999.0,
-            "transcript": "We all work on different biochemistry research projects, and it's nice to share and celebrate our progress."
-          },
-          {
-            "line": 3,
-            "startTime": 1999.8,
-            "endTime": 2005.8,
-            "transcript": "Sung-hee has reserved us rooms at a conference center off-site where we'll be able to relax outdoors after our sessions."
-          },
-          {
-            "line": 4,
-            "startTime": 2006.2,
-            "endTime": 2008.2,
-            "transcript": "Thanks for taking care of that, Sung-hee."
-          },
-          {
-            "line": 5,
-            "startTime": 2008.8,
-            "endTime": 2013.0,
-            "transcript": "A few of you have asked whether we can hold other social events throughout the year."
-          },
-          {
-            "line": 6,
-            "startTime": 2013.5,
-            "endTime": 2017.5,
-            "transcript": "We don't have the budget to do anything big, but I'd like to hear your ideas."
-          },
-          {
-            "line": 7,
-            "startTime": 2018.0,
-            "endTime": 2020.0,
-            "transcript": "Everyone has my email address."
-          }
-        ]
-      },
-      {
-        "id": "t1_p4_s77-79",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 2069.2,
-            "endTime": 2070.8,
-            "transcript": "My name is Raul Phillips."
-          },
-          {
-            "line": 2,
-            "startTime": 2071.0,
-            "endTime": 2076.0,
-            "transcript": "I know it's short notice, but I'm a patient at your clinic, and I'd like to see a doctor today."
-          },
-          {
-            "line": 3,
-            "startTime": 2077.0,
-            "endTime": 2085.0,
-            "transcript": "I ran in a local half marathon yesterday, and well, I didn't feel pain at the time, but I think I sprained my ankle during the race."
-          },
-          {
-            "line": 4,
-            "startTime": 2085.5,
-            "endTime": 2089.5,
-            "transcript": "It's been sore since after the race, and I might need an X-ray."
-          },
-          {
-            "line": 5,
-            "startTime": 2089.8,
-            "endTime": 2091.0,
-            "transcript": "Could you call me back?"
-          },
-          {
-            "line": 6,
-            "startTime": 2091.5,
-            "endTime": 2098.0,
-            "transcript": "I'll be conducting some job interviews this morning, so I may not be able to answer my phone, but please leave a message."
-          },
-          {
-            "line": 7,
-            "startTime": 2098.2,
-            "endTime": 2102.0,
-            "transcript": "My number is 555-0167."
-          },
-          {
-            "line": 8,
-            "startTime": 2102.2,
-            "endTime": 2102.8,
-            "transcript": "Thanks."
-          }
-        ]
-      },
-      {
-        "id": "t1_p4_s80-82",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 2148.5,
-            "endTime": 2151.2,
-            "transcript": "This is Giovanni calling from Salazar Market."
-          },
-          {
-            "line": 2,
-            "startTime": 2151.8,
-            "endTime": 2154.8,
-            "transcript": "We're excited about selling your breakfast cereal in our store."
-          },
-          {
-            "line": 3,
-            "startTime": 2155.2,
-            "endTime": 2158.8,
-            "transcript": "Our customers have been asking for your brand for several months now."
-          },
-          {
-            "line": 4,
-            "startTime": 2159.2,
-            "endTime": 2204.8,
-            "transcript": "I'll be emailing you a contract later today. You can sign it and send it back to me at your convenience."
-          },
-          {
-            "line": 5,
-            "startTime": 2205.5,
-            "endTime": 2210.8,
-            "transcript": "It states that we'll be displaying your cereals at the end of an aisle, on the end cap, as you requested."
-          },
-          {
-            "line": 6,
-            "startTime": 2211.2,
-            "endTime": 2217.5,
-            "transcript": "You'll want to make sure we have enough boxes in the store to create a nice display and keep the shelves well-stocked for you."
-          }
-        ]
-      },
-      {
-        "id": "t1_p4_s83-85",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 2229.8,
-            "endTime": 2231.0,
-            "transcript": "Team,"
-          },
-          {
-            "line": 2,
-            "startTime": 2231.0,
-            "endTime": 2235.2,
-            "transcript": "let's debrief on the trial run of the DQY5, our satellite internet system."
-          },
-          {
-            "line": 3,
-            "startTime": 2236.0,
-            "endTime": 2242.8,
-            "transcript": "As you know, the DQY5 is a small satellite dish that can be used to access the internet in remote locations."
-          },
-          {
-            "line": 4,
-            "startTime": 2244.0,
-            "endTime": 2247.0,
-            "transcript": "Test users have said that it generally works very well."
-          },
-          {
-            "line": 5,
-            "startTime": 2247.5,
-            "endTime": 2253.0,
-            "transcript": "However, they all report service interruptions when winter storms cover the satellite dish in snow."
-          },
-          {
-            "line": 6,
-            "startTime": 2253.8,
-            "endTime": 2263.0,
-            "transcript": "That means we need to focus on designing an internal system that can heat up the satellite receiver and melt the snow to ensure that the connection is not disrupted."
-          },
-          {
-            "line": 7,
-            "startTime": 2263.8,
-            "endTime": 2268.0,
-            "transcript": "Let's break into groups of three and start brainstorming technical solutions."
-          }
-        ]
-      },
-      {
-        "id": "t1_p4_s86-88",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 2314.2,
-            "endTime": 2318.8,
-            "transcript": "Thanks for joining us for this evening's community orchestra performance."
-          },
-          {
-            "line": 2,
-            "startTime": 2319.2,
-            "endTime": 2322.0,
-            "transcript": "The concert was scheduled to begin at 8:00 p.m."
-          },
-          {
-            "line": 3,
-            "startTime": 2322.8,
-            "endTime": 2325.8,
-            "transcript": "Unfortunately, some of the microphones aren't working."
-          },
-          {
-            "line": 4,
-            "startTime": 2326.5,
-            "endTime": 2333.5,
-            "transcript": "So, while our sound engineers are correcting the issue, I'd like to tell you about an opportunity to help the theater."
-          },
-          {
-            "line": 5,
-            "startTime": 2334.0,
-            "endTime": 2339.8,
-            "transcript": "You may notice that all our ushers are volunteers, and we're always looking for more."
-          },
-          {
-            "line": 6,
-            "startTime": 2340.0,
-            "endTime": 2347.0,
-            "transcript": "Ushers take tickets, help patrons find their seats, and then, of course, get to enjoy the concert for free."
-          },
-          {
-            "line": 7,
-            "startTime": 2347.5,
-            "endTime": 2353.0,
-            "transcript": "If you're interested, be sure to check page four of your program booklet for more details."
-          }
-        ]
-      },
-      {
-        "id": "t1_p4_s89-91",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 2403.0,
-            "endTime": 2410.5,
-            "transcript": "I'm Natalie from Acroy Technologies, and I'm here to train everyone on using System Ace, your new project management software."
-          },
-          {
-            "line": 2,
-            "startTime": 2411.0,
-            "endTime": 2419.0,
-            "transcript": "Since you organize and provide a venue for professional conferences and trade shows, System Ace will allow you to create separate project folders for each event."
-          },
-          {
-            "line": 3,
-            "startTime": 2419.5,
-            "endTime": 2426.5,
-            "transcript": "This means that event-related to-do lists, schedules, and other documents for each folder will all be in one place."
-          },
-          {
-            "line": 4,
-            "startTime": 2427.2,
-            "endTime": 2430.5,
-            "transcript": "Now, the best way to learn a new program is by using it."
-          },
-          {
-            "line": 5,
-            "startTime": 2430.8,
-            "endTime": 2433.0,
-            "transcript": "So, please get out your tablet or laptop."
-          },
-          {
-            "line": 6,
-            "startTime": 2433.2,
-            "endTime": 2435.0,
-            "transcript": "We're going to try a few things together."
-          }
-        ]
-      },
-      {
-        "id": "t1_p4_s92-94",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 2479.2,
-            "endTime": 2488.0,
-            "transcript": "In this online session, I'd like to discuss how small businesses like those represented here today can be more energy efficient."
-          },
-          {
-            "line": 2,
-            "startTime": 2488.8,
-            "endTime": 2494.0,
-            "transcript": "For example, some companies install solar panels to reduce their electricity costs."
-          },
-          {
-            "line": 3,
-            "startTime": 2494.8,
-            "endTime": 2498.5,
-            "transcript": "Now, we all have different ideas about how to conserve energy."
-          },
-          {
-            "line": 4,
-            "startTime": 2499.0,
-            "endTime": 2502.5,
-            "transcript": "What does your company do to reduce its carbon footprint?"
-          },
-          {
-            "line": 5,
-            "startTime": 2503.0,
-            "endTime": 2505.5,
-            "transcript": "There's a lot of combined knowledge at this meeting."
-          },
-          {
-            "line": 6,
-            "startTime": 2506.0,
-            "endTime": 2507.8,
-            "transcript": "Let's take advantage of that."
-          },
-          {
-            "line": 7,
-            "startTime": 2508.5,
-            "endTime": 2511.5,
-            "transcript": "Please submit your questions and comments in the chat."
-          },
-          {
-            "line": 8,
-            "startTime": 2512.0,
-            "endTime": 2518.5,
-            "transcript": "By the way, this session is being recorded so that it's available to all participants after the session."
-          }
-        ]
-      },
-      {
-        "id": "t1_p4_s95-97",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 2567.5,
-            "endTime": 2569.5,
-            "transcript": "Thanks for coming to this weekly briefing."
-          },
-          {
-            "line": 2,
-            "startTime": 2569.8,
-            "endTime": 2576.8,
-            "transcript": "As you know, Joe's Trucking Company takes safety very seriously, and I'm glad all our drivers are able to attend today."
-          },
-          {
-            "line": 3,
-            "startTime": 2577.2,
-            "endTime": 2601.5,
-            "transcript": "So, we have five loads to deliver, including two loads of steel beams."
-          },
-          {
-            "line": 4,
-            "startTime": 2602.0,
-            "endTime": 2611.2,
-            "transcript": "Yasushi, you've been assigned to the car carrier, so please be sure to follow the safety checklist, especially the part about securely fastening all restraints."
-          },
-          {
-            "line": 5,
-            "startTime": 2612.0,
-            "endTime": 2616.0,
-            "transcript": "Junko, I'm concerned the lumber you're carrying will be considered oversize."
-          },
-          {
-            "line": 6,
-            "startTime": 2616.5,
-            "endTime": 2619.5,
-            "transcript": "I think the company will need to obtain a permit for you."
-          },
-          {
-            "line": 7,
-            "startTime": 2619.8,
-            "endTime": 2621.2,
-            "transcript": "We'll talk after the meeting."
-          }
-        ]
-      },
-      {
-        "id": "t1_p4_s98-100",
-        "sourceTest": "Test 7",
-        "audioFile": "Test_07.mp3",
-        "talk": [
-          {
-            "line": 1,
-            "startTime": 2653.5,
-            "endTime": 2656.5,
-            "transcript": "Welcome to the evening news program on WXNL Radio."
-          },
-          {
-            "line": 2,
-            "startTime": 2657.2,
-            "endTime": 2664.5,
-            "transcript": "In local news, the much-anticipated holiday parade will be held downtown this Saturday, beginning promptly at 10:00 a.m. on Main Street."
-          },
-          {
-            "line": 3,
-            "startTime": 2665.5,
-            "endTime": 2671.8,
-            "transcript": "However, according to the city government's website, there's been one important change. The parade was supposed to follow a route along five city roads."
-          },
-          {
-            "line": 4,
-            "startTime": 2672.0,
-            "endTime": 2681.8,
-            "transcript": "But because of traffic concerns, the parade will now stop at the end of Curtis Avenue instead of continuing to the originally planned endpoint."
-          },
-          {
-            "line": 5,
-            "startTime": 2682.2,
-            "endTime": 2690.0,
-            "transcript": "Now, in case you're wondering whether we'll have sunny skies or clouds on the day of the parade, stay tuned after the commercial break for our weekend forecast."
-          }
-        ]
-      }
-    ]
-  }
+  "part1": [
+    {
+      "id": "t1_p1_q1_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 105.0,
+      "endTime": 108.39999999999999,
+      "transcript": "He's digging in a garden."
+    },
+    {
+      "id": "t1_p1_q1_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 108.5,
+      "endTime": 111.99999999999999,
+      "transcript": "He's stacking wooden pallets."
+    },
+    {
+      "id": "t1_p1_q1_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 112.5,
+      "endTime": 115.99999999999999,
+      "transcript": "He's emptying soil from a pot."
+    },
+    {
+      "id": "t1_p1_q1_d",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 116.0,
+      "endTime": 119.69999999999999,
+      "transcript": "He's examining some plants."
+    },
+    {
+      "id": "t1_p1_q2_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 130.5,
+      "endTime": 134.7,
+      "transcript": "One of the women is pushing a cart towards an exit."
+    },
+    {
+      "id": "t1_p1_q2_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 134.8,
+      "endTime": 139.0,
+      "transcript": "One of the women is hanging a coat on a hook."
+    },
+    {
+      "id": "t1_p1_q2_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 139.5,
+      "endTime": 143.2,
+      "transcript": "The women are restocking some store shelves."
+    },
+    {
+      "id": "t1_p1_q2_d",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 143.0,
+      "endTime": 147.0,
+      "transcript": "The women are purchasing some groceries."
+    },
+    {
+      "id": "t1_p1_q3_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 164.5,
+      "endTime": 168.39999999999998,
+      "transcript": "The man is resting his arm on a counter."
+    },
+    {
+      "id": "t1_p1_q3_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 168.5,
+      "endTime": 172.2,
+      "transcript": "The man is folding his coat."
+    },
+    {
+      "id": "t1_p1_q3_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 172.5,
+      "endTime": 176.7,
+      "transcript": "A cabinet door has been left open."
+    },
+    {
+      "id": "t1_p1_q3_d",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 176.5,
+      "endTime": 180.7,
+      "transcript": "Some stools are being wiped down."
+    },
+    {
+      "id": "t1_p1_q4_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 191.5,
+      "endTime": 195.2,
+      "transcript": "Some balconies are decorated with banners."
+    },
+    {
+      "id": "t1_p1_q4_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 195.5,
+      "endTime": 200.0,
+      "transcript": "Some signs have been posted in front of a building."
+    },
+    {
+      "id": "t1_p1_q4_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 199.8,
+      "endTime": 204.7,
+      "transcript": "A cafe has been set up on a street corner."
+    },
+    {
+      "id": "t1_p1_q4_d",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 204.5,
+      "endTime": 208.7,
+      "transcript": "A tour group is standing outside a building."
+    },
+    {
+      "id": "t1_p1_q5_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 220.0,
+      "endTime": 223.2,
+      "transcript": "Some people are waiting at a bus stop."
+    },
+    {
+      "id": "t1_p1_q5_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 223.5,
+      "endTime": 227.2,
+      "transcript": "Bike racks have been placed near a lawn."
+    },
+    {
+      "id": "t1_p1_q5_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 227.5,
+      "endTime": 231.39999999999998,
+      "transcript": "Some cars are parked along a sidewalk."
+    },
+    {
+      "id": "t1_p1_q5_d",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 231.5,
+      "endTime": 235.2,
+      "transcript": "Some people are gathered in a city square."
+    },
+    {
+      "id": "t1_p1_q6_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 246.0,
+      "endTime": 249.7,
+      "transcript": "The sun is being blocked by some curtains."
+    },
+    {
+      "id": "t1_p1_q6_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 249.8,
+      "endTime": 254.7,
+      "transcript": "There's a large carpet underneath a piano."
+    },
+    {
+      "id": "t1_p1_q6_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 254.8,
+      "endTime": 259.00000000000006,
+      "transcript": "There are some windows by a seating area."
+    },
+    {
+      "id": "t1_p1_q6_d",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 258.8,
+      "endTime": 263.70000000000005,
+      "transcript": "Some furniture is being stored in a closet."
+    }
+  ],
+  "part2": [
+    {
+      "id": "t1_p2_q7_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 304.0,
+      "endTime": 308.00000000000006,
+      "transcript": "Who's providing the floral arrangements for the party?"
+    },
+    {
+      "id": "t1_p2_q7_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 308.5,
+      "endTime": 312.00000000000006,
+      "transcript": "The florist on Main Street."
+    },
+    {
+      "id": "t1_p2_q7_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 312.0,
+      "endTime": 315.70000000000005,
+      "transcript": "She's had a long career."
+    },
+    {
+      "id": "t1_p2_q7_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 316.0,
+      "endTime": 320.00000000000006,
+      "transcript": "Yes, his flight has been arranged."
+    },
+    {
+      "id": "t1_p2_q8_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 325.5,
+      "endTime": 328.70000000000005,
+      "transcript": "Why didn't you finish the budget report?"
+    },
+    {
+      "id": "t1_p2_q8_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 329.0,
+      "endTime": 332.00000000000006,
+      "transcript": "At the finish line."
+    },
+    {
+      "id": "t1_p2_q8_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 332.5,
+      "endTime": 335.70000000000005,
+      "transcript": "No, it wasn't expensive."
+    },
+    {
+      "id": "t1_p2_q8_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 335.8,
+      "endTime": 339.20000000000005,
+      "transcript": "I was meeting with a client."
+    },
+    {
+      "id": "t1_p2_q9_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 344.8,
+      "endTime": 347.70000000000005,
+      "transcript": "What floor are you going to?"
+    },
+    {
+      "id": "t1_p2_q9_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 348.0,
+      "endTime": 351.40000000000003,
+      "transcript": "Can I have a copy of this?"
+    },
+    {
+      "id": "t1_p2_q9_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 351.8,
+      "endTime": 354.70000000000005,
+      "transcript": "The 25th."
+    },
+    {
+      "id": "t1_p2_q9_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 354.8,
+      "endTime": 358.00000000000006,
+      "transcript": "That painting will look nice there."
+    },
+    {
+      "id": "t1_p2_q10_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 363.5,
+      "endTime": 366.70000000000005,
+      "transcript": "How do I set up this projector?"
+    },
+    {
+      "id": "t1_p2_q10_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 367.2,
+      "endTime": 370.70000000000005,
+      "transcript": "The storage area downstairs."
+    },
+    {
+      "id": "t1_p2_q10_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 371.2,
+      "endTime": 374.70000000000005,
+      "transcript": "A new project code."
+    },
+    {
+      "id": "t1_p2_q10_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 374.8,
+      "endTime": 378.00000000000006,
+      "transcript": "There's a manual in the drawer."
+    },
+    {
+      "id": "t1_p2_q11_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 384.0,
+      "endTime": 387.70000000000005,
+      "transcript": "Who has already received their promotion letter?"
+    },
+    {
+      "id": "t1_p2_q11_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 388.5,
+      "endTime": 391.00000000000006,
+      "transcript": "I did yesterday."
+    },
+    {
+      "id": "t1_p2_q11_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 391.5,
+      "endTime": 394.40000000000003,
+      "transcript": "A party invitation."
+    },
+    {
+      "id": "t1_p2_q11_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 394.8,
+      "endTime": 397.70000000000005,
+      "transcript": "Paulina gave the speech."
+    },
+    {
+      "id": "t1_p2_q12_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 403.2,
+      "endTime": 406.20000000000005,
+      "transcript": "Did you read the press release?"
+    },
+    {
+      "id": "t1_p2_q12_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 406.8,
+      "endTime": 410.40000000000003,
+      "transcript": "I haven't checked my email all day."
+    },
+    {
+      "id": "t1_p2_q12_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 411.2,
+      "endTime": 414.40000000000003,
+      "transcript": "It's not raining here yet."
+    },
+    {
+      "id": "t1_p2_q12_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 414.8,
+      "endTime": 417.70000000000005,
+      "transcript": "The switch works fine."
+    },
+    {
+      "id": "t1_p2_q13_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 423.8,
+      "endTime": 427.40000000000003,
+      "transcript": "Didn't we renew our newspaper subscription last month?"
+    },
+    {
+      "id": "t1_p2_q13_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 428.0,
+      "endTime": 431.40000000000003,
+      "transcript": "That photo's on the front page."
+    },
+    {
+      "id": "t1_p2_q13_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 432.2,
+      "endTime": 435.70000000000005,
+      "transcript": "Here's the paper for your newsletter."
+    },
+    {
+      "id": "t1_p2_q13_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 436.2,
+      "endTime": 440.40000000000003,
+      "transcript": "Yes, it was renewed for another six months."
+    },
+    {
+      "id": "t1_p2_q14_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 446.5,
+      "endTime": 451.40000000000003,
+      "transcript": "When will we mention our budgetary needs to the outreach coordinator?"
+    },
+    {
+      "id": "t1_p2_q14_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 451.8,
+      "endTime": 455.40000000000003,
+      "transcript": "I can't quite reach the top shelf."
+    },
+    {
+      "id": "t1_p2_q14_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 455.8,
+      "endTime": 459.70000000000005,
+      "transcript": "We're fully funded through the end of the year."
+    },
+    {
+      "id": "t1_p2_q14_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 459.8,
+      "endTime": 464.00000000000006,
+      "transcript": "Because our accountant is on vacation."
+    },
+    {
+      "id": "t1_p2_q15_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 469.8,
+      "endTime": 474.40000000000003,
+      "transcript": "My appointment is with Dr. Hamdy today, right?"
+    },
+    {
+      "id": "t1_p2_q15_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 474.8,
+      "endTime": 478.00000000000006,
+      "transcript": "Usually an annual checkup."
+    },
+    {
+      "id": "t1_p2_q15_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 478.5,
+      "endTime": 482.00000000000006,
+      "transcript": "No, parking is not free."
+    },
+    {
+      "id": "t1_p2_q15_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 482.5,
+      "endTime": 486.40000000000003,
+      "transcript": "Yes, and she'll see you in a minute."
+    },
+    {
+      "id": "t1_p2_q16_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 492.2,
+      "endTime": 495.40000000000003,
+      "transcript": "Where should I store this shipment of paper?"
+    },
+    {
+      "id": "t1_p2_q16_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 495.8,
+      "endTime": 499.00000000000006,
+      "transcript": "The store closes at four."
+    },
+    {
+      "id": "t1_p2_q16_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 499.5,
+      "endTime": 502.40000000000003,
+      "transcript": "By express delivery."
+    },
+    {
+      "id": "t1_p2_q16_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 502.8,
+      "endTime": 506.40000000000003,
+      "transcript": "Well, the supply room is full."
+    },
+    {
+      "id": "t1_p2_q17_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 512.5,
+      "endTime": 516.7,
+      "transcript": "Would you be able to reschedule my haircut for Monday?"
+    },
+    {
+      "id": "t1_p2_q17_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 517.5,
+      "endTime": 521.2,
+      "transcript": "No, we're fully booked that day."
+    },
+    {
+      "id": "t1_p2_q17_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 521.5,
+      "endTime": 525.7,
+      "transcript": "I'll open a window to let in some fresh air."
+    },
+    {
+      "id": "t1_p2_q17_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 526.2,
+      "endTime": 529.4000000000001,
+      "transcript": "The grass needs cutting."
+    },
+    {
+      "id": "t1_p2_q18_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 535.2,
+      "endTime": 539.4000000000001,
+      "transcript": "Should I take the train or the bus to the airport?"
+    },
+    {
+      "id": "t1_p2_q18_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 539.5,
+      "endTime": 543.7,
+      "transcript": "The bus stop is five kilometers away."
+    },
+    {
+      "id": "t1_p2_q18_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 544.2,
+      "endTime": 547.4000000000001,
+      "transcript": "There are enough for all of us."
+    },
+    {
+      "id": "t1_p2_q18_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 547.8,
+      "endTime": 551.4000000000001,
+      "transcript": "No, I went to a training session."
+    },
+    {
+      "id": "t1_p2_q19_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 557.2,
+      "endTime": 560.7,
+      "transcript": "How long will the online course take?"
+    },
+    {
+      "id": "t1_p2_q19_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 561.5,
+      "endTime": 565.0,
+      "transcript": "You can finish it in a few hours."
+    },
+    {
+      "id": "t1_p2_q19_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 565.0,
+      "endTime": 568.0,
+      "transcript": "Forty dollars a month."
+    },
+    {
+      "id": "t1_p2_q19_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 568.5,
+      "endTime": 571.7,
+      "transcript": "I'll take the blue jacket."
+    },
+    {
+      "id": "t1_p2_q20_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 577.0,
+      "endTime": 582.0,
+      "transcript": "Will this month's company gathering be held in Benson Park?"
+    },
+    {
+      "id": "t1_p2_q20_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 582.8,
+      "endTime": 586.2,
+      "transcript": "I usually park by the fountain."
+    },
+    {
+      "id": "t1_p2_q20_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 586.8,
+      "endTime": 591.0,
+      "transcript": "It's still cold outside most days."
+    },
+    {
+      "id": "t1_p2_q20_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 591.2,
+      "endTime": 595.0,
+      "transcript": "Those should be printed in color."
+    },
+    {
+      "id": "t1_p2_q21_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 601.2,
+      "endTime": 605.4000000000001,
+      "transcript": "When will the tickets for the performance be ready to pick up?"
+    },
+    {
+      "id": "t1_p2_q21_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 606.0,
+      "endTime": 609.4000000000001,
+      "transcript": "We should get them by the end of the week."
+    },
+    {
+      "id": "t1_p2_q21_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 609.8,
+      "endTime": 612.7,
+      "transcript": "A famous director."
+    },
+    {
+      "id": "t1_p2_q21_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 613.2,
+      "endTime": 616.0,
+      "transcript": "Twenty-five euros."
+    },
+    {
+      "id": "t1_p2_q22_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 622.2,
+      "endTime": 626.2,
+      "transcript": "I don't know if the packaging materials were ordered already."
+    },
+    {
+      "id": "t1_p2_q22_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 626.8,
+      "endTime": 630.7,
+      "transcript": "I saw some boxes on the loading dock."
+    },
+    {
+      "id": "t1_p2_q22_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 631.0,
+      "endTime": 634.2,
+      "transcript": "She's wearing a red hat."
+    },
+    {
+      "id": "t1_p2_q22_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 634.5,
+      "endTime": 638.2,
+      "transcript": "A lunch appointment at 12:30."
+    },
+    {
+      "id": "t1_p2_q23_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 644.2,
+      "endTime": 648.0,
+      "transcript": "Could you please send me the sales report?"
+    },
+    {
+      "id": "t1_p2_q23_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 648.5,
+      "endTime": 653.0,
+      "transcript": "Fifty percent off last season's merchandise."
+    },
+    {
+      "id": "t1_p2_q23_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 653.2,
+      "endTime": 656.7,
+      "transcript": "Of course, I'll do it now."
+    },
+    {
+      "id": "t1_p2_q23_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 657.0,
+      "endTime": 660.4000000000001,
+      "transcript": "Did you check the weather report?"
+    },
+    {
+      "id": "t1_p2_q24_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 666.2,
+      "endTime": 669.7,
+      "transcript": "What type of view will your apartment have?"
+    },
+    {
+      "id": "t1_p2_q24_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 670.5,
+      "endTime": 673.7,
+      "transcript": "The kitchen lighting looks great."
+    },
+    {
+      "id": "t1_p2_q24_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 674.2,
+      "endTime": 677.4000000000001,
+      "transcript": "I haven't signed a lease yet."
+    },
+    {
+      "id": "t1_p2_q24_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 677.8,
+      "endTime": 681.4000000000001,
+      "transcript": "We're in complete agreement on that."
+    },
+    {
+      "id": "t1_p2_q25_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 687.2,
+      "endTime": 692.0,
+      "transcript": "How much oil does your heater use in the winter?"
+    },
+    {
+      "id": "t1_p2_q25_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 692.5,
+      "endTime": 696.4000000000001,
+      "transcript": "We may need to stop for gas on our trip."
+    },
+    {
+      "id": "t1_p2_q25_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 697.2,
+      "endTime": 700.7,
+      "transcript": "That recipe calls for butter."
+    },
+    {
+      "id": "t1_p2_q25_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 701.0,
+      "endTime": 704.7,
+      "transcript": "We only use electric appliances."
+    },
+    {
+      "id": "t1_p2_q26_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 711.2,
+      "endTime": 714.0,
+      "transcript": "Where can I find the vitamins?"
+    },
+    {
+      "id": "t1_p2_q26_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 714.8,
+      "endTime": 717.2,
+      "transcript": "In aisle six."
+    },
+    {
+      "id": "t1_p2_q26_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 717.8,
+      "endTime": 721.2,
+      "transcript": "That's a really healthy recipe."
+    },
+    {
+      "id": "t1_p2_q26_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 721.5,
+      "endTime": 725.2,
+      "transcript": "The library is closed on Sundays."
+    },
+    {
+      "id": "t1_p2_q27_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 731.2,
+      "endTime": 734.4000000000001,
+      "transcript": "Thank you for helping me create a survey."
+    },
+    {
+      "id": "t1_p2_q27_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 735.2,
+      "endTime": 738.7,
+      "transcript": "The software did most of the work."
+    },
+    {
+      "id": "t1_p2_q27_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 739.0,
+      "endTime": 742.2,
+      "transcript": "Our loyal customers."
+    },
+    {
+      "id": "t1_p2_q27_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 742.5,
+      "endTime": 746.7,
+      "transcript": "The crates are still in the warehouse."
+    },
+    {
+      "id": "t1_p2_q28_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 752.5,
+      "endTime": 756.4000000000001,
+      "transcript": "When will you be done testing the new mobile app?"
+    },
+    {
+      "id": "t1_p2_q28_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 757.0,
+      "endTime": 761.0,
+      "transcript": "No, just an older laptop model."
+    },
+    {
+      "id": "t1_p2_q28_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 761.8,
+      "endTime": 764.7,
+      "transcript": "I'm almost finished."
+    },
+    {
+      "id": "t1_p2_q28_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 764.8,
+      "endTime": 768.7,
+      "transcript": "It's about a two-hour drive from here."
+    },
+    {
+      "id": "t1_p2_q29_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 774.2,
+      "endTime": 779.0,
+      "transcript": "Don't forget to turn off the projector after your presentation."
+    },
+    {
+      "id": "t1_p2_q29_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 779.5,
+      "endTime": 782.4000000000001,
+      "transcript": "I don't have a summary."
+    },
+    {
+      "id": "t1_p2_q29_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 782.8,
+      "endTime": 786.7,
+      "transcript": "Should I return it to the supply closet?"
+    },
+    {
+      "id": "t1_p2_q29_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 787.0,
+      "endTime": 790.7,
+      "transcript": "Please distribute these handouts."
+    },
+    {
+      "id": "t1_p2_q30_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 796.2,
+      "endTime": 800.7,
+      "transcript": "Didn't there used to be a parking garage on this street?"
+    },
+    {
+      "id": "t1_p2_q30_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 801.5,
+      "endTime": 804.7,
+      "transcript": "Yes, but it's been torn down."
+    },
+    {
+      "id": "t1_p2_q30_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 805.0,
+      "endTime": 808.4000000000001,
+      "transcript": "You can hang your keys on this hook."
+    },
+    {
+      "id": "t1_p2_q30_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 808.5,
+      "endTime": 812.2,
+      "transcript": "My car has a flat tire."
+    },
+    {
+      "id": "t1_p2_q31_question",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 818.0,
+      "endTime": 822.2,
+      "transcript": "Will you be available to work on Thursday or Friday?"
+    },
+    {
+      "id": "t1_p2_q31_a",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 822.8,
+      "endTime": 826.7,
+      "transcript": "There's mandatory training on Friday."
+    },
+    {
+      "id": "t1_p2_q31_b",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 827.2,
+      "endTime": 830.7,
+      "transcript": "Yes, it was a good show."
+    },
+    {
+      "id": "t1_p2_q31_c",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "startTime": 831.0,
+      "endTime": 834.0,
+      "transcript": "A daily schedule."
+    }
+  ],
+  "part3": [
+    {
+      "id": "t1_p3_s32-34",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 873.8,
+          "endTime": 879.2,
+          "transcript": "Hi, I'm Gabriella Alvarez of Organic Easy Meals."
+        },
+        {
+          "line": 2,
+          "startTime": 878.2,
+          "endTime": 885.0,
+          "transcript": "I'm scheduled to offer some samples of our new vegetable chips to your customers from 3:00 to 5:00 p.m."
+        },
+        {
+          "line": 3,
+          "startTime": 884.5,
+          "endTime": 887.4000000000001,
+          "transcript": "Oh, yes. Hello, Ms. Alvarez."
+        },
+        {
+          "line": 4,
+          "startTime": 886.8,
+          "endTime": 889.4000000000001,
+          "transcript": "I'm Ryan Hughes, the manager."
+        },
+        {
+          "line": 5,
+          "startTime": 888.8,
+          "endTime": 892.4000000000001,
+          "transcript": "We have a table set up for you at the end of aisle eight."
+        },
+        {
+          "line": 6,
+          "startTime": 891.8,
+          "endTime": 894.0,
+          "transcript": "That's our snacks aisle."
+        },
+        {
+          "line": 7,
+          "startTime": 893.5,
+          "endTime": 895.2,
+          "transcript": "Thanks."
+        },
+        {
+          "line": 8,
+          "startTime": 894.5,
+          "endTime": 899.0,
+          "transcript": "I'll start bringing in food and some equipment from my truck."
+        },
+        {
+          "line": 9,
+          "startTime": 898.2,
+          "endTime": 902.7,
+          "transcript": "But first, I'd like to take a look at the table I'll be using."
+        },
+        {
+          "line": 10,
+          "startTime": 901.8,
+          "endTime": 904.0,
+          "transcript": "Sounds good."
+        },
+        {
+          "line": 11,
+          "startTime": 903.0,
+          "endTime": 907.4000000000001,
+          "transcript": "If you'd like any help bringing in your stuff, just let me know."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s35-37",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 952.2,
+          "endTime": 954.2,
+          "transcript": "Hello."
+        },
+        {
+          "line": 2,
+          "startTime": 953.2,
+          "endTime": 959.2,
+          "transcript": "I received a notice in the mail about a fee I need to pay because I returned some books late."
+        },
+        {
+          "line": 3,
+          "startTime": 958.2,
+          "endTime": 960.7,
+          "transcript": "My name is Lin Gao."
+        },
+        {
+          "line": 4,
+          "startTime": 960.0,
+          "endTime": 961.7,
+          "transcript": "Hmm."
+        },
+        {
+          "line": 5,
+          "startTime": 961.0,
+          "endTime": 967.0,
+          "transcript": "Yes, it says here in the system that you owe $10 for overdue materials."
+        },
+        {
+          "line": 6,
+          "startTime": 966.2,
+          "endTime": 969.0,
+          "transcript": "Would you like to pay that now?"
+        },
+        {
+          "line": 7,
+          "startTime": 968.2,
+          "endTime": 970.7,
+          "transcript": "Do you take credit cards?"
+        },
+        {
+          "line": 8,
+          "startTime": 969.8,
+          "endTime": 975.4000000000001,
+          "transcript": "We usually accept either cash or credit, but our card reader has been malfunctioning."
+        },
+        {
+          "line": 9,
+          "startTime": 974.8,
+          "endTime": 977.7,
+          "transcript": "Let me see if it's working again."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s38-40",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1022.2,
+          "endTime": 1024.4,
+          "transcript": "Hi everybody."
+        },
+        {
+          "line": 2,
+          "startTime": 1023.2,
+          "endTime": 1026.3999999999999,
+          "transcript": "Are we ready for the sales meeting this morning?"
+        },
+        {
+          "line": 3,
+          "startTime": 1025.8,
+          "endTime": 1029.6999999999998,
+          "transcript": "Yes, I finished putting together my presentation."
+        },
+        {
+          "line": 4,
+          "startTime": 1029.0,
+          "endTime": 1032.1999999999998,
+          "transcript": "The meeting's in the conference room, right?"
+        },
+        {
+          "line": 5,
+          "startTime": 1031.5,
+          "endTime": 1034.9999999999998,
+          "transcript": "No, there's been a last-minute change."
+        },
+        {
+          "line": 6,
+          "startTime": 1034.2,
+          "endTime": 1039.9999999999998,
+          "transcript": "The conference room is being used by the IT department all day to interview job candidates."
+        },
+        {
+          "line": 7,
+          "startTime": 1039.5,
+          "endTime": 1041.1999999999998,
+          "transcript": "Oh no."
+        },
+        {
+          "line": 8,
+          "startTime": 1040.5,
+          "endTime": 1044.1999999999998,
+          "transcript": "My presentation requires the use of a television."
+        },
+        {
+          "line": 9,
+          "startTime": 1043.5,
+          "endTime": 1045.3999999999999,
+          "transcript": "Don't worry."
+        },
+        {
+          "line": 10,
+          "startTime": 1044.5,
+          "endTime": 1046.9999999999998,
+          "transcript": "We're meeting in the board room."
+        },
+        {
+          "line": 11,
+          "startTime": 1045.8,
+          "endTime": 1048.3999999999999,
+          "transcript": "There's a smart TV there."
+        },
+        {
+          "line": 12,
+          "startTime": 1047.8,
+          "endTime": 1051.1999999999998,
+          "transcript": "Is that room large enough for our team?"
+        },
+        {
+          "line": 13,
+          "startTime": 1050.2,
+          "endTime": 1051.9999999999998,
+          "transcript": "Yes."
+        },
+        {
+          "line": 14,
+          "startTime": 1050.8,
+          "endTime": 1053.1999999999998,
+          "transcript": "We won't have a problem."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s41-43",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1097.5,
+          "endTime": 1101.1999999999998,
+          "transcript": "Did you see the road construction sign at the corner?"
+        },
+        {
+          "line": 2,
+          "startTime": 1100.0,
+          "endTime": 1103.6999999999998,
+          "transcript": "All traffic is being directed away from our street."
+        },
+        {
+          "line": 3,
+          "startTime": 1103.0,
+          "endTime": 1105.6999999999998,
+          "transcript": "No one can come this way."
+        },
+        {
+          "line": 4,
+          "startTime": 1105.0,
+          "endTime": 1106.9999999999998,
+          "transcript": "I know."
+        },
+        {
+          "line": 5,
+          "startTime": 1106.0,
+          "endTime": 1111.6999999999998,
+          "transcript": "How will customers visit our store to make copies and pick up photo prints?"
+        },
+        {
+          "line": 6,
+          "startTime": 1111.0,
+          "endTime": 1114.3999999999999,
+          "transcript": "I'm afraid they'll have to park on another street."
+        },
+        {
+          "line": 7,
+          "startTime": 1113.5,
+          "endTime": 1116.6999999999998,
+          "transcript": "They can still access the store on foot."
+        },
+        {
+          "line": 8,
+          "startTime": 1115.8,
+          "endTime": 1117.6999999999998,
+          "transcript": "Okay."
+        },
+        {
+          "line": 9,
+          "startTime": 1116.8,
+          "endTime": 1121.1999999999998,
+          "transcript": "I'll update our social media page to direct our customers."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s44-46",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1172.0,
+          "endTime": 1180.1999999999998,
+          "transcript": "It's your first day working here, so we'll spend the morning surveying the walking trails so you can get a sense of the area."
+        },
+        {
+          "line": 2,
+          "startTime": 1179.5,
+          "endTime": 1185.6999999999998,
+          "transcript": "While we're at it, we'll also collect soil samples from different areas of the park."
+        },
+        {
+          "line": 3,
+          "startTime": 1185.2,
+          "endTime": 1190.1999999999998,
+          "transcript": "We need to test the soil samples to monitor the health of the preserve, right?"
+        },
+        {
+          "line": 4,
+          "startTime": 1189.5,
+          "endTime": 1191.1999999999998,
+          "transcript": "Yes."
+        },
+        {
+          "line": 5,
+          "startTime": 1190.0,
+          "endTime": 1195.9999999999998,
+          "transcript": "We don't have a laboratory, so we send them out for testing every month."
+        },
+        {
+          "line": 6,
+          "startTime": 1195.2,
+          "endTime": 1201.9999999999998,
+          "transcript": "And since it's a sunny day today, it's a good time to take photographs for our social media page."
+        },
+        {
+          "line": 7,
+          "startTime": 1201.0,
+          "endTime": 1202.9999999999998,
+          "transcript": "I can do that."
+        },
+        {
+          "line": 8,
+          "startTime": 1202.0,
+          "endTime": 1204.6999999999998,
+          "transcript": "I brought my camera."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s47-49",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1249.0,
+          "endTime": 1251.1999999999998,
+          "transcript": "Good morning, Ivan."
+        },
+        {
+          "line": 2,
+          "startTime": 1250.5,
+          "endTime": 1255.9999999999998,
+          "transcript": "Everyone's talking about the flyer that was posted on our bulletin board yesterday. Have you seen it?"
+        },
+        {
+          "line": 3,
+          "startTime": 1256.0,
+          "endTime": 1259.9999999999998,
+          "transcript": "I was out of the office yesterday, but I've heard."
+        },
+        {
+          "line": 4,
+          "startTime": 1259.0,
+          "endTime": 1303.3999999999999,
+          "transcript": "Big changes are coming for all mail carriers in the city."
+        },
+        {
+          "line": 5,
+          "startTime": 1302.8,
+          "endTime": 1304.6999999999998,
+          "transcript": "That's right."
+        },
+        {
+          "line": 6,
+          "startTime": 1303.8,
+          "endTime": 1308.6999999999998,
+          "transcript": "Our entire postal delivery fleet is being replaced with electric vehicles."
+        },
+        {
+          "line": 7,
+          "startTime": 1308.0,
+          "endTime": 1312.1999999999998,
+          "transcript": "I just hope that we don't have to charge them every few hours."
+        },
+        {
+          "line": 8,
+          "startTime": 1311.5,
+          "endTime": 1315.9999999999998,
+          "transcript": "I'm concerned that the battery won't last through my entire route."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s50-52",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1379.0,
+          "endTime": 1382.1999999999998,
+          "transcript": "Koda, I want you to meet Claudia."
+        },
+        {
+          "line": 2,
+          "startTime": 1381.5,
+          "endTime": 1384.3999999999999,
+          "transcript": "Claudia is starting work today."
+        },
+        {
+          "line": 3,
+          "startTime": 1383.8,
+          "endTime": 1388.3999999999999,
+          "transcript": "Could you show her around and explain some of our processes?"
+        },
+        {
+          "line": 4,
+          "startTime": 1388.0,
+          "endTime": 1390.6999999999998,
+          "transcript": "Of course, Ms. Park."
+        },
+        {
+          "line": 5,
+          "startTime": 1390.0,
+          "endTime": 1392.6999999999998,
+          "transcript": "Welcome to the team, Claudia."
+        },
+        {
+          "line": 6,
+          "startTime": 1391.8,
+          "endTime": 1393.6999999999998,
+          "transcript": "Thank you."
+        },
+        {
+          "line": 7,
+          "startTime": 1393.0,
+          "endTime": 1397.9999999999998,
+          "transcript": "I'm coming from the Silver Ridge Inn, where I also worked at the front desk."
+        },
+        {
+          "line": 8,
+          "startTime": 1397.2,
+          "endTime": 1402.9999999999998,
+          "transcript": "So you already have experience with taking reservations and checking in guests."
+        },
+        {
+          "line": 9,
+          "startTime": 1402.0,
+          "endTime": 1403.6999999999998,
+          "transcript": "Yes."
+        },
+        {
+          "line": 10,
+          "startTime": 1402.8,
+          "endTime": 1407.1999999999998,
+          "transcript": "But we used a different software system than the one I see you have here."
+        },
+        {
+          "line": 11,
+          "startTime": 1406.5,
+          "endTime": 1409.1999999999998,
+          "transcript": "It's easy to use."
+        },
+        {
+          "line": 12,
+          "startTime": 1408.0,
+          "endTime": 1410.3999999999999,
+          "transcript": "Let me show you how."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s53-55",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1455.0,
+          "endTime": 1458.9999999999998,
+          "transcript": "Wow, I didn't expect this restaurant to be so popular."
+        },
+        {
+          "line": 2,
+          "startTime": 1458.0,
+          "endTime": 1461.1999999999998,
+          "transcript": "Look at all the people waiting to be seated."
+        },
+        {
+          "line": 3,
+          "startTime": 1460.5,
+          "endTime": 1462.1999999999998,
+          "transcript": "I know."
+        },
+        {
+          "line": 4,
+          "startTime": 1461.5,
+          "endTime": 1465.6999999999998,
+          "transcript": "It's brand new. I didn't think anyone knew about it yet."
+        },
+        {
+          "line": 5,
+          "startTime": 1465.0,
+          "endTime": 1468.9999999999998,
+          "transcript": "Looks like we won't be able to get a table for a while."
+        },
+        {
+          "line": 6,
+          "startTime": 1468.2,
+          "endTime": 1470.9999999999998,
+          "transcript": "Well, we don't have much time."
+        },
+        {
+          "line": 7,
+          "startTime": 1470.0,
+          "endTime": 1474.9999999999998,
+          "transcript": "We need to drive back to the office to train our interns at 1:00."
+        },
+        {
+          "line": 8,
+          "startTime": 1474.0,
+          "endTime": 1476.3999999999999,
+          "transcript": "Should we go somewhere else?"
+        },
+        {
+          "line": 9,
+          "startTime": 1475.8,
+          "endTime": 1478.3999999999999,
+          "transcript": "Let's see if they offer takeout."
+        },
+        {
+          "line": 10,
+          "startTime": 1477.5,
+          "endTime": 1480.6999999999998,
+          "transcript": "We can just order something to go."
+        },
+        {
+          "line": 11,
+          "startTime": 1479.8,
+          "endTime": 1481.6999999999998,
+          "transcript": "Good idea."
+        },
+        {
+          "line": 12,
+          "startTime": 1480.5,
+          "endTime": 1483.9999999999998,
+          "transcript": "I'm looking forward to trying the spicy noodles."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s56-58",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1529.5,
+          "endTime": 1533.3999999999999,
+          "transcript": "Hi Ahmed, did you see the email from management?"
+        },
+        {
+          "line": 2,
+          "startTime": 1533.0,
+          "endTime": 1536.6999999999998,
+          "transcript": "I just got here to teach my aerobics class."
+        },
+        {
+          "line": 3,
+          "startTime": 1536.2,
+          "endTime": 1541.3999999999999,
+          "transcript": "It looks like the gym is opening another facility just a few miles from here."
+        },
+        {
+          "line": 4,
+          "startTime": 1540.8,
+          "endTime": 1545.3999999999999,
+          "transcript": "I'm surprised they want to open another location so close by."
+        },
+        {
+          "line": 5,
+          "startTime": 1544.8,
+          "endTime": 1549.1999999999998,
+          "transcript": "Well, this is a densely populated area."
+        },
+        {
+          "line": 6,
+          "startTime": 1548.5,
+          "endTime": 1550.1999999999998,
+          "transcript": "True."
+        },
+        {
+          "line": 7,
+          "startTime": 1549.2,
+          "endTime": 1552.6999999999998,
+          "transcript": "I guess they'll have to hire more employees."
+        },
+        {
+          "line": 8,
+          "startTime": 1552.0,
+          "endTime": 1556.3999999999999,
+          "transcript": "There's just not enough of us to staff both locations."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s59-61",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1604.0,
+          "endTime": 1608.9999999999998,
+          "transcript": "Marcel, I'd like to plan a team-building event with our graphic design group."
+        },
+        {
+          "line": 2,
+          "startTime": 1608.2,
+          "endTime": 1609.9999999999998,
+          "transcript": "Sure."
+        },
+        {
+          "line": 3,
+          "startTime": 1609.0,
+          "endTime": 1612.3999999999999,
+          "transcript": "We could reserve the conference room upstairs."
+        },
+        {
+          "line": 4,
+          "startTime": 1611.8,
+          "endTime": 1616.1999999999998,
+          "transcript": "But the event wouldn't be just for on-site graphic designers."
+        },
+        {
+          "line": 5,
+          "startTime": 1615.2,
+          "endTime": 1619.1999999999998,
+          "transcript": "Nearly a third of our staff will be participating remotely."
+        },
+        {
+          "line": 6,
+          "startTime": 1618.5,
+          "endTime": 1620.6999999999998,
+          "transcript": "Oh, you're right."
+        },
+        {
+          "line": 7,
+          "startTime": 1620.0,
+          "endTime": 1623.9999999999998,
+          "transcript": "Everyone needs to feel equally included."
+        },
+        {
+          "line": 8,
+          "startTime": 1623.0,
+          "endTime": 1627.9999999999998,
+          "transcript": "Let's have our on-site staff join the event from their desks."
+        },
+        {
+          "line": 9,
+          "startTime": 1627.0,
+          "endTime": 1628.6999999999998,
+          "transcript": "Okay."
+        },
+        {
+          "line": 10,
+          "startTime": 1627.5,
+          "endTime": 1632.3999999999999,
+          "transcript": "I'll do a search for effective team-building activities that we can do online."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s62-64",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1681.2,
+          "endTime": 1682.9999999999998,
+          "transcript": "Hi."
+        },
+        {
+          "line": 2,
+          "startTime": 1682.0,
+          "endTime": 1687.3999999999999,
+          "transcript": "I'm calling because I saw some coffee tables on your department store's website."
+        },
+        {
+          "line": 3,
+          "startTime": 1686.8,
+          "endTime": 1689.3999999999999,
+          "transcript": "I'd like to see them in person."
+        },
+        {
+          "line": 4,
+          "startTime": 1688.5,
+          "endTime": 1693.1999999999998,
+          "transcript": "Can you tell me if you have the same furniture selection in your store?"
+        },
+        {
+          "line": 5,
+          "startTime": 1692.5,
+          "endTime": 1694.3999999999999,
+          "transcript": "Yes, we do."
+        },
+        {
+          "line": 6,
+          "startTime": 1693.8,
+          "endTime": 1696.3999999999999,
+          "transcript": "We're fully stocked at the moment."
+        },
+        {
+          "line": 7,
+          "startTime": 1695.5,
+          "endTime": 1700.1999999999998,
+          "transcript": "So you'll be able to see everything that's on our online catalog."
+        },
+        {
+          "line": 8,
+          "startTime": 1699.5,
+          "endTime": 1701.1999999999998,
+          "transcript": "Okay."
+        },
+        {
+          "line": 9,
+          "startTime": 1700.8,
+          "endTime": 1702.9999999999998,
+          "transcript": "One more thing."
+        },
+        {
+          "line": 10,
+          "startTime": 1702.0,
+          "endTime": 1706.9999999999998,
+          "transcript": "I use a wheelchair, and I'm concerned about navigating your store."
+        },
+        {
+          "line": 11,
+          "startTime": 1706.2,
+          "endTime": 1708.6999999999998,
+          "transcript": "Oh, that's not a problem."
+        },
+        {
+          "line": 12,
+          "startTime": 1707.8,
+          "endTime": 1712.6999999999998,
+          "transcript": "We have large elevators that can easily accommodate a wheelchair."
+        },
+        {
+          "line": 13,
+          "startTime": 1711.8,
+          "endTime": 1713.3999999999999,
+          "transcript": "Great."
+        },
+        {
+          "line": 14,
+          "startTime": 1712.8,
+          "endTime": 1715.1999999999998,
+          "transcript": "Thanks for the information."
+        },
+        {
+          "line": 15,
+          "startTime": 1714.2,
+          "endTime": 1717.3999999999999,
+          "transcript": "I'll stop by later this afternoon."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s65-67",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1765.0,
+          "endTime": 1768.1999999999998,
+          "transcript": "Adam, our Kyoto office just called."
+        },
+        {
+          "line": 2,
+          "startTime": 1767.5,
+          "endTime": 1772.1999999999998,
+          "transcript": "Our investors want me to present a project update there as soon as possible."
+        },
+        {
+          "line": 3,
+          "startTime": 1771.5,
+          "endTime": 1775.6999999999998,
+          "transcript": "Can you get me on the first flight to Kyoto tomorrow morning?"
+        },
+        {
+          "line": 4,
+          "startTime": 1775.0,
+          "endTime": 1777.1999999999998,
+          "transcript": "Let me check."
+        },
+        {
+          "line": 5,
+          "startTime": 1776.5,
+          "endTime": 1782.3999999999999,
+          "transcript": "Per company policy, we can only use Blue Jet Airlines for international travel."
+        },
+        {
+          "line": 6,
+          "startTime": 1781.5,
+          "endTime": 1786.1999999999998,
+          "transcript": "And unfortunately, that flight's not the first one out tomorrow."
+        },
+        {
+          "line": 7,
+          "startTime": 1785.5,
+          "endTime": 1788.1999999999998,
+          "transcript": "That will have to do. Thanks."
+        },
+        {
+          "line": 8,
+          "startTime": 1787.8,
+          "endTime": 1790.6999999999998,
+          "transcript": "And I'll need a ride to the airport, too."
+        },
+        {
+          "line": 9,
+          "startTime": 1789.8,
+          "endTime": 1792.1999999999998,
+          "transcript": "Can you arrange that?"
+        },
+        {
+          "line": 10,
+          "startTime": 1791.2,
+          "endTime": 1793.1999999999998,
+          "transcript": "Sure thing."
+        },
+        {
+          "line": 11,
+          "startTime": 1792.2,
+          "endTime": 1796.3999999999999,
+          "transcript": "I'll finalize the reservations and email you the details."
+        }
+      ]
+    },
+    {
+      "id": "t1_p3_s68-70",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "conversation": [
+        {
+          "line": 1,
+          "startTime": 1857.2,
+          "endTime": 1859.1999999999998,
+          "transcript": "Hi, Astrid."
+        },
+        {
+          "line": 2,
+          "startTime": 1858.2,
+          "endTime": 1906.9999999999998,
+          "transcript": "For tonight's 6:00 news broadcast, the lead story is going to be on the rumor that the Beavers football team is going to build a stadium."
+        },
+        {
+          "line": 3,
+          "startTime": 1906.2,
+          "endTime": 1908.9999999999998,
+          "transcript": "Have you heard about the project?"
+        },
+        {
+          "line": 4,
+          "startTime": 1908.2,
+          "endTime": 1911.6999999999998,
+          "transcript": "My sources have confirmed the story, actually."
+        },
+        {
+          "line": 5,
+          "startTime": 1911.0,
+          "endTime": 1917.6999999999998,
+          "transcript": "I've just gained exclusive access to some bidding proposals. Four cities are competing for the project."
+        },
+        {
+          "line": 6,
+          "startTime": 1917.2,
+          "endTime": 1921.9999999999998,
+          "transcript": "It's great you were able to confirm this before we went on the air."
+        },
+        {
+          "line": 7,
+          "startTime": 1921.2,
+          "endTime": 1924.9999999999998,
+          "transcript": "Do you know where the new stadium might be built?"
+        },
+        {
+          "line": 8,
+          "startTime": 1924.2,
+          "endTime": 1929.6999999999998,
+          "transcript": "Well, one document suggests that Columbia City's proposal is the favorite."
+        },
+        {
+          "line": 9,
+          "startTime": 1928.8,
+          "endTime": 1933.3999999999999,
+          "transcript": "However, the team does have three other bids to consider."
+        }
+      ]
+    }
+  ],
+  "part4": [
+    {
+      "id": "t1_p4_s71-73",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 1915.0,
+          "endTime": 1919.9999999999998,
+          "transcript": "Are you interested in learning how to start your own business?"
+        },
+        {
+          "line": 2,
+          "startTime": 1919.2,
+          "endTime": 1923.3999999999999,
+          "transcript": "Winston Community College is the place for you."
+        },
+        {
+          "line": 3,
+          "startTime": 1922.8,
+          "endTime": 1934.3999999999999,
+          "transcript": "Last month, we opened a new campus in Cedarville that offers lots of business courses to equip aspiring entrepreneurs with the tools to launch a new career."
+        },
+        {
+          "line": 4,
+          "startTime": 1934.0,
+          "endTime": 1939.9999999999998,
+          "transcript": "We offer flexible schedules, so you can take courses in the evenings or on weekends."
+        },
+        {
+          "line": 5,
+          "startTime": 1939.5,
+          "endTime": 1944.9999999999998,
+          "transcript": "Visit us at our new campus or online to submit your application."
+        }
+      ]
+    },
+    {
+      "id": "t1_p4_s74-76",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 1989.0,
+          "endTime": 1993.9999999999998,
+          "transcript": "Please be sure to mark your calendars for a get-together on April 16th."
+        },
+        {
+          "line": 2,
+          "startTime": 1993.2,
+          "endTime": 2000.1999999999998,
+          "transcript": "We all work on different biochemistry research projects, and it's nice to share and celebrate our progress."
+        },
+        {
+          "line": 3,
+          "startTime": 1999.8,
+          "endTime": 2006.9999999999998,
+          "transcript": "Sung-hee has reserved us rooms at a conference center off-site where we'll be able to relax outdoors after our sessions."
+        },
+        {
+          "line": 4,
+          "startTime": 2006.2,
+          "endTime": 2009.3999999999999,
+          "transcript": "Thanks for taking care of that, Sung-hee."
+        },
+        {
+          "line": 5,
+          "startTime": 2008.8,
+          "endTime": 2014.1999999999998,
+          "transcript": "A few of you have asked whether we can hold other social events throughout the year."
+        },
+        {
+          "line": 6,
+          "startTime": 2013.5,
+          "endTime": 2018.6999999999998,
+          "transcript": "We don't have the budget to do anything big, but I'd like to hear your ideas."
+        },
+        {
+          "line": 7,
+          "startTime": 2018.0,
+          "endTime": 2021.1999999999998,
+          "transcript": "Everyone has my email address."
+        }
+      ]
+    },
+    {
+      "id": "t1_p4_s77-79",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 2069.2,
+          "endTime": 2072.0,
+          "transcript": "My name is Raul Phillips."
+        },
+        {
+          "line": 2,
+          "startTime": 2071.0,
+          "endTime": 2077.2,
+          "transcript": "I know it's short notice, but I'm a patient at your clinic, and I'd like to see a doctor today."
+        },
+        {
+          "line": 3,
+          "startTime": 2077.0,
+          "endTime": 2086.2,
+          "transcript": "I ran in a local half marathon yesterday, and well, I didn't feel pain at the time, but I think I sprained my ankle during the race."
+        },
+        {
+          "line": 4,
+          "startTime": 2085.5,
+          "endTime": 2090.7,
+          "transcript": "It's been sore since after the race, and I might need an X-ray."
+        },
+        {
+          "line": 5,
+          "startTime": 2089.8,
+          "endTime": 2092.2,
+          "transcript": "Could you call me back?"
+        },
+        {
+          "line": 6,
+          "startTime": 2091.5,
+          "endTime": 2099.2,
+          "transcript": "I'll be conducting some job interviews this morning, so I may not be able to answer my phone, but please leave a message."
+        },
+        {
+          "line": 7,
+          "startTime": 2098.2,
+          "endTime": 2103.2,
+          "transcript": "My number is 555-0167."
+        },
+        {
+          "line": 8,
+          "startTime": 2102.2,
+          "endTime": 2104.0,
+          "transcript": "Thanks."
+        }
+      ]
+    },
+    {
+      "id": "t1_p4_s80-82",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 2148.5,
+          "endTime": 2152.3999999999996,
+          "transcript": "This is Giovanni calling from Salazar Market."
+        },
+        {
+          "line": 2,
+          "startTime": 2151.8,
+          "endTime": 2156.0,
+          "transcript": "We're excited about selling your breakfast cereal in our store."
+        },
+        {
+          "line": 3,
+          "startTime": 2155.2,
+          "endTime": 2160.0,
+          "transcript": "Our customers have been asking for your brand for several months now."
+        },
+        {
+          "line": 4,
+          "startTime": 2159.2,
+          "endTime": 2206.0,
+          "transcript": "I'll be emailing you a contract later today. You can sign it and send it back to me at your convenience."
+        },
+        {
+          "line": 5,
+          "startTime": 2205.5,
+          "endTime": 2212.0,
+          "transcript": "It states that we'll be displaying your cereals at the end of an aisle, on the end cap, as you requested."
+        },
+        {
+          "line": 6,
+          "startTime": 2211.2,
+          "endTime": 2218.7,
+          "transcript": "You'll want to make sure we have enough boxes in the store to create a nice display and keep the shelves well-stocked for you."
+        }
+      ]
+    },
+    {
+      "id": "t1_p4_s83-85",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 2229.8,
+          "endTime": 2232.2,
+          "transcript": "Team,"
+        },
+        {
+          "line": 2,
+          "startTime": 2231.0,
+          "endTime": 2236.3999999999996,
+          "transcript": "let's debrief on the trial run of the DQY5, our satellite internet system."
+        },
+        {
+          "line": 3,
+          "startTime": 2236.0,
+          "endTime": 2244.0,
+          "transcript": "As you know, the DQY5 is a small satellite dish that can be used to access the internet in remote locations."
+        },
+        {
+          "line": 4,
+          "startTime": 2244.0,
+          "endTime": 2248.2,
+          "transcript": "Test users have said that it generally works very well."
+        },
+        {
+          "line": 5,
+          "startTime": 2247.5,
+          "endTime": 2254.2,
+          "transcript": "However, they all report service interruptions when winter storms cover the satellite dish in snow."
+        },
+        {
+          "line": 6,
+          "startTime": 2253.8,
+          "endTime": 2264.2,
+          "transcript": "That means we need to focus on designing an internal system that can heat up the satellite receiver and melt the snow to ensure that the connection is not disrupted."
+        },
+        {
+          "line": 7,
+          "startTime": 2263.8,
+          "endTime": 2269.2,
+          "transcript": "Let's break into groups of three and start brainstorming technical solutions."
+        }
+      ]
+    },
+    {
+      "id": "t1_p4_s86-88",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 2314.2,
+          "endTime": 2320.0,
+          "transcript": "Thanks for joining us for this evening's community orchestra performance."
+        },
+        {
+          "line": 2,
+          "startTime": 2319.2,
+          "endTime": 2323.2,
+          "transcript": "The concert was scheduled to begin at 8:00 p.m."
+        },
+        {
+          "line": 3,
+          "startTime": 2322.8,
+          "endTime": 2327.0,
+          "transcript": "Unfortunately, some of the microphones aren't working."
+        },
+        {
+          "line": 4,
+          "startTime": 2326.5,
+          "endTime": 2334.7,
+          "transcript": "So, while our sound engineers are correcting the issue, I'd like to tell you about an opportunity to help the theater."
+        },
+        {
+          "line": 5,
+          "startTime": 2334.0,
+          "endTime": 2341.0,
+          "transcript": "You may notice that all our ushers are volunteers, and we're always looking for more."
+        },
+        {
+          "line": 6,
+          "startTime": 2340.0,
+          "endTime": 2348.2,
+          "transcript": "Ushers take tickets, help patrons find their seats, and then, of course, get to enjoy the concert for free."
+        },
+        {
+          "line": 7,
+          "startTime": 2347.5,
+          "endTime": 2354.2,
+          "transcript": "If you're interested, be sure to check page four of your program booklet for more details."
+        }
+      ]
+    },
+    {
+      "id": "t1_p4_s89-91",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 2403.0,
+          "endTime": 2411.7,
+          "transcript": "I'm Natalie from Acroy Technologies, and I'm here to train everyone on using System Ace, your new project management software."
+        },
+        {
+          "line": 2,
+          "startTime": 2411.0,
+          "endTime": 2420.2,
+          "transcript": "Since you organize and provide a venue for professional conferences and trade shows, System Ace will allow you to create separate project folders for each event."
+        },
+        {
+          "line": 3,
+          "startTime": 2419.5,
+          "endTime": 2427.7,
+          "transcript": "This means that event-related to-do lists, schedules, and other documents for each folder will all be in one place."
+        },
+        {
+          "line": 4,
+          "startTime": 2427.2,
+          "endTime": 2431.7,
+          "transcript": "Now, the best way to learn a new program is by using it."
+        },
+        {
+          "line": 5,
+          "startTime": 2430.8,
+          "endTime": 2434.2,
+          "transcript": "So, please get out your tablet or laptop."
+        },
+        {
+          "line": 6,
+          "startTime": 2433.2,
+          "endTime": 2436.2,
+          "transcript": "We're going to try a few things together."
+        }
+      ]
+    },
+    {
+      "id": "t1_p4_s92-94",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 2479.2,
+          "endTime": 2489.2,
+          "transcript": "In this online session, I'd like to discuss how small businesses like those represented here today can be more energy efficient."
+        },
+        {
+          "line": 2,
+          "startTime": 2488.8,
+          "endTime": 2495.2,
+          "transcript": "For example, some companies install solar panels to reduce their electricity costs."
+        },
+        {
+          "line": 3,
+          "startTime": 2494.8,
+          "endTime": 2499.7,
+          "transcript": "Now, we all have different ideas about how to conserve energy."
+        },
+        {
+          "line": 4,
+          "startTime": 2499.0,
+          "endTime": 2503.7,
+          "transcript": "What does your company do to reduce its carbon footprint?"
+        },
+        {
+          "line": 5,
+          "startTime": 2503.0,
+          "endTime": 2506.7,
+          "transcript": "There's a lot of combined knowledge at this meeting."
+        },
+        {
+          "line": 6,
+          "startTime": 2506.0,
+          "endTime": 2509.0,
+          "transcript": "Let's take advantage of that."
+        },
+        {
+          "line": 7,
+          "startTime": 2508.5,
+          "endTime": 2512.7,
+          "transcript": "Please submit your questions and comments in the chat."
+        },
+        {
+          "line": 8,
+          "startTime": 2512.0,
+          "endTime": 2519.7,
+          "transcript": "By the way, this session is being recorded so that it's available to all participants after the session."
+        }
+      ]
+    },
+    {
+      "id": "t1_p4_s95-97",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 2567.5,
+          "endTime": 2570.7,
+          "transcript": "Thanks for coming to this weekly briefing."
+        },
+        {
+          "line": 2,
+          "startTime": 2569.8,
+          "endTime": 2578.0,
+          "transcript": "As you know, Joe's Trucking Company takes safety very seriously, and I'm glad all our drivers are able to attend today."
+        },
+        {
+          "line": 3,
+          "startTime": 2577.2,
+          "endTime": 2602.7,
+          "transcript": "So, we have five loads to deliver, including two loads of steel beams."
+        },
+        {
+          "line": 4,
+          "startTime": 2602.0,
+          "endTime": 2612.3999999999996,
+          "transcript": "Yasushi, you've been assigned to the car carrier, so please be sure to follow the safety checklist, especially the part about securely fastening all restraints."
+        },
+        {
+          "line": 5,
+          "startTime": 2612.0,
+          "endTime": 2617.2,
+          "transcript": "Junko, I'm concerned the lumber you're carrying will be considered oversize."
+        },
+        {
+          "line": 6,
+          "startTime": 2616.5,
+          "endTime": 2620.7,
+          "transcript": "I think the company will need to obtain a permit for you."
+        },
+        {
+          "line": 7,
+          "startTime": 2619.8,
+          "endTime": 2622.3999999999996,
+          "transcript": "We'll talk after the meeting."
+        }
+      ]
+    },
+    {
+      "id": "t1_p4_s98-100",
+      "sourceTest": "Test 7",
+      "audioFile": "Test_07.mp3",
+      "talk": [
+        {
+          "line": 1,
+          "startTime": 2653.5,
+          "endTime": 2657.7,
+          "transcript": "Welcome to the evening news program on WXNL Radio."
+        },
+        {
+          "line": 2,
+          "startTime": 2657.2,
+          "endTime": 2665.7,
+          "transcript": "In local news, the much-anticipated holiday parade will be held downtown this Saturday, beginning promptly at 10:00 a.m. on Main Street."
+        },
+        {
+          "line": 3,
+          "startTime": 2665.5,
+          "endTime": 2673.0,
+          "transcript": "However, according to the city government's website, there's been one important change. The parade was supposed to follow a route along five city roads."
+        },
+        {
+          "line": 4,
+          "startTime": 2672.0,
+          "endTime": 2683.0,
+          "transcript": "But because of traffic concerns, the parade will now stop at the end of Curtis Avenue instead of continuing to the originally planned endpoint."
+        },
+        {
+          "line": 5,
+          "startTime": 2682.2,
+          "endTime": 2691.2,
+          "transcript": "Now, in case you're wondering whether we'll have sunny skies or clouds on the day of the parade, stay tuned after the commercial break for our weekend forecast."
+        }
+      ]
+    }
+  ]
+}

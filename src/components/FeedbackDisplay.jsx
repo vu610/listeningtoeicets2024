@@ -2,7 +2,7 @@ import React from 'react';
 import './FeedbackDisplay.css';
 
 // segments: [{ char, status }]
-function FeedbackDisplay({ segments }) {
+function FeedbackDisplay({ segments, showAbove = false }) {
   // Xử lý hiển thị ký tự đặc biệt
   const renderChar = (char) => {
     // Nếu là khoảng trắng, hiển thị rõ ràng hơn
@@ -12,8 +12,15 @@ function FeedbackDisplay({ segments }) {
     return char;
   };
 
+  // Nếu không có segments hoặc segments là mảng rỗng
+  if (!segments || segments.length === 0) {
+    return null;
+  }
+  
+  const containerClass = showAbove ? 'feedback-display-above' : 'feedback-display';
+
   return (
-    <div className="feedback-display">
+    <div className={containerClass}>
       {segments.map((seg, idx) => (
         <span key={idx} className={`char-${seg.status}`}>
           {renderChar(seg.char)}
@@ -25,6 +32,7 @@ function FeedbackDisplay({ segments }) {
 
 FeedbackDisplay.defaultProps = {
   segments: [],
+  showAbove: false
 };
 
 export default FeedbackDisplay;
