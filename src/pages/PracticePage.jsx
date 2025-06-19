@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import InteractiveInput from '../components/InteractiveInput';
 import DialogueDisplay from '../components/DialogueDisplay';
-import HintDisplay from '../components/HintDisplay';
 import TestSelector from '../components/TestSelector';
+import HelpGuide from '../components/HelpGuide';
 
 import compareInput from '../utils/compareInput';
 import useAudioPlayer from '../hooks/useAudioPlayer';
@@ -38,8 +38,8 @@ function PracticePage() {
   const [dialogLines, setDialogLines] = useState([]);
   const [currentLineIdx, setCurrentLineIdx] = useState(0);
   
-  // Thêm state cho tính năng hint
-  const [showHint, setShowHint] = useState(false);
+  // Thêm state cho tính năng tự động sửa lỗi
+  const [autoCorrect, setAutoCorrect] = useState(false);
 
   // Xác định loại phần
   const isPart3 = partId === '3';
@@ -58,7 +58,7 @@ function PracticePage() {
     setCompletedSentences([]);
     setDialogLines([]);
     setCurrentLineIdx(0);
-    setShowHint(false);
+    setAutoCorrect(false);
   }, [partId]);
 
   // Lấy tên file audio chuẩn từ sourceTest
@@ -112,7 +112,6 @@ function PracticePage() {
       setShowScore(false);
       setCompletedSentences([]);
       setCurrentLineIdx(0);
-      setShowHint(false);
     }
   };
 
@@ -124,7 +123,6 @@ function PracticePage() {
     setAccuracy(0);
     setAttemptCount(0);
     setErrorMessage('');
-    setShowHint(false);
     if (autoAdvanceTimeout) {
       clearTimeout(autoAdvanceTimeout);
       setAutoAdvanceTimeout(null);
@@ -231,12 +229,20 @@ function PracticePage() {
     }
   };
 
-  // Bật/tắt hiển thị gợi ý
-  const toggleHint = () => {
-    setShowHint(prevState => !prevState);
+  // Cập nhật hàm handleInputChange để không kiểm tra realtime
+  const handleInputChange = (val) => {
+    setInput(val);
+    
+    if (showAnswer) return;
+    
+    // Xóa phần kiểm tra realtime
+    if (isChecked) {
+      // Chỉ cập nhật input, không kiểm tra lại
+      setIsChecked(false);
+    }
   };
 
-  // Kiểm tra đáp án
+  // Cập nhật hàm kiểm tra đáp án
   const checkAnswer = () => {
     const transcript = getCurrentTranscript();
     if (!transcript) return;
@@ -267,6 +273,20 @@ function PracticePage() {
     }
   };
 
+  // Cập nhật hàm bật/tắt tự động sửa lỗi
+  const toggleAutoCorrect = () => {
+    setAutoCorrect(prevState => !prevState);
+    
+    // Khi bật tự động sửa lỗi, kiểm tra lại đầu vào nếu đã kiểm tra trước đó
+    if (!autoCorrect && isChecked && input.trim() !== '') {
+      const transcript = getCurrentTranscript();
+      if (transcript) {
+        const res = compareInput(input, transcript);
+        setSegments(res);
+      }
+    }
+  };
+
   // Hiển thị đáp án
   const displayAnswer = () => {
     const transcript = getCurrentTranscript();
@@ -282,37 +302,6 @@ function PracticePage() {
       moveToNextItem();
     }, 3000);
     setAutoAdvanceTimeout(timeout);
-  };
-
-  // Xử lý khi người dùng nhập
-  const handleInputChange = (val) => {
-    setInput(val);
-    
-    if (showAnswer) return;
-    
-    // Tự động tắt gợi ý khi người dùng nhập khoảng trắng (kết thúc một từ)
-    if (showHint && val.endsWith(' ') && val !== input) {
-      setShowHint(false);
-    }
-    
-    if (isChecked) {
-      const transcript = getCurrentTranscript();
-      const res = compareInput(val, transcript);
-      setSegments(res);
-      
-      if (res.accuracy && res.accuracy.isComplete) {
-        if (autoAdvanceTimeout) {
-          clearTimeout(autoAdvanceTimeout);
-        }
-        const timeout = setTimeout(() => {
-          moveToNextItem();
-        }, 2000);
-        setAutoAdvanceTimeout(timeout);
-      } else if (autoAdvanceTimeout) {
-        clearTimeout(autoAdvanceTimeout);
-        setAutoAdvanceTimeout(null);
-      }
-    }
   };
 
   // Chuyển tới câu/dòng tiếp theo
@@ -393,6 +382,96 @@ function PracticePage() {
       return currentIdx === sentences.length - 1;
     }
   };
+
+  // Xử lý phím tắt
+  const handleKeyDown = useCallback((e) => {
+    // F1: Mở/đóng hướng dẫn
+    if (e.key === 'F1') {
+      e.preventDefault();
+      // Sẽ được xử lý bởi component HelpGuide
+    }
+    
+    // Space: Phát/tạm dừng audio
+    if (e.code === 'Space' && !e.target.matches('textarea, input')) {
+      e.preventDefault();
+      playCurrentAudio();
+    }
+    
+    // Ctrl + Enter: Kiểm tra đáp án
+    if (e.key === 'Enter' && e.ctrlKey) {
+      e.preventDefault();
+      if (!showAnswer && getCurrentTranscript() && input.trim() !== '') {
+        checkAnswer();
+      }
+    }
+    
+    // Alt + R: Nghe lại
+    if (e.key === 'r' && e.altKey) {
+      e.preventDefault();
+      setErrorMessage('');
+      replay();
+    }
+    
+    // Alt + S: Phát chậm
+    if (e.key === 's' && e.altKey) {
+      e.preventDefault();
+      toggleSlowMotion();
+    }
+    
+    // Alt + A: Hiển thị đáp án
+    if (e.key === 'a' && e.altKey) {
+      e.preventDefault();
+      if (!showAnswer && getCurrentTranscript()) {
+        displayAnswer();
+      }
+    }
+    
+    // Alt + C: Bật/tắt tự động sửa
+    if (e.key === 'c' && e.altKey) {
+      e.preventDefault();
+      if (!showAnswer && getCurrentTranscript()) {
+        toggleAutoCorrect();
+      }
+    }
+    
+    // Alt + →: Câu tiếp theo
+    if (e.key === 'ArrowRight' && e.altKey) {
+      e.preventDefault();
+      if ((!isChecked && !showAnswer) && isLastItem()) return;
+      moveToNextItem();
+    }
+    
+    // Alt + ←: Câu trước
+    if (e.key === 'ArrowLeft' && e.altKey) {
+      e.preventDefault();
+      if (currentIdx > 0) {
+        goToPreviousQuestion();
+      }
+    }
+  }, [
+    currentIdx, 
+    input, 
+    isChecked, 
+    showAnswer, 
+    playCurrentAudio, 
+    checkAnswer, 
+    replay, 
+    toggleSlowMotion, 
+    displayAnswer, 
+    toggleAutoCorrect, 
+    moveToNextItem, 
+    goToPreviousQuestion, 
+    getCurrentTranscript,
+    isLastItem
+  ]);
+  
+  // Đăng ký sự kiện phím tắt
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [handleKeyDown]);
 
   // Hiển thị màn hình chọn đề nếu chưa chọn
   if (selectedTestIndex === null) {
@@ -547,11 +626,16 @@ function PracticePage() {
               replay();
             }}
             disabled={isLoading}
+            title="Nghe lại (Alt+R)"
           >
             <i className="fas fa-play"></i>
             Nghe lại
           </button>
-          <button className="btn btn-secondary" onClick={toggleSlowMotion}>
+          <button 
+            className="btn btn-secondary" 
+            onClick={toggleSlowMotion}
+            title="Phát chậm (Alt+S)"
+          >
             <i className="fas fa-clock"></i>
             Phát chậm
           </button>
@@ -559,6 +643,7 @@ function PracticePage() {
             className="btn btn-outline" 
             onClick={displayAnswer}
             disabled={showAnswer || !getCurrentTranscript()}
+            title="Hiển thị đáp án (Alt+A)"
           >
             <i className="fas fa-eye"></i>
             Hiển thị đáp án
@@ -567,33 +652,28 @@ function PracticePage() {
             className="btn btn-primary" 
             disabled={isLoading || !getCurrentTranscript()}
             onClick={playCurrentAudio}
+            title="Nghe câu hiện tại (Space)"
           >
             <i className="fas fa-headphones"></i>
             Nghe câu hiện tại
           </button>
           <button 
-            className={`btn ${showHint ? 'btn-success' : 'btn-outline'}`} 
-            onClick={toggleHint}
+            className={`btn ${autoCorrect ? 'btn-success' : 'btn-outline'}`} 
+            onClick={toggleAutoCorrect}
             disabled={!getCurrentTranscript() || showAnswer}
+            title="Bật/tắt tự động sửa (Alt+C)"
           >
-            <i className="fas fa-lightbulb"></i>
-            {showHint ? 'Ẩn gợi ý' : 'Hiện gợi ý'}
+            <i className="fas fa-magic"></i>
+            {autoCorrect ? 'Tắt tự động sửa' : 'Bật tự động sửa'}
           </button>
+          
+          {/* Thêm component HelpGuide */}
+          <HelpGuide />
         </div>
 
         {/* Hiển thị đoạn hội thoại hoặc bài nói đã hoàn thành */}
         {isDialogueOrTalk && completedSentences.length > 0 && (
           <DialogueDisplay completedSentences={completedSentences} />
-        )}
-
-        {/* Hiển thị gợi ý */}
-        {!showAnswer && (
-          <HintDisplay 
-            transcript={getCurrentTranscript()} 
-            userInput={input} 
-            show={showHint}
-            onAutoHide={() => setShowHint(false)}
-          />
         )}
 
         <div className="input-area">
@@ -615,6 +695,7 @@ function PracticePage() {
               onSubmit={checkAnswer}
               segments={segments}
               showFeedback={isChecked}
+              autoCorrect={autoCorrect}
               accuracy={isChecked && segments && segments.accuracy ? {
                 value: accuracy,
                 isComplete: segments.accuracy.isComplete,
@@ -629,6 +710,7 @@ function PracticePage() {
             className="btn btn-outline" 
             onClick={goToPreviousQuestion}
             disabled={currentIdx === 0}
+            title="Câu trước (Alt+←)"
           >
             <i className="fas fa-arrow-left"></i>
             Câu trước
@@ -637,6 +719,7 @@ function PracticePage() {
             className="btn btn-primary" 
             onClick={checkAnswer}
             disabled={showAnswer || !getCurrentTranscript() || input.trim() === ''}
+            title="Kiểm tra đáp án (Ctrl+Enter)"
           >
             <i className="fas fa-check"></i>
             Kiểm tra đáp án
@@ -645,6 +728,7 @@ function PracticePage() {
             className="btn btn-outline" 
             onClick={moveToNextItem}
             disabled={(!isChecked && !showAnswer) && isLastItem()}
+            title="Tiếp theo (Alt+→)"
           >
             <i className="fas fa-arrow-right"></i>
             {isLastItem() ? 'Kết thúc' : 'Tiếp theo'}

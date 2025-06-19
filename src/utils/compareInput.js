@@ -1,6 +1,6 @@
 /**
- * So sánh userInput và correctTranscript ở cấp ký tự.
- * Trả về mảng `{ char: string, status: 'correct' | 'incorrect' | 'missing' }`.
+ * So sánh userInput và correctTranscript ở cấp độ từ.
+ * Trả về mảng các từ với trạng thái `{ text: string, correctedText: string, status: 'correct' | 'incorrect' | 'missing' }`.
  * Không phân biệt chữ hoa/thường và bỏ qua dấu câu.
  */
 export default function compareInput(userInput, correctTranscript) {
@@ -22,65 +22,132 @@ export default function compareInput(userInput, correctTranscript) {
   const normalizedUserInput = normalizeText(userInput);
   const normalizedTranscript = normalizeText(correctTranscript);
 
-  // Tính toán độ chính xác (để trả về cho hàm gọi)
-  const calculateAccuracy = () => {
-    const words = normalizedTranscript.split(' ').filter(w => w.length > 0);
-    const userWords = normalizedUserInput.split(' ').filter(w => w.length > 0);
-    let correctWords = 0;
-
-    // Đếm số từ đúng
-    for (let i = 0; i < Math.min(words.length, userWords.length); i++) {
-      if (words[i] === userWords[i]) {
-        correctWords++;
-      }
-    }
-
-    return {
-      correctWords,
-      totalWords: words.length,
-      isComplete: correctWords === words.length && userWords.length === words.length
-    };
-  };
-
-  // Tính độ chính xác để trả về
-  const accuracy = calculateAccuracy();
-
-  // Kết quả hiển thị vẫn giữ nguyên format gốc của correctTranscript
+  // Tách thành các từ
+  const userWords = normalizedUserInput ? normalizedUserInput.split(' ').filter(w => w.length > 0) : [];
+  const transcriptWords = normalizedTranscript ? normalizedTranscript.split(' ').filter(w => w.length > 0) : [];
+  
+  // Lấy các từ trong đáp án tương ứng với số lượng từ người dùng đã nhập
+  // Chỉ kiểm tra đến từ cuối cùng người dùng đã nhập
+  const relevantTranscriptWords = transcriptWords.slice(0, userWords.length);
+  
+  // Kết quả sẽ là mảng các từ với trạng thái
   const result = [];
   
-  // Tạo mảng các ký tự từ chuỗi đầu vào
-  const userChars = userInput ? userInput.split('') : [];
-  
-  // Chỉ hiển thị những gì người dùng đã nhập, không hiển thị đáp án
-  for (let i = 0; i < userChars.length; i++) {
-    const u = userChars[i];
+  // So sánh từng từ người dùng nhập với từ tương ứng trong đáp án
+  for (let i = 0; i < userWords.length; i++) {
+    const userWord = userWords[i];
+    const transcriptWord = i < relevantTranscriptWords.length ? relevantTranscriptWords[i] : null;
     
-    // Nếu vượt quá độ dài của câu đúng, coi như sai
-    if (i >= correctTranscript.length) {
-      result.push({ char: u, status: 'incorrect' });
+    if (!transcriptWord) {
+      // Từ thừa (người dùng nhập nhiều hơn đáp án)
+      result.push({
+        text: userWord,
+        correctedText: '',
+        status: 'incorrect'
+      });
       continue;
     }
     
-    const c = correctTranscript[i];
-    
-    // So sánh không phân biệt hoa thường
-    if (u.toLowerCase() === c.toLowerCase()) {
-      result.push({ char: u, status: 'correct' });
+    // So sánh từ người dùng với từ đáp án
+    if (userWord.toLowerCase() === transcriptWord.toLowerCase()) {
+      // Từ hoàn toàn đúng
+      result.push({
+        text: userWord,
+        correctedText: transcriptWord,
+        status: 'correct'
+      });
     } else {
-      // Kiểm tra xem ký tự hiện tại có phải là dấu câu không
-      const isPunctuation = /[.,!?;:'"()\[\]{}\-_]/.test(c);
+      // Từ sai, cần sửa
+      // Tính độ tương đồng để xác định xem có nên sửa không
+      const similarity = calculateSimilarity(userWord, transcriptWord);
       
-      // Nếu là dấu câu, vẫn hiển thị nhưng không tính là lỗi
-      if (isPunctuation) {
-        result.push({ char: u, status: 'correct' });
+      if (similarity > 0.5) { // Ngưỡng tương đồng
+        // Từ gần đúng, cần sửa
+        result.push({
+          text: userWord,
+          correctedText: transcriptWord,
+          status: 'incorrect'
+        });
       } else {
-        result.push({ char: u, status: 'incorrect' });
+        // Từ hoàn toàn sai
+        result.push({
+          text: userWord,
+          correctedText: transcriptWord,
+          status: 'incorrect'
+        });
       }
     }
   }
-
+  
+  // Tính toán độ chính xác
+  const calculateAccuracy = () => {
+    let correctWords = 0;
+    let totalWords = transcriptWords.length;
+    
+    for (const item of result) {
+      if (item.status === 'correct') {
+        correctWords++;
+      }
+    }
+    
+    return {
+      correctWords,
+      totalWords,
+      isComplete: correctWords === relevantTranscriptWords.length && 
+                 userWords.length === transcriptWords.length
+    };
+  };
+  
+  // Tính độ chính xác để trả về
+  const accuracy = calculateAccuracy();
+  
   // Thêm thông tin về độ chính xác vào kết quả
   result.accuracy = accuracy;
   
   return result;
+}
+
+/**
+ * Tính toán độ tương đồng giữa hai chuỗi (từ 0 đến 1)
+ */
+function calculateSimilarity(str1, str2) {
+  const maxLength = Math.max(str1.length, str2.length);
+  if (maxLength === 0) return 1; // Hai chuỗi rỗng được coi là giống nhau
+  
+  const distance = levenshteinDistance(str1, str2);
+  return 1 - distance / maxLength;
+}
+
+/**
+ * Tính khoảng cách Levenshtein giữa hai chuỗi
+ * (số thao tác thêm/xóa/thay thế ký tự tối thiểu để biến chuỗi này thành chuỗi kia)
+ */
+function levenshteinDistance(str1, str2) {
+  const m = str1.length;
+  const n = str2.length;
+  
+  // Tạo ma trận khoảng cách
+  const dp = Array(m + 1).fill().map(() => Array(n + 1).fill(0));
+  
+  // Khởi tạo giá trị ban đầu
+  for (let i = 0; i <= m; i++) {
+    dp[i][0] = i;
+  }
+  for (let j = 0; j <= n; j++) {
+    dp[0][j] = j;
+  }
+  
+  // Tính toán khoảng cách
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      const cost = str1[i - 1] === str2[j - 1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1, // Xóa
+        dp[i][j - 1] + 1, // Thêm
+        dp[i - 1][j - 1] + cost // Thay thế hoặc giữ nguyên
+      );
+    }
+  }
+  
+  return dp[m][n];
 }

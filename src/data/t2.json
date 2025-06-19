@@ -4,7 +4,7 @@
       "id": "t_new_p1_q1_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 105.5,
+      "startTime": 105.0,
       "endTime": 108.99999999999999,
       "transcript": "She's inserting a cord into an outlet."
     },
@@ -12,7 +12,7 @@
       "id": "t_new_p1_q1_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 109.5,
+      "startTime": 109.0,
       "endTime": 112.69999999999999,
       "transcript": "She's pressing a button on a machine."
     },
@@ -20,7 +20,7 @@
       "id": "t_new_p1_q1_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 113.4,
+      "startTime": 112.9,
       "endTime": 116.69999999999999,
       "transcript": "She's gripping the handle of a drawer."
     },
@@ -28,7 +28,7 @@
       "id": "t_new_p1_q1_d",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 117.2,
+      "startTime": 116.7,
       "endTime": 120.79999999999998,
       "transcript": "She's tacking a notice onto the wall."
     },
@@ -36,7 +36,7 @@
       "id": "t_new_p1_q2_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 131.0,
+      "startTime": 130.5,
       "endTime": 134.89999999999998,
       "transcript": "Some window shutters are being replaced."
     },
@@ -44,7 +44,7 @@
       "id": "t_new_p1_q2_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 135.4,
+      "startTime": 134.9,
       "endTime": 139.39999999999998,
       "transcript": "A pillow is being arranged on a seat."
     },
@@ -52,7 +52,7 @@
       "id": "t_new_p1_q2_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 139.7,
+      "startTime": 139.2,
       "endTime": 143.6,
       "transcript": "An outdoor table is being cleared off."
     },
@@ -60,7 +60,7 @@
       "id": "t_new_p1_q2_d",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 144.0,
+      "startTime": 143.5,
       "endTime": 147.7,
       "transcript": "Some wooden boards are being painted."
     },
@@ -68,7 +68,7 @@
       "id": "t_new_p1_q3_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 165.2,
+      "startTime": 164.7,
       "endTime": 169.2,
       "transcript": "Some utensils have been discarded in a bin."
     },
@@ -76,7 +76,7 @@
       "id": "t_new_p1_q3_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 169.5,
+      "startTime": 169.0,
       "endTime": 173.39999999999998,
       "transcript": "Some bottles are being emptied into a sink."
     },
@@ -84,7 +84,7 @@
       "id": "t_new_p1_q3_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 173.6,
+      "startTime": 173.1,
       "endTime": 178.0,
       "transcript": "A rolling chair has been placed next to a counter."
     },
@@ -92,7 +92,7 @@
       "id": "t_new_p1_q3_d",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 178.4,
+      "startTime": 177.9,
       "endTime": 181.79999999999998,
       "transcript": "Some drawers have been left open."
     },
@@ -100,7 +100,7 @@
       "id": "t_new_p1_q4_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 192.2,
+      "startTime": 191.7,
       "endTime": 196.2,
       "transcript": "A man is chopping some wood into pieces."
     },
@@ -108,7 +108,7 @@
       "id": "t_new_p1_q4_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 197.1,
+      "startTime": 196.6,
       "endTime": 200.7,
       "transcript": "Leaves are scattered across the grass."
     },
@@ -116,7 +116,7 @@
       "id": "t_new_p1_q4_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 201.3,
+      "startTime": 200.8,
       "endTime": 204.29999999999998,
       "transcript": "A man is closing a window."
     },
@@ -124,7 +124,7 @@
       "id": "t_new_p1_q4_d",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 204.5,
+      "startTime": 204.0,
       "endTime": 208.0,
       "transcript": "Wood is piled near a fence."
     },
@@ -132,7 +132,7 @@
       "id": "t_new_p1_q5_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 219.0,
+      "startTime": 218.5,
       "endTime": 222.5,
       "transcript": "People are standing in line in a lobby."
     },
@@ -140,7 +140,7 @@
       "id": "t_new_p1_q5_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 222.9,
+      "startTime": 222.4,
       "endTime": 226.6,
       "transcript": "Items are being loaded into shopping bags."
     },
@@ -148,7 +148,7 @@
       "id": "t_new_p1_q5_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 227.2,
+      "startTime": 226.7,
       "endTime": 230.79999999999998,
       "transcript": "Tents have been set up in a parking area."
     },
@@ -156,7 +156,7 @@
       "id": "t_new_p1_q5_d",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 231.2,
+      "startTime": 230.7,
       "endTime": 234.5,
       "transcript": "A worker is putting up a canopy."
     },
@@ -164,7 +164,7 @@
       "id": "t_new_p1_q6_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 245.2,
+      "startTime": 244.7,
       "endTime": 249.29999999999998,
       "transcript": "Some luggage is stacked next to an escalator."
     },
@@ -172,7 +172,7 @@
       "id": "t_new_p1_q6_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 249.7,
+      "startTime": 249.2,
       "endTime": 254.2,
       "transcript": "A suitcase is being lifted onto a shuttle bus."
     },
@@ -180,7 +180,7 @@
       "id": "t_new_p1_q6_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 254.5,
+      "startTime": 254.0,
       "endTime": 259.00000000000006,
       "transcript": "Some suitcases are displayed in a shop window."
     },
@@ -188,7 +188,7 @@
       "id": "t_new_p1_q6_d",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 259.4,
+      "startTime": 258.9,
       "endTime": 263.00000000000006,
       "transcript": "A luggage rack has two levels."
     }
@@ -198,7 +198,7 @@
       "id": "t_new_p2_q7_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 303.0,
+      "startTime": 302.5,
       "endTime": 307.00000000000006,
       "transcript": "Have the machines on the factory floor been cleaned?"
     },
@@ -206,7 +206,7 @@
       "id": "t_new_p2_q7_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 307.6,
+      "startTime": 307.1,
       "endTime": 310.30000000000007,
       "transcript": "No, not yet."
     },
@@ -214,7 +214,7 @@
       "id": "t_new_p2_q7_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 310.6,
+      "startTime": 310.1,
       "endTime": 313.70000000000005,
       "transcript": "It's in the shipping container."
     },
@@ -222,7 +222,7 @@
       "id": "t_new_p2_q7_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 314.2,
+      "startTime": 313.7,
       "endTime": 317.40000000000003,
       "transcript": "I just put it in the trash bin."
     },
@@ -230,7 +230,7 @@
       "id": "t_new_p2_q8_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 323.0,
+      "startTime": 322.5,
       "endTime": 326.40000000000003,
       "transcript": "How much will the budget increase next year?"
     },
@@ -238,7 +238,7 @@
       "id": "t_new_p2_q8_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 327.0,
+      "startTime": 326.5,
       "endTime": 329.6,
       "transcript": "About 10 percent."
     },
@@ -246,7 +246,7 @@
       "id": "t_new_p2_q8_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 330.0,
+      "startTime": 329.5,
       "endTime": 332.80000000000007,
       "transcript": "Three hours, I think."
     },
@@ -254,7 +254,7 @@
       "id": "t_new_p2_q8_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 333.4,
+      "startTime": 332.9,
       "endTime": 336.50000000000006,
       "transcript": "At the bank's main branch."
     },
@@ -262,7 +262,7 @@
       "id": "t_new_p2_q9_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 342.0,
+      "startTime": 341.5,
       "endTime": 345.80000000000007,
       "transcript": "You're going to water the plants before you leave, aren't you?"
     },
@@ -270,7 +270,7 @@
       "id": "t_new_p2_q9_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 346.2,
+      "startTime": 345.7,
       "endTime": 348.90000000000003,
       "transcript": "I walked the whole way."
     },
@@ -278,7 +278,7 @@
       "id": "t_new_p2_q9_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 349.3,
+      "startTime": 348.8,
       "endTime": 352.30000000000007,
       "transcript": "Yes, right after lunch."
     },
@@ -286,7 +286,7 @@
       "id": "t_new_p2_q9_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 352.6,
+      "startTime": 352.1,
       "endTime": 355.1,
       "transcript": "In the break room."
     },
@@ -294,7 +294,7 @@
       "id": "t_new_p2_q10_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 360.6,
+      "startTime": 360.1,
       "endTime": 364.6,
       "transcript": "Aren't you going to schedule an eye doctor appointment?"
     },
@@ -302,7 +302,7 @@
       "id": "t_new_p2_q10_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 365.0,
+      "startTime": 364.5,
       "endTime": 368.40000000000003,
       "transcript": "Those glasses look nice on you."
     },
@@ -310,7 +310,7 @@
       "id": "t_new_p2_q10_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 368.8,
+      "startTime": 368.3,
       "endTime": 371.80000000000007,
       "transcript": "I already scheduled one."
     },
@@ -318,7 +318,7 @@
       "id": "t_new_p2_q10_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 372.0,
+      "startTime": 371.5,
       "endTime": 375.40000000000003,
       "transcript": "The seminar is three days long."
     },
@@ -326,7 +326,7 @@
       "id": "t_new_p2_q11_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 381.2,
+      "startTime": 380.7,
       "endTime": 384.50000000000006,
       "transcript": "I'm going to try to fix this printer."
     },
@@ -334,7 +334,7 @@
       "id": "t_new_p2_q11_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 384.9,
+      "startTime": 384.4,
       "endTime": 387.90000000000003,
       "transcript": "You're right, it doesn't fit."
     },
@@ -342,7 +342,7 @@
       "id": "t_new_p2_q11_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 388.5,
+      "startTime": 388.0,
       "endTime": 391.50000000000006,
       "transcript": "Double-sided copies."
     },
@@ -350,7 +350,7 @@
       "id": "t_new_p2_q11_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 391.8,
+      "startTime": 391.3,
       "endTime": 395.1,
       "transcript": "Are you sure it can be repaired?"
     },
@@ -358,7 +358,7 @@
       "id": "t_new_p2_q12_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 401.0,
+      "startTime": 400.5,
       "endTime": 404.00000000000006,
       "transcript": "What should we do with these brochures?"
     },
@@ -366,7 +366,7 @@
       "id": "t_new_p2_q12_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 404.4,
+      "startTime": 403.9,
       "endTime": 407.30000000000007,
       "transcript": "A trip to the seashore."
     },
@@ -374,7 +374,7 @@
       "id": "t_new_p2_q12_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 407.6,
+      "startTime": 407.1,
       "endTime": 410.6,
       "transcript": "Yes, I found it already."
     },
@@ -382,7 +382,7 @@
       "id": "t_new_p2_q12_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 410.9,
+      "startTime": 410.4,
       "endTime": 414.20000000000005,
       "transcript": "I'll leave them at the front desk."
     },
@@ -390,7 +390,7 @@
       "id": "t_new_p2_q13_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 420.0,
+      "startTime": 419.5,
       "endTime": 423.50000000000006,
       "transcript": "Has the policy meeting been rescheduled?"
     },
@@ -398,7 +398,7 @@
       "id": "t_new_p2_q13_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 423.9,
+      "startTime": 423.4,
       "endTime": 427.70000000000005,
       "transcript": "We have lots of desk calendar designs."
     },
@@ -406,7 +406,7 @@
       "id": "t_new_p2_q13_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 428.2,
+      "startTime": 427.7,
       "endTime": 432.1,
       "transcript": "Yes, it's happening tomorrow instead."
     },
@@ -414,7 +414,7 @@
       "id": "t_new_p2_q13_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 432.6,
+      "startTime": 432.1,
       "endTime": 436.00000000000006,
       "transcript": "This soup I ordered is delicious."
     },
@@ -422,7 +422,7 @@
       "id": "t_new_p2_q14_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 442.0,
+      "startTime": 441.5,
       "endTime": 447.40000000000003,
       "transcript": "Why don't we stop by the office cafeteria on our way to the workshop?"
     },
@@ -430,7 +430,7 @@
       "id": "t_new_p2_q14_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 447.9,
+      "startTime": 447.4,
       "endTime": 451.20000000000005,
       "transcript": "Sure, we have time for that."
     },
@@ -438,7 +438,7 @@
       "id": "t_new_p2_q14_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 451.5,
+      "startTime": 451.0,
       "endTime": 454.6,
       "transcript": "A full-service buffet."
     },
@@ -446,7 +446,7 @@
       "id": "t_new_p2_q14_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 454.8,
+      "startTime": 454.3,
       "endTime": 458.20000000000005,
       "transcript": "The topic is professional networking."
     },
@@ -454,7 +454,7 @@
       "id": "t_new_p2_q15_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 464.0,
+      "startTime": 463.5,
       "endTime": 467.20000000000005,
       "transcript": "Have you tried our famous pasta dish?"
     },
@@ -462,7 +462,7 @@
       "id": "t_new_p2_q15_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 467.9,
+      "startTime": 467.4,
       "endTime": 470.80000000000007,
       "transcript": "We need a table for five."
     },
@@ -470,7 +470,7 @@
       "id": "t_new_p2_q15_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 471.0,
+      "startTime": 470.5,
       "endTime": 474.40000000000003,
       "transcript": "Yes, it was delicious."
     },
@@ -478,7 +478,7 @@
       "id": "t_new_p2_q15_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 474.9,
+      "startTime": 474.4,
       "endTime": 477.80000000000007,
       "transcript": "I'll try to make it on time."
     },
@@ -486,7 +486,7 @@
       "id": "t_new_p2_q16_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 484.0,
+      "startTime": 483.5,
       "endTime": 487.30000000000007,
       "transcript": "Who's the opening act at tonight's concert?"
     },
@@ -494,7 +494,7 @@
       "id": "t_new_p2_q16_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 487.8,
+      "startTime": 487.3,
       "endTime": 490.70000000000005,
       "transcript": "Could you turn up the volume?"
     },
@@ -502,7 +502,7 @@
       "id": "t_new_p2_q16_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 491.0,
+      "startTime": 490.5,
       "endTime": 494.00000000000006,
       "transcript": "A jazz singer from France."
     },
@@ -510,7 +510,7 @@
       "id": "t_new_p2_q16_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 494.4,
+      "startTime": 493.9,
       "endTime": 497.40000000000003,
       "transcript": "The position has been filled."
     },
@@ -518,7 +518,7 @@
       "id": "t_new_p2_q17_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 503.5,
+      "startTime": 503.0,
       "endTime": 507.00000000000006,
       "transcript": "When do the product demonstrations start?"
     },
@@ -526,7 +526,7 @@
       "id": "t_new_p2_q17_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 507.9,
+      "startTime": 507.4,
       "endTime": 511.80000000000007,
       "transcript": "The schedule was emailed last Friday."
     },
@@ -534,7 +534,7 @@
       "id": "t_new_p2_q17_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 512.4,
+      "startTime": 511.9,
       "endTime": 515.4000000000001,
       "transcript": "Some innovative features."
     },
@@ -542,7 +542,7 @@
       "id": "t_new_p2_q17_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 515.9,
+      "startTime": 515.4,
       "endTime": 519.1,
       "transcript": "In room 202, I think."
     },
@@ -550,7 +550,7 @@
       "id": "t_new_p2_q18_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 525.0,
+      "startTime": 524.5,
       "endTime": 529.2,
       "transcript": "I tried updating the website, but it didn't work."
     },
@@ -558,7 +558,7 @@
       "id": "t_new_p2_q18_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 529.8,
+      "startTime": 529.3,
       "endTime": 532.6,
       "transcript": "That date works for me."
     },
@@ -566,7 +566,7 @@
       "id": "t_new_p2_q18_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 533.0,
+      "startTime": 532.5,
       "endTime": 536.3000000000001,
       "transcript": "Usually our online reviews."
     },
@@ -574,7 +574,7 @@
       "id": "t_new_p2_q18_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 536.8,
+      "startTime": 536.3,
       "endTime": 539.9000000000001,
       "transcript": "Just send me the changes you want."
     },
@@ -582,7 +582,7 @@
       "id": "t_new_p2_q19_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 546.0,
+      "startTime": 545.5,
       "endTime": 549.7,
       "transcript": "Did you hire a new welding specialist?"
     },
@@ -590,7 +590,7 @@
       "id": "t_new_p2_q19_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 550.4,
+      "startTime": 549.9,
       "endTime": 553.2,
       "transcript": "The part's back-ordered."
     },
@@ -598,7 +598,7 @@
       "id": "t_new_p2_q19_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 553.7,
+      "startTime": 553.2,
       "endTime": 556.7,
       "transcript": "Yes, he starts tomorrow."
     },
@@ -606,7 +606,7 @@
       "id": "t_new_p2_q19_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 557.3,
+      "startTime": 556.8,
       "endTime": 560.6,
       "transcript": "No, it should be higher."
     },
@@ -614,7 +614,7 @@
       "id": "t_new_p2_q20_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 566.0,
+      "startTime": 565.5,
       "endTime": 569.5,
       "transcript": "How was the color palette for the lobby chosen?"
     },
@@ -622,7 +622,7 @@
       "id": "t_new_p2_q20_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 570.1,
+      "startTime": 569.6,
       "endTime": 572.7,
       "transcript": "Blue and orange."
     },
@@ -630,7 +630,7 @@
       "id": "t_new_p2_q20_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 573.2,
+      "startTime": 572.7,
       "endTime": 575.8000000000001,
       "transcript": "It was fine, thanks."
     },
@@ -638,7 +638,7 @@
       "id": "t_new_p2_q20_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 576.3,
+      "startTime": 575.8,
       "endTime": 578.8000000000001,
       "transcript": "I wasn't involved."
     },
@@ -646,7 +646,7 @@
       "id": "t_new_p2_q21_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 585.0,
+      "startTime": 584.5,
       "endTime": 588.4000000000001,
       "transcript": "When are we ordering more supplies for the office?"
     },
@@ -654,7 +654,7 @@
       "id": "t_new_p2_q21_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 589.0,
+      "startTime": 588.5,
       "endTime": 591.7,
       "transcript": "In the storage closet."
     },
@@ -662,7 +662,7 @@
       "id": "t_new_p2_q21_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 592.0,
+      "startTime": 591.5,
       "endTime": 594.8000000000001,
       "transcript": "Next week on Monday."
     },
@@ -670,7 +670,7 @@
       "id": "t_new_p2_q21_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 594.9,
+      "startTime": 594.4,
       "endTime": 597.9000000000001,
       "transcript": "The new desk looks great."
     },
@@ -678,7 +678,7 @@
       "id": "t_new_p2_q22_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 604.0,
+      "startTime": 603.5,
       "endTime": 609.1,
       "transcript": "The battery for the water pump is going to be solar powered, right?"
     },
@@ -686,7 +686,7 @@
       "id": "t_new_p2_q22_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 609.8,
+      "startTime": 609.3,
       "endTime": 613.0,
       "transcript": "We're still in the planning stages."
     },
@@ -694,7 +694,7 @@
       "id": "t_new_p2_q22_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 613.4,
+      "startTime": 612.9,
       "endTime": 616.7,
       "transcript": "One hundred and forty dollars per year."
     },
@@ -702,7 +702,7 @@
       "id": "t_new_p2_q22_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 617.1,
+      "startTime": 616.6,
       "endTime": 620.6,
       "transcript": "Yes, I'd love a glass of water."
     },
@@ -710,7 +710,7 @@
       "id": "t_new_p2_q23_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 626.5,
+      "startTime": 626.0,
       "endTime": 630.1,
       "transcript": "Where can I buy a charger for this laptop?"
     },
@@ -718,7 +718,7 @@
       "id": "t_new_p2_q23_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 630.8,
+      "startTime": 630.3,
       "endTime": 633.4000000000001,
       "transcript": "Around 3 o'clock."
     },
@@ -726,7 +726,7 @@
       "id": "t_new_p2_q23_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 633.8,
+      "startTime": 633.3,
       "endTime": 636.6,
       "transcript": "I can order one for you."
     },
@@ -734,7 +734,7 @@
       "id": "t_new_p2_q23_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 636.8,
+      "startTime": 636.3,
       "endTime": 639.9000000000001,
       "transcript": "A limited return policy."
     },
@@ -742,7 +742,7 @@
       "id": "t_new_p2_q24_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 646.0,
+      "startTime": 645.5,
       "endTime": 649.3000000000001,
       "transcript": "Do I need to reserve a meeting room?"
     },
@@ -750,7 +750,7 @@
       "id": "t_new_p2_q24_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 650.0,
+      "startTime": 649.5,
       "endTime": 653.3000000000001,
       "transcript": "Yes, let me show you how."
     },
@@ -758,7 +758,7 @@
       "id": "t_new_p2_q24_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 653.8,
+      "startTime": 653.3,
       "endTime": 656.6,
       "transcript": "The service is good."
     },
@@ -766,7 +766,7 @@
       "id": "t_new_p2_q24_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 657.0,
+      "startTime": 656.5,
       "endTime": 659.8000000000001,
       "transcript": "My slide presentation."
     },
@@ -774,7 +774,7 @@
       "id": "t_new_p2_q25_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 666.0,
+      "startTime": 665.5,
       "endTime": 669.7,
       "transcript": "When's the new department director supposed to start?"
     },
@@ -782,7 +782,7 @@
       "id": "t_new_p2_q25_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 670.5,
+      "startTime": 670.0,
       "endTime": 673.1,
       "transcript": "It's an hour long."
     },
@@ -790,7 +790,7 @@
       "id": "t_new_p2_q25_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 673.6,
+      "startTime": 673.1,
       "endTime": 677.9000000000001,
       "transcript": "Ms. Pavlova isn't retiring for several weeks."
     },
@@ -798,7 +798,7 @@
       "id": "t_new_p2_q25_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 678.1,
+      "startTime": 677.6,
       "endTime": 681.7,
       "transcript": "No, that department's upstairs."
     },
@@ -806,7 +806,7 @@
       "id": "t_new_p2_q26_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 688.0,
+      "startTime": 687.5,
       "endTime": 692.0,
       "transcript": "Should I deliver these pizzas, or will you?"
     },
@@ -814,7 +814,7 @@
       "id": "t_new_p2_q26_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 692.2,
+      "startTime": 691.7,
       "endTime": 695.4000000000001,
       "transcript": "No thanks, I'm not hungry."
     },
@@ -822,7 +822,7 @@
       "id": "t_new_p2_q26_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 695.8,
+      "startTime": 695.3,
       "endTime": 698.6,
       "transcript": "Ten dollars for two."
     },
@@ -830,7 +830,7 @@
       "id": "t_new_p2_q26_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 699.0,
+      "startTime": 698.5,
       "endTime": 701.8000000000001,
       "transcript": "They're being picked up."
     },
@@ -838,7 +838,7 @@
       "id": "t_new_p2_q27_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 708.0,
+      "startTime": 707.5,
       "endTime": 712.0,
       "transcript": "This month's shipment schedule has been revised."
     },
@@ -846,7 +846,7 @@
       "id": "t_new_p2_q27_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 712.6,
+      "startTime": 712.1,
       "endTime": 715.5,
       "transcript": "I couldn't find them either."
     },
@@ -854,7 +854,7 @@
       "id": "t_new_p2_q27_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 715.8,
+      "startTime": 715.3,
       "endTime": 718.9000000000001,
       "transcript": "Which dates have been changed?"
     },
@@ -862,7 +862,7 @@
       "id": "t_new_p2_q27_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 719.3,
+      "startTime": 718.8,
       "endTime": 722.0,
       "transcript": "Two dollars per pound."
     },
@@ -870,7 +870,7 @@
       "id": "t_new_p2_q28_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 728.0,
+      "startTime": 727.5,
       "endTime": 730.8000000000001,
       "transcript": "How much will the repairs cost?"
     },
@@ -878,7 +878,7 @@
       "id": "t_new_p2_q28_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 731.3,
+      "startTime": 730.8,
       "endTime": 734.9000000000001,
       "transcript": "The work is covered under the warranty plan."
     },
@@ -886,7 +886,7 @@
       "id": "t_new_p2_q28_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 735.0,
+      "startTime": 734.5,
       "endTime": 738.8000000000001,
       "transcript": "Yes, it's also available in red."
     },
@@ -894,7 +894,7 @@
       "id": "t_new_p2_q28_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 739.2,
+      "startTime": 738.7,
       "endTime": 741.9000000000001,
       "transcript": "In about two weeks."
     },
@@ -902,7 +902,7 @@
       "id": "t_new_p2_q29_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 748.0,
+      "startTime": 747.5,
       "endTime": 752.2,
       "transcript": "Why don't we provide more samples of the wallpaper patterns?"
     },
@@ -910,7 +910,7 @@
       "id": "t_new_p2_q29_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 752.6,
+      "startTime": 752.1,
       "endTime": 755.8000000000001,
       "transcript": "The newspaper is delivered daily."
     },
@@ -918,7 +918,7 @@
       "id": "t_new_p2_q29_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 756.2,
+      "startTime": 755.7,
       "endTime": 759.6,
       "transcript": "An interior design course."
     },
@@ -926,7 +926,7 @@
       "id": "t_new_p2_q29_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 759.8,
+      "startTime": 759.3,
       "endTime": 763.1,
       "transcript": "There are plenty in the binders."
     },
@@ -934,7 +934,7 @@
       "id": "t_new_p2_q30_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 768.8,
+      "startTime": 768.3,
       "endTime": 773.2,
       "transcript": "Can you give me a tour of the property this afternoon?"
     },
@@ -942,7 +942,7 @@
       "id": "t_new_p2_q30_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 773.8,
+      "startTime": 773.3,
       "endTime": 777.6,
       "transcript": "Sorry, I won't have time until tomorrow."
     },
@@ -950,7 +950,7 @@
       "id": "t_new_p2_q30_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 777.9,
+      "startTime": 777.4,
       "endTime": 801.2,
       "transcript": "It has a very modern design."
     },
@@ -958,7 +958,7 @@
       "id": "t_new_p2_q30_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 801.6,
+      "startTime": 801.1,
       "endTime": 804.6,
       "transcript": "A house on Maple Street."
     },
@@ -966,7 +966,7 @@
       "id": "t_new_p2_q31_question",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 810.5,
+      "startTime": 810.0,
       "endTime": 813.7,
       "transcript": "Who's scheduled to test the product today?"
     },
@@ -974,7 +974,7 @@
       "id": "t_new_p2_q31_a",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 814.1,
+      "startTime": 813.6,
       "endTime": 817.0,
       "transcript": "We're waiting for confirmation."
     },
@@ -982,7 +982,7 @@
       "id": "t_new_p2_q31_b",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 817.5,
+      "startTime": 817.0,
       "endTime": 820.7,
       "transcript": "It's a great album, right?"
     },
@@ -990,7 +990,7 @@
       "id": "t_new_p2_q31_c",
       "sourceTest": "Test 2",
       "audioFile": "Test_02.mp3",
-      "startTime": 820.9,
+      "startTime": 820.4,
       "endTime": 823.8000000000001,
       "transcript": "About six weeks ago."
     }
@@ -1003,37 +1003,37 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 843.5,
+          "startTime": 843.0,
           "endTime": 849.0,
           "transcript": "Good morning, Captain. We'll be docking at the port in Kolkata this evening, right?"
         },
         {
           "line": 2,
-          "startTime": 848.4,
+          "startTime": 847.9,
           "endTime": 854.7,
           "transcript": "Actually, we had to change course overnight to avoid a storm, so we're running behind schedule."
         },
         {
           "line": 3,
-          "startTime": 854.1,
+          "startTime": 853.6,
           "endTime": 857.2,
           "transcript": "But we should arrive early tomorrow."
         },
         {
           "line": 4,
-          "startTime": 856.6,
+          "startTime": 856.1,
           "endTime": 859.3000000000001,
           "transcript": "Well, that's not too bad."
         },
         {
           "line": 5,
-          "startTime": 858.7,
+          "startTime": 858.2,
           "endTime": 866.6,
           "transcript": "Oh, Hector has the day off today, so I'll need you to do the morning rounds, starting with checking the machinery in the engine room."
         },
         {
           "line": 6,
-          "startTime": 866.2,
+          "startTime": 865.7,
           "endTime": 869.1,
           "transcript": "Of course. I'll head there now."
         }
@@ -1046,55 +1046,55 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 912.8,
+          "startTime": 912.3,
           "endTime": 917.0,
           "transcript": "Hi, I'm here to schedule some personal training sessions."
         },
         {
           "line": 2,
-          "startTime": 916.6,
+          "startTime": 916.1,
           "endTime": 919.5,
           "transcript": "Okay. What are your fitness goals?"
         },
         {
           "line": 3,
-          "startTime": 919.2,
+          "startTime": 918.7,
           "endTime": 922.5,
           "transcript": "I'd like to lift weights and build strength."
         },
         {
           "line": 4,
-          "startTime": 921.9,
+          "startTime": 921.4,
           "endTime": 924.6,
           "transcript": "I can work with you on that."
         },
         {
           "line": 5,
-          "startTime": 923.6,
+          "startTime": 923.1,
           "endTime": 926.4000000000001,
           "transcript": "Are you currently a member here?"
         },
         {
           "line": 6,
-          "startTime": 925.8,
+          "startTime": 925.3,
           "endTime": 929.2,
           "transcript": "No, I'll also need to sign up for a membership."
         },
         {
           "line": 7,
-          "startTime": 928.6,
+          "startTime": 928.1,
           "endTime": 935.4000000000001,
           "transcript": "I saw online that you're running a special for new members: 50% off the first month's membership."
         },
         {
           "line": 8,
-          "startTime": 934.6,
+          "startTime": 934.1,
           "endTime": 937.1,
           "transcript": "Can I sign up for that?"
         },
         {
           "line": 9,
-          "startTime": 936.4,
+          "startTime": 935.9,
           "endTime": 942.4000000000001,
           "transcript": "Absolutely. But before I get you signed up, let me show you around our facility."
         }
@@ -1107,37 +1107,37 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 985.0,
+          "startTime": 984.5,
           "endTime": 991.0,
           "transcript": "As you can see, this Renaissance landscape painting we acquired is in bad condition."
         },
         {
           "line": 2,
-          "startTime": 990.5,
+          "startTime": 990.0,
           "endTime": 993.1,
           "transcript": "We can't display it yet."
         },
         {
           "line": 3,
-          "startTime": 992.8,
+          "startTime": 992.3,
           "endTime": 997.7,
           "transcript": "Hmm, yes. This painting will need significant restoration work."
         },
         {
           "line": 4,
-          "startTime": 997.0,
+          "startTime": 996.5,
           "endTime": 1005.1,
           "transcript": "I'll begin by investigating the artist's color palette and style to see how we should repair the damaged areas."
         },
         {
           "line": 5,
-          "startTime": 1004.8,
+          "startTime": 1004.3,
           "endTime": 1010.7,
           "transcript": "You know, this would be a stunning piece to unveil at our anniversary dinner in June."
         },
         {
           "line": 6,
-          "startTime": 1010.0,
+          "startTime": 1009.5,
           "endTime": 1015.6,
           "transcript": "And since it's a big project to finish by then, we should get started right away."
         }
@@ -1150,61 +1150,61 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1061.5,
+          "startTime": 1061.0,
           "endTime": 1067.1999999999998,
           "transcript": "Hi Ozan. Do you have time to review some slides I'm presenting at a meeting on Thursday?"
         },
         {
           "line": 2,
-          "startTime": 1066.8,
+          "startTime": 1066.3,
           "endTime": 1070.6999999999998,
           "transcript": "Oh, is that the meeting with Smith Incorporated?"
         },
         {
           "line": 3,
-          "startTime": 1069.9,
+          "startTime": 1069.4,
           "endTime": 1075.4999999999998,
           "transcript": "Yes, I'm presenting them with our updated marketing plan for their chain of bookstores."
         },
         {
           "line": 4,
-          "startTime": 1075.1,
+          "startTime": 1074.6,
           "endTime": 1079.7999999999997,
           "transcript": "You know, Smith Incorporated prefers informal meetings."
         },
         {
           "line": 5,
-          "startTime": 1079.1,
+          "startTime": 1078.6,
           "endTime": 1086.6999999999998,
           "transcript": "I think just a handout highlighting how our marketing plan will positively impact their book sales would be enough."
         },
         {
           "line": 6,
-          "startTime": 1086.0,
+          "startTime": 1085.5,
           "endTime": 1087.7999999999997,
           "transcript": "Really?"
         },
         {
           "line": 7,
-          "startTime": 1086.9,
+          "startTime": 1086.4,
           "endTime": 1090.2999999999997,
           "transcript": "Filo, you've worked with this client before."
         },
         {
           "line": 8,
-          "startTime": 1089.3,
+          "startTime": 1088.8,
           "endTime": 1091.3999999999999,
           "transcript": "What do you think?"
         },
         {
           "line": 9,
-          "startTime": 1090.6,
+          "startTime": 1090.1,
           "endTime": 1092.6,
           "transcript": "Ozan is right."
         },
         {
           "line": 10,
-          "startTime": 1091.7,
+          "startTime": 1091.2,
           "endTime": 1096.9999999999998,
           "transcript": "I think they'd prefer a meeting that was more of a conversation than a presentation."
         }
@@ -1217,55 +1217,55 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1147.0,
+          "startTime": 1146.5,
           "endTime": 1152.9999999999998,
           "transcript": "I heard that the results of your experiment were better than you expected. Congratulations."
         },
         {
           "line": 2,
-          "startTime": 1152.1,
+          "startTime": 1151.6,
           "endTime": 1160.6,
           "transcript": "Thanks. I thought we'd have to run that reaction 10 times before we got a positive result, but we got it on the third try."
         },
         {
           "line": 3,
-          "startTime": 1160.2,
+          "startTime": 1159.7,
           "endTime": 1166.7999999999997,
           "transcript": "You'll have to write up your results and submit them to the research director. That's Ezra, right?"
         },
         {
           "line": 4,
-          "startTime": 1166.1,
+          "startTime": 1165.6,
           "endTime": 1169.7999999999997,
           "transcript": "Oh, Ezra's leaving the company next week."
         },
         {
           "line": 5,
-          "startTime": 1169.0,
+          "startTime": 1168.5,
           "endTime": 1171.7999999999997,
           "transcript": "Oh, I didn't know that."
         },
         {
           "line": 6,
-          "startTime": 1171.1,
+          "startTime": 1170.6,
           "endTime": 1174.7999999999997,
           "transcript": "I wonder if you'll be promoted to fill her position."
         },
         {
           "line": 7,
-          "startTime": 1174.1,
+          "startTime": 1173.6,
           "endTime": 1176.1999999999998,
           "transcript": "I don't think so."
         },
         {
           "line": 8,
-          "startTime": 1175.5,
+          "startTime": 1175.0,
           "endTime": 1179.3999999999999,
           "transcript": "I've never managed an entire research group."
         },
         {
           "line": 9,
-          "startTime": 1178.5,
+          "startTime": 1178.0,
           "endTime": 1182.3999999999999,
           "transcript": "I hope to get some experience doing that next quarter."
         }
@@ -1278,49 +1278,49 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1230.5,
+          "startTime": 1230.0,
           "endTime": 1238.1999999999998,
           "transcript": "Now we'll move on to a special segment of our news program where we highlight new local businesses for our viewers."
         },
         {
           "line": 2,
-          "startTime": 1237.9,
+          "startTime": 1237.4,
           "endTime": 1243.7999999999997,
           "transcript": "Today I'm talking with Dhruv Bajaj, a personal trainer and gym owner."
         },
         {
           "line": 3,
-          "startTime": 1242.8,
+          "startTime": 1242.3,
           "endTime": 1246.2999999999997,
           "transcript": "Thanks for coming into the studio today, Dhruv."
         },
         {
           "line": 4,
-          "startTime": 1245.8,
+          "startTime": 1245.3,
           "endTime": 1248.1,
           "transcript": "Thanks for having me."
         },
         {
           "line": 5,
-          "startTime": 1247.4,
+          "startTime": 1246.9,
           "endTime": 1257.6999999999998,
           "transcript": "I'm excited to tell you about the gym I just opened last month. It has state-of-the-art equipment, and my trainers can work with clients at any stage in their fitness journey."
         },
         {
           "line": 6,
-          "startTime": 1257.2,
+          "startTime": 1256.7,
           "endTime": 1259.1,
           "transcript": "Sounds great."
         },
         {
           "line": 7,
-          "startTime": 1258.3,
+          "startTime": 1257.8,
           "endTime": 1301.6,
           "transcript": "How did you get started in this line of work?"
         },
         {
           "line": 8,
-          "startTime": 1301.3,
+          "startTime": 1300.8,
           "endTime": 1311.2999999999997,
           "transcript": "Well, I was an athlete in school, and when I stopped competing, I wanted to continue doing something fitness-related, so I started working as a trainer."
         }
@@ -1333,43 +1333,43 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1376.5,
+          "startTime": 1376.0,
           "endTime": 1385.1999999999998,
           "transcript": "As director, I'm delighted to welcome you to the Redmond Aquatic Institute. We're happy you'll be producing content for our website."
         },
         {
           "line": 2,
-          "startTime": 1385.3,
+          "startTime": 1384.8,
           "endTime": 1390.1,
           "transcript": "I'm looking forward to writing about Redmond's initiatives in marine biology."
         },
         {
           "line": 3,
-          "startTime": 1389.4,
+          "startTime": 1388.9,
           "endTime": 1400.7999999999997,
           "transcript": "Yes, the more articles the public can read about threats to aquatic ecosystems, the better. Public awareness will help us get funding to meet our aim of preserving these ecosystems."
         },
         {
           "line": 4,
-          "startTime": 1400.2,
+          "startTime": 1399.7,
           "endTime": 1402.6999999999998,
           "transcript": "This is Roberto."
         },
         {
           "line": 5,
-          "startTime": 1401.9,
+          "startTime": 1401.4,
           "endTime": 1407.6,
           "transcript": "He's working on our mangrove research project, which is the first one you'll cover."
         },
         {
           "line": 6,
-          "startTime": 1406.8,
+          "startTime": 1406.3,
           "endTime": 1409.2999999999997,
           "transcript": "It's an interesting project."
         },
         {
           "line": 7,
-          "startTime": 1408.6,
+          "startTime": 1408.1,
           "endTime": 1417.3999999999999,
           "transcript": "And what's exciting is that we've started using drones to photograph the area with the mangroves, so we have some great images you could use."
         }
@@ -1382,43 +1382,43 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1462.2,
+          "startTime": 1461.7,
           "endTime": 1467.3999999999999,
           "transcript": "Matthew, you're not planning to cancel Wednesday's budget meeting, are you?"
         },
         {
           "line": 2,
-          "startTime": 1466.9,
+          "startTime": 1466.4,
           "endTime": 1476.1999999999998,
           "transcript": "I haven't sent out the cancellation yet, but our research partners in China are off this week for a national holiday, so there's no point in meeting. Why?"
         },
         {
           "line": 3,
-          "startTime": 1476.1,
+          "startTime": 1475.6,
           "endTime": 1483.6999999999998,
           "transcript": "Well, I've been looking at the draft budget, and we didn't allocate funds for a project leader."
         },
         {
           "line": 4,
-          "startTime": 1483.1,
+          "startTime": 1482.6,
           "endTime": 1484.8999999999999,
           "transcript": "Uh-oh."
         },
         {
           "line": 5,
-          "startTime": 1484.1,
+          "startTime": 1483.6,
           "endTime": 1486.7999999999997,
           "transcript": "I wonder how that happened."
         },
         {
           "line": 6,
-          "startTime": 1486.3,
+          "startTime": 1485.8,
           "endTime": 1490.6999999999998,
           "transcript": "You're right. We need to discuss how to fix that."
         },
         {
           "line": 7,
-          "startTime": 1490.1,
+          "startTime": 1489.6,
           "endTime": 1498.7999999999997,
           "transcript": "You know, we allocated money for a trip to Singapore to present our preliminary findings. We don't really need to do that."
         }
@@ -1431,49 +1431,49 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1551.0,
+          "startTime": 1550.5,
           "endTime": 1554.3999999999999,
           "transcript": "I'm calling from Reuben Restaurant Equipment."
         },
         {
           "line": 2,
-          "startTime": 1553.7,
+          "startTime": 1553.2,
           "endTime": 1561.1,
           "transcript": "I recently purchased your software to keep track of my warehouse inventory, and I have a question about setting alerts."
         },
         {
           "line": 3,
-          "startTime": 1600.2,
+          "startTime": 1599.7,
           "endTime": 1602.8999999999999,
           "transcript": "Sure. How can I help?"
         },
         {
           "line": 4,
-          "startTime": 1602.2,
+          "startTime": 1601.7,
           "endTime": 1612.7999999999997,
           "transcript": "Well, we've been getting an alert whenever the inventory for our deep fryers drops below 10, but we usually don't stock many of those because restaurants don't often need to replace them."
         },
         {
           "line": 5,
-          "startTime": 1612.1,
+          "startTime": 1611.6,
           "endTime": 1616.7999999999997,
           "transcript": "So, can I lower the alert level for just those items?"
         },
         {
           "line": 6,
-          "startTime": 1616.1,
+          "startTime": 1615.6,
           "endTime": 1625.6,
           "transcript": "Yes. In the system, if you click on that product, you'll see a link that says 'Set Custom Alert,' and you can set it to any number from there."
         },
         {
           "line": 7,
-          "startTime": 1625.0,
+          "startTime": 1624.5,
           "endTime": 1626.7999999999997,
           "transcript": "I see it."
         },
         {
           "line": 8,
-          "startTime": 1625.9,
+          "startTime": 1625.4,
           "endTime": 1628.2999999999997,
           "transcript": "Thanks for your help."
         }
@@ -1486,31 +1486,31 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1631.8,
+          "startTime": 1631.3,
           "endTime": 1639.9999999999998,
           "transcript": "I just spoke to the garden director. He wants us to install an irrigation system in the rose garden as well as the magnolia grove. He wants to be sure the flowers get plenty of water during the hot summer months."
         },
         {
           "line": 2,
-          "startTime": 1644.2,
+          "startTime": 1643.7,
           "endTime": 1650.6,
           "transcript": "Okay. Let's walk over there now and take some measurements. Then we can figure out what materials we'll need."
         },
         {
           "line": 3,
-          "startTime": 1650.2,
+          "startTime": 1649.7,
           "endTime": 1651.7999999999997,
           "transcript": "Sure."
         },
         {
           "line": 4,
-          "startTime": 1651.2,
+          "startTime": 1650.7,
           "endTime": 1656.1,
           "transcript": "We have some extra parts left over from when we worked on the cherry trees."
         },
         {
           "line": 5,
-          "startTime": 1655.4,
+          "startTime": 1654.9,
           "endTime": 1659.9999999999998,
           "transcript": "I'll check what we have left after we finish measuring the rose garden."
         }
@@ -1523,37 +1523,37 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1704.6,
+          "startTime": 1704.1,
           "endTime": 1710.4999999999998,
           "transcript": "Good morning, Ms. Al-Johani. Sorry I'm a little late. Traffic was terrible."
         },
         {
           "line": 2,
-          "startTime": 1710.1,
+          "startTime": 1709.6,
           "endTime": 1711.9999999999998,
           "transcript": "That's okay."
         },
         {
           "line": 3,
-          "startTime": 1711.0,
+          "startTime": 1710.5,
           "endTime": 1723.9999999999998,
           "transcript": "But our rental office will be very busy this morning. There's a big education convention in town starting today, and a lot of attendees from out of town have reserved cars to get to the conference center."
         },
         {
           "line": 4,
-          "startTime": 1723.3,
+          "startTime": 1722.8,
           "endTime": 1724.8999999999999,
           "transcript": "Right."
         },
         {
           "line": 5,
-          "startTime": 1724.1,
+          "startTime": 1723.6,
           "endTime": 1726.8999999999999,
           "transcript": "What do you want me to do first?"
         },
         {
           "line": 6,
-          "startTime": 1726.4,
+          "startTime": 1725.9,
           "endTime": 1734.6999999999998,
           "transcript": "I'd like you to start by checking the batteries in our electric cars. We want to be sure they're all fully charged."
         }
@@ -1566,67 +1566,67 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1733.8,
+          "startTime": 1733.3,
           "endTime": 1739.1999999999998,
           "transcript": "I've been on vacation, so I missed our department's meeting. Can you give me an update?"
         },
         {
           "line": 2,
-          "startTime": 1738.6,
+          "startTime": 1738.1,
           "endTime": 1743.2999999999997,
           "transcript": "Well, all our public programs and community events are on schedule."
         },
         {
           "line": 3,
-          "startTime": 1742.5,
+          "startTime": 1742.0,
           "endTime": 1744.1999999999998,
           "transcript": "Great."
         },
         {
           "line": 4,
-          "startTime": 1743.4,
+          "startTime": 1742.9,
           "endTime": 1746.3999999999999,
           "transcript": "How about the Janus Park project?"
         },
         {
           "line": 5,
-          "startTime": 1745.8,
+          "startTime": 1745.3,
           "endTime": 1751.1999999999998,
           "transcript": "We're still planning on planting trees best suited for residential areas, right?"
         },
         {
           "line": 6,
-          "startTime": 1750.5,
+          "startTime": 1750.0,
           "endTime": 1752.3999999999999,
           "transcript": "That's right."
         },
         {
           "line": 7,
-          "startTime": 1751.8,
+          "startTime": 1751.3,
           "endTime": 1759.6,
           "transcript": "I'm working on the public education part now. There'll be a children's poster competition next month, which the city mayor will judge."
         },
         {
           "line": 8,
-          "startTime": 1759.0,
+          "startTime": 1758.5,
           "endTime": 1760.7999999999997,
           "transcript": "Interesting."
         },
         {
           "line": 9,
-          "startTime": 1759.9,
+          "startTime": 1759.4,
           "endTime": 1801.9999999999998,
           "transcript": "Is there a prize?"
         },
         {
           "line": 10,
-          "startTime": 1801.4,
+          "startTime": 1800.9,
           "endTime": 1803.7999999999997,
           "transcript": "The winner will get a ribbon."
         },
         {
           "line": 11,
-          "startTime": 1803.1,
+          "startTime": 1802.6,
           "endTime": 1813.1999999999998,
           "transcript": "But all participants will get a seedling to plant at home. We'll be giving away the tallest of these four varieties, since it was the most popular in a survey of our residents."
         }
@@ -1639,55 +1639,55 @@
       "conversation": [
         {
           "line": 1,
-          "startTime": 1825.6,
+          "startTime": 1825.1,
           "endTime": 1830.7999999999997,
           "transcript": "Hi, I'd like a large black coffee and an egg and cheese croissant, please."
         },
         {
           "line": 2,
-          "startTime": 1830.2,
+          "startTime": 1829.7,
           "endTime": 1832.7999999999997,
           "transcript": "Sure, that'll be eight dollars."
         },
         {
           "line": 3,
-          "startTime": 1832.0,
+          "startTime": 1831.5,
           "endTime": 1835.3999999999999,
           "transcript": "Are you a Shelby's preferred customer?"
         },
         {
           "line": 4,
-          "startTime": 1834.6,
+          "startTime": 1834.1,
           "endTime": 1839.1,
           "transcript": "Uh, no, I'm not, but I do have an Easy Cash card."
         },
         {
           "line": 5,
-          "startTime": 1838.3,
+          "startTime": 1837.8,
           "endTime": 1841.1999999999998,
           "transcript": "Great. Let me ring that up for you."
         },
         {
           "line": 6,
-          "startTime": 1840.6,
+          "startTime": 1840.1,
           "endTime": 1847.3999999999999,
           "transcript": "By the way, I'd like to order breakfast for my team tomorrow morning. Can I place that order ahead of time?"
         },
         {
           "line": 7,
-          "startTime": 1846.5,
+          "startTime": 1846.0,
           "endTime": 1848.1,
           "transcript": "Sure."
         },
         {
           "line": 8,
-          "startTime": 1847.2,
+          "startTime": 1846.7,
           "endTime": 1849.6,
           "transcript": "Would you like to do that now?"
         },
         {
           "line": 9,
-          "startTime": 1848.9,
+          "startTime": 1848.4,
           "endTime": 1854.7999999999997,
           "transcript": "No, I'll call you later today when I know what everyone wants. Thanks for the information."
         }
@@ -1702,37 +1702,37 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 1936.1,
+          "startTime": 1935.6,
           "endTime": 1940.7999999999997,
           "transcript": "Hi, Amina. This is Sabine calling from Blue Drop Creations."
         },
         {
           "line": 2,
-          "startTime": 1940.1,
+          "startTime": 1939.6,
           "endTime": 1944.6999999999998,
           "transcript": "I just put the earrings and necklaces that you ordered from me in the mail."
         },
         {
           "line": 3,
-          "startTime": 1944.0,
+          "startTime": 1943.5,
           "endTime": 1950.1999999999998,
           "transcript": "Because you've been a customer for over 10 years, I've also included a special gift in the package for you."
         },
         {
           "line": 4,
-          "startTime": 1949.5,
+          "startTime": 1949.0,
           "endTime": 1952.2999999999997,
           "transcript": "It's a case for your jewelry."
         },
         {
           "line": 5,
-          "startTime": 1951.5,
+          "startTime": 1951.0,
           "endTime": 1957.2999999999997,
           "transcript": "This is a new product that I'm starting to offer, so please call me back after you receive it."
         },
         {
           "line": 6,
-          "startTime": 1956.4,
+          "startTime": 1955.9,
           "endTime": 1959.6,
           "transcript": "I'd really like to hear your thoughts on it."
         }
@@ -1745,43 +1745,43 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 2004.6,
+          "startTime": 2004.1,
           "endTime": 2010.2999999999997,
           "transcript": "Good morning. This is Brandon from Dakota Framing Company, returning your call."
         },
         {
           "line": 2,
-          "startTime": 2009.8,
+          "startTime": 2009.3,
           "endTime": 2014.1999999999998,
           "transcript": "We received your voicemail about wanting to frame a wedding picture."
         },
         {
           "line": 3,
-          "startTime": 2013.6,
+          "startTime": 2013.1,
           "endTime": 2019.6999999999998,
           "transcript": "There is no need to print the photo yourself; we prefer that you email us a digital copy."
         },
         {
           "line": 4,
-          "startTime": 2019.4,
+          "startTime": 2018.9,
           "endTime": 2024.1999999999998,
           "transcript": "So, to answer your question, you can complete the whole order online."
         },
         {
           "line": 5,
-          "startTime": 2023.6,
+          "startTime": 2023.1,
           "endTime": 2030.6999999999998,
           "transcript": "Just visit our website where you'll fill in your choices for photo size and the frame and upload your photo."
         },
         {
           "line": 6,
-          "startTime": 2030.1,
+          "startTime": 2029.6,
           "endTime": 2036.2999999999997,
           "transcript": "And for a small extra cost, we'll guarantee to replace your frame in case of damage."
         },
         {
           "line": 7,
-          "startTime": 2035.6,
+          "startTime": 2035.1,
           "endTime": 2039.4999999999998,
           "transcript": "Please be sure to check that box when you order."
         }
@@ -1794,31 +1794,31 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 2084.5,
+          "startTime": 2084.0,
           "endTime": 2094.0,
           "transcript": "Welcome all to this week's training in our series of patient care programs. Our physical therapy center is known for the excellent care we provide to our patients, and that's because of you, our staff."
         },
         {
           "line": 2,
-          "startTime": 2096.1,
+          "startTime": 2095.6,
           "endTime": 2103.0,
           "transcript": "The training today will be about ways to engage the patients who reside in our facility through playing games."
         },
         {
           "line": 3,
-          "startTime": 2102.4,
+          "startTime": 2101.9,
           "endTime": 2112.2,
           "transcript": "I've prepared different types of activities for us to try out, including some games that involve mental stimulation as well as physical exercises."
         },
         {
           "line": 4,
-          "startTime": 2111.6,
+          "startTime": 2111.1,
           "endTime": 2116.2,
           "transcript": "But I have to let you know that today, I must leave at noon."
         },
         {
           "line": 5,
-          "startTime": 2115.6,
+          "startTime": 2115.1,
           "endTime": 2119.1,
           "transcript": "Next week, we'll try out more of the games."
         }
@@ -1831,43 +1831,43 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 2163.8,
+          "startTime": 2163.3,
           "endTime": 2167.2,
           "transcript": "Are you a certified commercial truck driver?"
         },
         {
           "line": 2,
-          "startTime": 2166.5,
+          "startTime": 2166.0,
           "endTime": 2173.0,
           "transcript": "Hoffman Oversized Haulers is currently looking for experienced truck drivers to join our team."
         },
         {
           "line": 3,
-          "startTime": 2172.5,
+          "startTime": 2172.0,
           "endTime": 2178.7,
           "transcript": "As our name suggests, we transport oversized cargo throughout the region."
         },
         {
           "line": 4,
-          "startTime": 2178.0,
+          "startTime": 2177.5,
           "endTime": 2182.2,
           "transcript": "With Hoffman, drivers enjoy flexible scheduling."
         },
         {
           "line": 5,
-          "startTime": 2181.5,
+          "startTime": 2181.0,
           "endTime": 2188.7,
           "transcript": "In fact, we're the only company in the region that allows employees to determine their own work hours."
         },
         {
           "line": 6,
-          "startTime": 2188.1,
+          "startTime": 2187.6,
           "endTime": 2193.3999999999996,
           "transcript": "If you don't have experience working with oversized loads, training is available."
         },
         {
           "line": 7,
-          "startTime": 2193.0,
+          "startTime": 2192.5,
           "endTime": 2199.7,
           "transcript": "Please check out our website to learn more about our open positions. We can't wait to work with you."
         }
@@ -1880,43 +1880,43 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 2251.8,
+          "startTime": 2251.3,
           "endTime": 2254.0,
           "transcript": "Hi, Jinyu."
         },
         {
           "line": 2,
-          "startTime": 2253.0,
+          "startTime": 2252.5,
           "endTime": 2255.7999999999997,
           "transcript": "I have some exciting news."
         },
         {
           "line": 3,
-          "startTime": 2255.2,
+          "startTime": 2254.7,
           "endTime": 2262.3999999999996,
           "transcript": "The Farmer's Table television program wants to feature our restaurant in an upcoming episode."
         },
         {
           "line": 4,
-          "startTime": 2262.0,
+          "startTime": 2261.5,
           "endTime": 2268.0,
           "transcript": "They'll be coming on Wednesday to film everyone at work in the kitchen during our dinner service."
         },
         {
           "line": 5,
-          "startTime": 2267.2,
+          "startTime": 2266.7,
           "endTime": 2274.7,
           "transcript": "Since you're the executive chef, I'll need you to come in earlier than usual to get everything prepped and set up."
         },
         {
           "line": 6,
-          "startTime": 2274.0,
+          "startTime": 2273.5,
           "endTime": 2301.7,
           "transcript": "And just as a reminder, I'm still planning to be out of town next week for the Springdale Pastry and Dessert Festival."
         },
         {
           "line": 7,
-          "startTime": 2300.9,
+          "startTime": 2300.4,
           "endTime": 2302.7,
           "transcript": "Thanks."
         }
@@ -1929,43 +1929,43 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 2327.2,
+          "startTime": 2326.7,
           "endTime": 2331.2,
           "transcript": "Good evening, and thank you for watching Channel 4 News."
         },
         {
           "line": 2,
-          "startTime": 2330.8,
+          "startTime": 2330.3,
           "endTime": 2335.0,
           "transcript": "I'm here in Rockville, a suburb in the metropolitan area."
         },
         {
           "line": 3,
-          "startTime": 2334.6,
+          "startTime": 2334.1,
           "endTime": 2341.2,
           "transcript": "Rockville was recently chosen as the site of a multi-million dollar electric vehicle battery factory."
         },
         {
           "line": 4,
-          "startTime": 2340.6,
+          "startTime": 2340.1,
           "endTime": 2348.0,
           "transcript": "This project promises to bring thousands of jobs, both directly and indirectly, to the surrounding community."
         },
         {
           "line": 5,
-          "startTime": 2347.5,
+          "startTime": 2347.0,
           "endTime": 2354.7,
           "transcript": "At a recent well-attended public comment meeting, residents had a chance to voice any opposition to the project."
         },
         {
           "line": 6,
-          "startTime": 2354.1,
+          "startTime": 2353.6,
           "endTime": 2357.2,
           "transcript": "No one made any comments."
         },
         {
           "line": 7,
-          "startTime": 2356.8,
+          "startTime": 2356.3,
           "endTime": 2404.3999999999996,
           "transcript": "To learn more about this exciting development, artist-rendered images of the project are on display at the city hall building."
         }
@@ -1978,31 +1978,31 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 2412.2,
+          "startTime": 2411.7,
           "endTime": 2416.6,
           "transcript": "Tired of losing things on your desk because it's too cluttered?"
         },
         {
           "line": 2,
-          "startTime": 2415.8,
+          "startTime": 2415.3,
           "endTime": 2420.7,
           "transcript": "If so, the Optimum Space Organizer is the perfect product for you."
         },
         {
           "line": 3,
-          "startTime": 2420.2,
+          "startTime": 2419.7,
           "endTime": 2427.7,
           "transcript": "Designed with office employees like you in mind, this product can make even the messiest of desks look neat again."
         },
         {
           "line": 4,
-          "startTime": 2427.1,
+          "startTime": 2426.6,
           "endTime": 2437.3999999999996,
           "transcript": "Best of all, the organizer adjusts to any size space you may have on your desk. It can be as narrow or as wide as you need it to be, within seconds."
         },
         {
           "line": 5,
-          "startTime": 2437.0,
+          "startTime": 2436.5,
           "endTime": 2441.7999999999997,
           "transcript": "If you call in the next 10 minutes, you'll receive a 30% discount."
         }
@@ -2015,43 +2015,43 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 2486.5,
+          "startTime": 2486.0,
           "endTime": 2491.0,
           "transcript": "Thanks for listening to this episode of Fabulous Foods."
         },
         {
           "line": 2,
-          "startTime": 2490.6,
+          "startTime": 2490.1,
           "endTime": 2497.0,
           "transcript": "Every week we discuss a different vegetable and ways to cook with it to maximize flavor."
         },
         {
           "line": 3,
-          "startTime": 2496.6,
+          "startTime": 2496.1,
           "endTime": 2507.0,
           "transcript": "Now, before we get started, I'm excited to announce that I've been collaborating with Cartwell Kitchen Supplies to develop a new line of cookware. It'll be released in November, but it's available for pre-order right now."
         },
         {
           "line": 4,
-          "startTime": 2511.5,
+          "startTime": 2511.0,
           "endTime": 2516.7999999999997,
           "transcript": "Keep in mind, this product line will not be available for long."
         },
         {
           "line": 5,
-          "startTime": 2516.1,
+          "startTime": 2515.6,
           "endTime": 2519.2,
           "transcript": "Okay, let's move on to our program."
         },
         {
           "line": 6,
-          "startTime": 2518.6,
+          "startTime": 2518.1,
           "endTime": 2526.3999999999996,
           "transcript": "With us today is renowned chef Rebecca Murray to talk about this week's vegetable: eggplant."
         },
         {
           "line": 7,
-          "startTime": 2526.0,
+          "startTime": 2525.5,
           "endTime": 2532.7999999999997,
           "transcript": "Rebecca recently launched a vegetarian restaurant in New York that is getting rave reviews so far."
         }
@@ -2064,49 +2064,49 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 2584.2,
+          "startTime": 2583.7,
           "endTime": 2586.6,
           "transcript": "Attention, passengers."
         },
         {
           "line": 2,
-          "startTime": 2585.9,
+          "startTime": 2585.4,
           "endTime": 2590.6,
           "transcript": "Renovation work to upgrade and modernize our train station is underway."
         },
         {
           "line": 3,
-          "startTime": 2590.0,
+          "startTime": 2589.5,
           "endTime": 2594.3999999999996,
           "transcript": "We apologize for the inconvenience the construction noise may cause."
         },
         {
           "line": 4,
-          "startTime": 2594.0,
+          "startTime": 2593.5,
           "endTime": 2598.1,
           "transcript": "Please note that regional train schedules are not affected."
         },
         {
           "line": 5,
-          "startTime": 2597.6,
+          "startTime": 2597.1,
           "endTime": 2603.1,
           "transcript": "Train 133 with service to Washington D.C. will be arriving shortly."
         },
         {
           "line": 6,
-          "startTime": 2602.4,
+          "startTime": 2601.9,
           "endTime": 2607.6,
           "transcript": "All passengers to Washington, please proceed to track 26B."
         },
         {
           "line": 7,
-          "startTime": 2607.0,
+          "startTime": 2606.5,
           "endTime": 2613.0,
           "transcript": "If you need assistance handling your baggage, please speak to a ticket agent immediately."
         },
         {
           "line": 8,
-          "startTime": 2612.4,
+          "startTime": 2611.9,
           "endTime": 2619.6,
           "transcript": "Train 133's next stop will be Wilmington, followed by Baltimore, and then Washington D.C."
         }
@@ -2119,37 +2119,37 @@
       "talk": [
         {
           "line": 1,
-          "startTime": 2674.2,
+          "startTime": 2673.7,
           "endTime": 2676.6,
           "transcript": "Hello, everyone."
         },
         {
           "line": 2,
-          "startTime": 2675.6,
+          "startTime": 2675.1,
           "endTime": 2683.3999999999996,
           "transcript": "I'm Carmen Salazar, the airport operations director, and I wanted to thank you for attending this press conference."
         },
         {
           "line": 3,
-          "startTime": 2683.0,
+          "startTime": 2682.5,
           "endTime": 2692.0,
           "transcript": "As of this week, construction on the new regional airport is proceeding on schedule for two of the three terminals."
         },
         {
           "line": 4,
-          "startTime": 2691.6,
+          "startTime": 2691.1,
           "endTime": 2704.0,
           "transcript": "Minor design adjustments to Terminal A have put the project slightly behind schedule, and we anticipate about two months will be added to the construction time frame as a result."
         },
         {
           "line": 5,
-          "startTime": 2703.2,
+          "startTime": 2702.7,
           "endTime": 2709.3999999999996,
           "transcript": "I'd also like to mention that we now have a 3D printed model of this project."
         },
         {
           "line": 6,
-          "startTime": 2709.0,
+          "startTime": 2708.5,
           "endTime": 2713.3999999999996,
           "transcript": "Please feel free to visit our website so you can view it."
         }

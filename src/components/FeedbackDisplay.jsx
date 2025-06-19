@@ -1,15 +1,32 @@
 import React from 'react';
 import './FeedbackDisplay.css';
 
-// segments: [{ char, status }]
-function FeedbackDisplay({ segments, showAbove = false }) {
-  // Xử lý hiển thị ký tự đặc biệt
-  const renderChar = (char) => {
-    // Nếu là khoảng trắng, hiển thị rõ ràng hơn
-    if (char === ' ') {
-      return <span className="space-char">&nbsp;</span>;
+// segments: [{ text, correctedText, status }]
+function FeedbackDisplay({ segments, showAbove = false, autoCorrect = false }) {
+  // Xử lý hiển thị từ đặc biệt
+  const renderWord = (segment) => {
+    const { text, correctedText, status } = segment;
+    
+    if (status === 'missing') {
+      // Từ bị thiếu
+      return (
+        <span className="word-correction">
+          <span className="missing-word">___</span>
+          <span className="corrected-text">{correctedText}</span>
+        </span>
+      );
+    } else if (status === 'incorrect' && autoCorrect && correctedText) {
+      // Từ sai và đã bật tự động sửa
+      return (
+        <span className="word-correction">
+          <span className="original-text">{text}</span>
+          <span className="corrected-text">{correctedText}</span>
+        </span>
+      );
+    } else {
+      // Từ đúng hoặc không bật tự động sửa
+      return text;
     }
-    return char;
   };
 
   // Nếu không có segments hoặc segments là mảng rỗng
@@ -22,8 +39,8 @@ function FeedbackDisplay({ segments, showAbove = false }) {
   return (
     <div className={containerClass}>
       {segments.map((seg, idx) => (
-        <span key={idx} className={`char-${seg.status}`}>
-          {renderChar(seg.char)}
+        <span key={idx} className={`word-${seg.status}`}>
+          {renderWord(seg)} {' '}
         </span>
       ))}
     </div>
@@ -32,7 +49,8 @@ function FeedbackDisplay({ segments, showAbove = false }) {
 
 FeedbackDisplay.defaultProps = {
   segments: [],
-  showAbove: false
+  showAbove: false,
+  autoCorrect: false
 };
 
 export default FeedbackDisplay;

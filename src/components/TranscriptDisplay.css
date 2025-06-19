@@ -28,7 +28,7 @@
   color: #555;
 }
 
-/* Các trạng thái khác nhau của từng từ */
+/* Các trạng thái khác nhau của từng từ - phiên bản cũ */
 .correct {
   color: #28a745;
 }
@@ -40,4 +40,43 @@
 
 .missing {
   color: #ffc107;
+}
+
+/* Style cho từng từ - phiên bản mới */
+.word-correct {
+  color: #48bb78; /* green */
+  font-weight: 500;
+  background-color: rgba(72, 187, 120, 0.1);
+  border-radius: 2px;
+  padding: 0 3px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.word-incorrect {
+  color: #e53e3e; /* red */
+  text-decoration: line-through;
+  font-weight: 500;
+  background-color: rgba(229, 62, 62, 0.1);
+  border-radius: 2px;
+  padding: 0 3px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.word-missing {
+  color: #805ad5; /* purple */
+  font-weight: 500;
+  background-color: rgba(128, 90, 213, 0.1);
+  border-radius: 2px;
+  padding: 0 3px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.missing-word {
+  color: #805ad5; /* purple */
+  font-style: italic;
+  border-bottom: 2px dashed #805ad5;
+  padding: 0 2px;
 }

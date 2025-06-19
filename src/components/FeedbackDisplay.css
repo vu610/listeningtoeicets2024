@@ -36,6 +36,72 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Style cho từng từ */
+.word-correct {
+  color: #48bb78; /* green */
+  font-weight: 500;
+  background-color: rgba(72, 187, 120, 0.1);
+  border-radius: 2px;
+  padding: 0 3px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.word-incorrect {
+  color: #e53e3e; /* red */
+  font-weight: 500;
+  background-color: rgba(229, 62, 62, 0.1);
+  border-radius: 2px;
+  padding: 0 3px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+.word-missing {
+  color: #805ad5; /* purple */
+  font-weight: 500;
+  background-color: rgba(128, 90, 213, 0.1);
+  border-radius: 2px;
+  padding: 0 3px;
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* Style cho từ được sửa */
+.word-correction {
+  position: relative;
+  display: inline-block;
+}
+
+.original-text {
+  text-decoration: line-through;
+  color: #e53e3e; /* red */
+  font-weight: 500;
+}
+
+.corrected-text {
+  position: relative;
+  color: #3182ce; /* blue */
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.corrected-text::before {
+  content: "→";
+  position: absolute;
+  left: -10px;
+  color: #4a5568;
+  font-weight: normal;
+}
+
+.missing-word {
+  color: #805ad5; /* purple */
+  font-style: italic;
+  border-bottom: 2px dashed #805ad5;
+  padding: 0 2px;
+}
+
+/* Giữ lại cho tương thích ngược */
 .char-correct {
   color: #48bb78; /* green */
   font-weight: 500;
