@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
+import UserLogin from '../components/UserLogin';
 import './HomePage.css';
 
 const parts = [
@@ -10,10 +12,26 @@ const parts = [
 ];
 
 function HomePage() {
+  const { currentUser, loading } = useUser();
+
+  if (loading) {
+    return (
+      <div className="home-content loading">
+        <div className="loading-spinner"></div>
+        <p>Đang tải...</p>
+      </div>
+    );
+  }
+
+  // Nếu chưa đăng nhập, hiển thị màn hình đăng nhập
+  if (!currentUser) {
+    return <UserLogin />;
+  }
+
   return (
     <div className="home-content">
       <div className="welcome-card">
-        <h1>Luyện Nghe Chép Chính Tả TOEIC</h1>
+        <h1>Xin chào, {currentUser.displayName}!</h1>
         <p>Chọn phần bạn muốn luyện tập:</p>
         
         <div className="part-grid">

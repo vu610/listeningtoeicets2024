@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
+import { useProgress } from '../contexts/ProgressContext';
+import UserProfile from './UserProfile';
 import './Sidebar.css';
 
 function Sidebar() {
   const location = useLocation();
   const currentPath = location.pathname;
+  const { currentUser } = useUser();
+  const { userProgress } = useProgress();
   
   const parts = [
     { id: 1, name: 'Part 1 - Mô tả tranh', icon: 'fas fa-image' },
@@ -13,12 +18,37 @@ function Sidebar() {
     { id: 4, name: 'Part 4 - Bài nói', icon: 'fas fa-microphone' }
   ];
 
+  // Tính toán số câu đã hoàn thành hôm nay
+  const todayCompletedCount = useMemo(() => {
+    if (!userProgress.completedSentences) return 0;
+    
+    const today = new Date().toISOString().split('T')[0];
+    return Object.values(userProgress.completedSentences)
+      .filter(item => item.completedAt && item.completedAt.startsWith(today))
+      .length;
+  }, [userProgress.completedSentences]);
+
+  // Tính toán điểm trung bình
+  const averageAccuracy = useMemo(() => {
+    if (!userProgress.completedSentences) return 0;
+    
+    const accuracies = Object.values(userProgress.completedSentences)
+      .map(item => item.accuracy);
+    
+    if (accuracies.length === 0) return 0;
+    
+    const sum = accuracies.reduce((total, acc) => total + acc, 0);
+    return sum / accuracies.length;
+  }, [userProgress.completedSentences]);
+
   return (
     <nav className="sidebar">
       <div className="logo">
         <h1><i className="fas fa-headphones"></i> TOEIC Pro</h1>
         <p>Luyện nghe chép chính tả</p>
       </div>
+      
+      {currentUser && <UserProfile />}
       
       <ul className="nav-menu">
         {parts.map(part => (
@@ -35,15 +65,21 @@ function Sidebar() {
         ))}
       </ul>
 
-      <div className="stats-card">
-        <div className="stats-title">Tiến độ hôm nay</div>
-        <div className="stats-value">12/20</div>
-      </div>
+      {currentUser && (
+        <>
+          <div className="stats-card">
+            <div className="stats-title">Tiến độ hôm nay</div>
+            <div className="stats-value">{todayCompletedCount}</div>
+          </div>
 
-      <div className="stats-card">
-        <div className="stats-title">Điểm trung bình</div>
-        <div className="stats-value">85%</div>
-      </div>
+          <div className="stats-card">
+            <div className="stats-title">Điểm trung bình</div>
+            <div className="stats-value">
+              {averageAccuracy > 0 ? `${averageAccuracy.toFixed(1)}%` : 'Chưa có'}
+            </div>
+          </div>
+        </>
+      )}
     </nav>
   );
 }
