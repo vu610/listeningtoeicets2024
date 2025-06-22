@@ -1,6 +1,7 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { useUser } from './UserContext';
 import { getUserProgress, saveUserProgress } from '../firebase/userService';
+import { getProgressLocal, saveProgressLocal } from '../utils/localProgress';
 
 // Tạo context
 export const ProgressContext = createContext();
@@ -29,16 +30,27 @@ export const ProgressProvider = ({ children }) => {
         const progress = await getUserProgress(currentUser.id);
         if (progress) {
           setUserProgress(progress);
+          saveProgressLocal(currentUser.id, progress);
         } else {
-          // Khởi tạo tiến độ mới nếu chưa có
-          setUserProgress({
-            completedSentences: {},
-            lastPosition: {},
-          });
+          const localProgress = getProgressLocal(currentUser.id);
+          if (localProgress) {
+            setUserProgress(localProgress);
+          } else {
+            // Khởi tạo tiến độ mới nếu chưa có
+            setUserProgress({
+              completedSentences: {},
+              lastPosition: {},
+            });
+          }
         }
       } catch (err) {
         console.error('Lỗi khi lấy tiến độ học tập:', err);
-        setError('Không thể lấy tiến độ học tập');
+        const localProgress = getProgressLocal(currentUser.id);
+        if (localProgress) {
+          setUserProgress(localProgress);
+        } else {
+          setError('Không thể lấy tiến độ học tập');
+        }
       } finally {
         setLoading(false);
       }
@@ -59,14 +71,16 @@ export const ProgressProvider = ({ children }) => {
       };
 
       const success = await saveUserProgress(currentUser.id, newProgress);
-      if (success) {
-        setUserProgress(newProgress);
-        return true;
-      }
-      return false;
+      setUserProgress(newProgress);
+      saveProgressLocal(currentUser.id, newProgress);
+      return success;
     } catch (err) {
       console.error('Lỗi khi lưu tiến độ học tập:', err);
       setError('Không thể lưu tiến độ học tập');
+      saveProgressLocal(currentUser.id, {
+        ...userProgress,
+        ...progressData,
+      });
       return false;
     } finally {
       setLoading(false);
