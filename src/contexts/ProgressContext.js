@@ -24,21 +24,48 @@ export const ProgressProvider = ({ children }) => {
         return;
       }
 
+      const localKey = `progress_${currentUser.id}`;
+
       try {
         setLoading(true);
         const progress = await getUserProgress(currentUser.id);
         if (progress) {
           setUserProgress(progress);
+          localStorage.setItem(localKey, JSON.stringify(progress));
         } else {
-          // Khởi tạo tiến độ mới nếu chưa có
-          setUserProgress({
-            completedSentences: {},
-            lastPosition: {},
-          });
+          const stored = localStorage.getItem(localKey);
+          if (stored) {
+            try {
+              setUserProgress(JSON.parse(stored));
+            } catch {
+              setUserProgress({
+                completedSentences: {},
+                lastPosition: {},
+              });
+            }
+          } else {
+            // Khởi tạo tiến độ mới nếu chưa có
+            setUserProgress({
+              completedSentences: {},
+              lastPosition: {},
+            });
+          }
         }
       } catch (err) {
         console.error('Lỗi khi lấy tiến độ học tập:', err);
         setError('Không thể lấy tiến độ học tập');
+
+        const stored = localStorage.getItem(localKey);
+        if (stored) {
+          try {
+            setUserProgress(JSON.parse(stored));
+          } catch {
+            setUserProgress({
+              completedSentences: {},
+              lastPosition: {},
+            });
+          }
+        }
       } finally {
         setLoading(false);
       }
@@ -51,22 +78,29 @@ export const ProgressProvider = ({ children }) => {
   const saveProgress = async (progressData) => {
     if (!currentUser) return false;
 
+    const newProgress = {
+      ...userProgress,
+      ...progressData,
+    };
+    const localKey = `progress_${currentUser.id}`;
+
     try {
       setLoading(true);
-      const newProgress = {
-        ...userProgress,
-        ...progressData,
-      };
-
       const success = await saveUserProgress(currentUser.id, newProgress);
       if (success) {
         setUserProgress(newProgress);
+        localStorage.setItem(localKey, JSON.stringify(newProgress));
         return true;
       }
+      // Lưu vào localStorage ngay cả khi lưu online thất bại
+      localStorage.setItem(localKey, JSON.stringify(newProgress));
+      setUserProgress(newProgress);
       return false;
     } catch (err) {
       console.error('Lỗi khi lưu tiến độ học tập:', err);
       setError('Không thể lưu tiến độ học tập');
+      localStorage.setItem(localKey, JSON.stringify(newProgress));
+      setUserProgress(newProgress);
       return false;
     } finally {
       setLoading(false);
