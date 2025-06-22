@@ -31,7 +31,9 @@ function InteractiveInput({
 
   // Render thông tin độ chính xác nếu có
   const renderAccuracyInfo = () => {
-    if (!accuracy || !accuracy.value) return null;
+    if (!accuracy || accuracy.value === undefined || accuracy.value === null) {
+      return null;
+    }
     
     const getAccuracyClass = (value) => {
       if (value >= 80) return 'excellent';
