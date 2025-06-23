@@ -220,11 +220,23 @@ function PracticePage() {
       
       // Xử lý đối thoại hoặc bài nói trong Part 3 và Part 4
       if (isDialogueOrTalk) {
-        if (isPart3 && sentence.conversation) {
-          setDialogLines(sentence.conversation);
-          setCurrentLineIdx(0);
-        } else if (isPart4 && sentence.talk) {
-          setDialogLines(sentence.talk);
+        try {
+          if (isPart3 && sentence.conversation) {
+            console.log(`Tải đối thoại cho Part 3, câu ${currentIdx + 1}, số dòng: ${sentence.conversation.length}`);
+            setDialogLines(sentence.conversation);
+            setCurrentLineIdx(0);
+          } else if (isPart4 && sentence.talk) {
+            console.log(`Tải bài nói cho Part 4, câu ${currentIdx + 1}, số dòng: ${sentence.talk.length}`);
+            setDialogLines(sentence.talk);
+            setCurrentLineIdx(0);
+          } else {
+            console.error(`Không tìm thấy dữ liệu hội thoại/bài nói cho câu ${currentIdx + 1}`);
+            setDialogLines([]);
+            setCurrentLineIdx(0);
+          }
+        } catch (error) {
+          console.error(`Lỗi khi tải dữ liệu đối thoại/bài nói: ${error.message}`);
+          setDialogLines([]);
           setCurrentLineIdx(0);
         }
         setCompletedSentences([]);
@@ -269,10 +281,24 @@ function PracticePage() {
 
   // Lấy dòng hiện tại trong đối thoại hoặc bài nói
   const getCurrentLine = () => {
-    if (!isDialogueOrTalk || dialogLines.length === 0 || currentLineIdx >= dialogLines.length) {
+    if (!isDialogueOrTalk || !dialogLines || dialogLines.length === 0) {
       return null;
     }
-    return dialogLines[currentLineIdx];
+    
+    // Kiểm tra xem chỉ số hiện tại có hợp lệ không
+    if (currentLineIdx < 0 || currentLineIdx >= dialogLines.length) {
+      console.error(`Chỉ số dòng không hợp lệ: ${currentLineIdx}, tổng số dòng: ${dialogLines.length}`);
+      // Trả về dòng đầu tiên nếu chỉ số không hợp lệ
+      return dialogLines[0];
+    }
+    
+    const currentLine = dialogLines[currentLineIdx];
+    if (!currentLine) {
+      console.error(`Không tìm thấy dòng với chỉ số ${currentLineIdx}`);
+      return null;
+    }
+    
+    return currentLine;
   };
 
   // Tự động phát audio khi chuyển câu hoặc dòng mới
@@ -408,7 +434,7 @@ function PracticePage() {
       autoAdvanceTimeout: !!autoAdvanceTimeout,
       isDialogueOrTalk,
       currentLineIdx,
-      dialogLinesLength: dialogLines.length
+      dialogLinesLength: dialogLines ? dialogLines.length : 0
     });
     
     if (autoAdvanceTimeout) {
@@ -417,7 +443,7 @@ function PracticePage() {
     }
     
     // Xử lý riêng cho Part 3/4
-    if (isDialogueOrTalk) {
+    if (isDialogueOrTalk && dialogLines && dialogLines.length > 0) {
       const currentTranscript = getCurrentTranscript();
       
       if (currentTranscript) {
@@ -428,9 +454,12 @@ function PracticePage() {
         if (currentLineIdx < dialogLines.length - 1) {
           // Nếu còn, chuyển tới dòng tiếp theo
           console.log("Chuyển sang dòng tiếp theo trong đối thoại/bài nói");
+          console.log(`Từ dòng ${currentLineIdx} đến dòng ${currentLineIdx + 1}`);
           setCurrentLineIdx(prevIdx => prevIdx + 1);
           resetState();
           return;
+        } else {
+          console.log("Đã đến dòng cuối cùng của đối thoại/bài nói, chuyển sang câu tiếp theo");
         }
       }
     }
@@ -468,7 +497,7 @@ function PracticePage() {
     isDialogueOrTalk, 
     getCurrentTranscript, 
     currentLineIdx, 
-    dialogLines.length, 
+    dialogLines, 
     resetState, 
     currentIdx, 
     sentences.length, 
@@ -500,25 +529,40 @@ function PracticePage() {
 
   // Phát audio hiện tại
   const playCurrentAudio = () => {
-    if (!currentSentence) return;
+    if (!currentSentence) {
+      console.error("Không thể phát audio: không có câu hiện tại");
+      setErrorMessage('Không thể phát audio: không có câu hiện tại');
+      return;
+    }
     
     setErrorMessage('');
     
-    if (isDialogueOrTalk) {
-      const currentLine = getCurrentLine();
-      if (currentLine && currentLine.startTime !== undefined && currentLine.endTime !== undefined) {
-        console.log(`Playing dialogue/talk line: ${currentLine.startTime}s to ${currentLine.endTime}s`);
+    try {
+      if (isDialogueOrTalk) {
+        const currentLine = getCurrentLine();
+        if (currentLine && currentLine.startTime !== undefined && currentLine.endTime !== undefined) {
+          console.log(`Playing dialogue/talk line: ${currentLine.startTime}s to ${currentLine.endTime}s`);
+          playSegment({
+            startTime: currentLine.startTime,
+            endTime: currentLine.endTime
+          });
+        } else {
+          console.error("Không thể phát audio: thông tin thời gian không hợp lệ");
+          setErrorMessage('Không thể phát audio: thông tin thời gian không hợp lệ');
+        }
+      } else if (currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
+        console.log('Playing current audio segment');
         playSegment({
-          startTime: currentLine.startTime,
-          endTime: currentLine.endTime
+          startTime: currentSentence.startTime,
+          endTime: currentSentence.endTime
         });
+      } else {
+        console.error("Không thể phát audio: thông tin thời gian không hợp lệ");
+        setErrorMessage('Không thể phát audio: thông tin thời gian không hợp lệ');
       }
-    } else if (currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
-      console.log('Playing current audio segment');
-      playSegment({
-        startTime: currentSentence.startTime,
-        endTime: currentSentence.endTime
-      });
+    } catch (error) {
+      console.error(`Lỗi khi phát audio: ${error.message}`);
+      setErrorMessage(`Lỗi khi phát audio: ${error.message}`);
     }
   };
 
@@ -560,8 +604,8 @@ function PracticePage() {
       playCurrentAudio();
     }
     
-    // Alt + R: Nghe lại
-    if (e.key === 'r' && e.altKey) {
+    // Ctrl+R: Nghe lại (thay thế Ctrl+Shift+D)
+    if (e.key === 'r' && e.ctrlKey && !e.shiftKey) {
       e.preventDefault();
       setErrorMessage('');
       replay();
@@ -860,7 +904,7 @@ function PracticePage() {
                       replay();
                     }}
                     disabled={isLoading}
-                    title="Nghe lại (Alt+R)"
+                    title="Nghe lại (Ctrl+R)"
                   >
                     <i className="fas fa-redo"></i>
                     Nghe lại
@@ -900,6 +944,60 @@ function PracticePage() {
                 {/* Hiển thị đoạn hội thoại hoặc bài nói đã hoàn thành */}
                 {isDialogueOrTalk && completedSentences.length > 0 && (
                   <DialogueDisplay completedSentences={completedSentences} />
+                )}
+
+                {/* Hiển thị thông tin về dòng hiện tại trong Part 3/4 */}
+                {isDialogueOrTalk && dialogLines && dialogLines.length > 0 && (
+                  <div className="dialogue-navigation">
+                    <div className="dialogue-progress">
+                      <span className="dialogue-progress-text">
+                        Dòng {currentLineIdx + 1} / {dialogLines.length}
+                      </span>
+                      <div className="dialogue-progress-bar">
+                        <div 
+                          className="dialogue-progress-fill" 
+                          style={{ width: `${((currentLineIdx + 1) / dialogLines.length) * 100}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                    <div className="dialogue-buttons">
+                      <button 
+                        className="btn btn-outline btn-sm" 
+                        onClick={() => {
+                          if (currentLineIdx > 0) {
+                            setCurrentLineIdx(prevIdx => prevIdx - 1);
+                            resetState();
+                          }
+                        }}
+                        disabled={currentLineIdx <= 0}
+                      >
+                        <i className="fas fa-step-backward"></i>
+                        Dòng trước
+                      </button>
+                      <button 
+                        className="btn btn-outline btn-sm" 
+                        onClick={() => {
+                          if (currentLineIdx < dialogLines.length - 1) {
+                            setCurrentLineIdx(prevIdx => prevIdx + 1);
+                            resetState();
+                          } else {
+                            // Nếu đã ở dòng cuối, chuyển sang câu tiếp theo
+                            const nextIndex = currentIdx + 1;
+                            if (nextIndex < sentences.length) {
+                              setCurrentIdx(nextIndex);
+                              setCompletedSentences([]);
+                              setCurrentLineIdx(0);
+                              resetState();
+                            }
+                          }
+                        }}
+                        disabled={currentLineIdx >= dialogLines.length - 1 && currentIdx >= sentences.length - 1}
+                      >
+                        <i className="fas fa-step-forward"></i>
+                        Dòng sau
+                      </button>
+                    </div>
+                  </div>
                 )}
 
                 <div className="input-area">

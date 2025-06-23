@@ -2,7 +2,9 @@ import React, { useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import { useProgress } from '../contexts/ProgressContext';
+import { useTheme } from '../contexts/ThemeContext';
 import UserProfile from './UserProfile';
+import ThemeToggle from './ThemeToggle';
 import './Sidebar.css';
 
 function Sidebar() {
@@ -10,6 +12,7 @@ function Sidebar() {
   const currentPath = location.pathname;
   const { currentUser } = useUser();
   const { userProgress } = useProgress();
+  const { theme } = useTheme();
   
   const parts = [
     { id: 1, name: 'Part 1 - Mô tả tranh', icon: 'fas fa-image' },
@@ -42,7 +45,7 @@ function Sidebar() {
   }, [userProgress.completedSentences]);
 
   return (
-    <nav className="sidebar">
+    <nav className={`sidebar ${theme}`}>
       <div className="logo">
         <h1><i className="fas fa-headphones"></i> TOEIC Pro</h1>
         <p>Luyện nghe chép chính tả</p>
@@ -80,6 +83,10 @@ function Sidebar() {
           </div>
         </>
       )}
+      
+      <div className="sidebar-footer">
+        <ThemeToggle />
+      </div>
     </nav>
   );
 }

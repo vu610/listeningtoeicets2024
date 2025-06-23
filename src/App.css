@@ -2,13 +2,62 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
 }
 
+:root {
+    /* Light theme colors */
+    --light-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    --light-text: #333;
+    --light-card-bg: #ffffff;
+    --light-card-border: #e0e0e0;
+    --light-primary: #4a6da7;
+    --light-secondary: #6c757d;
+    --light-success: #4caf50;
+    --light-warning: #ff9800;
+    --light-danger: #f44336;
+    --light-input-bg: #ffffff;
+    --light-input-border: #ced4da;
+    --light-shadow: rgba(0, 0, 0, 0.1);
+    
+    /* Dark theme colors */
+    --dark-bg: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    --dark-text: #e0e0e0;
+    --dark-card-bg: #1f2937;
+    --dark-card-border: #374151;
+    --dark-primary: #60a5fa;
+    --dark-secondary: #9ca3af;
+    --dark-success: #34d399;
+    --dark-warning: #fbbf24;
+    --dark-danger: #f87171;
+    --dark-input-bg: #374151;
+    --dark-input-border: #4b5563;
+    --dark-shadow: rgba(0, 0, 0, 0.25);
+}
+
+/* Light theme (default) */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: var(--light-bg);
     min-height: 100vh;
-    color: #333;
+    color: var(--light-text);
+}
+
+/* Dark theme */
+body.dark {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    color-scheme: dark;
+}
+
+body.dark textarea,
+body.dark input[type="text"],
+body.dark input[type="password"],
+body.dark input[type="email"],
+body.dark input[type="number"] {
+    background-color: var(--dark-input-bg);
+    color: var(--dark-text);
+    border-color: var(--dark-card-border);
 }
 
 .container {
@@ -21,6 +70,31 @@ body {
     flex: 1;
     padding: 2rem;
     overflow-y: auto;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: var(--light-text);
+    box-shadow: 0 2px 5px var(--light-shadow);
+}
+
+body.dark .theme-toggle {
+    color: var(--dark-text);
+    box-shadow: 0 2px 5px var(--dark-shadow);
 }
 
 /* Animations */
@@ -44,4 +118,109 @@ body {
     .main-content {
         padding: 1rem;
     }
+    
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Thêm CSS cho các phần tử cụ thể trong giao diện tối */
+body.dark .progress-indicator {
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+}
+
+/* Các box chỉ báo tiến độ */
+.progress-container {
+    background-color: var(--light-card-border);
+    border-radius: 8px;
+    height: 8px;
+    overflow: hidden;
+}
+
+body.dark .progress-container {
+    background-color: var(--dark-card-border);
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--light-primary);
+    transition: width 0.3s ease;
+}
+
+body.dark .progress-bar {
+    background-color: var(--dark-primary);
+}
+
+/* Các box hiển thị thông tin */
+.content-header {
+    background-color: var(--light-card-bg);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px var(--light-shadow);
+}
+
+body.dark .content-header {
+    background-color: var(--dark-card-bg);
+    box-shadow: 0 2px 8px var(--dark-shadow);
+}
+
+.content-header h2 {
+    color: var(--light-text);
+    margin-top: 0;
+}
+
+body.dark .content-header h2 {
+    color: var(--dark-text);
+}
+
+/* Các chỉ báo câu */
+.sentence-indicator {
+    background-color: var(--light-card-bg);
+    color: var(--light-text);
+    border: 1px solid var(--light-card-border);
+}
+
+body.dark .sentence-indicator {
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-card-border);
+}
+
+/* Các nút điều khiển */
+.control-buttons button,
+.navigation-buttons button {
+    background-color: var(--light-card-bg);
+    color: var(--light-text);
+    border: 1px solid var(--light-card-border);
+}
+
+body.dark .control-buttons button,
+body.dark .navigation-buttons button {
+    background-color: var(--dark-card-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-card-border);
+}
+
+/* Các box hiển thị thông tin */
+.test-selection {
+    background-color: var(--light-card-bg);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px var(--light-shadow);
+}
+
+body.dark .test-selection {
+    background-color: var(--dark-card-bg);
+    box-shadow: 0 2px 8px var(--dark-shadow);
+}
+
+.test-selection h2 {
+    color: var(--light-text);
+}
+
+body.dark .test-selection h2 {
+    color: var(--dark-text);
 } 
