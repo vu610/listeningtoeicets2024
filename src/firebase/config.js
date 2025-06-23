@@ -13,4 +13,4 @@ export const APP_CONFIG = {
   appName: 'TOEIC Dictation App',
   version: '1.0.0',
   storageType: 'localStorage'
-}; 
+};
