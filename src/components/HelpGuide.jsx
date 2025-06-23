@@ -26,7 +26,7 @@ function HelpGuide() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen]);
+  }, [isOpen, toggleGuide]);
 
   return (
     <div className="help-guide-container">

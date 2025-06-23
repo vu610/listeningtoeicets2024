@@ -411,3 +411,66 @@
 .test-name {
   font-weight: 500;
 }
+
+/* CSS cho nút Next lớn ở cuối trang */
+.big-next-button-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.big-next-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.big-next-button:hover {
+  background-color: #388e3c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.big-next-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.big-next-button i {
+  font-size: 1.4rem;
+}
+
+.practice-header h1 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-right: 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.back-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}

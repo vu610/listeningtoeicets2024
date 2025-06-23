@@ -10,7 +10,7 @@ export default function compareInput(userInput, correctTranscript) {
     // Chuyển về chữ thường
     let normalized = text.toLowerCase();
     // Loại bỏ dấu câu (.,!?;:'"()[]{}-_)
-    normalized = normalized.replace(/[.,!?;:'"()\[\]{}\-_]/g, '');
+    normalized = normalized.replace(/[.,!?;:'"()[\]{}\-_]/g, '');
     // Thay nhiều khoảng trắng liên tiếp bằng một khoảng trắng
     normalized = normalized.replace(/\s+/g, ' ');
     // Loại bỏ khoảng trắng ở đầu và cuối

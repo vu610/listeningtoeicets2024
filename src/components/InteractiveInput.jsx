@@ -16,6 +16,8 @@ function InteractiveInput({
   accuracy = null
 }) {
   const handleKeyDown = (e) => {
+    console.log("InteractiveInput keyDown:", e.key, e.code); // Thêm log để debug
+    
     // Ctrl + Enter: Kiểm tra đáp án
     if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
@@ -23,10 +25,10 @@ function InteractiveInput({
       return;
     }
     
-    // Enter thông thường không làm gì
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-    }
+    // Không ngăn chặn Enter nữa, cho phép xuống dòng bình thường
+    // if (e.key === 'Enter' && !e.shiftKey) {
+    //   e.preventDefault();
+    // }
   };
 
   // Render thông tin độ chính xác nếu có
@@ -88,7 +90,10 @@ function InteractiveInput({
         id={id}
         className={showFeedbackAbove ? "text-input" : `text-input ${showFeedback ? 'with-feedback' : ''}`}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={(e) => {
+          console.log("Input changed:", e.target.value);
+          onChange(e.target.value);
+        }}
         onKeyDown={handleKeyDown}
         placeholder="Gõ những gì bạn nghe được vào đây... (Ctrl+Enter để kiểm tra)"
         rows="4"

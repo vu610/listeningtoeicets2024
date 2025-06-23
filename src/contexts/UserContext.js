@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import { getUserData, createOrUpdateUser } from '../firebase/userService';
+import { STORAGE_KEYS } from '../firebase/config';
 
 // Tạo context
 export const UserContext = createContext();
@@ -49,7 +50,7 @@ export const UserProvider = ({ children }) => {
       }
       
       // Lưu thông tin người dùng vào localStorage
-      localStorage.setItem('currentUser', JSON.stringify(userData));
+      localStorage.setItem(STORAGE_KEYS.CURRENT_USER, JSON.stringify(userData));
       
       // Cập nhật state
       setCurrentUser(userData);
@@ -64,20 +65,20 @@ export const UserProvider = ({ children }) => {
 
   // Đăng xuất
   const logout = () => {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
     setCurrentUser(null);
   };
 
   // Kiểm tra người dùng đã đăng nhập khi khởi động
   useEffect(() => {
-    const storedUser = localStorage.getItem('currentUser');
+    const storedUser = localStorage.getItem(STORAGE_KEYS.CURRENT_USER);
     if (storedUser) {
       try {
         const userData = JSON.parse(storedUser);
         setCurrentUser(userData);
       } catch (err) {
         console.error('Lỗi khi phân tích dữ liệu người dùng:', err);
-        localStorage.removeItem('currentUser');
+        localStorage.removeItem(STORAGE_KEYS.CURRENT_USER);
       }
     }
     setLoading(false);

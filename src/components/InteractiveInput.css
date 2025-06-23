@@ -31,8 +31,8 @@
 }
 
 .text-input.with-feedback {
-  color: transparent;
-  caret-color: #2d3748; /* Hiển thị con trỏ nhập liệu */
+  color: #2d3748;
+  caret-color: #2d3748;
   background-color: #fff;
 }
 

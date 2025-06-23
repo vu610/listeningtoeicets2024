@@ -2,7 +2,11 @@ import React from 'react';
 import './FeedbackDisplay.css';
 
 // segments: [{ text, correctedText, status }]
-function FeedbackDisplay({ segments, showAbove = false, autoCorrect = false }) {
+function FeedbackDisplay({ 
+  segments = [], 
+  showAbove = false, 
+  autoCorrect = false 
+}) {
   // Xử lý hiển thị từ đặc biệt
   const renderWord = (segment) => {
     const { text, correctedText, status } = segment;
@@ -46,11 +50,5 @@ function FeedbackDisplay({ segments, showAbove = false, autoCorrect = false }) {
     </div>
   );
 }
-
-FeedbackDisplay.defaultProps = {
-  segments: [],
-  showAbove: false,
-  autoCorrect: false
-};
 
 export default FeedbackDisplay;

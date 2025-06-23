@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { useProgress } from '../contexts/ProgressContext';
 import './ProgressIndicator.css';
 
-function ProgressIndicator({ partId, testIndex }) {
-  const { userProgress } = useProgress();
+function ProgressIndicator({ partId, testIndex, currentSentenceIndex, totalSentences, onSentenceClick }) {
+  const { userProgress, isCompletedSentence } = useProgress();
   
   // Tính toán số câu đã hoàn thành trong phần này
   const completedCount = useMemo(() => {
@@ -42,6 +42,35 @@ function ProgressIndicator({ partId, testIndex }) {
     if (accuracy >= 30) return '#ff9800'; // Cam
     return '#f44336'; // Đỏ
   };
+
+  // Tạo danh sách chỉ báo câu
+  const sentenceIndicators = useMemo(() => {
+    if (!partId || testIndex === undefined || totalSentences <= 0) {
+      return [];
+    }
+
+    const indicators = [];
+    for (let i = 0; i < totalSentences; i++) {
+      const isCompleted = isCompletedSentence(partId, testIndex, i);
+      const isCurrent = i === currentSentenceIndex;
+      
+      // Lấy độ chính xác nếu có
+      let accuracy = 0;
+      if (isCompleted && userProgress.completedSentences) {
+        const key = `${partId}_${testIndex}_${i}`;
+        accuracy = userProgress.completedSentences[key]?.accuracy || 0;
+      }
+
+      indicators.push({
+        index: i,
+        isCompleted,
+        isCurrent,
+        accuracy
+      });
+    }
+    
+    return indicators;
+  }, [partId, testIndex, totalSentences, currentSentenceIndex, isCompletedSentence, userProgress.completedSentences]);
   
   if (!partId || testIndex === undefined) {
     return null;
@@ -52,7 +81,7 @@ function ProgressIndicator({ partId, testIndex }) {
       <div className="progress-stats">
         <div className="progress-stat">
           <span className="stat-label">Đã hoàn thành:</span>
-          <span className="stat-value">{completedCount}</span>
+          <span className="stat-value">{completedCount}/{totalSentences}</span>
         </div>
         
         {completedCount > 0 && (
@@ -67,6 +96,23 @@ function ProgressIndicator({ partId, testIndex }) {
           </div>
         )}
       </div>
+
+      {/* Hiển thị chỉ báo cho từng câu */}
+      {totalSentences > 0 && (
+        <div className="sentence-indicators">
+          {sentenceIndicators.map((indicator) => (
+            <div
+              key={indicator.index}
+              className={`sentence-indicator ${indicator.isCompleted ? 'completed' : ''} ${indicator.isCurrent ? 'current' : ''}`}
+              style={indicator.isCompleted ? { backgroundColor: getAccuracyColor(indicator.accuracy) } : {}}
+              onClick={() => onSentenceClick && onSentenceClick(indicator.index)}
+              title={`Câu ${indicator.index + 1}${indicator.isCompleted ? ` - Độ chính xác: ${indicator.accuracy.toFixed(1)}%` : ''}`}
+            >
+              {indicator.index + 1}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

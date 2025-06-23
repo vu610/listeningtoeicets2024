@@ -9,6 +9,7 @@ export default function useAudioPlayer({ audioSrc }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isSlow, setIsSlow] = useState(false);
+  // eslint-disable-next-line no-unused-vars
   const [audioLoaded, setAudioLoaded] = useState(false);
 
   const lastSegment = useRef({ startTime: 0, endTime: 0 });
@@ -146,6 +147,15 @@ export default function useAudioPlayer({ audioSrc }) {
         audio.playbackRate = isSlow ? 0.75 : 1.0;
         
         console.log('Starting playback...');
+        
+        // Kiểm tra nếu document chưa có tương tác từ người dùng
+        if (document.readyState !== 'complete' || 
+            !document.querySelector('body').hasAttribute('data-user-interacted')) {
+          console.log('Auto-play prevented: waiting for user interaction');
+          // Không tự động phát, chỉ chuẩn bị sẵn sàng để người dùng nhấn play
+          return;
+        }
+        
         forcePlay(audio)
           .then(() => {
             console.log('Playback started successfully');
@@ -153,7 +163,13 @@ export default function useAudioPlayer({ audioSrc }) {
           })
           .catch(error => {
             console.error('Error starting playback:', error);
-            // Thử lại một lần nữa sau một khoảng thời gian
+            if (error.name === 'NotAllowedError') {
+              console.log('Playback not allowed: user interaction required');
+              // Không thử lại khi lỗi là do chưa có tương tác người dùng
+              return;
+            }
+            
+            // Thử lại một lần nữa sau một khoảng thời gian với các lỗi khác
             setTimeout(() => {
               console.log('Retrying playback...');
               audio.currentTime = startTime;
@@ -186,10 +202,23 @@ export default function useAudioPlayer({ audioSrc }) {
       const audio = audioRef.current;
       if (audio) {
         audio.playbackRate = nextVal ? 0.75 : 1.0;
+        
+        // Nếu đang phát, áp dụng tốc độ mới ngay lập tức
+        if (!audio.paused) {
+          console.log('Applying new playback rate to currently playing audio');
+          const currentTime = audio.currentTime;
+          const { startTime, endTime } = lastSegment.current;
+          if (startTime !== undefined && endTime !== undefined) {
+            // Dừng timer hiện tại nếu có
+            if (timeoutId.current) clearTimeout(timeoutId.current);
+            // Tính toán lại thời gian còn lại và cài đặt timer mới
+            stopAtEnd(endTime);
+          }
+        }
       }
       return nextVal;
     });
-  }, []);
+  }, [stopAtEnd]);
 
   return {
     audioRef,

@@ -52,24 +52,30 @@ export const ProgressProvider = ({ children }) => {
     if (!currentUser) return false;
 
     try {
-      setLoading(true);
       const newProgress = {
         ...userProgress,
         ...progressData,
       };
 
-      const success = await saveUserProgress(currentUser.id, newProgress);
-      if (success) {
-        setUserProgress(newProgress);
+      // Kiểm tra xem dữ liệu có thay đổi không
+      const isChanged = JSON.stringify(newProgress) !== JSON.stringify(userProgress);
+      
+      if (isChanged) {
+        const success = await saveUserProgress(currentUser.id, newProgress);
+        if (success) {
+          setUserProgress(newProgress);
+          return true;
+        }
+      } else {
+        // Nếu không có thay đổi, coi như thành công
         return true;
       }
+      
       return false;
     } catch (err) {
       console.error('Lỗi khi lưu tiến độ học tập:', err);
       setError('Không thể lưu tiến độ học tập');
       return false;
-    } finally {
-      setLoading(false);
     }
   };
 

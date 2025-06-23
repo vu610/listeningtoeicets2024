@@ -1,35 +1,24 @@
-import { auth, db } from './config';
-import { 
-  doc, 
-  setDoc, 
-  getDoc, 
-  updateDoc, 
-  serverTimestamp 
-} from 'firebase/firestore';
+// Dịch vụ quản lý người dùng và tiến độ học tập sử dụng localStorage
+// Không sử dụng Firebase để lưu trữ dữ liệu
+import { STORAGE_KEYS } from './config';
 
-// Tạo hoặc cập nhật thông tin người dùng
+// Lưu dữ liệu người dùng
 export const createOrUpdateUser = async (userId, userData) => {
   try {
-    const userRef = doc(db, 'users', userId);
-    const userDoc = await getDoc(userRef);
+    // Lấy dữ liệu hiện tại
+    const allUserData = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_DATA) || '{}');
     
-    if (!userDoc.exists()) {
-      // Tạo người dùng mới
-      await setDoc(userRef, {
-        ...userData,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
-      });
-    } else {
-      // Cập nhật thông tin người dùng
-      await updateDoc(userRef, {
-        ...userData,
-        updatedAt: serverTimestamp(),
-      });
-    }
+    // Cập nhật dữ liệu người dùng
+    allUserData[userId] = {
+      ...userData,
+      updatedAt: new Date().toISOString()
+    };
+    
+    // Lưu lại vào localStorage
+    localStorage.setItem(STORAGE_KEYS.USER_DATA, JSON.stringify(allUserData));
     return true;
   } catch (error) {
-    console.error("Lỗi khi tạo/cập nhật người dùng:", error);
+    console.error("Lỗi khi lưu thông tin người dùng:", error);
     return false;
   }
 };
@@ -37,38 +26,34 @@ export const createOrUpdateUser = async (userId, userData) => {
 // Lấy thông tin người dùng
 export const getUserData = async (userId) => {
   try {
-    const userRef = doc(db, 'users', userId);
-    const userDoc = await getDoc(userRef);
+    const allUserData = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_DATA) || '{}');
+    const userData = allUserData[userId];
     
-    if (userDoc.exists()) {
-      return { id: userDoc.id, ...userDoc.data() };
+    if (userData) {
+      return { id: userId, ...userData };
     } else {
       return null;
     }
   } catch (error) {
-    console.error("Lỗi khi lấy thông tin người dùng:", error);
+    console.error("Lỗi khi đọc thông tin người dùng:", error);
     return null;
   }
 };
 
-// Lưu tiến độ học tập của người dùng
+// Lưu tiến độ học tập
 export const saveUserProgress = async (userId, progress) => {
   try {
-    const userProgressRef = doc(db, 'userProgress', userId);
-    const progressDoc = await getDoc(userProgressRef);
+    // Lấy dữ liệu tiến độ hiện tại
+    const allProgress = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_PROGRESS) || '{}');
     
-    if (!progressDoc.exists()) {
-      await setDoc(userProgressRef, {
-        ...progress,
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
-      });
-    } else {
-      await updateDoc(userProgressRef, {
-        ...progress,
-        updatedAt: serverTimestamp(),
-      });
-    }
+    // Cập nhật tiến độ người dùng
+    allProgress[userId] = {
+      ...progress,
+      updatedAt: new Date().toISOString()
+    };
+    
+    // Lưu lại vào localStorage
+    localStorage.setItem(STORAGE_KEYS.USER_PROGRESS, JSON.stringify(allProgress));
     return true;
   } catch (error) {
     console.error("Lỗi khi lưu tiến độ học tập:", error);
@@ -76,19 +61,13 @@ export const saveUserProgress = async (userId, progress) => {
   }
 };
 
-// Lấy tiến độ học tập của người dùng
+// Lấy tiến độ học tập
 export const getUserProgress = async (userId) => {
   try {
-    const userProgressRef = doc(db, 'userProgress', userId);
-    const progressDoc = await getDoc(userProgressRef);
-    
-    if (progressDoc.exists()) {
-      return progressDoc.data();
-    } else {
-      return null;
-    }
+    const allProgress = JSON.parse(localStorage.getItem(STORAGE_KEYS.USER_PROGRESS) || '{}');
+    return allProgress[userId] || null;
   } catch (error) {
-    console.error("Lỗi khi lấy tiến độ học tập:", error);
+    console.error("Lỗi khi đọc tiến độ học tập:", error);
     return null;
   }
 }; 
