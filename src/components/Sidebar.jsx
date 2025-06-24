@@ -57,8 +57,8 @@ function Sidebar() {
         {parts.map(part => (
           <li key={part.id} className="nav-item">
             <Link 
-              to={`/practice/${part.id}`} 
-              className={`nav-link ${currentPath === `/practice/${part.id}` ? 'active' : ''}`}
+              to={`/practice/${part.id}/select`} 
+              className={`nav-link ${currentPath === `/practice/${part.id}/select` || currentPath === `/practice/${part.id}` ? 'active' : ''}`}
               data-part={part.id}
             >
               <i className={part.icon}></i>

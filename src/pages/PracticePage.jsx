@@ -14,7 +14,7 @@ import useAudioPlayer from '../hooks/useAudioPlayer';
 import allTests, { getTestByIndex } from '../data/testsIndex';
 import './PracticePage.css';
 
-function PracticePage() {
+function PracticePage({ initialSelectMode = false }) {
   const { partId } = useParams();
   const navigate = useNavigate();
   const { currentUser } = useUser();
@@ -25,7 +25,12 @@ function PracticePage() {
     getLastPosition
   } = useProgress();
   
-  const [selectedTestIndex, setSelectedTestIndex] = useState(null);
+  console.log("PracticePage render - partId:", partId, "initialSelectMode:", initialSelectMode);
+  
+  // Determine if we should show test selection based on URL
+  const showTestSelection = window.location.pathname.includes('/select') || initialSelectMode;
+  
+  const [selectedTestIndex, setSelectedTestIndex] = useState(showTestSelection ? null : null);
   const [currentTest, setCurrentTest] = useState(null);
   
   const partKey = `part${partId}`;
@@ -58,28 +63,59 @@ function PracticePage() {
   const isPart4 = partId === '4';
   const isDialogueOrTalk = isPart3 || isPart4;
 
+  // Khởi tạo useAudioPlayer trước
+  const {
+    audioRef,
+    playSegment,
+    replay,
+    toggleSlowMotion,
+    isLoading,
+    isPlaying,
+    isSlow,
+  } = useAudioPlayer({
+    audioSrc
+  });
+
+  const resetState = useCallback(() => {
+    setInput('');
+    setSegments([]);
+    setIsChecked(false);
+    setShowAnswer(false);
+    setAccuracy(0);
+    setAttemptCount(0);
+    setErrorMessage('');
+    if (autoAdvanceTimeout) {
+      clearTimeout(autoAdvanceTimeout);
+      setAutoAdvanceTimeout(null);
+    }
+  }, [autoAdvanceTimeout]);
+
+  // Hàm xử lý quay lại màn hình chọn đề
+  const handleBackToTestSelection = useCallback(() => {
+    console.log("Quay lại màn hình chọn đề - bắt đầu");
+    // Dừng audio nếu đang phát
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+    
+    // Chuyển hướng đến route chọn đề
+    navigate(`/practice/${partId}/select`);
+  }, [navigate, partId, audioRef]);
+
   // Reset khi thay đổi phần
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    setSelectedTestIndex(null);
-    setCurrentTest(null);
-    setSentences([]);
-    resetState();
-    setCurrentIdx(0);
-    setScore({ correct: 0, total: 0 });
-    setShowScore(false);
-    setCompletedSentences([]);
-    setDialogLines([]);
-    setCurrentLineIdx(0);
-    setAutoCorrect(false);
-  }, [partId]);
+    // Sử dụng hàm handleBackToTestSelection để reset state
+    if (handleBackToTestSelection) {
+      handleBackToTestSelection();
+    }
+  }, [partId, handleBackToTestSelection]);
 
   // Kiểm tra và tải tiến độ học tập khi chọn phần
   useEffect(() => {
     if (!currentUser || !partId) return;
     
-    // Chỉ tải lại vị trí khi chưa chọn đề
-    if (selectedTestIndex !== null) return;
+    // Chỉ tải lại vị trí khi chưa chọn đề VÀ KHÔNG ở chế độ chọn đề
+    if (selectedTestIndex !== null || showTestSelection) return;
     
     // Lấy vị trí học tập cuối cùng
     const lastPosition = getLastPosition(partId);
@@ -97,7 +133,7 @@ function PracticePage() {
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentUser, partId, getLastPosition, selectedTestIndex]);
+  }, [currentUser, partId, getLastPosition, selectedTestIndex, showTestSelection]);
 
   // Lấy tên file audio chuẩn từ sourceTest
   const getAudioFileName = (sourceTest) => {
@@ -110,21 +146,7 @@ function PracticePage() {
     return `Test_${formattedNumber}.mp3`;
   };
 
-  const resetState = useCallback(() => {
-    setInput('');
-    setSegments([]);
-    setIsChecked(false);
-    setShowAnswer(false);
-    setAccuracy(0);
-    setAttemptCount(0);
-    setErrorMessage('');
-    if (autoAdvanceTimeout) {
-      clearTimeout(autoAdvanceTimeout);
-      setAutoAdvanceTimeout(null);
-    }
-  }, [autoAdvanceTimeout]);
-
-  // Tìm câu tiếp theo chưa hoàn thành
+  // Lấy câu tiếp theo chưa hoàn thành
   const findNextUncompletedSentence = useCallback((startIdx) => {
     console.log("Tìm câu tiếp theo chưa hoàn thành từ vị trí:", startIdx);
     if (!currentUser || sentences.length === 0 || !selectedTestIndex) return startIdx;
@@ -209,12 +231,20 @@ function PracticePage() {
 
   // Xử lý khi chọn đề
   const handleSelectTest = useCallback((testIndex) => {
+    console.log("handleSelectTest được gọi với testIndex:", testIndex);
     const test = getTestByIndex(testIndex);
     if (test) {
+      console.log("Đã tìm thấy đề thi:", test.name || `Test ${testIndex + 1}`);
       setSelectedTestIndex(testIndex);
       setCurrentTest(test);
       
+      // Navigate away from select route when test is selected
+      if (window.location.pathname.includes('/select')) {
+        navigate(`/practice/${partId}`, { replace: true });
+      }
+      
       const testSentences = test[partKey] || [];
+      console.log(`Đề thi có ${testSentences.length} câu trong part${partId}`);
       setSentences(testSentences);
       
       if (testSentences.length > 0) {
@@ -248,6 +278,8 @@ function PracticePage() {
         // Đặt audio source
         const audioFileName = getAudioFileName(firstSentence.sourceTest);
         setAudioSrc(`${process.env.PUBLIC_URL}/audio/${audioFileName}`);
+        
+        console.log("Audio source đã được đặt:", `${process.env.PUBLIC_URL}/audio/${audioFileName}`);
       } else {
         setCurrentSentence({});
         setAudioSrc('');
@@ -278,8 +310,10 @@ function PracticePage() {
           saveLastPosition(partId, testIndex, firstUncompletedIndex);
         }, 100);
       }
+    } else {
+      console.error("Không tìm thấy đề thi với chỉ số:", testIndex);
     }
-  }, [currentUser, partId, partKey, isDialogueOrTalk, isPart3, isPart4, saveLastPosition, resetState, findNextUncompletedSentence]);
+  }, [currentUser, partId, partKey, isDialogueOrTalk, isPart3, isPart4, saveLastPosition, resetState, findNextUncompletedSentence, getAudioFileName, navigate]);
 
   // Cập nhật câu hiện tại khi thay đổi chỉ số
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -317,18 +351,6 @@ function PracticePage() {
       setAudioSrc(`${process.env.PUBLIC_URL}/audio/${audioFileName}`);
     }
   }, [currentIdx, sentences, isPart3, isPart4, isDialogueOrTalk]);
-
-  const {
-    audioRef,
-    playSegment,
-    replay,
-    toggleSlowMotion,
-    isLoading,
-    isPlaying,
-    isSlow,
-  } = useAudioPlayer({
-    audioSrc
-  });
 
   // Xử lý lỗi audio khi load
   useEffect(() => {
@@ -820,10 +842,29 @@ function PracticePage() {
 
   // Hiển thị màn hình chọn đề nếu chưa chọn
   if (selectedTestIndex === null) {
+    console.log("Hiển thị màn hình chọn đề - partId:", partId);
     return (
-      <div className="content-header">
-        <h2>Part {partId} - {getPartName(partId)}</h2>
-        <TestSelector partId={partId} onSelectTest={handleSelectTest} />
+      <div className="practice-container">
+        <div className="practice-header">
+          <h1>
+            <button 
+              className="back-button"
+              onClick={() => navigate(`/`)}
+              title="Quay lại trang chính"
+            >
+              &#8592;
+            </button>
+            {getPartName(partId)}
+          </h1>
+        </div>
+        <div className="content-header">
+          <h2>Part {partId} - {getPartName(partId)}</h2>
+        </div>
+        <div className="practice-area">
+          <div className="test-selector-wrapper">
+            <TestSelector partId={partId} onSelectTest={handleSelectTest} />
+          </div>
+        </div>
       </div>
     );
   }
@@ -852,7 +893,7 @@ function PracticePage() {
           <div className="result-actions">
             <button 
               className="btn btn-outline" 
-              onClick={() => setSelectedTestIndex(null)}
+              onClick={handleBackToTestSelection}
             >
               <i className="fas fa-list"></i>
               Chọn đề khác
@@ -903,7 +944,7 @@ function PracticePage() {
           <div className="result-actions">
             <button 
               className="btn btn-outline" 
-              onClick={() => setSelectedTestIndex(null)}
+              onClick={handleBackToTestSelection}
             >
               <i className="fas fa-list"></i>
               Chọn đề khác
@@ -957,6 +998,16 @@ function PracticePage() {
                   </button>
                   {getPartName(partId)} - {currentTest.name}
                 </h1>
+                <div className="header-actions">
+                  <button
+                    className="btn btn-outline"
+                    onClick={handleBackToTestSelection}
+                    title="Quay lại chọn đề thi"
+                  >
+                    <i className="fas fa-list"></i>
+                    Chọn đề khác
+                  </button>
+                </div>
                 <ProgressIndicator 
                   partId={partId} 
                   testIndex={selectedTestIndex} 
@@ -1193,7 +1244,7 @@ function PracticePage() {
                   </button>
                   <button 
                     className="btn btn-outline" 
-                    onClick={() => setSelectedTestIndex(null)}
+                    onClick={handleBackToTestSelection}
                     title="Quay lại chọn đề thi"
                   >
                     <i className="fas fa-list"></i>

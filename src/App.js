@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import PracticePage from './pages/PracticePage';
 import Sidebar from './components/Sidebar';
@@ -19,6 +19,8 @@ function App() {
               <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/practice/:partId" element={<PracticePage />} />
+                <Route path="/practice/:partId/select" element={<PracticePage key="select-test" initialSelectMode={true} />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </main>
           </div>

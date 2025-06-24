@@ -1,25 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { testNames } from '../data/testsIndex';
 import './TestSelector.css';
 
 function TestSelector({ partId, onSelectTest }) {
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    console.log("TestSelector mounted - partId:", partId, "testNames:", testNames);
+  }, [partId]);
 
   return (
     <div className="test-selector">
-      <h3>Chọn đề luyện tập</h3>
+      <h3>Chọn đề luyện tập - Part {partId}</h3>
       <div className="test-grid">
-        {testNames.map((testName, index) => (
-          <button 
-            key={index} 
-            className="test-btn" 
-            onClick={() => onSelectTest(index)}
-          >
-            <i className="fas fa-file-alt"></i>
-            <span>{testName}</span>
-          </button>
-        ))}
+        {testNames && testNames.length > 0 ? (
+          testNames.map((testName, index) => (
+            <button 
+              key={index} 
+              className="test-btn" 
+              onClick={() => {
+                console.log("Chọn đề:", index, testName);
+                onSelectTest(index);
+              }}
+            >
+              <i className="fas fa-file-alt"></i>
+              <span>{testName}</span>
+            </button>
+          ))
+        ) : (
+          <div className="no-tests-message">
+            Không có đề thi nào được tìm thấy.
+          </div>
+        )}
       </div>
       <div className="test-actions">
         <button 
@@ -31,7 +44,11 @@ function TestSelector({ partId, onSelectTest }) {
         </button>
         <button 
           className="btn btn-primary" 
-          onClick={() => onSelectTest(Math.floor(Math.random() * testNames.length))}
+          onClick={() => {
+            const randomIndex = Math.floor(Math.random() * testNames.length);
+            console.log("Chọn đề ngẫu nhiên:", randomIndex);
+            onSelectTest(randomIndex);
+          }}
         >
           <i className="fas fa-random"></i>
           Chọn ngẫu nhiên
