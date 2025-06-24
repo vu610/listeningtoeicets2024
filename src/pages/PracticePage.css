@@ -28,35 +28,24 @@
 }
 
 .progress-container {
-  background-color: var(--light-card-border);
-  border-radius: 8px;
-  height: 8px;
+  height: 0.5rem;
+  background-color: #e2e8f0;
+  border-radius: 0.25rem;
+  margin: 1rem 0 0.5rem;
   overflow: hidden;
-  margin: 10px 0;
-}
-
-body.dark .progress-container {
-  background-color: var(--dark-card-border);
 }
 
 .progress-bar {
   height: 100%;
-  background-color: var(--light-primary);
+  background-color: #4299e1;
+  border-radius: 0.25rem;
   transition: width 0.3s ease;
 }
 
-body.dark .progress-bar {
-  background-color: var(--dark-primary);
-}
-
 .progress-text {
-  font-size: 14px;
-  color: var(--light-text);
-  margin-top: 5px;
-}
-
-body.dark .progress-text {
-  color: var(--dark-text);
+  font-size: 0.875rem;
+  color: #718096;
+  margin-bottom: 1rem;
 }
 
 .practice-area {
@@ -66,23 +55,8 @@ body.dark .progress-text {
 .control-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.control-buttons button {
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-.control-buttons button i {
-  font-size: 1.1em;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
 .btn {
@@ -161,18 +135,7 @@ body.dark .progress-text {
 .navigation-buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
-}
-
-.navigation-buttons button {
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-weight: 500;
-  transition: all 0.2s;
+  gap: 0.75rem;
 }
 
 /* Kết quả */
@@ -426,38 +389,11 @@ body.dark .progress-text {
 }
 
 .test-selection {
-  background-color: var(--light-card-bg);
-  border-radius: 8px;
   padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px var(--light-shadow);
-}
-
-body.dark .test-selection {
-  background-color: var(--dark-card-bg);
-  box-shadow: 0 2px 8px var(--dark-shadow);
-}
-
-.test-selection h2 {
-  color: var(--light-text);
-  margin-top: 0;
-}
-
-body.dark .test-selection h2 {
-  color: var(--dark-text);
 }
 
 .practice-content {
-  background-color: var(--light-card-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px var(--light-shadow);
-  padding: 20px;
-  animation: fadeInUp 0.5s;
-}
-
-body.dark .practice-content {
-  background-color: var(--dark-card-bg);
-  box-shadow: 0 4px 15px var(--dark-shadow);
+  width: 100%;
 }
 
 .practice-header {
@@ -474,325 +410,4 @@ body.dark .practice-content {
 
 .test-name {
   font-weight: 500;
-}
-
-/* CSS cho nút Next lớn ở cuối trang */
-.big-next-button-container {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.big-next-button {
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  background-color: var(--light-success);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  transition: all 0.3s;
-  box-shadow: 0 4px 6px var(--light-shadow);
-}
-
-body.dark .big-next-button {
-  background-color: var(--dark-success);
-  box-shadow: 0 4px 6px var(--dark-shadow);
-}
-
-.big-next-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px var(--light-shadow);
-}
-
-body.dark .big-next-button:hover {
-  box-shadow: 0 6px 12px var(--dark-shadow);
-}
-
-.big-next-button i {
-  font-size: 1.3em;
-}
-
-.back-button {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 5px 10px;
-  margin-right: 10px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s;
-  color: var(--light-text);
-}
-
-body.dark .back-button {
-  color: var(--dark-text);
-}
-
-.back-button:hover {
-  background-color: var(--light-shadow);
-}
-
-body.dark .back-button:hover {
-  background-color: var(--dark-shadow);
-}
-
-/* Điều hướng đối thoại */
-.dialogue-navigation {
-  margin: 15px 0;
-  padding: 10px;
-  background-color: var(--light-card-bg);
-  border-radius: 8px;
-  box-shadow: 0 1px 3px var(--light-shadow);
-}
-
-body.dark .dialogue-navigation {
-  background-color: var(--dark-card-bg);
-  box-shadow: 0 1px 3px var(--dark-shadow);
-}
-
-.dialogue-progress {
-  margin-bottom: 10px;
-}
-
-.dialogue-progress-text {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--light-text);
-  margin-bottom: 5px;
-  display: block;
-}
-
-body.dark .dialogue-progress-text {
-  color: var(--dark-text);
-}
-
-.dialogue-progress-bar {
-  height: 8px;
-  background-color: var(--light-card-border);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-bottom: 10px;
-}
-
-body.dark .dialogue-progress-bar {
-  background-color: var(--dark-card-border);
-}
-
-.dialogue-progress-fill {
-  height: 100%;
-  background-color: var(--light-success);
-  border-radius: 4px;
-  transition: width 0.3s ease;
-}
-
-body.dark .dialogue-progress-fill {
-  background-color: var(--dark-success);
-}
-
-.dialogue-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.dialogue-buttons .btn {
-  flex: 1;
-  padding: 8px 12px;
-  font-size: 14px;
-}
-
-.btn-sm {
-  padding: 6px 10px;
-  font-size: 13px;
-}
-
-/* Thêm CSS cho các box và input */
-.practice-area {
-  background-color: var(--light-card-bg);
-  border-radius: 8px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px var(--light-shadow);
-}
-
-body.dark .practice-area {
-  background-color: var(--dark-card-bg);
-  box-shadow: 0 2px 8px var(--dark-shadow);
-}
-
-.input-area {
-  background-color: var(--light-card-bg);
-  border-radius: 8px;
-  padding: 15px;
-  margin-top: 20px;
-  box-shadow: 0 1px 4px var(--light-shadow);
-}
-
-body.dark .input-area {
-  background-color: var(--dark-card-bg);
-  box-shadow: 0 1px 4px var(--dark-shadow);
-}
-
-.input-label {
-  color: var(--light-text);
-  font-weight: 500;
-  margin-bottom: 10px;
-  display: block;
-}
-
-body.dark .input-label {
-  color: var(--dark-text);
-}
-
-textarea, input[type="text"] {
-  background-color: var(--light-input-bg);
-  border: 1px solid var(--light-input-border);
-  color: var(--light-text);
-  border-radius: 4px;
-  padding: 10px;
-  width: 100%;
-  font-size: 16px;
-  resize: none;
-}
-
-body.dark textarea, body.dark input[type="text"] {
-  background-color: var(--dark-input-bg);
-  border: 1px solid var(--dark-input-border);
-  color: var(--dark-text);
-}
-
-.btn {
-  background-color: var(--light-primary);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s;
-}
-
-body.dark .btn {
-  background-color: var(--dark-primary);
-}
-
-.btn:hover {
-  opacity: 0.9;
-}
-
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
-
-.btn-primary {
-  background-color: var(--light-primary);
-}
-
-body.dark .btn-primary {
-  background-color: var(--dark-primary);
-}
-
-.btn-secondary {
-  background-color: var(--light-secondary);
-}
-
-body.dark .btn-secondary {
-  background-color: var(--dark-secondary);
-}
-
-.btn-success {
-  background-color: var(--light-success);
-}
-
-body.dark .btn-success {
-  background-color: var(--dark-success);
-}
-
-.btn-outline {
-  background-color: transparent;
-  border: 1px solid var(--light-primary);
-  color: var(--light-primary);
-}
-
-body.dark .btn-outline {
-  border-color: var(--dark-primary);
-  color: var(--dark-primary);
-}
-
-.content-header {
-  color: var(--light-text);
-}
-
-body.dark .content-header {
-  color: var(--dark-text);
-}
-
-.progress-bar {
-  background-color: var(--light-card-border);
-}
-
-body.dark .progress-bar {
-  background-color: var(--dark-card-border);
-}
-
-.progress-text {
-  color: var(--light-text);
-}
-
-body.dark .progress-text {
-  color: var(--dark-text);
-}
-
-/* Các box hiển thị câu hoàn thành */
-.completion-indicators {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 15px;
-}
-
-.completion-indicator {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  background-color: var(--light-card-bg);
-  color: var(--light-text);
-  border: 1px solid var(--light-card-border);
-}
-
-body.dark .completion-indicator {
-  background-color: var(--dark-card-bg);
-  color: var(--dark-text);
-  border: 1px solid var(--dark-card-border);
-}
-
-.completion-indicator.completed {
-  background-color: var(--light-success);
-  color: white;
-  border: none;
-}
-
-body.dark .completion-indicator.completed {
-  background-color: var(--dark-success);
-}
-
-.completion-indicator.current {
-  border: 2px solid var(--light-primary);
-}
-
-body.dark .completion-indicator.current {
-  border: 2px solid var(--dark-primary);
 }

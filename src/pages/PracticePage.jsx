@@ -129,6 +129,63 @@ function PracticePage() {
     console.log("Tìm câu tiếp theo chưa hoàn thành từ vị trí:", startIdx);
     if (!currentUser || sentences.length === 0 || !selectedTestIndex) return startIdx;
 
+    // Xử lý đặc biệt cho Part 2
+    if (partId === '2') {
+      // Tìm câu hỏi tiếp theo (bỏ qua các câu trả lời)
+      let nextQuestionIdx = startIdx;
+      
+      // Đảm bảo vị trí bắt đầu là một câu hỏi
+      if (nextQuestionIdx < sentences.length) {
+        const currentSentence = sentences[nextQuestionIdx];
+        if (currentSentence && currentSentence.id && !currentSentence.id.includes('_question')) {
+          // Nếu không phải câu hỏi, tìm câu hỏi tiếp theo
+          while (nextQuestionIdx < sentences.length) {
+            const s = sentences[nextQuestionIdx];
+            if (s.id && s.id.includes('_question')) {
+              break;
+            }
+            nextQuestionIdx++;
+          }
+        }
+      }
+      
+      // Kiểm tra từ vị trí hiện tại đến cuối
+      for (let i = nextQuestionIdx; i < sentences.length; i++) {
+        const s = sentences[i];
+        // Chỉ xét các câu hỏi
+        if (s.id && s.id.includes('_question')) {
+          if (!isCompletedSentence(partId, selectedTestIndex, i)) {
+            console.log(`Tìm thấy câu hỏi chưa hoàn thành: ${i}`);
+            return i;
+          }
+        }
+      }
+
+      // Nếu không tìm thấy, quay lại từ đầu
+      for (let i = 0; i < nextQuestionIdx; i++) {
+        const s = sentences[i];
+        // Chỉ xét các câu hỏi
+        if (s.id && s.id.includes('_question')) {
+          if (!isCompletedSentence(partId, selectedTestIndex, i)) {
+            console.log(`Tìm thấy câu hỏi chưa hoàn thành (từ đầu): ${i}`);
+            return i;
+          }
+        }
+      }
+      
+      // Nếu tất cả câu đã hoàn thành, trả về câu hỏi đầu tiên
+      for (let i = 0; i < sentences.length; i++) {
+        const s = sentences[i];
+        if (s.id && s.id.includes('_question')) {
+          console.log(`Tất cả câu đã hoàn thành, trở về câu hỏi đầu tiên: ${i}`);
+          return i;
+        }
+      }
+      
+      return startIdx;
+    }
+
+    // Xử lý cho các Part khác
     // Kiểm tra từ vị trí hiện tại đến cuối
     for (let i = startIdx; i < sentences.length; i++) {
       if (!isCompletedSentence(partId, selectedTestIndex, i)) {
@@ -148,7 +205,7 @@ function PracticePage() {
     // Nếu tất cả câu đã hoàn thành
     console.log("Tất cả câu đã hoàn thành!");
     return startIdx;
-  }, [currentUser, sentences.length, selectedTestIndex, partId, isCompletedSentence]);
+  }, [currentUser, sentences.length, selectedTestIndex, partId, isCompletedSentence, sentences]);
 
   // Xử lý khi chọn đề
   const handleSelectTest = useCallback((testIndex) => {
@@ -161,7 +218,20 @@ function PracticePage() {
       setSentences(testSentences);
       
       if (testSentences.length > 0) {
-        const firstSentence = testSentences[0];
+        // Tìm câu đầu tiên phù hợp
+        let firstSentenceIndex = 0;
+        
+        // Đối với Part 2, tìm câu hỏi đầu tiên
+        if (partId === '2') {
+          for (let i = 0; i < testSentences.length; i++) {
+            if (testSentences[i].id && testSentences[i].id.includes('_question')) {
+              firstSentenceIndex = i;
+              break;
+            }
+          }
+        }
+        
+        const firstSentence = testSentences[firstSentenceIndex];
         setCurrentSentence(firstSentence);
         
         // Nếu là Part 3 hoặc Part 4, chuẩn bị dữ liệu đối thoại hoặc bài nói
@@ -337,6 +407,36 @@ function PracticePage() {
       const currentLine = getCurrentLine();
       return currentLine ? currentLine.transcript : '';
     } else {
+      // Xử lý part2 với nhiều định dạng dữ liệu khác nhau
+      if (partId === '2') {
+        // Kiểm tra cấu trúc câu hỏi part2
+        if (currentSentence.id && currentSentence.id.includes('_question')) {
+          // Tìm câu trả lời tương ứng
+          const questionId = currentSentence.id;
+          const baseId = questionId.replace('_question', '');
+          
+          // Tìm trong sentences
+          for (let i = 0; i < sentences.length; i++) {
+            const s = sentences[i];
+            // Kiểm tra cấu trúc cũ (answer)
+            if (s.id === `${baseId}_answer`) {
+              return s.transcript;
+            }
+            // Kiểm tra cấu trúc mới (a, b, c)
+            if (s.id === `${baseId}_a` || s.id === `${baseId}_b` || s.id === `${baseId}_c`) {
+              // Lấy câu trả lời đầu tiên (a) làm mặc định
+              if (s.id === `${baseId}_a`) {
+                return s.transcript;
+              }
+            }
+          }
+          console.error(`Không tìm thấy câu trả lời cho câu hỏi: ${questionId}`);
+          return '';
+        }
+        // Nếu đây là câu trả lời, trả về transcript của nó
+        return currentSentence.transcript || '';
+      }
+      
       return currentSentence.transcript || '';
     }
   };
@@ -462,6 +562,39 @@ function PracticePage() {
       }
     }
     
+    // Xử lý cho Part 2 - bỏ qua các câu trả lời
+    if (partId === '2') {
+      let nextIndex = currentIdx + 1;
+      
+      // Tìm câu hỏi tiếp theo (bỏ qua các câu trả lời)
+      while (nextIndex < sentences.length) {
+        const nextSentence = sentences[nextIndex];
+        if (nextSentence.id && nextSentence.id.includes('_question')) {
+          break;
+        }
+        nextIndex++;
+      }
+      
+      if (nextIndex < sentences.length) {
+        console.log(`Chuyển đến câu hỏi tiếp theo: ${nextIndex}`);
+        setCurrentIdx(nextIndex);
+        resetState();
+        
+        // Lưu vị trí học tập
+        if (currentUser) {
+          setTimeout(() => {
+            console.log(`Lưu vị trí: Part ${partId}, Test ${selectedTestIndex}, Câu ${nextIndex}`);
+            saveLastPosition(partId, selectedTestIndex, nextIndex);
+          }, 0);
+        }
+        return;
+      } else {
+        console.log("Đã đến câu cuối cùng, hiển thị điểm số");
+        setShowScore(true);
+        return;
+      }
+    }
+    
     // Lưu chỉ số câu tiếp theo trước khi cập nhật state
     const nextIndex = currentIdx + 1;
     console.log("Chuẩn bị chuyển đến câu:", nextIndex);
@@ -503,7 +636,8 @@ function PracticePage() {
     partId, 
     selectedTestIndex, 
     saveLastPosition,
-    findNextUncompletedSentence
+    findNextUncompletedSentence,
+    sentences
   ]);
 
   // Quay lại câu trước
@@ -1056,6 +1190,14 @@ function PracticePage() {
                   >
                     <i className="fas fa-arrow-right"></i>
                     Câu tiếp theo
+                  </button>
+                  <button 
+                    className="btn btn-outline" 
+                    onClick={() => setSelectedTestIndex(null)}
+                    title="Quay lại chọn đề thi"
+                  >
+                    <i className="fas fa-list"></i>
+                    Chọn đề khác
                   </button>
                 </div>
                 

@@ -26,7 +26,7 @@ function HelpGuide() {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [isOpen, toggleGuide]);
+  }, [isOpen]);
 
   return (
     <div className="help-guide-container">
@@ -73,7 +73,7 @@ function HelpGuide() {
                       <td>Kiểm tra đáp án</td>
                     </tr>
                     <tr>
-                      <td><kbd>Ctrl</kbd> + <kbd>Space</kbd></td>
+                      <td><kbd>Alt</kbd> + <kbd>R</kbd></td>
                       <td>Nghe lại</td>
                     </tr>
                     <tr>

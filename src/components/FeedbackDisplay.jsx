@@ -2,11 +2,7 @@ import React from 'react';
 import './FeedbackDisplay.css';
 
 // segments: [{ text, correctedText, status }]
-function FeedbackDisplay({ 
-  segments = [], 
-  showAbove = false, 
-  autoCorrect = false 
-}) {
+function FeedbackDisplay({ segments, showAbove = false, autoCorrect = false }) {
   // Xử lý hiển thị từ đặc biệt
   const renderWord = (segment) => {
     const { text, correctedText, status } = segment;
@@ -14,22 +10,22 @@ function FeedbackDisplay({
     if (status === 'missing') {
       // Từ bị thiếu
       return (
-        <span className="feedback-content">
-          <span className="missing">___</span>
-          <span className="expected">{correctedText}</span>
+        <span className="word-correction">
+          <span className="missing-word">___</span>
+          <span className="corrected-text">{correctedText}</span>
         </span>
       );
     } else if (status === 'incorrect' && autoCorrect && correctedText) {
       // Từ sai và đã bật tự động sửa
       return (
-        <span className="feedback-content">
-          <span className="incorrect">{text}</span>
-          <span className="expected">{correctedText}</span>
+        <span className="word-correction">
+          <span className="original-text">{text}</span>
+          <span className="corrected-text">{correctedText}</span>
         </span>
       );
     } else {
       // Từ đúng hoặc không bật tự động sửa
-      return <span className={status === 'correct' ? 'correct' : (status === 'incorrect' ? 'incorrect' : '')}>{text}</span>;
+      return text;
     }
   };
 
@@ -38,23 +34,23 @@ function FeedbackDisplay({
     return null;
   }
   
-  const containerClass = showAbove ? 'feedback-display' : 'feedback-display';
+  const containerClass = showAbove ? 'feedback-display-above' : 'feedback-display';
 
   return (
     <div className={containerClass}>
-      <h3>
-        <i className="fas fa-check-circle"></i>
-        Kết quả kiểm tra
-      </h3>
-      <div className="feedback-content">
-        {segments.map((seg, idx) => (
-          <span key={idx} style={{marginRight: '5px'}}>
-            {renderWord(seg)}{' '}
-          </span>
-        ))}
-      </div>
+      {segments.map((seg, idx) => (
+        <span key={idx} className={`word-${seg.status}`}>
+          {renderWord(seg)} {' '}
+        </span>
+      ))}
     </div>
   );
 }
+
+FeedbackDisplay.defaultProps = {
+  segments: [],
+  showAbove: false,
+  autoCorrect: false
+};
 
 export default FeedbackDisplay;
