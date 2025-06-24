@@ -2,6 +2,12 @@ import React from 'react';
 import './TranscriptDisplay.css';
 
 function TranscriptDisplay({ words, completedSentences = [], autoCorrect = false }) {
+  // Lọc các câu đã hoàn thành để tránh hiển thị lặp lại
+  const uniqueCompletedSentences = completedSentences.filter(
+    (sentence, index, self) => 
+      self.indexOf(sentence) === index
+  );
+
   // Xử lý hiển thị từ đặc biệt
   const renderWord = (segment) => {
     const { text, correctedText, status } = segment;
@@ -10,22 +16,28 @@ function TranscriptDisplay({ words, completedSentences = [], autoCorrect = false
       // Từ sai và đã bật tự động sửa
       return (
         <span className="word-correction">
-          <span className="original-text">{text}</span>
-          <span className="corrected-text">{correctedText}</span>
+          <span className="word-incorrect">{text}</span>
+          <span className="word-correction-text">{correctedText}</span>
         </span>
       );
+    } else if (status === 'correct') {
+      return <span className="word-correct">{text}</span>;
+    } else if (status === 'incorrect') {
+      return <span className="word-incorrect">{text}</span>;
+    } else if (status === 'missing') {
+      return <span className="word-missing">{text || '___'}</span>;
     } else {
-      // Từ đúng hoặc không bật tự động sửa
-      return text;
+      // Các trường hợp khác
+      return <span>{text}</span>;
     }
   };
 
   return (
     <div className="transcript-display-container">
       {/* Hiển thị các câu đã hoàn thành */}
-      {completedSentences.length > 0 && (
+      {uniqueCompletedSentences.length > 0 && (
         <div className="completed-sentences">
-          {completedSentences.map((sentence, idx) => (
+          {uniqueCompletedSentences.map((sentence, idx) => (
             <p key={idx} className="completed-sentence">
               {sentence}
             </p>
@@ -37,8 +49,8 @@ function TranscriptDisplay({ words, completedSentences = [], autoCorrect = false
       {words.length > 0 && (
         <p className="transcript-display">
           {words.map((w, idx) => (
-            <span key={idx} className={`word-${w.status}`}>
-              {renderWord(w)} {' '}
+            <span key={idx} style={{marginRight: '5px'}}>
+              {renderWord(w)}
             </span>
           ))}
         </p>

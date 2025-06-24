@@ -377,12 +377,10 @@ function PracticePage() {
       }));
     }
 
-    // Nếu đúng hết các từ, tự động chuyển sau 2 giây
-    if (wordAccuracy.isComplete) {
-      const timeout = setTimeout(() => {
-        moveToNextItem();
-      }, 2000);
-      setAutoAdvanceTimeout(timeout);
+    // Không còn tự động chuyển câu khi đúng hết các từ
+    if (autoAdvanceTimeout) {
+      clearTimeout(autoAdvanceTimeout);
+      setAutoAdvanceTimeout(null);
     }
 
     // Lưu câu đã hoàn thành
@@ -418,11 +416,11 @@ function PracticePage() {
     setIsChecked(true);
     setAccuracy(100);
     
-    // Tự động chuyển câu sau 3 giây
-    const timeout = setTimeout(() => {
-      moveToNextItem();
-    }, 3000);
-    setAutoAdvanceTimeout(timeout);
+    // Hủy timeout nếu có
+    if (autoAdvanceTimeout) {
+      clearTimeout(autoAdvanceTimeout);
+      setAutoAdvanceTimeout(null);
+    }
   };
 
   // Chuyển tới câu/dòng tiếp theo
@@ -604,8 +602,8 @@ function PracticePage() {
       playCurrentAudio();
     }
     
-    // Ctrl+R: Nghe lại (thay thế Ctrl+Shift+D)
-    if (e.key === 'r' && e.ctrlKey && !e.shiftKey) {
+    // Ctrl+Space: Nghe lại (thay thế Ctrl+R)
+    if (e.code === 'Space' && e.ctrlKey && !e.shiftKey) {
       e.preventDefault();
       setErrorMessage('');
       replay();
@@ -904,7 +902,7 @@ function PracticePage() {
                       replay();
                     }}
                     disabled={isLoading}
-                    title="Nghe lại (Ctrl+R)"
+                    title="Nghe lại (Ctrl+Space)"
                   >
                     <i className="fas fa-redo"></i>
                     Nghe lại
@@ -943,7 +941,10 @@ function PracticePage() {
 
                 {/* Hiển thị đoạn hội thoại hoặc bài nói đã hoàn thành */}
                 {isDialogueOrTalk && completedSentences.length > 0 && (
-                  <DialogueDisplay completedSentences={completedSentences} />
+                  <DialogueDisplay 
+                    completedSentences={completedSentences} 
+                    currentLineIdx={currentLineIdx}
+                  />
                 )}
 
                 {/* Hiển thị thông tin về dòng hiện tại trong Part 3/4 */}
@@ -1058,17 +1059,19 @@ function PracticePage() {
                   </button>
                 </div>
                 
-                {/* Thêm nút Next lớn ở cuối trang */}
-                <div className="big-next-button-container">
-                  <button 
-                    className="big-next-button" 
-                    onClick={moveToNextItem}
-                    title="Câu tiếp theo (Alt+→)"
-                  >
-                    <i className="fas fa-arrow-right"></i>
-                    Chuyển sang câu tiếp theo
-                  </button>
-                </div>
+                {/* Chỉ hiển thị nút Next lớn khi không ở trạng thái hiển thị đáp án */}
+                {!showAnswer && (
+                  <div className="big-next-button-container">
+                    <button 
+                      className="big-next-button" 
+                      onClick={moveToNextItem}
+                      title="Câu tiếp theo (Alt+→)"
+                    >
+                      <i className="fas fa-arrow-right"></i>
+                      Chuyển sang câu tiếp theo
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           )}

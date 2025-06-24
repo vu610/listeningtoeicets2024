@@ -58,7 +58,6 @@ function InteractiveInput({
         <div className="accuracy-message">
           {accuracy.isComplete ? 'Tuyệt vời! Đúng hết các từ.' : getAccuracyMessage(accuracy.value)}
           {accuracy.attemptCount > 1 && !accuracy.isComplete && ` (Lần thử thứ ${accuracy.attemptCount})`}
-          {accuracy.isComplete && ' Đang chuyển câu tiếp theo...'}
         </div>
       </div>
     );

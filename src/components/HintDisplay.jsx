@@ -35,6 +35,7 @@ function HintDisplay({ transcript, userInput, show, onAutoHide }) {
           const newTime = prevTime - 1;
           if (newTime <= 0) {
             clearInterval(timer);
+            autoHideHint();
           }
           return newTime;
         });
@@ -42,7 +43,7 @@ function HintDisplay({ transcript, userInput, show, onAutoHide }) {
       
       return () => clearInterval(timer);
     }
-  }, [show, hintWord]);
+  }, [show, hintWord, autoHideHint, AUTO_HIDE_TIME]);
 
   useEffect(() => {
     if (!show || !transcript || !userInput) {
@@ -52,81 +53,65 @@ function HintDisplay({ transcript, userInput, show, onAutoHide }) {
       return;
     }
 
-    // Chuẩn hoá transcript và input (loại bỏ dấu câu, chuyển thành chữ thường)
-    const normalizeText = (text) => {
-      return text.toLowerCase().replace(/[.,!?;:'"()\[\]{}\-_]/g, '').trim();
-    };
+    try {
+      // Chuẩn hoá transcript và input (loại bỏ dấu câu, chuyển thành chữ thường)
+      const normalizeText = (text) => {
+        if (!text || typeof text !== 'string') return '';
+        return text.toLowerCase().replace(/[.,!?;:'"()\[\]{}\-_]/g, '').trim();
+      };
 
-    const normalizedTranscript = normalizeText(transcript);
-    const normalizedInput = normalizeText(userInput);
+      const normalizedTranscript = normalizeText(transcript);
+      const normalizedInput = normalizeText(userInput);
 
-    // Tách transcript và input thành mảng từ
-    const transcriptWords = normalizedTranscript.split(/\s+/);
-    const inputWords = normalizedInput.split(/\s+/);
-    
-    // Trường hợp input rỗng hoặc chỉ có khoảng trắng
-    if (normalizedInput === '') {
-      setHintWord(transcriptWords[0] || '');
-      setHintPosition(0);
-      setInputPrefix('');
-      
-      // Đặt timeout để tự động ẩn sau AUTO_HIDE_TIME giây
-      if (hideTimeout) clearTimeout(hideTimeout);
-      const timeout = setTimeout(() => {
-        autoHideHint();
-      }, AUTO_HIDE_TIME * 1000);
-      setHideTimeout(timeout);
-      
-      return;
-    }
+      if (!normalizedTranscript) {
+        console.log("Transcript rỗng hoặc không hợp lệ");
+        setHintWord('');
+        return;
+      }
 
-    // Xác định vị trí từ hiện tại đang nhập và tiền tố đã nhập
-    let currentWordPosition;
-    let prefix = '';
-    
-    if (userInput.endsWith(' ')) {
-      // Người dùng đã nhập xong từ, gợi ý từ tiếp theo
-      currentWordPosition = inputWords.length;
-      prefix = '';
-    } else {
-      // Người dùng đang nhập dở từ
-      currentWordPosition = inputWords.length - 1;
-      prefix = inputWords[currentWordPosition] || '';
-    }
-    
-    // Kiểm tra xem vị trí hiện tại có nằm trong transcript không
-    if (currentWordPosition < transcriptWords.length) {
-      const targetWord = transcriptWords[currentWordPosition];
+      // Tách transcript và input thành mảng từ
+      const transcriptWords = normalizedTranscript.split(/\s+/).filter(word => word.length > 0);
+      const inputWords = normalizedInput.split(/\s+/).filter(word => word.length > 0);
       
-      // Kiểm tra xem từ đang nhập có phải là tiền tố của từ mục tiêu không
-      if (targetWord && targetWord.toLowerCase().startsWith(prefix.toLowerCase())) {
-        setHintWord(targetWord);
-        setHintPosition(currentWordPosition);
-        setInputPrefix(prefix);
-        
-        // Đặt timeout để tự động ẩn sau AUTO_HIDE_TIME giây
-        if (hideTimeout) clearTimeout(hideTimeout);
-        const timeout = setTimeout(() => {
-          autoHideHint();
-        }, AUTO_HIDE_TIME * 1000);
-        setHideTimeout(timeout);
-      } else {
-        // Tìm từ phù hợp nhất trong transcript
-        let bestMatch = '';
-        let bestPosition = -1;
-        
-        for (let i = 0; i < transcriptWords.length; i++) {
-          const word = transcriptWords[i];
-          if (word.toLowerCase().startsWith(prefix.toLowerCase())) {
-            bestMatch = word;
-            bestPosition = i;
-            break;
-          }
+      // Trường hợp input rỗng hoặc chỉ có khoảng trắng
+      if (normalizedInput === '') {
+        if (transcriptWords.length > 0) {
+          setHintWord(transcriptWords[0]);
+          setHintPosition(0);
+          setInputPrefix('');
+          
+          // Đặt timeout để tự động ẩn sau AUTO_HIDE_TIME giây
+          if (hideTimeout) clearTimeout(hideTimeout);
+          const timeout = setTimeout(() => {
+            autoHideHint();
+          }, AUTO_HIDE_TIME * 1000);
+          setHideTimeout(timeout);
         }
+        return;
+      }
+
+      // Xác định vị trí từ hiện tại đang nhập và tiền tố đã nhập
+      let currentWordPosition;
+      let prefix = '';
+      
+      if (userInput.endsWith(' ')) {
+        // Người dùng đã nhập xong từ, gợi ý từ tiếp theo
+        currentWordPosition = inputWords.length;
+        prefix = '';
+      } else {
+        // Người dùng đang nhập dở từ
+        currentWordPosition = inputWords.length - 1;
+        prefix = inputWords[currentWordPosition] || '';
+      }
+      
+      // Kiểm tra xem vị trí hiện tại có nằm trong transcript không
+      if (currentWordPosition < transcriptWords.length) {
+        const targetWord = transcriptWords[currentWordPosition];
         
-        if (bestMatch) {
-          setHintWord(bestMatch);
-          setHintPosition(bestPosition);
+        // Kiểm tra xem từ đang nhập có phải là tiền tố của từ mục tiêu không
+        if (targetWord && targetWord.toLowerCase().startsWith(prefix.toLowerCase())) {
+          setHintWord(targetWord);
+          setHintPosition(currentWordPosition);
           setInputPrefix(prefix);
           
           // Đặt timeout để tự động ẩn sau AUTO_HIDE_TIME giây
@@ -136,12 +121,43 @@ function HintDisplay({ transcript, userInput, show, onAutoHide }) {
           }, AUTO_HIDE_TIME * 1000);
           setHideTimeout(timeout);
         } else {
-          setHintWord('');
-          setHintPosition(-1);
-          setInputPrefix('');
+          // Tìm từ phù hợp nhất trong transcript
+          let bestMatch = '';
+          let bestPosition = -1;
+          
+          for (let i = 0; i < transcriptWords.length; i++) {
+            const word = transcriptWords[i];
+            if (word && prefix && word.toLowerCase().startsWith(prefix.toLowerCase())) {
+              bestMatch = word;
+              bestPosition = i;
+              break;
+            }
+          }
+          
+          if (bestMatch) {
+            setHintWord(bestMatch);
+            setHintPosition(bestPosition);
+            setInputPrefix(prefix);
+            
+            // Đặt timeout để tự động ẩn sau AUTO_HIDE_TIME giây
+            if (hideTimeout) clearTimeout(hideTimeout);
+            const timeout = setTimeout(() => {
+              autoHideHint();
+            }, AUTO_HIDE_TIME * 1000);
+            setHideTimeout(timeout);
+          } else {
+            setHintWord('');
+            setHintPosition(-1);
+            setInputPrefix('');
+          }
         }
+      } else {
+        setHintWord('');
+        setHintPosition(-1);
+        setInputPrefix('');
       }
-    } else {
+    } catch (error) {
+      console.error("Lỗi khi xử lý gợi ý:", error);
       setHintWord('');
       setHintPosition(-1);
       setInputPrefix('');
@@ -152,24 +168,30 @@ function HintDisplay({ transcript, userInput, show, onAutoHide }) {
   const displayHint = () => {
     if (!hintWord) return '';
     
-    // Nếu người dùng đã nhập xong từ (kết thúc bằng khoảng trắng), hiển thị toàn bộ từ gợi ý
-    if (userInput.endsWith(' ')) {
+    try {
+      // Nếu người dùng đã nhập xong từ (kết thúc bằng khoảng trắng), hiển thị toàn bộ từ gợi ý
+      if (userInput && userInput.endsWith(' ')) {
+        return hintWord;
+      }
+      
+      // Nếu từ gợi ý bắt đầu bằng từ đang nhập, chỉ hiển thị phần còn lại
+      if (hintWord && inputPrefix && 
+          hintWord.toLowerCase().startsWith(inputPrefix.toLowerCase())) {
+        return hintWord.substring(inputPrefix.length);
+      }
+      
       return hintWord;
+    } catch (error) {
+      console.error("Lỗi khi hiển thị gợi ý:", error);
+      return '';
     }
-    
-    // Nếu từ gợi ý bắt đầu bằng từ đang nhập, chỉ hiển thị phần còn lại
-    if (hintWord.toLowerCase().startsWith(inputPrefix.toLowerCase())) {
-      return hintWord.substring(inputPrefix.length);
-    }
-    
-    return hintWord;
   };
 
   const displayInputPrefix = () => {
-    if (userInput.endsWith(' ')) {
+    if (!userInput || userInput.endsWith(' ')) {
       return '';
     }
-    return inputPrefix;
+    return inputPrefix || '';
   };
 
   if (!show || !hintWord) {

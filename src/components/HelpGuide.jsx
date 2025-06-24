@@ -73,7 +73,7 @@ function HelpGuide() {
                       <td>Kiểm tra đáp án</td>
                     </tr>
                     <tr>
-                      <td><kbd>Ctrl</kbd> + <kbd>R</kbd></td>
+                      <td><kbd>Ctrl</kbd> + <kbd>Space</kbd></td>
                       <td>Nghe lại</td>
                     </tr>
                     <tr>

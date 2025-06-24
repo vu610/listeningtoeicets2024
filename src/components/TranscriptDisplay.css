@@ -1,10 +1,16 @@
 .transcript-display {
-  background-color: #f8f9fa;
-  border-radius: 5px;
+  background-color: var(--light-card-bg);
+  border-radius: 8px;
   padding: 15px;
   font-size: 1.1rem;
   line-height: 1.5;
   margin-bottom: 10px;
+  color: var(--light-text);
+}
+
+body.dark .transcript-display {
+  background-color: var(--dark-card-bg);
+  color: var(--dark-text);
 }
 
 .transcript-display-container {
@@ -14,69 +20,126 @@
 }
 
 .completed-sentences {
-  background-color: #f0f4f8;
-  border-radius: 5px;
-  padding: 10px 15px;
-  margin-bottom: 10px;
-  border-left: 4px solid #4a6fa5;
+  background-color: var(--light-card-bg);
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-left: 4px solid var(--light-primary);
+  color: var(--light-text);
+}
+
+body.dark .completed-sentences {
+  background-color: var(--dark-card-bg);
+  border-left: 4px solid var(--dark-primary);
+  color: var(--dark-text);
 }
 
 .completed-sentence {
-  margin: 5px 0;
+  margin: 8px 0;
   font-size: 1rem;
-  line-height: 1.4;
-  color: #555;
+  line-height: 1.5;
+  color: var(--light-text);
 }
 
-/* Các trạng thái khác nhau của từng từ - phiên bản cũ */
+body.dark .completed-sentence {
+  color: var(--dark-text);
+}
+
+/* Các trạng thái khác nhau của từng từ */
 .correct {
-  color: #28a745;
+  color: var(--light-success);
+  font-weight: 500;
+}
+
+body.dark .correct {
+  color: var(--dark-success);
 }
 
 .incorrect {
-  color: #dc3545;
+  color: var(--light-error);
   text-decoration: line-through;
+  font-weight: 500;
+}
+
+body.dark .incorrect {
+  color: var(--dark-error);
 }
 
 .missing {
-  color: #ffc107;
+  color: var(--light-warning);
+  font-weight: 500;
+}
+
+body.dark .missing {
+  color: var(--dark-warning);
 }
 
 /* Style cho từng từ - phiên bản mới */
 .word-correct {
-  color: #48bb78; /* green */
+  color: var(--light-success);
   font-weight: 500;
   background-color: rgba(72, 187, 120, 0.1);
-  border-radius: 2px;
-  padding: 0 3px;
+  border-radius: 4px;
+  padding: 2px 4px;
   display: inline-block;
-  margin-right: 4px;
+}
+
+body.dark .word-correct {
+  color: var(--dark-success);
+  background-color: rgba(72, 187, 120, 0.1);
 }
 
 .word-incorrect {
-  color: #e53e3e; /* red */
+  color: var(--light-error);
   text-decoration: line-through;
   font-weight: 500;
   background-color: rgba(229, 62, 62, 0.1);
-  border-radius: 2px;
-  padding: 0 3px;
+  border-radius: 4px;
+  padding: 2px 4px;
   display: inline-block;
-  margin-right: 4px;
+}
+
+body.dark .word-incorrect {
+  color: var(--dark-error);
+  background-color: rgba(229, 62, 62, 0.1);
 }
 
 .word-missing {
-  color: #805ad5; /* purple */
+  color: var(--light-warning);
   font-weight: 500;
-  background-color: rgba(128, 90, 213, 0.1);
-  border-radius: 2px;
-  padding: 0 3px;
+  background-color: rgba(236, 201, 75, 0.1);
+  border-radius: 4px;
+  padding: 2px 4px;
   display: inline-block;
-  margin-right: 4px;
 }
 
-.missing-word {
-  color: #805ad5; /* purple */
-  font-style: italic;
-  border-bottom: 2px dashed #805ad5;
-  padding: 0 2px;
+body.dark .word-missing {
+  color: var(--dark-warning);
+  background-color: rgba(236, 201, 75, 0.1);
+}
+
+.word-correction {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.word-correction-text {
+  color: var(--light-primary);
+  font-weight: 500;
+}
+
+body.dark .word-correction-text {
+  color: var(--dark-primary);
+}
+
+.word-correction-text::before {
+  content: '→';
+  margin: 0 2px;
+  color: var(--light-text-secondary);
+}
+
+body.dark .word-correction-text::before {
+  color: var(--dark-text-secondary);
 }
