@@ -17,29 +17,41 @@ export default function useAudioPlayer({ audioSrc }) {
 
   // Reset states when audio source changes
   useEffect(() => {
+    if (!audioSrc) {
+      setIsLoading(false);
+      setAudioLoaded(false);
+      return;
+    }
+
     setIsLoading(true);
     setAudioLoaded(false);
-    
-    // Đảm bảo audio được load đúng cách
+
     const audio = audioRef.current;
-    if (audio && audioSrc) {
+    if (audio) {
       console.log('Loading audio source:', audioSrc);
+
+      const handleLoadedData = () => {
+        setIsLoading(false);
+        setAudioLoaded(true);
+        console.log('Audio loaded successfully');
+      };
+
+      const handleError = (e) => {
+        console.error('Audio loading error:', e);
+        setIsLoading(false);
+        setAudioLoaded(false);
+      };
+
+      audio.addEventListener('loadeddata', handleLoadedData);
+      audio.addEventListener('error', handleError);
+
       audio.src = audioSrc;
       audio.load();
-      
-      // Kiểm tra xem audio đã load xong chưa
-      const checkLoaded = () => {
-        if (audio.readyState >= 2) { // HAVE_CURRENT_DATA or higher
-          setIsLoading(false);
-          setAudioLoaded(true);
-          console.log('Audio loaded successfully');
-        } else {
-          console.log('Audio not ready yet, waiting...');
-          setTimeout(checkLoaded, 500);
-        }
+
+      return () => {
+        audio.removeEventListener('loadeddata', handleLoadedData);
+        audio.removeEventListener('error', handleError);
       };
-      
-      checkLoaded();
     }
   }, [audioSrc]);
 

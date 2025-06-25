@@ -12,28 +12,47 @@
 .text-input {
   width: 100%;
   padding: 1.5rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--light-input-border);
   border-radius: 0.5rem;
   font-size: 1.2rem;
   line-height: 1.5;
   resize: vertical;
-  background-color: #fff;
-  color: #2d3748;
+  background-color: var(--light-input-bg);
+  color: var(--light-text-primary);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s, color 0.3s;
   min-height: 120px;
+}
+
+/* Dark theme for text input */
+body.dark .text-input {
+  background-color: var(--dark-input-bg);
+  color: var(--dark-text-primary);
+  border-color: var(--dark-input-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .text-input:focus {
   outline: none;
-  border-color: #4299e1;
+  border-color: var(--light-input-focus);
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.3);
 }
 
+body.dark .text-input:focus {
+  border-color: var(--dark-input-focus);
+  box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.3);
+}
+
 .text-input.with-feedback {
-  color: #2d3748;
-  caret-color: #2d3748;
-  background-color: #fff;
+  color: var(--light-text-primary);
+  caret-color: var(--light-text-primary);
+  background-color: var(--light-input-bg);
+}
+
+body.dark .text-input.with-feedback {
+  color: var(--dark-text-primary);
+  caret-color: var(--dark-text-primary);
+  background-color: var(--dark-input-bg);
 }
 
 /* Đảm bảo textarea và feedback display có cùng kích thước và vị trí */
@@ -51,18 +70,28 @@
 .input-accuracy-info {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #fff;
+  background-color: var(--light-card-bg);
   border-radius: 0.5rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--light-card-border);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+body.dark .input-accuracy-info {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-card-border);
 }
 
 .input-accuracy-info .accuracy-label {
   font-weight: 600;
-  color: #4a5568;
+  color: var(--light-text-secondary);
+}
+
+body.dark .input-accuracy-info .accuracy-label {
+  color: var(--dark-text-secondary);
 }
 
 .input-accuracy-info .accuracy-value {
@@ -74,27 +103,48 @@
 
 .input-accuracy-info .accuracy-value.excellent {
   color: #fff;
-  background-color: #48bb78;
+  background-color: var(--light-success);
+}
+
+body.dark .input-accuracy-info .accuracy-value.excellent {
+  background-color: var(--dark-success);
 }
 
 .input-accuracy-info .accuracy-value.good {
   color: #fff;
-  background-color: #4299e1;
+  background-color: var(--light-info);
+}
+
+body.dark .input-accuracy-info .accuracy-value.good {
+  background-color: var(--dark-info);
 }
 
 .input-accuracy-info .accuracy-value.average {
   color: #fff;
-  background-color: #ed8936;
+  background-color: var(--light-warning);
+}
+
+body.dark .input-accuracy-info .accuracy-value.average {
+  background-color: var(--dark-warning);
+  color: #000;
 }
 
 .input-accuracy-info .accuracy-value.poor {
   color: #fff;
-  background-color: #e53e3e;
+  background-color: var(--light-danger);
+}
+
+body.dark .input-accuracy-info .accuracy-value.poor {
+  background-color: var(--dark-danger);
 }
 
 .input-accuracy-info .accuracy-message {
   font-weight: 500;
-  color: #4a5568;
+  color: var(--light-text-secondary);
+}
+
+body.dark .input-accuracy-info .accuracy-message {
+  color: var(--dark-text-secondary);
 }
 
 @keyframes fadeIn {

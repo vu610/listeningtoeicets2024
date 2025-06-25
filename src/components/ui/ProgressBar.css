@@ -1,0 +1,213 @@
+/* Progress Bar Component */
+.progress-bar-container {
+  width: 100%;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xs);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--light-text-secondary);
+}
+
+body.dark .progress-label {
+  color: var(--dark-text-secondary);
+}
+
+.progress-track {
+  width: 100%;
+  background-color: var(--light-card-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  position: relative;
+}
+
+body.dark .progress-track {
+  background-color: var(--dark-card-border);
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Sizes */
+.progress-bar-xs .progress-track {
+  height: 2px;
+}
+
+.progress-bar-sm .progress-track {
+  height: 4px;
+}
+
+.progress-bar-md .progress-track {
+  height: 8px;
+}
+
+.progress-bar-lg .progress-track {
+  height: 12px;
+}
+
+.progress-bar-xl .progress-track {
+  height: 16px;
+}
+
+/* Colors */
+.progress-bar-primary {
+  background-color: var(--light-primary);
+}
+
+body.dark .progress-bar-primary {
+  background-color: var(--dark-primary);
+}
+
+.progress-bar-secondary {
+  background-color: var(--light-secondary);
+}
+
+body.dark .progress-bar-secondary {
+  background-color: var(--dark-secondary);
+}
+
+.progress-bar-success {
+  background-color: var(--light-success);
+}
+
+body.dark .progress-bar-success {
+  background-color: var(--dark-success);
+}
+
+.progress-bar-warning {
+  background-color: var(--light-warning);
+}
+
+body.dark .progress-bar-warning {
+  background-color: var(--dark-warning);
+}
+
+.progress-bar-danger {
+  background-color: var(--light-danger);
+}
+
+body.dark .progress-bar-danger {
+  background-color: var(--dark-danger);
+}
+
+.progress-bar-info {
+  background-color: var(--light-info);
+}
+
+body.dark .progress-bar-info {
+  background-color: var(--dark-info);
+}
+
+/* Striped Effect */
+.progress-bar-striped .progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+/* Animated Stripes */
+.progress-bar-animated .progress-bar::before {
+  animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+  0% {
+    background-position: 1rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* Animated Fill */
+.progress-bar-fill-animated {
+  animation: progress-bar-fill 2s ease-in-out;
+}
+
+@keyframes progress-bar-fill {
+  0% {
+    width: 0%;
+  }
+}
+
+/* Gradient Variants */
+.progress-bar-gradient-primary {
+  background: linear-gradient(90deg, var(--light-primary), var(--light-info));
+}
+
+body.dark .progress-bar-gradient-primary {
+  background: linear-gradient(90deg, var(--dark-primary), var(--dark-info));
+}
+
+.progress-bar-gradient-success {
+  background: linear-gradient(90deg, var(--light-success), #48bb78);
+}
+
+body.dark .progress-bar-gradient-success {
+  background: linear-gradient(90deg, var(--dark-success), #68d391);
+}
+
+.progress-bar-gradient-warning {
+  background: linear-gradient(90deg, var(--light-warning), #ed8936);
+}
+
+body.dark .progress-bar-gradient-warning {
+  background: linear-gradient(90deg, var(--dark-warning), #f6e05e);
+}
+
+.progress-bar-gradient-danger {
+  background: linear-gradient(90deg, var(--light-danger), #f56565);
+}
+
+body.dark .progress-bar-gradient-danger {
+  background: linear-gradient(90deg, var(--dark-danger), #fc8181);
+}
+
+/* Pulse Animation */
+.progress-bar-pulse {
+  animation: progress-bar-pulse 2s ease-in-out infinite;
+}
+
+@keyframes progress-bar-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Glow Effect */
+.progress-bar-glow {
+  box-shadow: 0 0 10px currentColor;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .progress-label {
+    font-size: var(--text-xs);
+  }
+}

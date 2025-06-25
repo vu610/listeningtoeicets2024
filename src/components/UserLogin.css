@@ -7,25 +7,41 @@
 }
 
 .user-login-card {
-  background-color: #ffffff;
+  background-color: var(--light-card-bg);
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 30px;
   width: 100%;
   max-width: 400px;
   text-align: center;
+  transition: background-color 0.3s;
+}
+
+body.dark .user-login-card {
+  background-color: var(--dark-card-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .user-login-card h2 {
   margin-top: 0;
-  color: #333;
+  color: var(--light-text-primary);
   font-size: 24px;
   margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+body.dark .user-login-card h2 {
+  color: var(--dark-text-primary);
 }
 
 .user-login-card p {
-  color: #666;
+  color: var(--light-text-secondary);
   margin-bottom: 20px;
+  transition: color 0.3s;
+}
+
+body.dark .user-login-card p {
+  color: var(--dark-text-secondary);
 }
 
 .user-login-form {
@@ -41,10 +57,18 @@
 .user-login-input {
   width: 100%;
   padding: 12px 15px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--light-input-border);
   border-radius: 5px;
   font-size: 16px;
-  transition: border-color 0.3s;
+  background-color: var(--light-input-bg);
+  color: var(--light-text-primary);
+  transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+}
+
+body.dark .user-login-input {
+  background-color: var(--dark-input-bg);
+  color: var(--dark-text-primary);
+  border-color: var(--dark-input-border);
 }
 
 .user-login-input:focus {

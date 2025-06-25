@@ -1,10 +1,17 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import './PracticePage.css';
+
 import InteractiveInput from '../components/InteractiveInput';
 import DialogueDisplay from '../components/DialogueDisplay';
 import TestSelector from '../components/TestSelector';
 import HelpGuide from '../components/HelpGuide';
 import ProgressIndicator from '../components/ProgressIndicator';
+import Button from '../components/ui/Button';
+import Card from '../components/ui/Card';
+import LoadingSpinner from '../components/ui/LoadingSpinner';
+import ProgressBar from '../components/ui/ProgressBar';
+import { useToast, ToastContainer } from '../components/ui/Toast';
 import { useUser } from '../contexts/UserContext';
 import { useProgress } from '../contexts/ProgressContext';
 
@@ -12,25 +19,38 @@ import compareInput from '../utils/compareInput';
 import useAudioPlayer from '../hooks/useAudioPlayer';
 // eslint-disable-next-line no-unused-vars
 import allTests, { getTestByIndex } from '../data/testsIndex';
-import './PracticePage.css';
+
+// Helper function to get part name
+const getPartName = (partId) => {
+  const partNames = {
+    '1': 'Photographs',
+    '2': 'Question-Response',
+    '3': 'Conversations',
+    '4': 'Talks'
+  };
+  return partNames[partId] || `Part ${partId}`;
+};
 
 function PracticePage({ initialSelectMode = false }) {
   const { partId } = useParams();
   const navigate = useNavigate();
   const { currentUser } = useUser();
-  const { 
-    saveCompletedSentence, 
-    saveLastPosition, 
-    isCompletedSentence, 
+  const {
+    saveCompletedSentence,
+    saveLastPosition,
+    isCompletedSentence,
     getLastPosition
   } = useProgress();
+
+  // Toast notifications
+  const { toasts, success, error, warning, info, removeToast } = useToast();
   
   console.log("PracticePage render - partId:", partId, "initialSelectMode:", initialSelectMode);
   
   // Determine if we should show test selection based on URL
   const showTestSelection = window.location.pathname.includes('/select') || initialSelectMode;
   
-  const [selectedTestIndex, setSelectedTestIndex] = useState(showTestSelection ? null : null);
+  const [selectedTestIndex, setSelectedTestIndex] = useState(null);
   const [currentTest, setCurrentTest] = useState(null);
   
   const partKey = `part${partId}`;
@@ -90,50 +110,35 @@ function PracticePage({ initialSelectMode = false }) {
     }
   }, [autoAdvanceTimeout]);
 
-  // Hàm xử lý quay lại màn hình chọn đề
+  // Handle back to test selection
   const handleBackToTestSelection = useCallback(() => {
-    console.log("Quay lại màn hình chọn đề - bắt đầu");
-    // Dừng audio nếu đang phát
+    console.log("Going back to test selection");
+
+    // Stop audio if playing
     if (audioRef.current) {
       audioRef.current.pause();
     }
-    
-    // Chuyển hướng đến route chọn đề
+
+    // Reset states
+    setSelectedTestIndex(null);
+    setCurrentTest(null);
+
+    // Navigate to select route
     navigate(`/practice/${partId}/select`);
   }, [navigate, partId, audioRef]);
 
-  // Reset khi thay đổi phần
+  // Reset when part changes - simplified
   useEffect(() => {
-    // Sử dụng hàm handleBackToTestSelection để reset state
-    if (handleBackToTestSelection) {
-      handleBackToTestSelection();
-    }
-  }, [partId, handleBackToTestSelection]);
+    // Reset test selection when part changes
+    setSelectedTestIndex(null);
+    setCurrentTest(null);
+    setSentences([]);
+    setCurrentIdx(0);
+    setCurrentSentence({});
+    setAudioSrc('');
+  }, [partId]);
 
-  // Kiểm tra và tải tiến độ học tập khi chọn phần
-  useEffect(() => {
-    if (!currentUser || !partId) return;
-    
-    // Chỉ tải lại vị trí khi chưa chọn đề VÀ KHÔNG ở chế độ chọn đề
-    if (selectedTestIndex !== null || showTestSelection) return;
-    
-    // Lấy vị trí học tập cuối cùng
-    const lastPosition = getLastPosition(partId);
-    if (lastPosition) {
-      const { testIndex, sentenceIndex } = lastPosition;
-      
-      // Nếu có vị trí học tập cuối cùng, tải đề thi đó
-      if (testIndex !== undefined) {
-        console.log(`Tải lại vị trí học tập: Part ${partId}, Test ${testIndex}, Câu ${sentenceIndex}`);
-        
-        // Tải đề thi - handleSelectTest được gọi sau khi được định nghĩa
-        setTimeout(() => {
-          handleSelectTest(testIndex);
-        }, 0);
-      }
-    }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentUser, partId, getLastPosition, selectedTestIndex, showTestSelection]);
+  // Load last position when conditions are met - moved after handleSelectTest definition
 
   // Lấy tên file audio chuẩn từ sourceTest
   const getAudioFileName = (sourceTest) => {
@@ -151,59 +156,37 @@ function PracticePage({ initialSelectMode = false }) {
     console.log("Tìm câu tiếp theo chưa hoàn thành từ vị trí:", startIdx);
     if (!currentUser || sentences.length === 0 || !selectedTestIndex) return startIdx;
 
-    // Xử lý đặc biệt cho Part 2
+    // Special handling for Part 2 - only consider questions
     if (partId === '2') {
-      // Tìm câu hỏi tiếp theo (bỏ qua các câu trả lời)
-      let nextQuestionIdx = startIdx;
-      
-      // Đảm bảo vị trí bắt đầu là một câu hỏi
-      if (nextQuestionIdx < sentences.length) {
-        const currentSentence = sentences[nextQuestionIdx];
-        if (currentSentence && currentSentence.id && !currentSentence.id.includes('_question')) {
-          // Nếu không phải câu hỏi, tìm câu hỏi tiếp theo
-          while (nextQuestionIdx < sentences.length) {
-            const s = sentences[nextQuestionIdx];
-            if (s.id && s.id.includes('_question')) {
-              break;
-            }
-            nextQuestionIdx++;
-          }
-        }
-      }
-      
-      // Kiểm tra từ vị trí hiện tại đến cuối
-      for (let i = nextQuestionIdx; i < sentences.length; i++) {
-        const s = sentences[i];
-        // Chỉ xét các câu hỏi
-        if (s.id && s.id.includes('_question')) {
-          if (!isCompletedSentence(partId, selectedTestIndex, i)) {
-            console.log(`Tìm thấy câu hỏi chưa hoàn thành: ${i}`);
-            return i;
-          }
-        }
-      }
+      const isQuestion = (sentence) => sentence && sentence.id && sentence.id.includes('_question');
 
-      // Nếu không tìm thấy, quay lại từ đầu
-      for (let i = 0; i < nextQuestionIdx; i++) {
-        const s = sentences[i];
-        // Chỉ xét các câu hỏi
-        if (s.id && s.id.includes('_question')) {
-          if (!isCompletedSentence(partId, selectedTestIndex, i)) {
-            console.log(`Tìm thấy câu hỏi chưa hoàn thành (từ đầu): ${i}`);
-            return i;
-          }
-        }
-      }
-      
-      // Nếu tất cả câu đã hoàn thành, trả về câu hỏi đầu tiên
-      for (let i = 0; i < sentences.length; i++) {
-        const s = sentences[i];
-        if (s.id && s.id.includes('_question')) {
-          console.log(`Tất cả câu đã hoàn thành, trở về câu hỏi đầu tiên: ${i}`);
+      // Find next uncompleted question from current position
+      for (let i = startIdx; i < sentences.length; i++) {
+        const sentence = sentences[i];
+        if (isQuestion(sentence) && !isCompletedSentence(partId, selectedTestIndex, i)) {
+          console.log(`Found uncompleted question: ${i}`);
           return i;
         }
       }
-      
+
+      // If not found, search from beginning
+      for (let i = 0; i < startIdx; i++) {
+        const sentence = sentences[i];
+        if (isQuestion(sentence) && !isCompletedSentence(partId, selectedTestIndex, i)) {
+          console.log(`Found uncompleted question (from start): ${i}`);
+          return i;
+        }
+      }
+
+      // If all completed, return first question
+      for (let i = 0; i < sentences.length; i++) {
+        const sentence = sentences[i];
+        if (isQuestion(sentence)) {
+          console.log(`All questions completed, returning to first: ${i}`);
+          return i;
+        }
+      }
+
       return startIdx;
     }
 
@@ -315,42 +298,60 @@ function PracticePage({ initialSelectMode = false }) {
     }
   }, [currentUser, partId, partKey, isDialogueOrTalk, isPart3, isPart4, saveLastPosition, resetState, findNextUncompletedSentence, getAudioFileName, navigate]);
 
-  // Cập nhật câu hiện tại khi thay đổi chỉ số
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  // Load last position when conditions are met - placed after handleSelectTest definition
+  useEffect(() => {
+    if (!currentUser || !partId || showTestSelection || selectedTestIndex !== null) {
+      return;
+    }
+
+    const lastPosition = getLastPosition(partId);
+    if (lastPosition && lastPosition.testIndex !== undefined) {
+      console.log(`Loading last position: Part ${partId}, Test ${lastPosition.testIndex}, Sentence ${lastPosition.sentenceIndex}`);
+
+      // Use setTimeout to avoid calling handleSelectTest before it's defined
+      const timer = setTimeout(() => {
+        handleSelectTest(lastPosition.testIndex);
+      }, 100);
+
+      return () => clearTimeout(timer);
+    }
+  }, [currentUser, partId, getLastPosition, selectedTestIndex, showTestSelection, handleSelectTest]);
+
+  // Update current sentence when index changes
   useEffect(() => {
     if (sentences.length > 0 && currentIdx >= 0 && currentIdx < sentences.length) {
       const sentence = sentences[currentIdx];
       setCurrentSentence(sentence);
-      
-      // Xử lý đối thoại hoặc bài nói trong Part 3 và Part 4
+
+      // Handle dialogue or talk in Part 3 and Part 4
       if (isDialogueOrTalk) {
         try {
           if (isPart3 && sentence.conversation) {
-            console.log(`Tải đối thoại cho Part 3, câu ${currentIdx + 1}, số dòng: ${sentence.conversation.length}`);
+            console.log(`Loading dialogue for Part 3, sentence ${currentIdx + 1}, lines: ${sentence.conversation.length}`);
             setDialogLines(sentence.conversation);
             setCurrentLineIdx(0);
           } else if (isPart4 && sentence.talk) {
-            console.log(`Tải bài nói cho Part 4, câu ${currentIdx + 1}, số dòng: ${sentence.talk.length}`);
+            console.log(`Loading talk for Part 4, sentence ${currentIdx + 1}, lines: ${sentence.talk.length}`);
             setDialogLines(sentence.talk);
             setCurrentLineIdx(0);
           } else {
-            console.error(`Không tìm thấy dữ liệu hội thoại/bài nói cho câu ${currentIdx + 1}`);
+            console.error(`No dialogue/talk data found for sentence ${currentIdx + 1}`);
             setDialogLines([]);
             setCurrentLineIdx(0);
           }
         } catch (error) {
-          console.error(`Lỗi khi tải dữ liệu đối thoại/bài nói: ${error.message}`);
+          console.error(`Error loading dialogue/talk data: ${error.message}`);
           setDialogLines([]);
           setCurrentLineIdx(0);
         }
         setCompletedSentences([]);
       }
-      
-      // Cập nhật audio source
+
+      // Update audio source
       const audioFileName = getAudioFileName(sentence.sourceTest);
       setAudioSrc(`${process.env.PUBLIC_URL}/audio/${audioFileName}`);
     }
-  }, [currentIdx, sentences, isPart3, isPart4, isDialogueOrTalk]);
+  }, [currentIdx, sentences, isPart3, isPart4, isDialogueOrTalk, getAudioFileName]);
 
   // Xử lý lỗi audio khi load
   useEffect(() => {
@@ -393,32 +394,36 @@ function PracticePage({ initialSelectMode = false }) {
     return currentLine;
   };
 
-  // Tự động phát audio khi chuyển câu hoặc dòng mới
+  // Auto-play audio when sentence or line changes
   useEffect(() => {
-    if (!currentSentence) return;
-    
+    if (!currentSentence || !audioSrc) return;
+
     const timer = setTimeout(() => {
-      // Xử lý khác nhau cho Part 3/4 và các Part khác
-      if (isDialogueOrTalk) {
-        const currentLine = getCurrentLine();
-        if (currentLine && currentLine.startTime !== undefined && currentLine.endTime !== undefined) {
-          console.log(`Playing dialogue/talk line: ${currentLine.startTime}s to ${currentLine.endTime}s`);
+      try {
+        // Handle differently for Part 3/4 and other Parts
+        if (isDialogueOrTalk) {
+          const currentLine = getCurrentLine();
+          if (currentLine && currentLine.startTime !== undefined && currentLine.endTime !== undefined) {
+            console.log(`Playing dialogue/talk line: ${currentLine.startTime}s to ${currentLine.endTime}s`);
+            playSegment({
+              startTime: currentLine.startTime,
+              endTime: currentLine.endTime
+            });
+          }
+        } else if (currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
+          console.log(`Playing segment: ${currentSentence.startTime}s to ${currentSentence.endTime}s`);
           playSegment({
-            startTime: currentLine.startTime,
-            endTime: currentLine.endTime
+            startTime: currentSentence.startTime,
+            endTime: currentSentence.endTime
           });
         }
-      } else if (currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
-        console.log(`Playing segment: ${currentSentence.startTime}s to ${currentSentence.endTime}s`);
-        playSegment({
-          startTime: currentSentence.startTime,
-          endTime: currentSentence.endTime
-        });
+      } catch (error) {
+        console.error('Error auto-playing audio:', error);
       }
     }, 1000);
-    
+
     return () => clearTimeout(timer);
-  }, [currentIdx, currentLineIdx, currentSentence, playSegment, isDialogueOrTalk, dialogLines]);
+  }, [currentIdx, currentLineIdx, currentSentence, audioSrc, playSegment, isDialogueOrTalk, getCurrentLine]);
 
   // Lấy transcript của câu hiện tại
   const getCurrentTranscript = () => {
@@ -429,33 +434,26 @@ function PracticePage({ initialSelectMode = false }) {
       const currentLine = getCurrentLine();
       return currentLine ? currentLine.transcript : '';
     } else {
-      // Xử lý part2 với nhiều định dạng dữ liệu khác nhau
+      // Handle Part 2 with different data formats
       if (partId === '2') {
-        // Kiểm tra cấu trúc câu hỏi part2
+        // If this is a question, find the corresponding answer
         if (currentSentence.id && currentSentence.id.includes('_question')) {
-          // Tìm câu trả lời tương ứng
           const questionId = currentSentence.id;
           const baseId = questionId.replace('_question', '');
-          
-          // Tìm trong sentences
-          for (let i = 0; i < sentences.length; i++) {
-            const s = sentences[i];
-            // Kiểm tra cấu trúc cũ (answer)
-            if (s.id === `${baseId}_answer`) {
-              return s.transcript;
-            }
-            // Kiểm tra cấu trúc mới (a, b, c)
-            if (s.id === `${baseId}_a` || s.id === `${baseId}_b` || s.id === `${baseId}_c`) {
-              // Lấy câu trả lời đầu tiên (a) làm mặc định
-              if (s.id === `${baseId}_a`) {
-                return s.transcript;
-              }
-            }
+
+          // Look for answer in sentences
+          const answerSentence = sentences.find(s =>
+            s.id === `${baseId}_answer` || s.id === `${baseId}_a`
+          );
+
+          if (answerSentence) {
+            return answerSentence.transcript;
           }
-          console.error(`Không tìm thấy câu trả lời cho câu hỏi: ${questionId}`);
+
+          console.error(`No answer found for question: ${questionId}`);
           return '';
         }
-        // Nếu đây là câu trả lời, trả về transcript của nó
+        // If this is an answer, return its transcript
         return currentSentence.transcript || '';
       }
       
@@ -497,6 +495,17 @@ function PracticePage({ initialSelectMode = false }) {
         correct: prev.correct + (currentAccuracy >= 80 ? 1 : 0),
         total: prev.total + 1
       }));
+
+      // Show toast notification based on accuracy
+      if (currentAccuracy >= 90) {
+        success(`Tuyệt vời! Độ chính xác: ${Math.round(currentAccuracy)}%`, 2000);
+      } else if (currentAccuracy >= 70) {
+        success(`Tốt! Độ chính xác: ${Math.round(currentAccuracy)}%`, 2000);
+      } else if (currentAccuracy >= 50) {
+        warning(`Khá! Độ chính xác: ${Math.round(currentAccuracy)}%`, 2000);
+      } else {
+        error(`Cần cố gắng hơn! Độ chính xác: ${Math.round(currentAccuracy)}%`, 2000);
+      }
     }
 
     // Không còn tự động chuyển câu khi đúng hết các từ
@@ -584,34 +593,31 @@ function PracticePage({ initialSelectMode = false }) {
       }
     }
     
-    // Xử lý cho Part 2 - bỏ qua các câu trả lời
+    // Handle Part 2 - skip answer sentences, only navigate between questions
     if (partId === '2') {
+      const isQuestion = (sentence) => sentence && sentence.id && sentence.id.includes('_question');
+
+      // Find next question after current index
       let nextIndex = currentIdx + 1;
-      
-      // Tìm câu hỏi tiếp theo (bỏ qua các câu trả lời)
-      while (nextIndex < sentences.length) {
-        const nextSentence = sentences[nextIndex];
-        if (nextSentence.id && nextSentence.id.includes('_question')) {
-          break;
-        }
+      while (nextIndex < sentences.length && !isQuestion(sentences[nextIndex])) {
         nextIndex++;
       }
-      
+
       if (nextIndex < sentences.length) {
-        console.log(`Chuyển đến câu hỏi tiếp theo: ${nextIndex}`);
+        console.log(`Moving to next question: ${nextIndex}`);
         setCurrentIdx(nextIndex);
         resetState();
-        
-        // Lưu vị trí học tập
+
+        // Save learning position
         if (currentUser) {
           setTimeout(() => {
-            console.log(`Lưu vị trí: Part ${partId}, Test ${selectedTestIndex}, Câu ${nextIndex}`);
+            console.log(`Saving position: Part ${partId}, Test ${selectedTestIndex}, Sentence ${nextIndex}`);
             saveLastPosition(partId, selectedTestIndex, nextIndex);
           }, 0);
         }
         return;
       } else {
-        console.log("Đã đến câu cuối cùng, hiển thị điểm số");
+        console.log("Reached last question, showing score");
         setShowScore(true);
         return;
       }
@@ -845,25 +851,26 @@ function PracticePage({ initialSelectMode = false }) {
     console.log("Hiển thị màn hình chọn đề - partId:", partId);
     return (
       <div className="practice-container">
-        <div className="practice-header">
-          <h1>
-            <button 
-              className="back-button"
+        <Card className="practice-header-card" variant="elevated" padding="lg">
+          <div className="flex items-center gap-md">
+            <Button
+              variant="ghost"
+              size="sm"
               onClick={() => navigate(`/`)}
+              icon={<i className="fas fa-arrow-left"></i>}
+              className="back-button"
               title="Quay lại trang chính"
-            >
-              &#8592;
-            </button>
-            {getPartName(partId)}
-          </h1>
-        </div>
-        <div className="content-header">
-          <h2>Part {partId} - {getPartName(partId)}</h2>
-        </div>
-        <div className="practice-area">
-          <div className="test-selector-wrapper">
-            <TestSelector partId={partId} onSelectTest={handleSelectTest} />
+            />
+            <h1 className="text-2xl font-semibold m-0">
+              Part {partId} - {getPartName(partId)}
+            </h1>
           </div>
+        </Card>
+
+        <div className="practice-area">
+          <Card variant="glass" padding="xl" className="test-selector-card">
+            <TestSelector partId={partId} onSelectTest={handleSelectTest} />
+          </Card>
         </div>
       </div>
     );
@@ -871,120 +878,161 @@ function PracticePage({ initialSelectMode = false }) {
 
   // Hiển thị màn hình kết quả nếu đã hoàn thành
   if (showScore) {
+    const percentage = Math.round((score.correct / score.total) * 100);
+    const getScoreColor = (percent) => {
+      if (percent >= 90) return 'success';
+      if (percent >= 70) return 'primary';
+      if (percent >= 50) return 'warning';
+      return 'danger';
+    };
+
     return (
-      <>
-        <div className="content-header">
-          <h2>Kết quả luyện tập</h2>
-        </div>
-        <div className="practice-area result-area">
-          <div className="result-summary">
-            <div className="result-icon">
-              <i className="fas fa-trophy"></i>
-            </div>
-            <h3>Chúc mừng bạn đã hoàn thành!</h3>
-            <div className="result-score">
-              <p>Điểm số của bạn:</p>
-              <div className="score-value">{score.correct}/{score.total}</div>
-              <div className="score-percent">
-                {Math.round((score.correct / score.total) * 100)}%
+      <div className="practice-container">
+        <Card className="result-header-card" variant="elevated" padding="lg">
+          <h2 className="text-2xl font-semibold text-center m-0">
+            <i className="fas fa-trophy mr-sm"></i>
+            Kết quả luyện tập
+          </h2>
+        </Card>
+
+        <div className="practice-area">
+          <Card variant="glass" padding="xl" className="result-card">
+            <div className="result-summary text-center">
+              <div className="result-icon mb-lg">
+                <i className="fas fa-trophy text-4xl" style={{color: 'var(--light-warning)'}}></i>
+              </div>
+              <h3 className="text-xl font-semibold mb-lg">Chúc mừng bạn đã hoàn thành!</h3>
+
+              <div className="result-score mb-xl">
+                <p className="text-lg mb-md">Điểm số của bạn:</p>
+                <div className="score-display mb-md">
+                  <span className="score-value text-3xl font-bold">
+                    {score.correct}/{score.total}
+                  </span>
+                </div>
+                <div className="score-progress mb-md">
+                  <ProgressBar
+                    value={score.correct}
+                    max={score.total}
+                    color={getScoreColor(percentage)}
+                    size="lg"
+                    showLabel={true}
+                    label={`${percentage}%`}
+                    animated={true}
+                  />
+                </div>
+              </div>
+
+              <div className="result-actions flex gap-md justify-center">
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  onClick={handleBackToTestSelection}
+                  icon={<i className="fas fa-list"></i>}
+                >
+                  Chọn đề khác
+                </Button>
+                <Button
+                  variant="primary"
+                  size="lg"
+                  onClick={() => {
+                    resetState();
+                    setCurrentIdx(0);
+                    setScore({ correct: 0, total: 0 });
+                    setShowScore(false);
+                    setCompletedSentences([]);
+                    setCurrentLineIdx(0);
+
+                    // Nếu là Part 3/4, khởi tạo lại dữ liệu đối thoại/bài nói
+                    if (isDialogueOrTalk && sentences.length > 0) {
+                      if (isPart3 && sentences[0].conversation) {
+                        setDialogLines(sentences[0].conversation);
+                      } else if (isPart4 && sentences[0].talk) {
+                        setDialogLines(sentences[0].talk);
+                      }
+                    }
+                  }}
+                  icon={<i className="fas fa-redo"></i>}
+                >
+                  Làm lại
+                </Button>
               </div>
             </div>
-          </div>
-          <div className="result-actions">
-            <button 
-              className="btn btn-outline" 
-              onClick={handleBackToTestSelection}
-            >
-              <i className="fas fa-list"></i>
-              Chọn đề khác
-            </button>
-            <button 
-              className="btn btn-primary" 
-              onClick={() => {
-                resetState();
-                setCurrentIdx(0);
-                setScore({ correct: 0, total: 0 });
-                setShowScore(false);
-                setCompletedSentences([]);
-                setCurrentLineIdx(0);
-                
-                // Nếu là Part 3/4, khởi tạo lại dữ liệu đối thoại/bài nói
-                if (isDialogueOrTalk && sentences.length > 0) {
-                  if (isPart3 && sentences[0].conversation) {
-                    setDialogLines(sentences[0].conversation);
-                  } else if (isPart4 && sentences[0].talk) {
-                    setDialogLines(sentences[0].talk);
-                  }
-                }
-              }}
-            >
-              <i className="fas fa-redo"></i>
-              Luyện lại
-            </button>
-          </div>
+          </Card>
         </div>
-      </>
+      </div>
     );
   }
 
   // Hiển thị thông báo nếu không có câu nào
   if (sentences.length === 0) {
     return (
-      <>
-        <div className="content-header">
-          <h2>Part {partId} - {getPartName(partId)}</h2>
-        </div>
-        <div className="practice-area result-area">
-          <div className="result-summary">
-            <div className="result-icon">
-              <i className="fas fa-exclamation-circle"></i>
+      <div className="practice-container">
+        <Card className="empty-state-card" variant="elevated" padding="xl">
+          <div className="text-center">
+            <div className="empty-icon mb-lg">
+              <i className="fas fa-exclamation-circle text-4xl" style={{color: 'var(--light-warning)'}}></i>
             </div>
-            <h3>Không có câu hỏi nào trong phần này</h3>
+            <h3 className="text-xl font-semibold mb-md">Không có câu hỏi nào trong phần này</h3>
+            <p className="text-base text-secondary mb-xl">
+              Phần {partId} - {getPartName(partId)} hiện tại chưa có dữ liệu.
+            </p>
+            <div className="flex gap-md justify-center">
+              <Button
+                variant="secondary"
+                size="lg"
+                onClick={handleBackToTestSelection}
+                icon={<i className="fas fa-list"></i>}
+              >
+                Chọn đề khác
+              </Button>
+              <Button
+                variant="primary"
+                size="lg"
+                onClick={() => navigate('/')}
+                icon={<i className="fas fa-home"></i>}
+              >
+                Về trang chủ
+              </Button>
+            </div>
           </div>
-          <div className="result-actions">
-            <button 
-              className="btn btn-outline" 
-              onClick={handleBackToTestSelection}
-            >
-              <i className="fas fa-list"></i>
-              Chọn đề khác
-            </button>
-            <button 
-              className="btn btn-primary" 
-              onClick={() => navigate('/')}
-            >
-              <i className="fas fa-home"></i>
-              Về trang chủ
-            </button>
-          </div>
-        </div>
-      </>
+        </Card>
+      </div>
     );
   }
 
   return (
     <div className="practice-container">
       {!currentUser ? (
-        <div className="login-required-message">
-          <h2>Bạn cần đăng nhập để luyện tập</h2>
-          <p>Vui lòng quay lại trang chủ để đăng nhập.</p>
-          <button 
-            className="return-home-button"
-            onClick={() => navigate('/')}
-          >
-            Quay lại trang chủ
-          </button>
-        </div>
+        <Card className="login-required-card" variant="elevated" padding="xl">
+          <div className="text-center">
+            <div className="login-icon mb-lg">
+              <i className="fas fa-user-lock text-4xl" style={{color: 'var(--light-primary)'}}></i>
+            </div>
+            <h2 className="text-2xl font-semibold mb-md">Bạn cần đăng nhập để luyện tập</h2>
+            <p className="text-base text-secondary mb-xl">
+              Vui lòng quay lại trang chủ để đăng nhập và bắt đầu luyện tập.
+            </p>
+            <Button
+              variant="primary"
+              size="lg"
+              onClick={() => navigate('/')}
+              icon={<i className="fas fa-home"></i>}
+            >
+              Quay lại trang chủ
+            </Button>
+          </div>
+        </Card>
       ) : (
         <>
-          {!currentTest ? (
-            <div className="test-selection">
-              <h2>Chọn đề luyện tập</h2>
-              <TestSelector 
-                onSelectTest={handleSelectTest} 
+          {!currentTest || showTestSelection ? (
+            <Card className="test-selection-card" variant="glass" padding="xl">
+              <h2 className="text-2xl font-semibold text-center mb-xl">Chọn đề luyện tập</h2>
+              <TestSelector
+                onSelectTest={handleSelectTest}
                 partId={partId}
               />
-            </div>
+            </Card>
           ) : (
             <div className="practice-content">
               <div className="practice-header">
@@ -1060,69 +1108,79 @@ function PracticePage({ initialSelectMode = false }) {
 
                 <div className="audio-status">
                   {isLoading ? (
-                    <div className="loading-status">
-                      <i className="fas fa-circle-notch fa-spin"></i> Đang tải audio...
+                    <div className="flex items-center gap-sm p-md rounded-md" style={{background: 'var(--light-card-bg)', border: '1px solid var(--light-card-border)'}}>
+                      <LoadingSpinner size="sm" color="primary" />
+                      <span className="text-sm">Đang tải audio...</span>
                     </div>
                   ) : isPlaying ? (
-                    <div className="playing-status">
-                      <i className="fas fa-volume-up"></i> Đang phát audio
+                    <div className="flex items-center gap-sm p-md rounded-md" style={{background: 'var(--light-success)', color: 'white'}}>
+                      <i className="fas fa-volume-up"></i>
+                      <span className="text-sm">Đang phát audio</span>
                     </div>
                   ) : null}
                 </div>
 
-                <div className="control-buttons">
-                  <button 
-                    className="btn btn-primary" 
-                    onClick={playCurrentAudio}
-                    disabled={isLoading}
-                    title="Nghe câu hiện tại (Space)"
-                  >
-                    <i className="fas fa-headphones"></i>
-                    Nghe câu hiện tại
-                  </button>
-                  <button 
-                    className="btn btn-primary" 
-                    onClick={() => {
-                      setErrorMessage('');
-                      replay();
-                    }}
-                    disabled={isLoading}
-                    title="Nghe lại (Ctrl+Space)"
-                  >
-                    <i className="fas fa-redo"></i>
-                    Nghe lại
-                  </button>
-                  <button 
-                    className={`btn ${isSlow ? 'btn-success' : 'btn-secondary'}`}
-                    onClick={toggleSlowMotion}
-                    disabled={isLoading}
-                    title="Phát chậm (Alt+S)"
-                  >
-                    <i className="fas fa-clock"></i>
-                    {isSlow ? 'Tắt phát chậm' : 'Phát chậm'}
-                  </button>
-                  <button 
-                    className="btn btn-outline" 
-                    onClick={displayAnswer}
-                    disabled={showAnswer || !getCurrentTranscript()}
-                    title="Hiển thị đáp án (Alt+A)"
-                  >
-                    <i className="fas fa-eye"></i>
-                    Hiển thị đáp án
-                  </button>
-                  <button 
-                    className={`btn ${autoCorrect ? 'btn-success' : 'btn-outline'}`} 
-                    onClick={toggleAutoCorrect}
-                    disabled={!getCurrentTranscript() || showAnswer}
-                    title="Bật/tắt tự động sửa (Alt+C)"
-                  >
-                    <i className="fas fa-magic"></i>
-                    {autoCorrect ? 'Tắt tự động sửa' : 'Bật tự động sửa'}
-                  </button>
-                  
-                  {/* Thêm component HelpGuide */}
-                  <HelpGuide />
-                </div>
+                <Card className="control-panel" padding="lg">
+                  <div className="control-buttons flex gap-md justify-center flex-wrap">
+                    <Button
+                      variant="primary"
+                      size="md"
+                      onClick={playCurrentAudio}
+                      disabled={isLoading}
+                      loading={isLoading}
+                      icon={<i className="fas fa-headphones"></i>}
+                      title="Nghe câu hiện tại (Space)"
+                    >
+                      Nghe câu hiện tại
+                    </Button>
+                    <Button
+                      variant="primary"
+                      size="md"
+                      onClick={() => {
+                        setErrorMessage('');
+                        replay();
+                      }}
+                      disabled={isLoading}
+                      icon={<i className="fas fa-redo"></i>}
+                      title="Nghe lại (Ctrl+Space)"
+                    >
+                      Nghe lại
+                    </Button>
+                    <Button
+                      variant={isSlow ? 'success' : 'secondary'}
+                      size="md"
+                      onClick={toggleSlowMotion}
+                      disabled={isLoading}
+                      icon={<i className="fas fa-clock"></i>}
+                      title="Phát chậm (Alt+S)"
+                    >
+                      {isSlow ? 'Tắt phát chậm' : 'Phát chậm'}
+                    </Button>
+                    <Button
+                      variant="secondary"
+                      size="md"
+                      onClick={displayAnswer}
+                      disabled={showAnswer || !getCurrentTranscript()}
+                      icon={<i className="fas fa-eye"></i>}
+                      title="Hiển thị đáp án (Alt+A)"
+                    >
+                      Hiển thị đáp án
+                    </Button>
+                    <Button
+                      variant={autoCorrect ? 'success' : 'secondary'}
+                      size="md"
+                      onClick={toggleAutoCorrect}
+                      disabled={!getCurrentTranscript() || showAnswer}
+                      icon={<i className="fas fa-magic"></i>}
+                      title="Bật/tắt tự động sửa (Alt+C)"
+                    >
+                      {autoCorrect ? 'Tắt tự động sửa' : 'Bật tự động sửa'}
+                    </Button>
+
+                    {/* Thêm component HelpGuide */}
+                    <HelpGuide />
+                  </div>
+                </Card>
 
                 {/* Hiển thị đoạn hội thoại hoặc bài nói đã hoàn thành */}
                 {isDialogueOrTalk && completedSentences.length > 0 && (
@@ -1215,54 +1273,62 @@ function PracticePage({ initialSelectMode = false }) {
                   )}
                 </div>
 
-                <div className="navigation-buttons">
-                  <button 
-                    className="btn btn-outline" 
-                    onClick={goToPreviousQuestion}
-                    disabled={currentIdx === 0}
-                    title="Câu trước (Alt+←)"
-                  >
-                    <i className="fas fa-arrow-left"></i>
-                    Câu trước
-                  </button>
-                  <button 
-                    className="btn btn-primary" 
-                    onClick={checkAnswer}
-                    disabled={showAnswer || !getCurrentTranscript() || input.trim() === ''}
-                    title="Kiểm tra đáp án (Ctrl+Enter)"
-                  >
-                    <i className="fas fa-check"></i>
-                    Kiểm tra đáp án
-                  </button>
-                  <button 
-                    className="btn btn-success" 
-                    onClick={moveToNextItem}
-                    title="Câu tiếp theo (Alt+→)"
-                  >
-                    <i className="fas fa-arrow-right"></i>
-                    Câu tiếp theo
-                  </button>
-                  <button 
-                    className="btn btn-outline" 
-                    onClick={handleBackToTestSelection}
-                    title="Quay lại chọn đề thi"
-                  >
-                    <i className="fas fa-list"></i>
-                    Chọn đề khác
-                  </button>
-                </div>
-                
-                {/* Chỉ hiển thị nút Next lớn khi không ở trạng thái hiển thị đáp án */}
-                {!showAnswer && (
-                  <div className="big-next-button-container">
-                    <button 
-                      className="big-next-button" 
+                <Card className="navigation-panel" padding="lg">
+                  <div className="navigation-buttons flex gap-md justify-center flex-wrap">
+                    <Button
+                      variant="secondary"
+                      size="md"
+                      onClick={goToPreviousQuestion}
+                      disabled={currentIdx === 0}
+                      icon={<i className="fas fa-arrow-left"></i>}
+                      title="Câu trước (Alt+←)"
+                    >
+                      Câu trước
+                    </Button>
+                    <Button
+                      variant="primary"
+                      size="lg"
+                      onClick={checkAnswer}
+                      disabled={showAnswer || !getCurrentTranscript() || input.trim() === ''}
+                      icon={<i className="fas fa-check"></i>}
+                      title="Kiểm tra đáp án (Ctrl+Enter)"
+                    >
+                      Kiểm tra đáp án
+                    </Button>
+                    <Button
+                      variant="success"
+                      size="md"
                       onClick={moveToNextItem}
+                      icon={<i className="fas fa-arrow-right"></i>}
                       title="Câu tiếp theo (Alt+→)"
                     >
-                      <i className="fas fa-arrow-right"></i>
+                      Câu tiếp theo
+                    </Button>
+                    <Button
+                      variant="ghost"
+                      size="md"
+                      onClick={handleBackToTestSelection}
+                      icon={<i className="fas fa-list"></i>}
+                      title="Quay lại chọn đề thi"
+                    >
+                      Chọn đề khác
+                    </Button>
+                  </div>
+                </Card>
+
+                {/* Hiển thị nút Next lớn khi không ở trạng thái hiển thị đáp án */}
+                {!showAnswer && (
+                  <div className="big-next-button-container mt-lg">
+                    <Button
+                      variant="primary"
+                      size="xl"
+                      onClick={moveToNextItem}
+                      icon={<i className="fas fa-arrow-right"></i>}
+                      title="Câu tiếp theo (Alt+→)"
+                      className="w-full"
+                    >
                       Chuyển sang câu tiếp theo
-                    </button>
+                    </Button>
                   </div>
                 )}
               </div>
@@ -1270,22 +1336,20 @@ function PracticePage({ initialSelectMode = false }) {
           )}
         </>
       )}
+
+      {/* Toast Notifications */}
+      <ToastContainer
+        toasts={toasts.map(toast => ({
+          ...toast,
+          onClose: () => removeToast(toast.id)
+        }))}
+        position="top-right"
+      />
     </div>
   );
 }
 
-function getPartName(partId) {
-  const partNames = {
-    '1': 'Mô tả tranh',
-    '2': 'Hỏi đáp',
-    '3': 'Hội thoại',
-    '4': 'Bài nói'
-  };
-  return partNames[partId] || '';
-}
-
-// Các hàm tiện ích ở cuối file
-// eslint-disable-next-line no-unused-vars
+// Utility functions
 function getAccuracyClass(accuracy) {
   if (accuracy >= 90) return 'excellent';
   if (accuracy >= 70) return 'good';
@@ -1294,7 +1358,6 @@ function getAccuracyClass(accuracy) {
   return 'very-poor';
 }
 
-// eslint-disable-next-line no-unused-vars
 function getAccuracyMessage(accuracy) {
   if (accuracy >= 90) return 'Tuyệt vời!';
   if (accuracy >= 70) return 'Tốt';
@@ -1302,5 +1365,8 @@ function getAccuracyMessage(accuracy) {
   if (accuracy >= 30) return 'Cần cố gắng hơn';
   return 'Cần luyện tập nhiều hơn';
 }
+
+// Export utility functions for potential future use
+export { getAccuracyClass, getAccuracyMessage };
 
 export default PracticePage;

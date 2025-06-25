@@ -43,7 +43,7 @@
 }
 
 .help-guide-content {
-  background-color: white;
+  background-color: var(--light-card-bg);
   border-radius: 8px;
   width: 90%;
   max-width: 800px;
@@ -51,6 +51,12 @@
   overflow-y: auto;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   animation: slideIn 0.3s ease-in-out;
+  transition: background-color 0.3s;
+}
+
+body.dark .help-guide-content {
+  background-color: var(--dark-card-bg);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 .help-guide-header {
@@ -58,13 +64,23 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--light-card-border);
+  transition: border-color 0.3s;
+}
+
+body.dark .help-guide-header {
+  border-bottom-color: var(--dark-card-border);
 }
 
 .help-guide-header h2 {
   margin: 0;
-  color: #2d3748;
+  color: var(--light-text-primary);
   font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+body.dark .help-guide-header h2 {
+  color: var(--dark-text-primary);
 }
 
 .close-button {
@@ -72,12 +88,20 @@
   border: none;
   cursor: pointer;
   font-size: 1.2rem;
-  color: #718096;
+  color: var(--light-text-muted);
   transition: color 0.2s;
 }
 
+body.dark .close-button {
+  color: var(--dark-text-muted);
+}
+
 .close-button:hover {
-  color: #4a5568;
+  color: var(--light-text-secondary);
+}
+
+body.dark .close-button:hover {
+  color: var(--dark-text-secondary);
 }
 
 .help-guide-body {

@@ -1,51 +1,220 @@
 .practice-container {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: var(--space-xl) var(--space-md);
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
 }
 
 .practice-container h2 {
   text-align: center;
-  margin-bottom: 30px;
-  color: var(--text-color);
+  margin-bottom: var(--space-xl);
+  color: var(--light-text-primary);
+  font-weight: 600;
 }
 
-.content-header {
-  padding: 1.5rem;
-  background-color: #f8fafc;
-  border-bottom: 1px solid #e2e8f0;
+body.dark .practice-container h2 {
+  color: var(--dark-text-primary);
 }
 
-.content-header h2 {
-  margin: 0;
-  font-size: 1.8rem;
-  color: #2d3748;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+/* Modern Card Styles for Practice Page */
+.practice-header-card {
+  background: var(--light-card-bg);
+  border: 1px solid var(--light-card-border);
+  box-shadow: var(--shadow-md);
+}
+
+body.dark .practice-header-card {
+  background: var(--dark-card-bg);
+  border-color: var(--dark-card-border);
+}
+
+.test-selector-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark .test-selector-card {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.result-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+body.dark .result-card {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.empty-state-card,
+.login-required-card {
+  max-width: 600px;
+  margin: var(--space-2xl) auto;
+}
+
+.back-button {
+  background: transparent !important;
+  border: none !important;
+  padding: var(--space-sm) !important;
+  border-radius: var(--radius-md) !important;
+  transition: all 0.2s ease !important;
+}
+
+.back-button:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  transform: translateX(-2px) !important;
+}
+
+body.dark .back-button:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Animations and Transitions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+/* Apply animations */
+.practice-container {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.control-panel,
+.navigation-panel {
+  animation: slideInRight 0.4s ease-out;
+  animation-delay: 0.2s;
+  animation-fill-mode: both;
+}
+
+.test-selector-card,
+.result-card,
+.empty-state-card,
+.login-required-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Interactive feedback */
+.control-panel:hover,
+.navigation-panel:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Error state animation */
+.error-message {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Success feedback */
+.success-feedback {
+  animation: pulse 0.6s ease-in-out;
+}
+
+/* Loading states */
+.loading-overlay {
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+}
+
+/* Progress indicators */
+.progress-indicator {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hover effects for interactive elements */
+.interactive-element {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interactive-element:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Focus states for accessibility */
+.focus-visible {
+  outline: 2px solid var(--light-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-md);
+}
+
+body.dark .focus-visible {
+  outline-color: var(--dark-primary);
 }
 
 .progress-container {
   height: 0.5rem;
-  background-color: #e2e8f0;
+  background-color: var(--light-card-border);
   border-radius: 0.25rem;
   margin: 1rem 0 0.5rem;
   overflow: hidden;
+  transition: background-color 0.3s;
+}
+
+body.dark .progress-container {
+  background-color: var(--dark-card-border);
 }
 
 .progress-bar {
   height: 100%;
-  background-color: #4299e1;
+  background-color: var(--light-primary);
   border-radius: 0.25rem;
-  transition: width 0.3s ease;
+  transition: width 0.3s ease, background-color 0.3s;
+}
+
+body.dark .progress-bar {
+  background-color: var(--dark-primary);
 }
 
 .progress-text {
   font-size: 0.875rem;
-  color: #718096;
+  color: var(--light-text-muted);
   margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+
+body.dark .progress-text {
+  color: var(--dark-text-muted);
 }
 
 .practice-area {
@@ -102,19 +271,35 @@
 
 .btn-outline {
   background-color: transparent;
-  border: 1px solid #cbd5e0;
-  color: #4a5568;
+  border: 1px solid var(--light-card-border);
+  color: var(--light-text-secondary);
+  transition: all 0.2s, background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+body.dark .btn-outline {
+  border-color: var(--dark-card-border);
+  color: var(--dark-text-secondary);
 }
 
 .btn-outline:hover {
-  background-color: #f7fafc;
-  border-color: #a0aec0;
+  background-color: var(--light-bg-secondary);
+  border-color: var(--light-text-muted);
+}
+
+body.dark .btn-outline:hover {
+  background-color: var(--dark-bg-secondary);
+  border-color: var(--dark-text-muted);
 }
 
 .btn-outline:disabled {
-  color: #a0aec0;
-  border-color: #e2e8f0;
+  color: var(--light-text-muted);
+  border-color: var(--light-card-border);
   cursor: not-allowed;
+}
+
+body.dark .btn-outline:disabled {
+  color: var(--dark-text-muted);
+  border-color: var(--dark-card-border);
 }
 
 .input-area {
@@ -125,7 +310,12 @@
   display: block;
   margin-bottom: 0.75rem;
   font-weight: 500;
-  color: #4a5568;
+  color: var(--light-text-secondary);
+  transition: color 0.3s;
+}
+
+body.dark .input-label {
+  color: var(--dark-text-secondary);
 }
 
 .input-label i {
@@ -260,41 +450,74 @@
 .accuracy-display {
   margin-top: 1rem;
   padding: 1rem;
-  background-color: #f7fafc;
+  background-color: var(--light-bg-secondary);
   border-radius: 0.5rem;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--light-card-border);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+body.dark .accuracy-display {
+  background-color: var(--dark-card-bg);
+  border-color: var(--dark-card-border);
 }
 
 .accuracy-label {
   font-weight: 500;
-  color: #4a5568;
+  color: var(--light-text-secondary);
   margin-bottom: 0.5rem;
+  transition: color 0.3s;
+}
+
+body.dark .accuracy-label {
+  color: var(--dark-text-secondary);
 }
 
 .accuracy-value {
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+  transition: color 0.3s;
 }
 
 .accuracy-value.excellent {
-  color: #48bb78;
+  color: var(--light-success);
+}
+
+body.dark .accuracy-value.excellent {
+  color: var(--dark-success);
 }
 
 .accuracy-value.good {
-  color: #4299e1;
+  color: var(--light-info);
+}
+
+body.dark .accuracy-value.good {
+  color: var(--dark-info);
 }
 
 .accuracy-value.average {
-  color: #ed8936;
+  color: var(--light-warning);
+}
+
+body.dark .accuracy-value.average {
+  color: var(--dark-warning);
 }
 
 .accuracy-value.poor {
-  color: #e53e3e;
+  color: var(--light-danger);
+}
+
+body.dark .accuracy-value.poor {
+  color: var(--dark-danger);
 }
 
 .accuracy-message {
-  color: #4a5568;
+  color: var(--light-text-secondary);
+  transition: color 0.3s;
+}
+
+body.dark .accuracy-message {
+  color: var(--dark-text-secondary);
 }
 
 @keyframes fadeIn {
