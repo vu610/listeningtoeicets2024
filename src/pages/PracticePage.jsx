@@ -69,6 +69,12 @@ function PracticePage({ initialSelectMode = false }) {
   const [autoAdvanceTimeout, setAutoAdvanceTimeout] = useState(null);
   const [showAnswer, setShowAnswer] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+
+  // Thêm state cho tính năng tự động phát lại audio
+  const [autoReplayEnabled, setAutoReplayEnabled] = useState(false);
+  const [autoReplayInterval, setAutoReplayInterval] = useState(10); // 10 giây mặc định
+  const [autoReplayTimeout, setAutoReplayTimeout] = useState(null);
+  const [autoPlayTimeout, setAutoPlayTimeout] = useState(null);
   
   // Thêm state cho phần đối thoại và bài nói
   const [completedSentences, setCompletedSentences] = useState([]);
@@ -104,11 +110,21 @@ function PracticePage({ initialSelectMode = false }) {
     setAccuracy(0);
     setAttemptCount(0);
     setErrorMessage('');
+
+    // Cleanup tất cả các timeout
     if (autoAdvanceTimeout) {
       clearTimeout(autoAdvanceTimeout);
       setAutoAdvanceTimeout(null);
     }
-  }, [autoAdvanceTimeout]);
+    if (autoReplayTimeout) {
+      clearTimeout(autoReplayTimeout);
+      setAutoReplayTimeout(null);
+    }
+    if (autoPlayTimeout) {
+      clearTimeout(autoPlayTimeout);
+      setAutoPlayTimeout(null);
+    }
+  }, [autoAdvanceTimeout, autoReplayTimeout, autoPlayTimeout]);
 
   // Handle back to test selection
   const handleBackToTestSelection = useCallback(() => {
@@ -394,24 +410,49 @@ function PracticePage({ initialSelectMode = false }) {
     return currentLine;
   };
 
-  // Auto-play audio when sentence or line changes
+  // Auto-play audio when sentence or line changes - với kiểm soát tốt hơn
   useEffect(() => {
     if (!currentSentence || !audioSrc) return;
 
+    // Cleanup timeout cũ trước khi tạo mới
+    if (autoPlayTimeout) {
+      clearTimeout(autoPlayTimeout);
+      setAutoPlayTimeout(null);
+    }
+
     const timer = setTimeout(() => {
       try {
+        // Kiểm tra lại điều kiện trước khi phát
+        if (!currentSentence || !audioSrc) return;
+
         // Handle differently for Part 3/4 and other Parts
         if (isDialogueOrTalk) {
           const currentLine = getCurrentLine();
           if (currentLine && currentLine.startTime !== undefined && currentLine.endTime !== undefined) {
-            console.log(`Playing dialogue/talk line: ${currentLine.startTime}s to ${currentLine.endTime}s`);
+            console.log(`Auto-playing dialogue/talk line: ${currentLine.startTime}s to ${currentLine.endTime}s`);
             playSegment({
               startTime: currentLine.startTime,
               endTime: currentLine.endTime
             });
           }
+        } else if (partId === '2') {
+          // Special handling for Part 2 - play question + answer
+          const part2Timing = getPart2AudioTiming();
+          if (part2Timing) {
+            console.log(`Auto-playing Part 2 segment: ${part2Timing.startTime}s to ${part2Timing.endTime}s`);
+            playSegment({
+              startTime: part2Timing.startTime,
+              endTime: part2Timing.endTime
+            });
+          } else if (currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
+            console.log(`Auto-playing Part 2 fallback: ${currentSentence.startTime}s to ${currentSentence.endTime}s`);
+            playSegment({
+              startTime: currentSentence.startTime,
+              endTime: currentSentence.endTime
+            });
+          }
         } else if (currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
-          console.log(`Playing segment: ${currentSentence.startTime}s to ${currentSentence.endTime}s`);
+          console.log(`Auto-playing segment: ${currentSentence.startTime}s to ${currentSentence.endTime}s`);
           playSegment({
             startTime: currentSentence.startTime,
             endTime: currentSentence.endTime
@@ -422,13 +463,20 @@ function PracticePage({ initialSelectMode = false }) {
       }
     }, 1000);
 
-    return () => clearTimeout(timer);
+    setAutoPlayTimeout(timer);
+
+    return () => {
+      clearTimeout(timer);
+      setAutoPlayTimeout(null);
+    };
   }, [currentIdx, currentLineIdx, currentSentence, audioSrc, playSegment, isDialogueOrTalk, getCurrentLine]);
+
+
 
   // Lấy transcript của câu hiện tại
   const getCurrentTranscript = () => {
     if (!currentSentence) return '';
-    
+
     // Xử lý khác nhau cho Part 3/4 và các Part khác
     if (isDialogueOrTalk) {
       const currentLine = getCurrentLine();
@@ -441,7 +489,7 @@ function PracticePage({ initialSelectMode = false }) {
           const questionId = currentSentence.id;
           const baseId = questionId.replace('_question', '');
 
-          // Look for answer in sentences
+          // Look for answer in sentences - prioritize _a (first answer) for dictation practice
           const answerSentence = sentences.find(s =>
             s.id === `${baseId}_answer` || s.id === `${baseId}_a`
           );
@@ -456,9 +504,36 @@ function PracticePage({ initialSelectMode = false }) {
         // If this is an answer, return its transcript
         return currentSentence.transcript || '';
       }
-      
+
       return currentSentence.transcript || '';
     }
+  };
+
+  // Get Part 2 audio timing (question + answer combined)
+  const getPart2AudioTiming = () => {
+    if (partId !== '2' || !currentSentence) return null;
+
+    if (currentSentence.id && currentSentence.id.includes('_question')) {
+      const questionId = currentSentence.id;
+      const baseId = questionId.replace('_question', '');
+
+      // Find the corresponding answer
+      const answerSentence = sentences.find(s =>
+        s.id === `${baseId}_answer` || s.id === `${baseId}_a`
+      );
+
+      if (answerSentence) {
+        // Return combined timing: question start to answer end
+        return {
+          startTime: currentSentence.startTime,
+          endTime: answerSentence.endTime,
+          questionEndTime: currentSentence.endTime,
+          answerStartTime: answerSentence.startTime
+        };
+      }
+    }
+
+    return null;
   };
 
   // Cập nhật hàm handleInputChange để không kiểm tra realtime
@@ -694,9 +769,9 @@ function PracticePage({ initialSelectMode = false }) {
       setErrorMessage('Không thể phát audio: không có câu hiện tại');
       return;
     }
-    
+
     setErrorMessage('');
-    
+
     try {
       if (isDialogueOrTalk) {
         const currentLine = getCurrentLine();
@@ -705,6 +780,25 @@ function PracticePage({ initialSelectMode = false }) {
           playSegment({
             startTime: currentLine.startTime,
             endTime: currentLine.endTime
+          });
+        } else {
+          console.error("Không thể phát audio: thông tin thời gian không hợp lệ");
+          setErrorMessage('Không thể phát audio: thông tin thời gian không hợp lệ');
+        }
+      } else if (partId === '2') {
+        // Special handling for Part 2 - play question + answer
+        const part2Timing = getPart2AudioTiming();
+        if (part2Timing) {
+          console.log(`Playing Part 2 segment: ${part2Timing.startTime}s to ${part2Timing.endTime}s`);
+          playSegment({
+            startTime: part2Timing.startTime,
+            endTime: part2Timing.endTime
+          });
+        } else if (currentSentence.startTime !== undefined && currentSentence.endTime !== undefined) {
+          console.log('Playing Part 2 fallback segment');
+          playSegment({
+            startTime: currentSentence.startTime,
+            endTime: currentSentence.endTime
           });
         } else {
           console.error("Không thể phát audio: thông tin thời gian không hợp lệ");
@@ -725,6 +819,79 @@ function PracticePage({ initialSelectMode = false }) {
       setErrorMessage(`Lỗi khi phát audio: ${error.message}`);
     }
   };
+
+  // Bật/tắt tự động phát lại audio
+  const toggleAutoReplay = useCallback(() => {
+    setAutoReplayEnabled(prev => {
+      const newValue = !prev;
+      console.log(`Auto replay ${newValue ? 'enabled' : 'disabled'}`);
+      return newValue;
+    });
+  }, []);
+
+  // Bắt đầu tự động phát lại
+  const startAutoReplay = useCallback(() => {
+    // Dừng timer cũ nếu có
+    if (autoReplayTimeout) {
+      clearTimeout(autoReplayTimeout);
+      setAutoReplayTimeout(null);
+    }
+
+    if (!autoReplayEnabled || !currentSentence || !audioSrc) {
+      return;
+    }
+
+    const scheduleNextReplay = () => {
+      const timer = setTimeout(() => {
+        if (autoReplayEnabled && currentSentence && audioSrc) {
+          console.log(`Auto-replaying after ${autoReplayInterval} seconds`);
+          playCurrentAudio();
+          // Lên lịch cho lần phát tiếp theo
+          scheduleNextReplay();
+        }
+      }, autoReplayInterval * 1000);
+      setAutoReplayTimeout(timer);
+    };
+
+    scheduleNextReplay();
+  }, [autoReplayEnabled, autoReplayInterval, currentSentence, audioSrc, autoReplayTimeout, playCurrentAudio]);
+
+  // Dừng tự động phát lại
+  const stopAutoReplay = useCallback(() => {
+    if (autoReplayTimeout) {
+      clearTimeout(autoReplayTimeout);
+      setAutoReplayTimeout(null);
+      console.log('Auto replay stopped');
+    }
+  }, [autoReplayTimeout]);
+
+  // Thay đổi khoảng thời gian tự động phát lại
+  const changeAutoReplayInterval = useCallback((newInterval) => {
+    setAutoReplayInterval(newInterval);
+    console.log(`Auto replay interval changed to ${newInterval} seconds`);
+
+    // Nếu đang bật tự động phát lại, khởi động lại với interval mới
+    if (autoReplayEnabled) {
+      stopAutoReplay();
+      setTimeout(() => startAutoReplay(), 100);
+    }
+  }, [autoReplayEnabled, stopAutoReplay, startAutoReplay]);
+
+  // Quản lý tự động phát lại khi bật/tắt hoặc khi chuyển câu
+  useEffect(() => {
+    if (autoReplayEnabled && currentSentence && audioSrc) {
+      // Bắt đầu tự động phát lại khi bật tính năng hoặc chuyển câu mới
+      startAutoReplay();
+    } else {
+      // Dừng tự động phát lại khi tắt tính năng hoặc không có câu/audio
+      stopAutoReplay();
+    }
+
+    // Cleanup khi component unmount hoặc dependencies thay đổi
+    return () => {
+      stopAutoReplay();
+    };
+  }, [autoReplayEnabled, currentIdx, currentLineIdx, currentSentence, audioSrc, startAutoReplay, stopAutoReplay]);
 
   // Kiểm tra xem có phải là câu hoặc dòng cuối cùng không
   const isLastItem = () => {
@@ -758,17 +925,18 @@ function PracticePage({ initialSelectMode = false }) {
       // Sẽ được xử lý bởi component HelpGuide
     }
     
-    // Space: Phát/tạm dừng audio
-    if (e.code === 'Space') {
-      e.preventDefault();
-      playCurrentAudio();
-    }
-    
     // Ctrl+Space: Nghe lại (thay thế Ctrl+R)
     if (e.code === 'Space' && e.ctrlKey && !e.shiftKey) {
       e.preventDefault();
       setErrorMessage('');
       replay();
+      return; // Ngăn không cho xử lý Space thông thường
+    }
+
+    // Space: Phát/tạm dừng audio (chỉ khi không có Ctrl)
+    if (e.code === 'Space' && !e.ctrlKey) {
+      e.preventDefault();
+      playCurrentAudio();
     }
     
     // Alt + S: Phát chậm
@@ -827,17 +995,17 @@ function PracticePage({ initialSelectMode = false }) {
   // Đăng ký sự kiện phím tắt
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
-    
+
     // Đánh dấu khi người dùng tương tác với trang web
     const markUserInteraction = () => {
       document.querySelector('body').setAttribute('data-user-interacted', 'true');
     };
-    
+
     // Thêm các sự kiện để theo dõi tương tác người dùng
     document.addEventListener('click', markUserInteraction);
     document.addEventListener('keydown', markUserInteraction);
     document.addEventListener('touchstart', markUserInteraction);
-    
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       document.removeEventListener('click', markUserInteraction);
@@ -845,6 +1013,27 @@ function PracticePage({ initialSelectMode = false }) {
       document.removeEventListener('touchstart', markUserInteraction);
     };
   }, [handleKeyDown]);
+
+  // Cleanup tất cả timeout khi component unmount
+  useEffect(() => {
+    return () => {
+      // Cleanup tất cả các timeout để tránh memory leak
+      if (autoAdvanceTimeout) {
+        clearTimeout(autoAdvanceTimeout);
+      }
+      if (autoReplayTimeout) {
+        clearTimeout(autoReplayTimeout);
+      }
+      if (autoPlayTimeout) {
+        clearTimeout(autoPlayTimeout);
+      }
+
+      // Dừng audio nếu đang phát
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+  }, [autoAdvanceTimeout, autoReplayTimeout, autoPlayTimeout, audioRef]);
 
   // Hiển thị màn hình chọn đề nếu chưa chọn
   if (selectedTestIndex === null) {
@@ -1176,6 +1365,44 @@ function PracticePage({ initialSelectMode = false }) {
                     >
                       {autoCorrect ? 'Tắt tự động sửa' : 'Bật tự động sửa'}
                     </Button>
+
+                    <Button
+                      variant={autoReplayEnabled ? 'success' : 'secondary'}
+                      size="md"
+                      onClick={toggleAutoReplay}
+                      disabled={!getCurrentTranscript() || showAnswer}
+                      icon={<i className="fas fa-repeat"></i>}
+                      title="Bật/tắt tự động phát lại audio"
+                    >
+                      {autoReplayEnabled ? 'Tắt tự động phát lại' : 'Bật tự động phát lại'}
+                    </Button>
+
+                    {/* Dropdown cấu hình thời gian tự động phát lại */}
+                    {autoReplayEnabled && (
+                      <div className="auto-replay-config flex items-center gap-sm">
+                        <span className="text-sm">Phát lại sau:</span>
+                        <select
+                          value={autoReplayInterval}
+                          onChange={(e) => changeAutoReplayInterval(parseInt(e.target.value))}
+                          className="form-select"
+                          style={{
+                            padding: '0.5rem',
+                            borderRadius: '0.375rem',
+                            border: '1px solid var(--light-card-border)',
+                            background: 'var(--light-card-bg)',
+                            fontSize: '0.875rem',
+                            minWidth: '80px'
+                          }}
+                        >
+                          <option value={5}>5s</option>
+                          <option value={10}>10s</option>
+                          <option value={15}>15s</option>
+                          <option value={20}>20s</option>
+                          <option value={30}>30s</option>
+                          <option value={60}>60s</option>
+                        </select>
+                      </div>
+                    )}
 
                     {/* Thêm component HelpGuide */}
                     <HelpGuide />
