@@ -150,40 +150,106 @@ body.dark .part-card:hover .part-card-arrow {
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .part-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+  }
+}
+
 @media (max-width: 768px) {
   .home-content {
     padding: var(--space-md);
+    min-height: calc(100vh - 60px); /* Account for mobile header */
+    padding-top: var(--space-lg);
   }
 
   .welcome-card {
-    padding: var(--space-xl) var(--space-md);
+    padding: var(--space-xl) var(--space-lg);
+    margin-bottom: var(--space-lg);
   }
 
   .welcome-card h1 {
     font-size: var(--text-3xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .welcome-card p {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .part-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .part-card {
+    padding: var(--space-xl);
+    min-height: 140px;
+    justify-content: center;
+  }
+
+  .part-card i {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .part-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .part-card p {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .home-content {
+    padding: var(--space-sm);
+    gap: var(--space-lg);
+  }
+
+  .welcome-card {
+    padding: var(--space-lg) var(--space-md);
+  }
+
+  .welcome-card h1 {
+    font-size: var(--text-2xl);
+    line-height: 1.3;
   }
 
   .welcome-card p {
     font-size: var(--text-base);
   }
 
-  .part-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-md);
-  }
-
   .part-card {
     padding: var(--space-lg);
-  }
-}
-
-@media (max-width: 480px) {
-  .welcome-card h1 {
-    font-size: var(--text-2xl);
+    min-height: 120px;
   }
 
   .part-card i {
     font-size: var(--text-3xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .part-card h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-sm);
+  }
+
+  .part-card p {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .part-card-arrow {
+    width: 28px;
+    height: 28px;
+    bottom: var(--space-sm);
+    right: var(--space-sm);
   }
 }
 

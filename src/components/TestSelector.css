@@ -101,8 +101,88 @@ body.dark .test-btn i {
   gap: 1rem;
 }
 
+/* Mobile Responsive */
 @media (max-width: 768px) {
-  .test-grid {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  .test-selector {
+    padding: var(--space-lg);
+    border-radius: var(--radius-xl);
   }
-} 
+
+  .test-selector h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-lg);
+  }
+
+  .test-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .test-btn {
+    min-height: 100px;
+    padding: var(--space-md);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .test-btn i {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-xs);
+  }
+
+  .test-btn span {
+    font-size: var(--text-sm);
+    text-align: center;
+  }
+
+  .test-actions {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .test-actions .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .no-tests-message {
+    padding: var(--space-xl);
+    font-size: var(--text-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .test-selector {
+    padding: var(--space-md);
+  }
+
+  .test-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+
+  .test-btn {
+    min-height: 120px;
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .test-btn i {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-sm);
+  }
+
+  .test-btn span {
+    font-size: var(--text-base);
+    font-weight: 600;
+  }
+
+  .test-btn:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+  }
+
+  .no-tests-message {
+    padding: var(--space-lg);
+    margin: var(--space-md) 0;
+  }
+}

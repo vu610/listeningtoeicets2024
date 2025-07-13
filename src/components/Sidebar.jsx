@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
 import { useProgress } from '../contexts/ProgressContext';
@@ -13,6 +13,31 @@ function Sidebar() {
   const { currentUser } = useUser();
   const { userProgress } = useProgress();
   const { theme } = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if screen is mobile
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      if (window.innerWidth > 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    return () => window.removeEventListener('resize', checkScreenSize);
+  }, []);
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [currentPath]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
   
   const parts = [
     { id: 1, name: 'Part 1 - Mô tả tranh', icon: 'fas fa-image' },
@@ -45,49 +70,83 @@ function Sidebar() {
   }, [userProgress.completedSentences]);
 
   return (
-    <nav className={`sidebar ${theme}`}>
-      <div className="logo">
-        <h1><i className="fas fa-headphones"></i> TOEIC Pro</h1>
-        <p>Luyện nghe chép chính tả</p>
-      </div>
-      
-      {currentUser && <UserProfile />}
-      
-      <ul className="nav-menu">
-        {parts.map(part => (
-          <li key={part.id} className="nav-item">
-            <Link 
-              to={`/practice/${part.id}/select`} 
-              className={`nav-link ${currentPath === `/practice/${part.id}/select` || currentPath === `/practice/${part.id}` ? 'active' : ''}`}
-              data-part={part.id}
-            >
-              <i className={part.icon}></i>
-              <span>{part.name}</span>
+    <>
+      {/* Mobile Header with Hamburger */}
+      {isMobile && (
+        <div className={`mobile-header ${theme}`}>
+          <div className="mobile-logo">
+            <Link to="/">
+              <i className="fas fa-headphones"></i>
+              <span>ENVYIU</span>
             </Link>
-          </li>
-        ))}
-      </ul>
-
-      {currentUser && (
-        <>
-          <div className="stats-card">
-            <div className="stats-title">Tiến độ hôm nay</div>
-            <div className="stats-value">{todayCompletedCount}</div>
           </div>
-
-          <div className="stats-card">
-            <div className="stats-title">Điểm trung bình</div>
-            <div className="stats-value">
-              {averageAccuracy > 0 ? `${averageAccuracy.toFixed(1)}%` : 'Chưa có'}
-            </div>
-          </div>
-        </>
+          <button
+            className={`hamburger-menu ${isMobileMenuOpen ? 'active' : ''}`}
+            onClick={toggleMobileMenu}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       )}
-      
-      <div className="sidebar-footer">
-        <ThemeToggle />
-      </div>
-    </nav>
+
+      {/* Mobile Overlay */}
+      {isMobile && isMobileMenuOpen && (
+        <div
+          className="mobile-overlay"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      {/* Sidebar */}
+      <nav className={`sidebar ${theme} ${isMobile ? 'mobile' : ''} ${isMobileMenuOpen ? 'open' : ''}`}>
+        {!isMobile && (
+          <div className="logo">
+            <h1><i className="fas fa-headphones"></i> envyiu</h1>
+            <p>Luyện nghe chép chính tả</p>
+          </div>
+        )}
+
+        {currentUser && <UserProfile />}
+
+        <ul className="nav-menu">
+          {parts.map(part => (
+            <li key={part.id} className="nav-item">
+              <Link
+                to={`/practice/${part.id}/select`}
+                className={`nav-link ${currentPath === `/practice/${part.id}/select` || currentPath === `/practice/${part.id}` ? 'active' : ''}`}
+                data-part={part.id}
+              >
+                <i className={part.icon}></i>
+                <span>{part.name}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+
+        {currentUser && (
+          <>
+            <div className="stats-card">
+              <div className="stats-title">Tiến độ hôm nay</div>
+              <div className="stats-value">{todayCompletedCount}</div>
+            </div>
+
+            <div className="stats-card">
+              <div className="stats-title">Điểm trung bình</div>
+              <div className="stats-value">
+                {averageAccuracy > 0 ? `${averageAccuracy.toFixed(1)}%` : 'Chưa có'}
+              </div>
+            </div>
+          </>
+        )}
+
+        <div className="sidebar-footer">
+          {!isMobile && <ThemeToggle />}
+        </div>
+      </nav>
+    </>
   );
 }
 

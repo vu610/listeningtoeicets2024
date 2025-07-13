@@ -160,12 +160,9 @@ export default function useAudioPlayer({ audioSrc }) {
         
         console.log('Starting playback...');
         
-        // Kiểm tra nếu document chưa có tương tác từ người dùng
-        if (document.readyState !== 'complete' || 
-            !document.querySelector('body').hasAttribute('data-user-interacted')) {
-          console.log('Auto-play prevented: waiting for user interaction');
-          // Không tự động phát, chỉ chuẩn bị sẵn sàng để người dùng nhấn play
-          return;
+        // Đánh dấu user interaction để cho phép auto-play
+        if (!document.querySelector('body').hasAttribute('data-user-interacted')) {
+          document.querySelector('body').setAttribute('data-user-interacted', 'true');
         }
         
         forcePlay(audio)

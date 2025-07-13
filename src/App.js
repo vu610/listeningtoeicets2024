@@ -8,6 +8,7 @@ import { ProgressProvider } from './contexts/ProgressContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { ToastProvider } from './components/ui/Toast';
 import './App.css';
+import './mobile-enhancements.css';
 
 function App() {
   return (

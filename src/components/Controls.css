@@ -2,21 +2,96 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+  padding: 0 var(--space-sm);
 }
 
 .controls button {
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--text-base);
   border: none;
-  background-color: var(--primary-color);
+  background-color: var(--light-primary);
   color: white;
-  border-radius: 5px;
+  border-radius: var(--radius-md);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  min-height: 44px; /* Touch-friendly minimum */
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark .controls button {
+  background-color: var(--dark-primary);
 }
 
 .controls button:hover {
-  background-color: #0069d9;
+  background-color: var(--light-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+body.dark .controls button:hover {
+  background-color: var(--dark-primary-hover);
+}
+
+.controls button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.controls button:disabled {
+  background-color: var(--light-secondary);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+body.dark .controls button:disabled {
+  background-color: var(--dark-secondary);
+}
+
+.controls button i {
+  font-size: 1.1em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .controls {
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    padding: 0;
+  }
+
+  .controls button {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--text-base);
+    min-height: 48px; /* Larger touch target for mobile */
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-md);
+  }
+
+  .controls button {
+    padding: var(--space-lg) var(--space-xl);
+    font-size: var(--text-lg);
+    min-height: 52px; /* Even larger for small screens */
+    width: 100%;
+  }
+
+  .controls button i {
+    font-size: 1.2em;
+  }
 }

@@ -1,9 +1,73 @@
+.input-box {
+  margin-bottom: var(--space-lg);
+}
+
 .input-box textarea {
   width: 100%;
   min-height: 120px;
-  padding: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: var(--space-md);
+  font-size: var(--text-base);
+  font-family: inherit;
+  line-height: 1.5;
+  border: 2px solid var(--light-input-border);
+  border-radius: var(--radius-md);
+  background-color: var(--light-input-bg);
+  color: var(--light-text-primary);
   resize: vertical;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+body.dark .input-box textarea {
+  border-color: var(--dark-input-border);
+  background-color: var(--dark-input-bg);
+  color: var(--dark-text-primary);
+}
+
+.input-box textarea:focus {
+  border-color: var(--light-input-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+body.dark .input-box textarea:focus {
+  border-color: var(--dark-input-focus);
+  box-shadow: 0 0 0 3px rgba(99, 179, 237, 0.2);
+}
+
+.input-box textarea::placeholder {
+  color: var(--light-text-muted);
+  opacity: 0.7;
+}
+
+body.dark .input-box textarea::placeholder {
+  color: var(--dark-text-muted);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .input-box textarea {
+    min-height: 140px;
+    padding: var(--space-lg);
+    font-size: var(--text-lg);
+    border-radius: var(--radius-lg);
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-box textarea {
+    min-height: 160px;
+    padding: var(--space-xl);
+    font-size: var(--text-xl);
+    border-width: 3px;
+    line-height: 1.7;
+  }
+
+  .input-box textarea:focus {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+  }
+
+  body.dark .input-box textarea:focus {
+    box-shadow: 0 0 0 4px rgba(99, 179, 237, 0.25);
+  }
 }

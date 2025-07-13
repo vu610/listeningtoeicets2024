@@ -1,21 +1,33 @@
 .dialogue-display {
-  background-color: #f8f9fa;
-  border-radius: 8px;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-left: 4px solid #4a6fa5;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: var(--light-card-bg);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  border-left: 4px solid var(--light-primary);
+  box-shadow: var(--shadow-md);
   max-height: 250px;
   overflow-y: auto;
+  transition: all 0.3s ease;
+}
+
+body.dark .dialogue-display {
+  background-color: var(--dark-card-bg);
+  border-left-color: var(--dark-primary);
+  box-shadow: var(--shadow-lg);
 }
 
 .dialogue-line {
-  margin-bottom: 12px;
-  line-height: 1.5;
-  color: #333;
-  font-size: 1rem;
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+  color: var(--light-text-primary);
+  font-size: var(--text-base);
   position: relative;
-  padding-left: 8px;
+  padding-left: var(--space-sm);
+  transition: color 0.3s ease;
+}
+
+body.dark .dialogue-line {
+  color: var(--dark-text-primary);
 }
 
 .dialogue-line:last-child {
@@ -24,23 +36,81 @@
 
 .dialogue-text {
   display: block;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 /* Custom scrollbar */
 .dialogue-display::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 .dialogue-display::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 8px;
+  background: var(--light-card-border);
+  border-radius: var(--radius-md);
+}
+
+body.dark .dialogue-display::-webkit-scrollbar-track {
+  background: var(--dark-card-border);
 }
 
 .dialogue-display::-webkit-scrollbar-thumb {
-  background: #aaa;
-  border-radius: 8px;
+  background: var(--light-text-muted);
+  border-radius: var(--radius-md);
+  transition: background 0.3s ease;
+}
+
+body.dark .dialogue-display::-webkit-scrollbar-thumb {
+  background: var(--dark-text-muted);
 }
 
 .dialogue-display::-webkit-scrollbar-thumb:hover {
-  background: #888;
-} 
+  background: var(--light-text-secondary);
+}
+
+body.dark .dialogue-display::-webkit-scrollbar-thumb:hover {
+  background: var(--dark-text-secondary);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .dialogue-display {
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    max-height: 200px;
+    border-left-width: 3px;
+  }
+
+  .dialogue-line {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    margin-bottom: var(--space-md);
+    padding-left: var(--space-md);
+  }
+
+  .dialogue-display::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dialogue-display {
+    padding: var(--space-md);
+    max-height: 180px;
+    border-radius: var(--radius-md);
+  }
+
+  .dialogue-line {
+    font-size: var(--text-xl);
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+  }
+
+  .dialogue-display::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  .dialogue-display::-webkit-scrollbar-thumb {
+    border-radius: var(--radius-lg);
+  }
+}

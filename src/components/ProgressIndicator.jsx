@@ -26,10 +26,11 @@ function ProgressIndicator({ partId, testIndex, currentSentenceIndex, totalSente
     const prefix = `${partId}_${testIndex}_`;
     const accuracies = Object.entries(userProgress.completedSentences)
       .filter(([key]) => key.startsWith(prefix))
-      .map(([_, value]) => value.accuracy);
-    
+      .map(([_, value]) => typeof value?.accuracy === 'number' ? value.accuracy : 0)
+      .filter(acc => acc > 0); // Chỉ lấy những accuracy hợp lệ
+
     if (accuracies.length === 0) return 0;
-    
+
     const sum = accuracies.reduce((total, acc) => total + acc, 0);
     return sum / accuracies.length;
   }, [userProgress.completedSentences, partId, testIndex, completedCount]);
@@ -58,7 +59,8 @@ function ProgressIndicator({ partId, testIndex, currentSentenceIndex, totalSente
       let accuracy = 0;
       if (isCompleted && userProgress.completedSentences) {
         const key = `${partId}_${testIndex}_${i}`;
-        accuracy = userProgress.completedSentences[key]?.accuracy || 0;
+        const completedData = userProgress.completedSentences[key];
+        accuracy = typeof completedData?.accuracy === 'number' ? completedData.accuracy : 0;
       }
 
       indicators.push({
@@ -87,11 +89,11 @@ function ProgressIndicator({ partId, testIndex, currentSentenceIndex, totalSente
         {completedCount > 0 && (
           <div className="progress-stat">
             <span className="stat-label">Độ chính xác trung bình:</span>
-            <span 
-              className="stat-value accuracy" 
+            <span
+              className="stat-value accuracy"
               style={{ color: getAccuracyColor(averageAccuracy) }}
             >
-              {averageAccuracy.toFixed(1)}%
+              {typeof averageAccuracy === 'number' ? averageAccuracy.toFixed(1) : '0.0'}%
             </span>
           </div>
         )}
@@ -106,7 +108,7 @@ function ProgressIndicator({ partId, testIndex, currentSentenceIndex, totalSente
               className={`sentence-indicator ${indicator.isCompleted ? 'completed' : ''} ${indicator.isCurrent ? 'current' : ''}`}
               style={indicator.isCompleted ? { backgroundColor: getAccuracyColor(indicator.accuracy) } : {}}
               onClick={() => onSentenceClick && onSentenceClick(indicator.index)}
-              title={`Câu ${indicator.index + 1}${indicator.isCompleted ? ` - Độ chính xác: ${indicator.accuracy.toFixed(1)}%` : ''}`}
+              title={`Câu ${indicator.index + 1}${indicator.isCompleted && typeof indicator.accuracy === 'number' ? ` - Độ chính xác: ${indicator.accuracy.toFixed(1)}%` : ''}`}
             >
               {indicator.index + 1}
             </div>
